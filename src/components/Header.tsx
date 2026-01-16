@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronDown, Phone, Mail, Building2, Cpu } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, Mail, Building2, Cpu, MessageCircle } from 'lucide-react';
 
 const corporateServices = [
   { name: 'Company Registration', href: '/services/company-registration' },
@@ -196,18 +196,27 @@ export default function Header() {
             {/* CTA Buttons */}
             <div className="hidden lg:flex items-center gap-3">
               <a
+                href="https://wa.me/917042164654?text=Hi%2C%20I%20need%20help%20with%20compliance%20services"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-full font-medium hover:shadow-lg hover:shadow-green-500/25 transition-all"
+              >
+                <MessageCircle size={18} />
+                <span>WhatsApp</span>
+              </a>
+              <a
                 href="tel:1800121410410"
                 className="flex items-center gap-2 px-4 py-2.5 text-blue-600 border-2 border-blue-600 rounded-full font-medium hover:bg-blue-50 transition-colors"
               >
                 <Phone size={18} />
                 <span>Call Now</span>
               </a>
-              <Link
+              {/* <Link
                 href="/contact"
                 className="btn-shine flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full font-medium shadow-lg shadow-blue-600/25 hover:shadow-xl transition-all"
               >
                 Get Started
-              </Link>
+              </Link> */}
             </div>
 
             {/* Mobile Menu Button */}
@@ -326,21 +335,32 @@ export default function Header() {
                 </div>
                 
                 {/* Mobile CTA Buttons */}
-                <div className="pt-4 mt-4 border-t border-gray-100 flex gap-3">
+                <div className="pt-4 mt-4 border-t border-gray-100 space-y-3">
                   <a
-                    href="tel:1800121410410"
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-3 text-blue-600 border-2 border-blue-600 rounded-full font-medium"
+                    href="https://wa.me/919876543210?text=Hi%2C%20I%20need%20help%20with%20compliance%20services"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-full font-medium"
                   >
-                    <Phone size={18} />
-                    Call Now
+                    <MessageCircle size={18} />
+                    WhatsApp Us
                   </a>
-                  <Link
-                    href="/contact"
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full font-medium"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Get Started
-                  </Link>
+                  <div className="flex gap-3">
+                    <a
+                      href="tel:1800121410410"
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 text-blue-600 border-2 border-blue-600 rounded-full font-medium"
+                    >
+                      <Phone size={18} />
+                      Call Now
+                    </a>
+                    {/* <Link
+                      href="/contact"
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full font-medium"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Get Started
+                    </Link> */}
+                  </div>
                 </div>
               </div>
             </motion.div>

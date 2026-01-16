@@ -1,551 +1,258 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight, CheckCircle, Phone, FileText, ArrowLeft, Shield, Award, Users, Send, BadgeCheck } from 'lucide-react';
 import { useState } from 'react';
+import { 
+  ArrowRight, CheckCircle, Phone, FileText, ArrowLeft, Shield, Award, Users, Star, Clock,
+  BadgeCheck, Building2, ChevronDown, MessageSquare, Headphones, Zap, Package, AlertTriangle, Target, TrendingUp
+} from 'lucide-react';
 
 export default function ISICertificationPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    message: ''
-  });
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', company: '', productType: '' });
+  const [formStep, setFormStep] = useState(0);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    if (name === 'name' && value.length > 2 && formStep === 0) setFormStep(1);
+    else if (name === 'email' && value.includes('@') && formStep === 1) setFormStep(2);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    setIsSubmitting(false);
+    setIsSubmitted(true);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const stats = [
+    { value: '3500+', label: 'ISI Certifications' },
+    { value: '4.9', label: 'Google Rating' },
+    { value: '15+', label: 'Years Experience' },
+    { value: '99%', label: 'Success Rate' },
+  ];
+
+  const trustedBy = ['Havells', 'Crompton', 'Bajaj', 'Orient', 'V-Guard'];
 
   const benefits = [
-    { title: 'Enhances Product Credibility and Trust', description: 'An ISI-certified product assures customers of safety and quality, building brand credibility and fostering trust among consumers.' },
-    { title: 'Increases Market Competitiveness', description: 'Having the ISI mark distinguishes your product in the market, giving it a competitive edge. This recognition attracts more customers.' },
-    { title: 'Mandatory for Certain Products', description: 'For several categories, ISI certification is mandatory for market entry. It ensures compliance with legal standards, preventing fines or restrictions.' },
-    { title: 'Promoting Consumer Protection', description: 'ISI mark reduces the risk in products. By meeting standards, business aids customers in ensuring safety while fostering long-lasting relationships.' },
+    { title: 'Enhanced Product Credibility', description: 'The ISI Mark validates that your products conform to Indian quality standards, building consumer trust.', icon: Award },
+    { title: 'Legal Compliance', description: 'ISI certification is mandatory for many product categories, ensuring regulatory compliance.', icon: Shield },
+    { title: 'Market Advantage', description: 'ISI-marked products enjoy higher consumer confidence and competitive edge.', icon: TrendingUp },
+    { title: 'Government Procurement Access', description: 'ISI certification is often mandatory for government tenders and institutional sales.', icon: Target },
   ];
 
   const challenges = [
-    { title: 'Complex Documentation and Compliance Procedures', description: 'Navigating the extensive documentation and stringent compliance requirements of ISI certification can be challenging. Businesses must meet detailed technical specifications.' },
-    { title: 'Frequent Rejections Due to Non-Compliance', description: 'Non-adherence to technical standards often leads to application rejections. This increases processing time and expenses.' },
-    { title: 'Testing Facility and Coordination Hurdles', description: 'Coordinating with authorized laboratories for product testing can be daunting. Delays in testing or mismatched specifications often prolong the process.' },
-    { title: 'Updates and Changes in Regulations', description: 'Frequent variations within the sets of regulation or standards pose difficulties. It is important to keep oneself updated on the latest scenario in compliance.' },
+    { title: 'Complex Standards', description: 'Understanding BIS standards and technical requirements can be overwhelming.', icon: AlertTriangle },
+    { title: 'Factory Inspection', description: 'Preparing for rigorous BIS factory audits requires extensive documentation.', icon: FileText },
+    { title: 'Testing Requirements', description: 'Products must pass testing at BIS-recognized laboratories.', icon: Clock },
+    { title: 'Renewal Process', description: 'Annual surveillance and license renewal require ongoing compliance.', icon: Package },
   ];
 
   const process = [
-    { step: 'Receive Application', description: 'The initiation of the application process constitutes submission of complete application with all supporting documents to Bureau of Indian Standards (BIS).' },
-    { step: 'Product Code Identification', description: 'We identify the applicable ISI standard and product code to ensure accurate documentation and test parameters are followed.' },
-    { step: 'Testing of Product Sample', description: 'Product sample examination in a BIS-approved lab for mandatory compliance with Indian Standards.' },
-    { step: 'Inspection by Authority', description: 'Inspection and evaluation of the manufacturing process, infrastructure, and quality-management systems by a BIS official.' },
-    { step: 'Report Analysis and Compliance Check', description: 'Review test results and inspection reports. Address any discrepancies to meet the compliance requirements fully.' },
-    { step: 'Certification Grant and Mark Use', description: 'Once approved, receive your ISI certification. Begin marking your products with the ISI label to signify compliance.' },
+    { step: 'Initial Consultation', description: 'We assess your product category and determine applicable IS standards.' },
+    { step: 'Documentation Preparation', description: 'Compile technical files, test reports, and factory documentation.' },
+    { step: 'Application Submission', description: 'Submit application with all necessary documents to BIS.' },
+    { step: 'Product Testing', description: 'Products undergo testing at BIS-recognized laboratories.' },
+    { step: 'Factory Inspection', description: 'BIS officials inspect manufacturing facility for compliance.' },
+    { step: 'ISI Mark Grant', description: 'Upon approval, license to use ISI Mark is granted.' },
   ];
 
   const documents = [
-    'Company Registration Documents - Ensures the applicant is a registered entity complying with Indian regulations',
-    'Factory License or Trade License - Required to confirm the manufacturing unit\'s legitimacy',
-    'Product Test Reports from BIS-Approved Labs - Proof of compliance with Indian Standards',
-    'Process Flowchart and Quality Control Documents - Showcases the manufacturing process and quality assurance measures',
-    'Authorized Signatory Details - Aadhaar, PAN, and other identity documents for verification',
+    'Application Form', 'Factory Layout Plan', 'List of Testing Equipment',
+    'Process Flow Chart', 'Quality Control Manual', 'Test Reports',
+    'Trademark Registration', 'Company Registration Certificate',
   ];
 
   const whoNeedsIt = [
-    { title: 'Electrical Manufacturers', description: 'For ensuring product safety and market entry compliance.' },
-    { title: 'Construction Material Producers', description: 'To meet durability and safety standards.' },
-    { title: 'Consumer Goods Companies', description: 'To gain customer trust through certified quality.' },
-    { title: 'Automotive Component Makers', description: 'For safety and regulatory compliance.' },
+    { title: 'Electrical Product Manufacturers', description: 'Companies producing wires, switches, and electrical accessories.' },
+    { title: 'Kitchen Equipment Makers', description: 'Manufacturers of pressure cookers, gas stoves, and utensils.' },
+    { title: 'Safety Equipment Producers', description: 'Businesses making helmets, cylinders, and safety gear.' },
+    { title: 'Building Material Companies', description: 'Producers of cement, steel, and construction materials.' },
   ];
 
   const eligibility = [
-    'Legally Registered Businesses - Ensures authenticity in the certification process',
-    'Manufacturers with Standardized Operations - Requires adherence to BIS guidelines',
-    'Applicable Product Categories - Covers items specified by BIS regulations',
-    'Compliance with BIS Testing Requirements - Mandates product testing in authorized labs',
+    'Manufacturing facility in India or abroad',
+    'Products must fall under BIS certification scheme',
+    'Adequate testing and quality control infrastructure',
+    'Valid business registration documents',
   ];
 
   const faqs = [
-    { question: 'What is ISI certification, and why is it important?', answer: 'ISI certification ensures that products meet Indian safety and quality standards. It enhances customer trust and is mandatory for various categories, protecting businesses from penalties and improving marketability.' },
-    { question: 'What is the duration of the ISI certification to be approved?', answer: 'Depending on the accuracy of the documentation, testing, inspection of the factory and other compliances, the process might take 30 to 60 days but it depends on the regulatory requirements.' },
-    { question: 'What are the costs involved in ISI certification?', answer: 'Costs include application fees, product testing charges, and inspection fees. The exact cost varies depending on the product and other factors.' },
-    { question: 'Can small businesses apply for ISI certification?', answer: 'Yes, ISI certification is accessible to all businesses that meet eligibility and compliance criteria, regardless of size or scale.' },
-    { question: 'Is the ISI mark mandatory for all products?', answer: 'No, it is mandatory only for specific product categories as defined by BIS. However, obtaining the certification is beneficial for market credibility.' },
+    { question: 'What is ISI certification?', answer: 'ISI (Indian Standards Institute) certification, now managed by BIS, confirms that products meet specified Indian Standards. The ISI Mark is a certification mark for industrial products.' },
+    { question: 'Is ISI mandatory for all products?', answer: 'ISI is mandatory for products under the mandatory certification scheme like electrical appliances, cement, LPG cylinders, and others. For other products, it&apos;s voluntary but recommended.' },
+    { question: 'How long does ISI certification take?', answer: 'The process typically takes 3-6 months depending on product complexity, testing requirements, and documentation readiness.' },
+    { question: 'How long is ISI license valid?', answer: 'The ISI license is valid for 1-2 years initially and can be renewed upon satisfactory surveillance audits.' },
+    { question: 'Can foreign manufacturers get ISI certification?', answer: 'Yes, foreign manufacturers can obtain ISI certification through the Foreign Manufacturers Certification Scheme (FMCS) with an authorized Indian representative.' },
   ];
 
-  const whyChooseUs = [
-    'Streamlined Certification Process, Ensuring Timely Completion Without Hassles',
-    'Expert Guidance on Standards, Ensuring Accurate Documentation and Compliance',
-    'End-to-End Support for Testing, Inspections, and BIS Coordination',
-    'Proven Track Record with Successful Certifications Across Diverse Industries',
+  const productTypes = [
+    'Electrical Appliances', 'Kitchen Products', 'Safety Equipment',
+    'Building Materials', 'Automotive Components', 'Cables & Wires',
+    'Food Products', 'Other Products',
   ];
 
   return (
     <>
-      
-      {/* Hero Section */}
-      <section className="relative pt-24 pb-16 overflow-hidden bg-gradient-to-br from-slate-900 via-amber-900 to-slate-900">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(245,158,11,0.3),transparent_50%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(251,191,36,0.3),transparent_50%)]" />
+      <section className="relative min-h-screen bg-gradient-to-br from-slate-50 via-white to-emerald-50/30 overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-emerald-50/50 to-transparent" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(16,185,129,0.08),transparent_50%)]" />
         </div>
-        
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="absolute top-20 left-10 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl"
-        />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/" className="inline-flex items-center gap-2 text-amber-300 hover:text-white mb-8 transition-colors">
-            <ArrowLeft size={18} />
-            Back to Home
-          </Link>
+        <motion.div animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} className="absolute top-32 right-[15%] w-20 h-20 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-2xl opacity-10 blur-sm" />
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/20 border border-amber-400/30 rounded-full mb-6"
-              >
-                <BadgeCheck size={18} className="text-amber-400" />
-                <span className="text-sm font-semibold text-amber-300">Indian Standards Institute</span>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16">
+          <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
+            <Link href="/" className="inline-flex items-center gap-2 text-gray-500 hover:text-emerald-600 transition-colors text-sm font-medium">
+              <ArrowLeft size={16} /><span>HOME</span>
+            </Link>
+            <span className="mx-2 text-gray-300">/</span>
+            <span className="text-gray-900 font-medium text-sm uppercase">ISI Certification</span>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="pt-4">
+              <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="inline-flex items-center gap-3 mb-6">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-600 flex items-center justify-center shadow-lg shadow-emerald-200">
+                  <Package size={28} className="text-white" />
+                </div>
+                <p className="text-xs font-semibold text-emerald-600 uppercase tracking-wider">Bureau of Indian Standards</p>
               </motion.div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                ISI <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-400">Certification</span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">ISI</span> Certification
               </h1>
 
-              <p className="text-lg text-amber-100/80 mb-8 leading-relaxed">
-                Ensure that your products are made in conformity with the tough safety and quality specifications in India with ISI certification. With ISI certification comes not only compliance with the Bureau of Indian Standards (BIS) but also consumer confidence.
+              <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="mb-6">
+                <p className="text-2xl md:text-3xl font-light text-gray-700">ISI Mark Licensing, <span className="font-semibold text-gray-900">Starting at ₹25,000*</span></p>
+              </motion.div>
+
+              <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="inline-flex items-center gap-3 px-5 py-3 bg-emerald-50 rounded-xl border border-emerald-200 mb-8">
+                <Zap size={20} className="text-emerald-600" /><span className="text-gray-700 font-medium">Trusted Quality Mark. Expert Guidance.</span>
+              </motion.div>
+
+              <p className="text-lg text-gray-600 mb-10 leading-relaxed max-w-xl">
+                ISI certification is the hallmark of quality in India. Our experts guide you through the entire BIS certification process, from documentation to factory inspection.
               </p>
 
-              <div className="flex flex-wrap gap-4">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white rounded-full font-semibold shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 transition-all"
-                  >
-                    Get Started Now
-                    <ArrowRight size={20} />
-                  </Link>
-                </motion.div>
-                <motion.a
-                  href="tel:+919876543210"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center gap-2 px-6 py-4 border-2 border-amber-400/50 text-white rounded-full font-semibold hover:bg-amber-500/10 transition-all"
-                >
-                  <Phone size={20} />
-                  Call Now
-                </motion.a>
+              <div className="mb-10">
+                <p className="text-sm text-gray-500 font-medium mb-4">Trusted by Leading Brands</p>
+                <div className="flex flex-wrap items-center gap-6">
+                  {trustedBy.map((brand, index) => (
+                    <motion.div key={brand} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 + index * 0.1 }} className="text-gray-400 font-bold text-lg tracking-wide hover:text-gray-600 transition-colors">{brand}</motion.div>
+                  ))}
+                </div>
               </div>
-            </motion.div>
 
-            {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 shadow-2xl"
-            >
-              <h3 className="text-2xl font-bold text-white mb-6">Get Free Consultation</h3>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all"
-                    required
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Your Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all"
-                    required
-                  />
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Your Phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all"
-                    required
-                  />
-                  <input
-                    type="text"
-                    name="company"
-                    placeholder="Company Name"
-                    value={formData.company}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all"
-                  />
-                </div>
-                <textarea
-                  name="message"
-                  placeholder="Tell us about your requirements..."
-                  rows={4}
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all resize-none"
-                />
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  type="submit"
-                  className="w-full py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-white rounded-xl font-semibold shadow-lg flex items-center justify-center gap-2 hover:shadow-amber-500/25 transition-all"
-                >
-                  <Send size={20} />
-                  Submit Enquiry
-                </motion.button>
-              </form>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Service Overview */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Service <span className="gradient-text">Overview</span>
-            </h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Managed by the Bureau of Indian Standards (BIS), Indian Standards Institute (ISI) certification is a hallmark of safety and quality in products within an Indian Standard. It assures that your product complies to robust Indian standards and establishes the psyche of consumers regarding these goods. In a world where to have an edge is much important, the idea of ISI certification enhances its brand value, credibility, and compliance in marketing.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Challenges Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Challenges We <span className="gradient-text">Solve</span>
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {challenges.map((challenge, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all"
-              >
-                <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center mb-4">
-                  <Shield size={24} className="text-orange-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{challenge.title}</h3>
-                <p className="text-gray-600">{challenge.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Benefits of <span className="gradient-text">ISI Certification</span>
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {benefits.map((benefit, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="bg-gradient-to-br from-amber-50 to-yellow-50 p-6 rounded-2xl border border-amber-100 hover:shadow-xl transition-all"
-              >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center mb-4">
-                  <Award size={24} className="text-white" />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{benefit.title}</h3>
-                <p className="text-gray-600 text-sm">{benefit.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-amber-900 to-slate-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Our Certification Process
-            </h2>
-            <p className="text-amber-200 max-w-2xl mx-auto">
-              Simple steps to get your ISI certification done with JR Compliance
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {process.map((step, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all"
-              >
-                <div className="absolute -top-4 -left-4 w-10 h-10 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-xl flex items-center justify-center text-white font-bold shadow-lg">
-                  {index + 1}
-                </div>
-                <h4 className="text-lg font-semibold text-white mb-3 mt-2">{step.step}</h4>
-                <p className="text-amber-200 text-sm leading-relaxed">{step.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Who Needs It Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Who Needs <span className="gradient-text">ISI Certification?</span>
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whoNeedsIt.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center p-6 bg-gray-50 rounded-2xl hover:bg-amber-50 transition-colors"
-              >
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center mx-auto mb-4">
-                  <Users size={28} className="text-white" />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-gray-600 text-sm">{item.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Eligibility & Documents Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Eligibility <span className="gradient-text">Criteria</span>
-              </h2>
-              <div className="space-y-4">
-                {eligibility.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-sm"
-                  >
-                    <CheckCircle size={20} className="text-amber-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">{item}</span>
-                  </motion.div>
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }} className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
+                {stats.map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <div className="text-2xl md:text-3xl font-bold text-emerald-600">{stat.value}{stat.label.includes('Rating') && <Star size={16} className="inline ml-1 text-amber-400 fill-amber-400" />}</div>
+                    <div className="text-xs text-gray-500 font-medium mt-1">{stat.label}</div>
+                  </div>
                 ))}
-              </div>
+              </motion.div>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Documents <span className="gradient-text">Required</span>
-              </h2>
-              <div className="space-y-4">
-                {documents.map((doc, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-sm"
-                  >
-                    <FileText size={20} className="text-amber-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700 text-sm">{doc}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose <span className="gradient-text">JR Compliance?</span>
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {whyChooseUs.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center p-6"
-              >
-                <div className="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle size={24} className="text-amber-600" />
+            <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="lg:sticky lg:top-24">
+              {/* Trust Badges */}
+              <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="flex flex-wrap items-center justify-center gap-3 mb-4 px-4">
+                <div className="flex items-center gap-2 px-3 py-1.5 bg-emerald-50 rounded-full border border-emerald-200">
+                  <Shield size={14} className="text-emerald-600" />
+                  <span className="text-xs font-semibold text-emerald-700">100% Secure</span>
                 </div>
-                <p className="text-gray-700 font-medium">{item}</p>
+                <div className="flex items-center gap-2 px-3 py-1.5 bg-orange-50 rounded-full border border-orange-200">
+                  <Award size={14} className="text-orange-600" />
+                  <span className="text-xs font-semibold text-orange-700">BIS Expert</span>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-1.5 bg-amber-50 rounded-full border border-amber-200">
+                  <Star size={14} className="text-amber-600 fill-amber-400" />
+                  <span className="text-xs font-semibold text-amber-700">4.9 Rated</span>
+                </div>
               </motion.div>
-            ))}
+
+              <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
+                <div className="bg-gradient-to-r from-emerald-600 to-teal-600 px-8 py-6">
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-2"><span className="text-sm text-emerald-200">Step</span><span className="px-2 py-0.5 bg-white/20 text-white rounded-full text-sm font-semibold">{Math.min(formStep + 1, 3)}/3</span></div>
+                    <div className="flex items-center gap-2 text-white text-sm font-medium"><BadgeCheck size={16} /><span>Free Consultation</span></div>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Get ISI Certification Quote</h3>
+                  <p className="text-emerald-200 text-sm mt-1">Expert will call you within 30 minutes</p>
+                </div>
+
+                <div className="px-8 pt-4"><div className="h-1.5 bg-gray-100 rounded-full overflow-hidden"><motion.div className="h-full bg-gradient-to-r from-emerald-600 to-teal-600" initial={{ width: '0%' }} animate={{ width: `${((formStep + 1) / 3) * 100}%` }} /></div></div>
+
+                <div className="p-8">
+                  <AnimatePresence mode="wait">
+                    {isSubmitted ? (
+                      <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-8">
+                        <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6"><CheckCircle size={40} className="text-emerald-600" /></div>
+                        <h4 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h4>
+                        <p className="text-gray-600 mb-6">Our ISI expert will contact you within 30 minutes.</p>
+                        <div className="flex items-center justify-center gap-2 text-emerald-600"><Phone size={18} /><span className="font-semibold">1800 121 410 410</span></div>
+                      </motion.div>
+                    ) : (
+                      <form onSubmit={handleSubmit} className="space-y-5">
+                        <div className="relative">
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Your Full Name<span className="text-red-500">*</span></label>
+                          <input type="text" name="name" placeholder="Enter your full name" value={formData.name} onChange={handleChange} required className="w-full px-4 py-4 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 transition-all text-gray-900 placeholder-gray-400" />
+                          {formData.name.length > 2 && <CheckCircle size={20} className="absolute right-4 top-11 text-emerald-500" />}
+                        </div>
+                        <div className="relative">
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Your Email Address<span className="text-red-500">*</span></label>
+                          <input type="email" name="email" placeholder="Enter your email address" value={formData.email} onChange={handleChange} required className="w-full px-4 py-4 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 transition-all text-gray-900 placeholder-gray-400" />
+                          {formData.email.includes('@') && formData.email.includes('.') && <CheckCircle size={20} className="absolute right-4 top-11 text-emerald-500" />}
+                        </div>
+                        <div className="relative">
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Your Mobile Number<span className="text-red-500">*</span></label>
+                          <div className="flex"><span className="inline-flex items-center px-4 rounded-l-xl border border-r-0 border-gray-200 bg-gray-50 text-gray-500 text-sm">+91</span><input type="tel" name="phone" placeholder="Enter your mobile number" value={formData.phone} onChange={handleChange} required pattern="[0-9]{10}" className="w-full px-4 py-4 rounded-r-xl border border-gray-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 transition-all text-gray-900 placeholder-gray-400" /></div>
+                          {formData.phone.length === 10 && <CheckCircle size={20} className="absolute right-4 top-11 text-emerald-500" />}
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Product Type<span className="text-red-500">*</span></label>
+                          <select name="productType" value={formData.productType} onChange={handleChange} required className="w-full px-4 py-4 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 transition-all text-gray-900 bg-white">
+                            <option value="">Select product type</option>
+                            {productTypes.map((type) => (<option key={type} value={type}>{type}</option>))}
+                          </select>
+                        </div>
+                        <div><label className="block text-sm font-medium text-gray-700 mb-2">Company Name <span className="text-gray-400 font-normal">(Optional)</span></label><input type="text" name="company" placeholder="Enter your company name" value={formData.company} onChange={handleChange} className="w-full px-4 py-4 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 transition-all text-gray-900 placeholder-gray-400" /></div>
+                        <div className="flex items-center gap-2 text-sm text-gray-500 bg-emerald-50 px-4 py-3 rounded-xl border border-emerald-100"><Shield size={16} className="text-emerald-500" /><span>100% Confidential. No spam.</span></div>
+                        <motion.button whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }} type="submit" disabled={isSubmitting} className="w-full py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3 disabled:opacity-70">
+                          {isSubmitting ? (<><div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />Processing...</>) : (<>Get Free Quote<ArrowRight size={20} /></>)}
+                        </motion.button>
+                      </form>
+                    )}
+                  </AnimatePresence>
+                </div>
+                <div className="bg-gray-50 px-8 py-4 border-t border-gray-100"><div className="flex items-center justify-center gap-6 text-sm text-gray-500"><div className="flex items-center gap-1"><Shield size={14} className="text-emerald-500" /><span>100% Secure</span></div><div className="flex items-center gap-1"><Clock size={14} className="text-emerald-500" /><span>30min Response</span></div><div className="flex items-center gap-1"><Headphones size={14} className="text-teal-500" /><span>Expert Support</span></div></div></div>
+              </div>
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="mt-6 flex items-center justify-center gap-4"><span className="text-gray-500 text-sm">Need help now?</span><a href="tel:+911800121410410" className="inline-flex items-center gap-2 text-emerald-600 font-semibold hover:underline"><Phone size={16} />1800 121 410 410</a></motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* FAQs Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Frequently Asked Questions
-            </h2>
-          </motion.div>
+      <section className="py-20 bg-white"><div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-4xl mx-auto text-center"><span className="inline-block px-4 py-1.5 bg-emerald-50 text-emerald-600 rounded-full text-sm font-semibold mb-4">About ISI</span><h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">What is <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">ISI Certification</span>?</h2><p className="text-lg text-gray-600 leading-relaxed">ISI (Indian Standards Institute) Mark is a certification mark for industrial products in India. Managed by the Bureau of Indian Standards (BIS), it certifies that products conform to Indian Standards. The ISI Mark is a symbol of quality assurance and is mandatory for over 100 product categories.</p></motion.div></div></section>
 
-          <div className="max-w-3xl mx-auto space-y-4">
-            {faqs.map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all"
-              >
-                <h4 className="text-lg font-semibold text-gray-900 mb-3">{faq.question}</h4>
-                <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-emerald-50/30"><div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16"><span className="inline-block px-4 py-1.5 bg-emerald-50 text-emerald-600 rounded-full text-sm font-semibold mb-4">Benefits</span><h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Get <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">ISI Certification</span>?</h2></motion.div><div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">{benefits.map((benefit, index) => (<motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-emerald-100 transition-all group"><div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><benefit.icon size={24} className="text-white" /></div><h3 className="text-lg font-semibold text-gray-900 mb-2">{benefit.title}</h3><p className="text-gray-600 text-sm">{benefit.description}</p></motion.div>))}</div></div></section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-amber-600 via-amber-700 to-yellow-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Ready to Get Your ISI Certification?
-            </h2>
-            <p className="text-amber-100 mb-8 max-w-2xl mx-auto">
-              Contact our experts today for a free consultation and get your certification process started.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-white text-amber-700 rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all"
-                >
-                  Get Free Consultation
-                  <ArrowRight size={20} />
-                </Link>
-              </motion.div>
-              <motion.a
-                href="tel:+919876543210"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 transition-all"
-              >
-                <Phone size={20} />
-                Call: 1800 121 410 410
-              </motion.a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <section className="py-20 bg-white"><div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16"><span className="inline-block px-4 py-1.5 bg-orange-50 text-orange-600 rounded-full text-sm font-semibold mb-4">Challenges</span><h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Common Challenges <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">We Solve</span></h2></motion.div><div className="grid md:grid-cols-2 gap-6">{challenges.map((challenge, index) => (<motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="flex items-start gap-4 p-6 bg-orange-50/50 rounded-2xl border border-orange-100 hover:shadow-lg transition-all"><div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center flex-shrink-0 shadow-sm"><challenge.icon size={24} className="text-orange-500" /></div><div><h3 className="text-lg font-semibold text-gray-900 mb-2">{challenge.title}</h3><p className="text-gray-600 text-sm">{challenge.description}</p></div></motion.div>))}</div></div></section>
 
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-emerald-900 to-slate-900 relative overflow-hidden"><div className="absolute inset-0"><div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(16,185,129,0.15),transparent_50%)]" /></div><div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16"><span className="inline-block px-4 py-1.5 bg-white/10 text-emerald-300 rounded-full text-sm font-semibold mb-4 border border-white/10">Our Process</span><h2 className="text-3xl md:text-4xl font-bold text-white mb-4">6 Simple Steps to ISI Certification</h2></motion.div><div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">{process.map((step, index) => (<motion.div key={index} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all h-full"><div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 text-white font-bold text-lg mb-4 shadow-lg">{index + 1}</div><h4 className="text-xl font-semibold text-white mb-3">{step.step}</h4><p className="text-emerald-200 leading-relaxed">{step.description}</p></motion.div>))}</div></div></section>
+
+      <section className="py-20 bg-white"><div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16"><span className="inline-block px-4 py-1.5 bg-emerald-50 text-emerald-600 rounded-full text-sm font-semibold mb-4">Who Needs It</span><h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Is ISI Certification <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">Required for You</span>?</h2></motion.div><div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">{whoNeedsIt.map((item, index) => (<motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="text-center p-6 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl border border-emerald-100 hover:shadow-lg transition-all"><div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center mx-auto mb-4"><Users size={28} className="text-white" /></div><h3 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h3><p className="text-gray-600 text-sm">{item.description}</p></motion.div>))}</div></div></section>
+
+      <section className="py-20 bg-gray-50"><div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div className="grid lg:grid-cols-2 gap-12 items-start"><motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}><span className="inline-block px-4 py-1.5 bg-emerald-50 text-emerald-600 rounded-full text-sm font-semibold mb-4">Eligibility</span><h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Eligibility <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">Criteria</span></h2><div className="space-y-4">{eligibility.map((item, index) => (<motion.div key={index} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm border border-gray-100"><div className="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center flex-shrink-0"><CheckCircle size={18} className="text-emerald-600" /></div><span className="text-gray-700">{item}</span></motion.div>))}</div></motion.div><motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}><span className="inline-block px-4 py-1.5 bg-emerald-50 text-emerald-600 rounded-full text-sm font-semibold mb-4">Checklist</span><h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Documents <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">Required</span></h2><div className="grid grid-cols-2 gap-4">{documents.map((doc, index) => (<motion.div key={index} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm border border-gray-100"><FileText size={18} className="text-emerald-500 flex-shrink-0" /><span className="text-gray-700 text-sm">{doc}</span></motion.div>))}</div></motion.div></div></div></section>
+
+      <section className="py-20 bg-white"><div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16"><span className="inline-block px-4 py-1.5 bg-emerald-50 text-emerald-600 rounded-full text-sm font-semibold mb-4">FAQs</span><h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2></motion.div><div className="max-w-3xl mx-auto space-y-4">{faqs.map((faq, index) => (<motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }}><button onClick={() => setOpenFaq(openFaq === index ? null : index)} className={`w-full text-left p-6 rounded-2xl border transition-all ${openFaq === index ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white border-transparent shadow-lg' : 'bg-white border-gray-200 hover:border-emerald-200 hover:shadow-md'}`}><div className="flex items-center justify-between gap-4"><span className={`font-semibold ${openFaq === index ? 'text-white' : 'text-gray-900'}`}>{faq.question}</span><ChevronDown size={20} className={`flex-shrink-0 transition-transform ${openFaq === index ? 'rotate-180 text-white' : 'text-gray-400'}`} /></div><AnimatePresence>{openFaq === index && (<motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden"><p className="mt-4 text-white/90 leading-relaxed">{faq.answer}</p></motion.div>)}</AnimatePresence></button></motion.div>))}</div></div></section>
+
+      <section className="py-20 bg-gradient-to-r from-emerald-600 via-emerald-700 to-teal-600 relative overflow-hidden"><div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center"><h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Get Your ISI Mark?</h2><p className="text-emerald-200 mb-8 max-w-2xl mx-auto text-lg">Connect with our BIS certification experts today for a free consultation.</p><div className="flex flex-col sm:flex-row gap-4 justify-center"><motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}><Link href="/contact" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-emerald-700 rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all"><MessageSquare size={20} />Get Free Consultation<ArrowRight size={20} /></Link></motion.div><motion.a href="tel:+911800121410410" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white rounded-full font-semibold hover:bg-white/20 transition-all"><Phone size={20} />1800 121 410 410</motion.a></div><div className="mt-12 flex items-center justify-center gap-8 flex-wrap"><div className="flex items-center gap-2 text-white/80"><Award size={20} /><span>BIS Certified Consultants</span></div><div className="flex items-center gap-2 text-white/80"><Users size={20} /><span>3500+ Certifications Done</span></div><div className="flex items-center gap-2 text-white/80"><Building2 size={20} /><span>15+ Years Experience</span></div></div></motion.div></div></section>
     </>
   );
 }
