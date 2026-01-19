@@ -7,25 +7,25 @@ const contactInfo = [
   {
     icon: Phone,
     title: 'Phone',
-    details: ['1800 121 410 410', '+91 98765 43211'],
+    details: ['1800 121 410 410'],
     action: 'tel:+919876543210',
   },
   {
     icon: Mail,
     title: 'Email',
-    details: ['info@jrcompliance.com', 'support@jrcompliance.com'],
+    details: ['support@jrcompliance.com'],
     action: 'mailto:info@jrcompliance.com',
   },
-  {
-    icon: MapPin,
-    title: 'Office',
-    details: ['123 Business Hub, Sector 5', 'New Delhi, India - 110001'],
-    action: 'https://maps.google.com',
-  },
+  // {
+  //   icon: MapPin,
+  //   title: 'Office',
+  //   details: ['123 Business Hub, Sector 5', 'New Delhi, India - 110001'],
+  //   action: 'https://maps.google.com',
+  // },
   {
     icon: Clock,
     title: 'Working Hours',
-    details: ['Monday - Saturday', '9:00 AM - 7:00 PM'],
+    details: ['Monday - Friday', '9:30 AM - 5:30 PM'],
     action: null,
   },
 ];
@@ -69,7 +69,7 @@ export default function ContactPage() {
 
       {/* Contact Cards */}
       <section className="py-8 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto my-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 -mt-12">
             {contactInfo.map((info, index) => (
               <motion.div
@@ -98,10 +98,9 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-16 lg:py-20 bg-gray-50">
+      {/* <section className="py-16 lg:py-20 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-            {/* Form */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -186,15 +185,12 @@ export default function ContactPage() {
                 </button>
               </form>
             </motion.div>
-
-            {/* Services & Info */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="space-y-6"
             >
-              {/* Services */}
               <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-6 text-white">
                 <h3 className="text-xl font-bold mb-5">Our Services</h3>
                 <div className="space-y-5">
@@ -218,7 +214,6 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* WhatsApp CTA */}
               <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl p-6 text-white">
                 <h3 className="text-xl font-bold mb-3">Quick Connect via WhatsApp</h3>
                 <p className="text-green-100 mb-5 text-sm">
@@ -235,7 +230,6 @@ export default function ContactPage() {
                 </a>
               </div>
 
-              {/* Map Placeholder */}
               <div className="bg-gray-100 rounded-2xl h-48 flex items-center justify-center border border-gray-200">
                 <div className="text-center">
                   <MapPin size={36} className="text-gray-400 mx-auto mb-2" />
@@ -246,7 +240,7 @@ export default function ContactPage() {
             </motion.div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="py-16 bg-white">

@@ -20,19 +20,30 @@ const corporateServices = [
 ];
 
 const technicalServices = [
-  { name: 'BIS Registration', href: '/services/bis-registration', desc: 'Bureau of Indian Standards' },
+  { name: 'BIS Certification', href: '/approval/bis-certification', desc: 'Bureau of Indian Standards' },
   { name: 'CRS Certification', href: '/approval/bis-certification/crs-certification', desc: 'Compulsory Registration' },
   { name: 'FMCS BIS Certification', href: '/approval/bis-certification/fmcs-bis-certification', desc: 'Foreign Manufacturer' },
   { name: 'ISI Certification', href: '/approval/isi-certificate', desc: 'ISI mark certification' },
-  { name: 'CDSCO Registration', href: '/approval/cdsco-registration', desc: 'Medical device approval' },
-  { name: 'EPR Certification', href: '/approval/epr-certification', desc: 'Extended Producer Resp.' },
-  { name: 'EPR E-Waste Compliance', href: '/approval/epr-certification/e-waste-compliance', desc: 'E-waste management' },
-  { name: 'EPR Battery Waste', href: '/approval/epr-certification/battery-waste-compliance', desc: 'Battery waste handling' },
   { name: 'TEC Certification', href: '/approval/tec-certificate', desc: 'Telecom equipment' },
   { name: 'WPC Certification', href: '/approval/wpc-certification', desc: 'Wireless planning' },
-  { name: 'WPC Approval', href: '/services/wpc-approval', desc: 'WPC ETA approval' },
-  { name: 'AERB Registration', href: '/services/aerb-registration', desc: 'Atomic energy board' },
-  { name: 'EPR Services', href: '/services/epr-services', desc: 'Complete EPR solutions' },
+  { name: 'CDSCO Registration', href: '/approval/cdsco-registration', desc: 'Medical device approval' },
+  { name: 'MDR CDSCO', href: '/approval/cdsco-registration/mdr-cdsco-registration', desc: 'Medical device rules' },
+  { name: 'Cosmetic CDSCO', href: '/approval/cdsco-registration/cosmetic-cdsco-registration', desc: 'Cosmetic registration' },
+  { name: 'IVD Registration', href: '/approval/cdsco-registration/in-vitro-diagnostics', desc: 'In Vitro Diagnostics' },
+  { name: 'Drug CDSCO', href: '/approval/cdsco-registration/drug-cdsco-registration', desc: 'Pharmaceutical approval' },
+  { name: 'EPR Certification', href: '/approval/epr-certification', desc: 'Extended Producer Resp.' },
+  { name: 'EPR E-Waste', href: '/approval/epr-certification/e-waste-compliance', desc: 'E-waste management' },
+  { name: 'EPR Battery Waste', href: '/approval/epr-certification/battery-waste-compliance', desc: 'Battery waste handling' },
+  { name: 'EPR Plastic Waste', href: '/approval/epr-certification/plastic-waste-compliance', desc: 'Plastic waste management' },
+  { name: 'EPR Tyre Waste', href: '/approval/epr-certification/tyre-waste', desc: 'Tyre waste compliance' },
+  { name: 'EPR Used Oil', href: '/approval/epr-certification/used-oil', desc: 'Used oil management' },
+  { name: 'SPCB Registration', href: '/approval/state-pollution-board', desc: 'State Pollution Board' },
+  { name: 'DPCC Registration', href: '/approval/state-pollution-board/dpcc', desc: 'Delhi Pollution Control' },
+  { name: 'CPCB Registration', href: '/approval/cpcb-registration', desc: 'Central Pollution Board' },
+  { name: 'BEE Certification', href: '/approval/bee-certification', desc: 'Energy efficiency' },
+  { name: 'AERB License', href: '/approval/aerb-license', desc: 'Atomic energy board' },
+  { name: 'Dealer Possession License', href: '/approval/dealer-possession-license', desc: 'DPL WPC license' },
+  { name: 'Non-Dealer Possession License', href: '/approval/non-dealer-possession-license', desc: 'NDPL WPC license' },
 ];
 
 export default function Header() {

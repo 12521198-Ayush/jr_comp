@@ -146,7 +146,7 @@ export default function ServicePageTemplate({
             {/* Left Column - Content */}
             <div>
               {/* Trusted By Section - Top */}
-              <div className="mb-6">
+              {/* <div className="mb-6">
                 <p className="text-sm text-gray-400 font-medium mb-3 tracking-wide">Trusted by</p>
                 <div className="flex flex-wrap items-center gap-5 overflow-x-auto scrollbar-hide pb-2">
                   {trustedBy.map((brand) => (
@@ -155,7 +155,7 @@ export default function ServicePageTemplate({
                     </span>
                   ))}
                 </div>
-              </div>
+              </div> */}
 
               {/* Service Badge */}
               <div className="flex items-center gap-3 mb-4">

@@ -159,12 +159,14 @@ export default function Hero() {
                   Business Compliance
                 </span>
               </h1>
-              <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold text-gray-900 mb-6">
+               #1 Partner for 360° Compliance Solutions
+
+              {/* <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold text-gray-900 mb-6">
                 <span className="italic">Starting At </span>
                 <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">
                   ₹4,999*
                 </span>
-              </h2>
+              </h2> */}
 
               {/* Stats Row */}
               <div className="flex flex-wrap items-center gap-4 lg:gap-6 py-4 mb-6 border-y border-gray-100">
@@ -296,7 +298,7 @@ export default function Hero() {
                   <span>Free Consultation</span>
                 </div>
               </div> */}
-              <div className="absolute -top-7 left-1/2 -translate-x-1/2 z-10">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
                 <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full text-sm font-medium shadow-lg">
                   <Lock size={14} />
                   <span>Free Consultation</span>
