@@ -2,47 +2,54 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight, Phone } from 'lucide-react';
+import { ArrowRight, Phone, Users, Award, Building2, BadgeCheck } from 'lucide-react';
 
 export default function CTA() {
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="py-16 lg:py-20 bg-gradient-to-r from-blue-600 via-blue-700 to-cyan-700 relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.15),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.1),transparent_50%)]" />
+      </div>
+      
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden"
+          className="text-center"
         >
-          {/* Background decoration */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2" />
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">
+            Ready To Get<br className="sm:hidden" /> <span className="italic">Your Certification?</span>
+          </h2>
+          <p className="text-white/80 max-w-xl mx-auto mb-8">
+            Join 5,000+ Indian businesses & protect your business today.
+          </p>
           
-          <div className="relative">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Get Started?
-            </h2>
-            <p className="text-blue-100 max-w-2xl mx-auto mb-8">
-              Get expert guidance for all your compliance needs. Our team is ready to help you navigate 
-              the complexities of business registration and licensing.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-full font-semibold hover:bg-blue-50 transition-colors shadow-lg"
-              >
-                Get Free Consultation
-                <ArrowRight size={20} />
-              </Link>
-              <a
-                href="tel:+919876543210"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition-colors"
-              >
-                <Phone size={20} />
-                Call 1800 121 410 410
-              </a>
-            </div>
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-gray-900 rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all"
+            >
+              Get Certification In Days
+              <ArrowRight size={20} />
+            </Link>
+          </motion.div>
+          
+          {/* Trust Stats Row */}
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-6 lg:gap-10">
+            {[
+              { value: '5000+', label: 'Certifications Done', icon: BadgeCheck },
+              { value: '25+', label: 'Services', icon: Award },
+              { value: '500+', label: 'Businesses Served', icon: Building2 },
+              { value: '₹50 Cr.', label: 'Saved for Clients', icon: Users },
+            ].map((stat, index) => (
+              <div key={index} className="flex items-center gap-2 text-white/90">
+                <span className="text-lg lg:text-xl font-bold">{stat.value}</span>
+                <span className="text-sm text-white/70">{stat.label}</span>
+              </div>
+            ))}
           </div>
         </motion.div>
       </div>

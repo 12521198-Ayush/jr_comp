@@ -156,29 +156,24 @@ function ServiceCard({ service, index }: ServiceCardProps) {
 
 export default function Services() {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-16 lg:py-20 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Corporate Services */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full mb-4">
-            <Building2 size={18} className="text-blue-600" />
-            <span className="text-sm font-semibold text-blue-700">Corporate Services</span>
-          </div>
-          
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Build Your Business with <span className="gradient-text">Expert Support</span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+            Corporate <span className="italic text-blue-600">Services</span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-500 max-w-xl mx-auto">
             From company formation to ongoing compliance, we provide comprehensive corporate services.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 mb-20">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mb-16">
           {corporateServices.map((service, index) => (
             <ServiceCard key={service.title} service={service} index={index} />
           ))}
@@ -189,22 +184,17 @@ export default function Services() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-100 rounded-full mb-4">
-            <Cpu size={18} className="text-cyan-600" />
-            <span className="text-sm font-semibold text-cyan-700">Technical Services</span>
-          </div>
-          
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Navigate <span className="gradient-text">Technical Certifications</span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+            Technical <span className="italic text-cyan-600">Certifications</span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-500 max-w-xl mx-auto">
             Get your products certified and approved by regulatory bodies with our expert services.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {technicalServices.map((service, index) => (
             <ServiceCard key={service.title} service={service} index={index} />
           ))}
@@ -215,24 +205,15 @@ export default function Services() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 text-center"
+          className="mt-12 text-center"
         >
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="btn-shine inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full font-semibold shadow-lg shadow-blue-600/25 hover:shadow-xl transition-all"
-            >
-              Get Free Consultation
-              <ArrowRight size={20} />
-            </Link>
-            <Link
-              href="/about"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-gray-200 text-gray-700 rounded-full font-semibold hover:border-blue-500 hover:text-blue-600 transition-all bg-white"
-            >
-              Learn About Us
-              <ArrowRight size={20} />
-            </Link>
-          </div>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gray-900 hover:bg-gray-800 text-white rounded-full font-semibold shadow-lg transition-all"
+          >
+            Get Free Consultation
+            <ArrowRight size={20} />
+          </Link>
         </motion.div>
       </div>
     </section>

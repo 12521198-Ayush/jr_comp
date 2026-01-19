@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Phone, Mail, Facebook, Twitter, Linkedin, Instagram, ArrowRight, Building2, Cpu } from 'lucide-react';
+import { Phone, Mail, Facebook, Twitter, Linkedin, Instagram, ArrowRight, Building2, Cpu, MapPin } from 'lucide-react';
 
 const corporateServices = [
   { name: 'Company Registration', href: '/services/company-registration' },
@@ -26,80 +26,83 @@ const quickLinks = [
   { name: 'Contact', href: '/contact' },
 ];
 
+const usefulLinks = [
+  { name: 'Blog', href: '/blog' },
+  { name: 'FAQ Centre', href: '/faq' },
+  { name: 'Resources', href: '/resources' },
+];
+
 export default function Footer() {
   return (
     <footer className="bg-slate-900 text-white">
       {/* Newsletter Section */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="relative -mb-16 z-10 -mt-8"
-        >
-          <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 md:p-10 shadow-xl">
-            <div className="grid md:grid-cols-2 gap-6 items-center">
-              <div>
-                <h3 className="text-2xl font-bold mb-2">Ready to Start Your Journey?</h3>
-                <p className="text-blue-100">Get expert guidance from JR Compliance.</p>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-5 py-3 rounded-full bg-white/20 border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
-                />
-                <button className="px-6 py-3 bg-white text-blue-600 rounded-full font-semibold hover:bg-blue-50 transition-colors flex items-center justify-center gap-2 whitespace-nowrap">
-                  Subscribe <ArrowRight size={18} />
-                </button>
-              </div>
+      <div className="border-b border-white/10 py-10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+              <h3 className="text-xl font-bold mb-1">Subscribe to Our Newsletter</h3>
+              <p className="text-gray-400 text-sm">Get helpful business tips & compliance updates in your inbox.</p>
+            </div>
+            <div className="flex gap-3 w-full md:w-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 md:w-64 px-5 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-white/40 text-sm"
+              />
+              <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-medium transition-colors text-sm">
+                Subscribe
+              </button>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Main Footer */}
-      <div className="pt-28 pb-8">
+      <div className="py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12">
             {/* Company Info */}
-            <div className="lg:col-span-2">
+            <div className="col-span-2 md:col-span-3 lg:col-span-2">
               <Link href="/" className="inline-block mb-6">
                 <Image
                   src="/logo.png"
                   alt="JR Compliance"
                   width={180}
                   height={48}
-                  className="h-12 w-auto object-contain brightness-0 invert"
+                  className="h-10 w-auto object-contain brightness-0 invert"
                 />
               </Link>
-              <p className="text-gray-400 mb-6 leading-relaxed">
-                Your trusted partner for all corporate and technical compliance needs. 
-                We provide end-to-end solutions for business registration and licensing.
-              </p>
+              
+              {/* Location Tabs */}
+              <div className="flex gap-3 mb-4">
+                {['Delhi', 'Mumbai', 'Bangalore', 'Hyderabad'].map((city, index) => (
+                  <button
+                    key={city}
+                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                      index === 0 ? 'bg-white/20 text-white' : 'bg-white/5 text-gray-400 hover:bg-white/10'
+                    }`}
+                  >
+                    {city}
+                  </button>
+                ))}
+              </div>
+
               <div className="space-y-3">
-                <a href="tel:+919876543210" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
-                  <div className="w-9 h-9 rounded-full bg-blue-600/20 flex items-center justify-center">
-                    <Phone size={16} className="text-blue-400" />
-                  </div>
-                  <span>1800 121 410 410</span>
+                <a href="tel:+911800121410410" className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors text-sm">
+                  <span className="text-gray-500">Call Us</span>
+                  <span className="font-medium">+91-1800-121-410-410</span>
                 </a>
-                <a href="mailto:info@jrcompliance.com" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
-                  <div className="w-9 h-9 rounded-full bg-blue-600/20 flex items-center justify-center">
-                    <Mail size={16} className="text-blue-400" />
-                  </div>
-                  <span>info@jrcompliance.com</span>
+                <a href="mailto:info@jrcompliance.com" className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors text-sm">
+                  <span className="text-gray-500">Write to Us</span>
+                  <span className="font-medium">info@jrcompliance.com</span>
                 </a>
               </div>
             </div>
 
             {/* Corporate Services */}
             <div>
-              <div className="flex items-center gap-2 mb-5">
-                <Building2 className="text-blue-400" size={18} />
-                <h4 className="font-semibold">Corporate Services</h4>
-              </div>
-              <ul className="space-y-3">
+              <h4 className="font-semibold text-sm mb-4">Corporate Services</h4>
+              <ul className="space-y-2">
                 {corporateServices.map((service) => (
                   <li key={service.name}>
                     <Link href={service.href} className="text-gray-400 hover:text-white transition-colors text-sm">
@@ -112,11 +115,8 @@ export default function Footer() {
 
             {/* Technical Services */}
             <div>
-              <div className="flex items-center gap-2 mb-5">
-                <Cpu className="text-cyan-400" size={18} />
-                <h4 className="font-semibold">Technical Services</h4>
-              </div>
-              <ul className="space-y-3">
+              <h4 className="font-semibold text-sm mb-4">Technical Services</h4>
+              <ul className="space-y-2">
                 {technicalServices.map((service) => (
                   <li key={service.name}>
                     <Link href={service.href} className="text-gray-400 hover:text-white transition-colors text-sm">
@@ -127,11 +127,11 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Quick Links */}
+            {/* Useful Links */}
             <div>
-              <h4 className="font-semibold mb-5">Quick Links</h4>
-              <ul className="space-y-3">
-                {quickLinks.map((link) => (
+              <h4 className="font-semibold text-sm mb-4">Useful Links</h4>
+              <ul className="space-y-2">
+                {usefulLinks.map((link) => (
                   <li key={link.name}>
                     <Link href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm">
                       {link.name}
@@ -139,35 +139,57 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
-              
+            </div>
+
+            {/* Legal */}
+            <div>
+              <h4 className="font-semibold text-sm mb-4">Legal</h4>
+              <ul className="space-y-2">
+                {quickLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm">
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+                <li>
+                  <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors text-sm">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/terms" className="text-gray-400 hover:text-white transition-colors text-sm">
+                    Terms & Conditions
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Disclaimer */}
+          <div className="pt-8 border-t border-white/10">
+            <p className="text-gray-500 text-xs leading-relaxed mb-6">
+              <span className="font-medium text-gray-400">Disclaimer:</span> JR Compliance Pvt. Ltd. | 
+              Registered Office: 123, Business Tower, Sector 18, New Delhi - 110001 | 
+              Phone: +91-1800-121-410-410 | Email: info@jrcompliance.com | 
+              *The prices shown are estimates. Actual prices may vary based on your business details and requirements.
+            </p>
+            
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-gray-500 text-sm">
+                © {new Date().getFullYear()} JR Compliance. All rights reserved.
+              </p>
               {/* Social Links */}
-              <div className="flex gap-3 mt-6">
+              <div className="flex gap-3">
                 {[Facebook, Twitter, Linkedin, Instagram].map((Icon, index) => (
                   <a
                     key={index}
                     href="#"
-                    className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-600 transition-colors"
+                    className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors text-gray-400 hover:text-white"
                   >
                     <Icon size={16} />
                   </a>
                 ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Bar */}
-          <div className="pt-8 border-t border-white/10">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-gray-400 text-sm">
-                © {new Date().getFullYear()} JR Compliance. All rights reserved.
-              </p>
-              <div className="flex gap-6 text-sm">
-                <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">
-                  Privacy Policy
-                </Link>
-                <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">
-                  Terms & Conditions
-                </Link>
               </div>
             </div>
           </div>

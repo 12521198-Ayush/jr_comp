@@ -16,95 +16,91 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-16 lg:py-20 bg-gray-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Content */}
+          {/* Left Content - Image/Visual */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="relative order-2 lg:order-1"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full mb-6">
-              <Award size={18} className="text-blue-600" />
-              <span className="text-sm font-semibold text-blue-700">Why Choose Us</span>
+            <div className="aspect-square lg:aspect-[4/3] rounded-3xl bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden">
+              <div className="text-center">
+                <div className="w-24 h-24 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center shadow-xl">
+                  <Award size={48} className="text-white" />
+                </div>
+                <p className="text-gray-400 font-medium">JR Compliance</p>
+                <p className="text-gray-300 text-sm">Your Trusted Partner</p>
+              </div>
             </div>
-
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              India&apos;s Most Trusted <span className="gradient-text">Compliance Partner</span>
-            </h2>
-
-            <p className="text-lg text-gray-600 mb-8">
-              At JR Compliance, we combine expertise, technology, and dedication to deliver 
-              exceptional compliance services. Our client-first approach has helped us build 
-              lasting relationships with businesses of all sizes.
-            </p>
-
-            <div className="space-y-3 mb-8">
-              {['Dedicated Relationship Manager', 'Real-time Application Tracking', 'Secure Document Management', 'Post-Registration Support'].map((item, index) => (
-                <motion.div
-                  key={item}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex items-center gap-3"
-                >
-                  <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0">
-                    <CheckCircle size={14} className="text-white" />
-                  </div>
-                  <span className="text-gray-700 font-medium">{item}</span>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 pt-6 border-t border-gray-200">
-              {[
-                { value: '5+', label: 'Years' },
-                { value: '10K+', label: 'Clients' },
-                { value: '99.9%', label: 'Success' },
-              ].map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 + index * 0.1 }}
-                  className="text-center"
-                >
-                  <div className="text-2xl md:text-3xl font-bold gradient-text">{stat.value}</div>
-                  <div className="text-sm text-gray-500">{stat.label}</div>
-                </motion.div>
-              ))}
+            {/* Decorative Badge */}
+            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-xl">
+              <div className="text-center text-white">
+                <div className="text-2xl font-bold">10+</div>
+                <div className="text-xs">Years</div>
+              </div>
             </div>
           </motion.div>
 
-          {/* Right Content - Feature Grid */}
+          {/* Right Content */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="grid grid-cols-2 gap-4"
+            className="order-1 lg:order-2"
           >
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                className="group bg-gray-50 hover:bg-white rounded-xl p-5 border border-gray-100 hover:border-blue-100 hover:shadow-lg transition-all duration-300"
-              >
-                <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center mb-3 group-hover:bg-blue-600 transition-colors">
-                  <feature.icon size={20} className="text-blue-600 group-hover:text-white transition-colors" />
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-1 text-sm">{feature.title}</h3>
-                <p className="text-gray-500 text-xs leading-relaxed">{feature.description}</p>
-              </motion.div>
-            ))}
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+              Why<span className="text-blue-600">Choose</span> JR Compliance?
+            </h2>
+
+            <div className="mt-8 space-y-4">
+              {[
+                { num: 1, title: 'Speed', desc: 'Quotes in seconds, certification in days! Our streamlined process ensures quick turnaround.', icon: Zap },
+                { num: 2, title: 'Service', desc: 'Dedicated support team, quick replies! We\'re available whenever you need assistance.', icon: Headphones },
+                { num: 3, title: 'Savings', desc: 'Best prices in the market, maximum savings! No hidden charges, transparent pricing.', icon: Shield },
+              ].map((item, index) => (
+                <motion.div
+                  key={item.num}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-100 hover:shadow-md transition-all"
+                >
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-cyan-600 text-white font-bold flex items-center justify-center flex-shrink-0 shadow">
+                    {item.num}
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                      <h4 className="font-bold text-gray-900 text-lg">{item.title}</h4>
+                      <item.icon size={18} className="text-blue-600" />
+                    </div>
+                    <p className="text-gray-500 text-sm">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Feature Grid */}
+            <div className="mt-8 grid grid-cols-2 gap-3">
+              {features.slice(0, 4).map((feature, index) => (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 + index * 0.05 }}
+                  className="flex items-center gap-2 p-3 bg-white rounded-lg border border-gray-100"
+                >
+                  <feature.icon size={18} className="text-blue-600 flex-shrink-0" />
+                  <span className="text-sm text-gray-700 font-medium">{feature.title}</span>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>

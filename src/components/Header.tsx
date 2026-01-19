@@ -86,13 +86,7 @@ export default function Header() {
       </div>
 
       {/* Main Header */}
-      <div
-        className={`transition-all duration-300 ${
-          isScrolled
-            ? 'bg-white/98 backdrop-blur-xl shadow-lg shadow-gray-200/50 py-2'
-            : 'bg-white py-3'
-        }`}
-      >
+      <div className="bg-white py-3">
         <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
@@ -102,7 +96,7 @@ export default function Header() {
                 alt="JR Compliance"
                 width={160}
                 height={40}
-                className={`w-auto object-contain transition-all duration-300 group-hover:scale-105 ${isScrolled ? 'h-9' : 'h-11'}`}
+                className="w-auto object-contain transition-all duration-300 group-hover:scale-105 h-11"
                 priority
               />
             </Link>
@@ -224,7 +218,7 @@ export default function Header() {
             {/* CTA Buttons */}
             <div className="hidden lg:flex items-center gap-3">
               <a
-                href="https://wa.me/917042164654?text=Hi%2C%20I%20need%20help%20with%20compliance%20services"
+                href="https://wa.me/919266450125?text=Hi%2C%20I%20need%20help%20with%20compliance%20services"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl text-sm font-semibold hover:shadow-xl hover:shadow-green-500/25 transition-all hover:-translate-y-0.5 active:translate-y-0"
@@ -387,7 +381,7 @@ export default function Header() {
                 {/* Mobile CTA Buttons */}
                 <div className="pt-5 mt-5 border-t border-gray-100 space-y-3">
                   <a
-                    href="https://wa.me/917042164654?text=Hi%2C%20I%20need%20help%20with%20compliance%20services"
+                    href="https://wa.me/919266450125?text=Hi%2C%20I%20need%20help%20with%20compliance%20services"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 w-full px-4 py-3.5 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-semibold shadow-lg shadow-green-500/20"

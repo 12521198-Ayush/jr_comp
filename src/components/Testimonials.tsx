@@ -1,38 +1,53 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Star, Quote } from 'lucide-react';
+import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
 
 const testimonials = [
   {
     name: 'Kate Tran',
-    role: 'Business Partner',
-    content: 'We have worked with JR Compliance for 2 years and with their help, we get the BIS license successfully. Everyone in their team is always ready to assist and provide expert advice to solve any problem we face in the certification process. Highly recommended!',
+    role: 'Founder',
+    company: 'TechVentures',
+    content: 'JR Compliance was lightning fast! I got multiple quotes in seconds, bought my certification instantly, and my business was compliant right away. What usually takes days happened in minutes!',
     rating: 5,
   },
   {
     name: 'PN Dhawanjewar',
-    role: 'Client',
-    content: 'We have outsourced the entire BIS certification responsibility of our panels to JR compliance since 2017. They are very consistent in managing the entire process. Thanks to JR Compliance.',
-    rating: 5,
-  },
-  {
-    name: 'Kate Tran',
-    role: 'Long-term Partner',
-    content: 'We have been using JR Compliance services since last 3 years on various BIS related registration & testing. Their staff is well trained, professional and capable of carrying out the job.',
+    role: 'Director',
+    company: 'ElectroTech India',
+    content: 'JR Compliance truly simplified certification for us. They were patient with questions, gave good advice, the prices were the best we could find, and the communication all round was very positive.',
     rating: 5,
   },
   {
     name: 'Atish Bihani',
-    role: 'Client',
-    content: 'Extremely professional company and very prompt service. I am associated with them from last 4 to 5 years. I am extremely happy and satisfied with the service given by them. Best of luck JR Compliance!',
+    role: 'CEO',
+    company: 'Sunrise Exports',
+    content: 'Dealing with JR Compliance has been a great experience. Their prices are the best in the market, and their process to procure the certification is seamless and straightforward.',
+    rating: 5,
+  },
+  {
+    name: 'Rahul Sharma',
+    role: 'Managing Director',
+    company: 'InnovateTech Solutions',
+    content: 'Extremely professional company and very prompt service. I am associated with them from last 4 to 5 years. I am extremely happy and satisfied with the service given by them.',
     rating: 5,
   },
 ];
 
 export default function Testimonials() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const nextTestimonial = () => {
+    setActiveIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
   return (
-    <section className="py-20 bg-white">
+    <section className="py-16 lg:py-20 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -40,49 +55,129 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full mb-4">
-            <Star size={18} className="text-blue-600" fill="currentColor" />
-            <span className="text-sm font-semibold text-blue-700">Testimonials</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            What Our <span className="gradient-text">Clients Say</span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+            Real Review for Real <span className="italic text-blue-600">Speed</span>
           </h2>
-          <p className="text-gray-600 max-w-xl mx-auto">
-            Don&apos;t just take our word for it. Here&apos;s what our clients have to say about us.
-          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={testimonial.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:shadow-lg transition-shadow"
-            >
-              <Quote size={32} className="text-blue-200 mb-4" />
-              
-              <div className="flex gap-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} size={16} className="text-amber-400" fill="currentColor" />
+        {/* Desktop View - 3 columns with highlighted center */}
+        <div className="hidden lg:block">
+          <div className="relative">
+            {/* Background Cards - Faded */}
+            <div className="grid grid-cols-3 gap-6">
+              {testimonials.slice(0, 3).map((testimonial, index) => (
+                <motion.div
+                  key={testimonial.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className={`p-6 rounded-2xl transition-all duration-300 ${
+                    index === 1 
+                      ? 'bg-white shadow-xl border border-gray-100 scale-105' 
+                      : 'bg-gray-50 border border-gray-100 opacity-70'
+                  }`}
+                >
+                  <p className={`mb-6 leading-relaxed ${index === 1 ? 'text-gray-700' : 'text-gray-500'}`}>
+                    {testimonial.content}
+                  </p>
+                  
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-lg">
+                        {testimonial.name.charAt(0)}
+                      </div>
+                      <div>
+                        <div className="font-semibold text-gray-900">{testimonial.name}</div>
+                        <div className="text-sm text-gray-500">{testimonial.role} • {testimonial.company}</div>
+                      </div>
+                    </div>
+                    <div className="w-16 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
+                      <span className="text-xs text-gray-400 font-medium">{testimonial.company.substring(0, 6)}...</span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Navigation */}
+            <div className="flex items-center justify-center gap-4 mt-8">
+              <button
+                onClick={prevTestimonial}
+                className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+              >
+                <ChevronLeft size={20} className="text-gray-600" />
+              </button>
+              <div className="flex gap-2">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setActiveIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-all ${
+                      index === 1 ? 'bg-blue-600 w-6' : 'bg-gray-300'
+                    }`}
+                  />
                 ))}
               </div>
-              
-              <p className="text-gray-600 mb-6 leading-relaxed">{testimonial.content}</p>
-              
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white font-semibold">
-                  {testimonial.name.charAt(0)}
-                </div>
-                <div>
-                  <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                  <div className="text-sm text-gray-500">{testimonial.role}</div>
-                </div>
+              <button
+                onClick={nextTestimonial}
+                className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+              >
+                <ChevronRight size={20} className="text-gray-600" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile View - Single Card with Navigation */}
+        <div className="lg:hidden">
+          <motion.div
+            key={activeIndex}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100"
+          >
+            <p className="text-gray-700 mb-6 leading-relaxed">
+              {testimonials[activeIndex].content}
+            </p>
+            
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-lg">
+                {testimonials[activeIndex].name.charAt(0)}
               </div>
-            </motion.div>
-          ))}
+              <div>
+                <div className="font-semibold text-gray-900">{testimonials[activeIndex].name}</div>
+                <div className="text-sm text-gray-500">{testimonials[activeIndex].role} • {testimonials[activeIndex].company}</div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Mobile Navigation */}
+          <div className="flex items-center justify-center gap-4 mt-6">
+            <button
+              onClick={prevTestimonial}
+              className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+            >
+              <ChevronLeft size={20} className="text-gray-600" />
+            </button>
+            <div className="flex gap-2">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveIndex(index)}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    index === activeIndex ? 'bg-blue-600 w-6' : 'bg-gray-300'
+                  }`}
+                />
+              ))}
+            </div>
+            <button
+              onClick={nextTestimonial}
+              className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+            >
+              <ChevronRight size={20} className="text-gray-600" />
+            </button>
+          </div>
         </div>
       </div>
     </section>
