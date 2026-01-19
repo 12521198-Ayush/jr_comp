@@ -65,7 +65,7 @@ export default function Footer() {
             <div className="col-span-2 md:col-span-3 lg:col-span-2">
               <Link href="/" className="inline-block mb-6">
                 <Image
-                  src="/logo.png"
+                  src="/JRlogo.png"
                   alt="JR Compliance"
                   width={180}
                   height={48}

@@ -131,7 +131,7 @@ export default function Hero() {
         <MessageCircle size={28} className="text-white" />
       </a>
 
-      <section className="bg-white pt-4 pb-10 lg:pt-6 lg:pb-16">
+      <section className="bg-white pt-4 pb-10 lg:pt-10 lg:pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
             {/* Left Column - Content */}
@@ -142,14 +142,14 @@ export default function Hero() {
             >
               {/* Trusted By Section */}
               <div className="mb-6">
-                <p className="text-sm text-gray-400 font-medium mb-3 tracking-wide">Trusted by</p>
-                <div className="flex flex-wrap items-center gap-5 overflow-x-auto scrollbar-hide pb-2">
+                <p className="text-sm text-gray-400 font-medium mb-3 tracking-wide">Trusted by multiple industry leaders</p>
+                {/* <div className="flex flex-wrap items-center gap-5 overflow-x-auto scrollbar-hide pb-2">
                   {trustedBy.map((brand) => (
                     <span key={brand} className="text-gray-300 font-bold text-base lg:text-lg tracking-wider uppercase whitespace-nowrap hover:text-gray-400 transition-colors">
                       {brand}
                     </span>
                   ))}
-                </div>
+                </div> */}
               </div>
 
               {/* Main Heading - BimaKavach Style */}

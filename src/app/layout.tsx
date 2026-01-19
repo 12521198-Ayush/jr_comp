@@ -15,9 +15,9 @@ export const metadata: Metadata = {
   keywords: "company registration, GST registration, FSSAI license, PSARA license, BIS registration, AERB registration, EPR services, WPC approval, compliance services, business registration India",
   authors: [{ name: "JR Compliance" }],
   icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
-    apple: "/logo.png",
+    icon: "/JRlogo.png",
+    shortcut: "/JRlogo.png",
+    apple: "/JRlogo.png",
   },
   openGraph: {
     title: "JR Compliance - Expert Business Registration & Compliance Services",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "JR Compliance",
     locale: "en_IN",
     type: "website",
-    images: ["/logo.png"],
+    images: ["/JRlogo.png"],
   },
 };
 

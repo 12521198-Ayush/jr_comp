@@ -103,7 +103,7 @@ export default function Header() {
             {/* Logo */}
             <Link href="/" className="flex items-center flex-shrink-0 group">
               <Image
-                src="/logo.png"
+                src="/JRlogo.png"
                 alt="JR Compliance"
                 width={160}
                 height={40}

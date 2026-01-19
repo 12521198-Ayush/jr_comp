@@ -165,20 +165,13 @@ export default function ServicePageTemplate({
               </div>
 
               {/* Main Heading - BimaKavach Style with Italic */}
-              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-gray-900 mb-1 leading-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-gray-900 mb-6 leading-tight">
                 <span className="italic">Get </span>
                 <span className={`italic text-transparent bg-clip-text bg-gradient-to-r ${colors.gradient}`}>
                   {title}
                 </span>
-                <span className="italic">,</span>
+                <span className="italic"> Today</span>
               </h1>
-              <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold text-gray-900 mb-6">
-                <span className="italic">Starting At </span>
-                <span className={`italic text-transparent bg-clip-text bg-gradient-to-r ${colors.gradient}`}>
-                  ₹18,000*
-                </span>
-                <span className="italic">/year</span>
-              </h2>
 
               {/* Stats Row - BimaKavach Style */}
               <div className="flex flex-wrap items-center gap-4 lg:gap-6 py-4 mb-6 border-y border-gray-100">
@@ -203,7 +196,7 @@ export default function ServicePageTemplate({
                   {[
                     { num: '1', title: 'Speed', desc: 'Quotes in seconds, certification in days!' },
                     { num: '2', title: 'Service', desc: 'Dedicated support, quick replies!' },
-                    { num: '3', title: 'Savings', desc: 'Best prices, maximum savings!' },
+                    { num: '3', title: 'Quality', desc: 'Expert guidance, 100% compliance!' },
                   ].map((item) => (
                     <div key={item.num} className="relative">
                       <div className={`absolute -top-2 -left-2 w-6 h-6 rounded-full bg-gradient-to-br ${colors.gradient} text-white text-xs font-bold flex items-center justify-center shadow`}>
@@ -382,7 +375,7 @@ export default function ServicePageTemplate({
               {[
                 { num: '1', title: 'Speed', desc: 'Quick quotes!' },
                 { num: '2', title: 'Service', desc: 'Best support!' },
-                { num: '3', title: 'Savings', desc: 'Best prices!' },
+                { num: '3', title: 'Quality', desc: 'Expert team!' },
               ].map((item) => (
                 <div key={item.num} className="relative">
                   <div className={`absolute -top-2 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-gradient-to-br ${colors.gradient} text-white text-[10px] font-bold flex items-center justify-center shadow z-10`}>
@@ -444,7 +437,7 @@ export default function ServicePageTemplate({
                 {[
                   { num: 1, title: 'Speed', desc: 'Quotes in seconds, certification in days! Our streamlined process ensures quick turnaround.' },
                   { num: 2, title: 'Service', desc: 'Dedicated support team, quick replies! We\'re available whenever you need assistance.' },
-                  { num: 3, title: 'Savings', desc: 'Best prices in the market, maximum savings! No hidden charges, transparent pricing.' },
+                  { num: 3, title: 'Quality', desc: 'Expert team with industry knowledge! 100% compliance guaranteed with thorough documentation.' },
                 ].map((item, index) => (
                   <motion.div
                     key={item.num}
