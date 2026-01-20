@@ -15,7 +15,10 @@ export const metadata: Metadata = {
   keywords: "company registration, GST registration, FSSAI license, PSARA license, BIS registration, AERB registration, EPR services, WPC approval, compliance services, business registration India",
   authors: [{ name: "JR Compliance" }],
   icons: {
-    icon: "/JRlogo.png",
+    icon: [
+      { url: "/JRlogo.png", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
     shortcut: "/JRlogo.png",
     apple: "/JRlogo.png",
   },

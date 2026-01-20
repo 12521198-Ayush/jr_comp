@@ -1,219 +1,452 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Building2, FileText, Receipt, Utensils, Shield, Cpu, Radio, Recycle, Zap } from 'lucide-react';
+import { motion, useInView } from 'framer-motion';
+import { 
+  ArrowRight, Building2, Cpu, FileCheck, Shield, Scale, 
+  Briefcase, Award, Sparkles, CheckCircle2, ChevronRight
+} from 'lucide-react';
 
 const corporateServices = [
-  {
+  { 
+    name: 'Company Registration', 
+    href: '/services/company-registration', 
+    description: 'Register Private Limited, LLP, OPC & more with expert guidance',
     icon: Building2,
-    title: 'Company Registration',
-    description: 'Register your Pvt Ltd, LLP, OPC, or Partnership firm with expert guidance.',
-    href: '/services/company-registration',
+    features: ['Private Limited', 'LLP', 'OPC', 'Partnership'],
     color: 'blue',
-    features: ['Pvt Ltd', 'LLP', 'OPC'],
+    gradient: 'from-blue-600 to-blue-400',
+    shadowColor: 'shadow-blue-500/25',
   },
-  {
-    icon: Receipt,
-    title: 'GST Registration',
-    description: 'Get your GST registration done quickly with complete compliance support.',
-    href: '/services/gst-registration',
-    color: 'indigo',
-    features: ['Registration', 'Returns', 'Compliance'],
-  },
-  {
-    icon: FileText,
-    title: 'Annual Compliance',
-    description: 'Stay compliant with all annual filing requirements including ROC filings.',
-    href: '/services/annual-compliance',
-    color: 'violet',
-    features: ['ROC Filing', 'Returns', 'Meetings'],
-  },
-  {
-    icon: Utensils,
-    title: 'FSSAI License',
-    description: 'Obtain FSSAI license for your food business with complete guidance.',
-    href: '/services/fssai-license',
+  { 
+    name: 'GST & Tax Services', 
+    href: '/services/gst-registration', 
+    description: 'Complete GST registration, filing, and compliance solutions',
+    icon: Scale,
+    features: ['GST Registration', 'GST Returns', 'Tax Compliance', 'Amendments'],
     color: 'emerald',
-    features: ['Basic', 'State', 'Central'],
+    gradient: 'from-emerald-600 to-teal-400',
+    shadowColor: 'shadow-emerald-500/25',
   },
-  {
-    icon: Shield,
-    title: 'PSARA License',
-    description: 'Get PSARA license for your private security agency hassle-free.',
-    href: '/services/psara-license',
+  { 
+    name: 'FSSAI Licensing', 
+    href: '/services/fssai-license', 
+    description: 'Food business licensing and compliance for all categories',
+    icon: FileCheck,
+    features: ['Basic License', 'State License', 'Central License', 'Modifications'],
     color: 'amber',
-    features: ['New', 'Renewal', 'Amendments'],
+    gradient: 'from-amber-500 to-orange-400',
+    shadowColor: 'shadow-amber-500/25',
+  },
+  { 
+    name: 'Trademark & IP', 
+    href: '/corporate/trademark-registration', 
+    description: 'Protect your brand with trademark and IP registration',
+    icon: Shield,
+    features: ['Trademark', 'Copyright', 'Patent', 'IP Protection'],
+    color: 'purple',
+    gradient: 'from-purple-600 to-indigo-400',
+    shadowColor: 'shadow-purple-500/25',
+  },
+  { 
+    name: 'Startup India', 
+    href: '/corporate/startup-india-registration', 
+    description: 'DPIIT recognition and startup ecosystem registration',
+    icon: Briefcase,
+    features: ['DPIIT Recognition', 'Seed Fund', 'Tax Benefits', 'Mentorship'],
+    color: 'rose',
+    gradient: 'from-rose-500 to-pink-400',
+    shadowColor: 'shadow-rose-500/25',
   },
 ];
 
 const technicalServices = [
-  {
-    icon: Cpu,
-    title: 'BIS Registration',
-    description: 'Bureau of Indian Standards certification for electronics and IT products.',
-    href: '/services/bis-registration',
+  { 
+    name: 'BIS Certification', 
+    href: '/approval/bis-certification', 
+    description: 'Bureau of Indian Standards certification for products',
+    icon: Award,
+    features: ['CRS Scheme', 'FMCS', 'ISI Mark', 'Lab Testing'],
     color: 'cyan',
-    features: ['ISI Mark', 'CRS', 'Certification'],
+    gradient: 'from-cyan-500 to-teal-400',
+    shadowColor: 'shadow-cyan-500/25',
   },
-  {
-    icon: Zap,
-    title: 'AERB Registration',
-    description: 'Atomic Energy Regulatory Board registration for radiation equipment.',
-    href: '/services/aerb-registration',
-    color: 'orange',
-    features: ['Equipment', 'Facility', 'Import'],
+  { 
+    name: 'WPC & TEC', 
+    href: '/approval/wpc-certification', 
+    description: 'Wireless and telecom equipment approval & licensing',
+    icon: Cpu,
+    features: ['ETA', 'Import License', 'Possession License', 'Type Approval'],
+    color: 'indigo',
+    gradient: 'from-indigo-500 to-blue-400',
+    shadowColor: 'shadow-indigo-500/25',
   },
-  {
-    icon: Recycle,
-    title: 'EPR Services',
-    description: 'Extended Producer Responsibility compliance for waste management.',
-    href: '/services/epr-services',
+  { 
+    name: 'CDSCO Registration', 
+    href: '/approval/cdsco-registration', 
+    description: 'Medical device and pharmaceutical regulatory compliance',
+    icon: FileCheck,
+    features: ['MDR', 'IVD', 'Cosmetics', 'Pharmaceuticals'],
+    color: 'teal',
+    gradient: 'from-teal-500 to-emerald-400',
+    shadowColor: 'shadow-teal-500/25',
+  },
+  { 
+    name: 'EPR Compliance', 
+    href: '/approval/epr-certification', 
+    description: 'Extended Producer Responsibility for waste management',
+    icon: Shield,
+    features: ['E-Waste', 'Plastic Waste', 'Battery Waste', 'Tyre Waste'],
     color: 'green',
-    features: ['E-Waste', 'Plastic', 'Battery'],
-  },
-  {
-    icon: Radio,
-    title: 'WPC Approval',
-    description: 'Wireless Planning & Coordination approval for telecom equipment.',
-    href: '/services/wpc-approval',
-    color: 'purple',
-    features: ['ETA', 'License', 'Import'],
+    gradient: 'from-green-500 to-emerald-400',
+    shadowColor: 'shadow-green-500/25',
   },
 ];
 
-const colorClasses: Record<string, { bg: string; text: string; hoverBg: string }> = {
-  blue: { bg: 'bg-blue-100', text: 'text-blue-600', hoverBg: 'group-hover:bg-blue-600' },
-  indigo: { bg: 'bg-indigo-100', text: 'text-indigo-600', hoverBg: 'group-hover:bg-indigo-600' },
-  violet: { bg: 'bg-violet-100', text: 'text-violet-600', hoverBg: 'group-hover:bg-violet-600' },
-  emerald: { bg: 'bg-emerald-100', text: 'text-emerald-600', hoverBg: 'group-hover:bg-emerald-600' },
-  amber: { bg: 'bg-amber-100', text: 'text-amber-600', hoverBg: 'group-hover:bg-amber-600' },
-  cyan: { bg: 'bg-cyan-100', text: 'text-cyan-600', hoverBg: 'group-hover:bg-cyan-600' },
-  orange: { bg: 'bg-orange-100', text: 'text-orange-600', hoverBg: 'group-hover:bg-orange-600' },
-  green: { bg: 'bg-green-100', text: 'text-green-600', hoverBg: 'group-hover:bg-green-600' },
-  purple: { bg: 'bg-purple-100', text: 'text-purple-600', hoverBg: 'group-hover:bg-purple-600' },
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
 };
 
-interface ServiceCardProps {
-  service: {
-    icon: React.ElementType;
-    title: string;
-    description: string;
-    href: string;
-    color: string;
-    features: string[];
-  };
-  index: number;
-}
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring' as const,
+      stiffness: 100,
+      damping: 15,
+    },
+  },
+};
 
-function ServiceCard({ service, index }: ServiceCardProps) {
-  const colors = colorClasses[service.color] || colorClasses.blue;
+const ServiceCard = ({ service, index }: { service: typeof corporateServices[0]; index: number }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-50px' });
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1 }}
+      ref={ref}
+      variants={itemVariants}
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+      custom={index}
+      whileHover={{ y: -8, scale: 1.02 }}
+      transition={{ type: 'spring' as const, stiffness: 300, damping: 20 }}
+      className="group relative"
     >
-      <Link href={service.href} className="block h-full">
-        <div className="group h-full bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-blue-100 transition-all duration-300">
+      <Link href={service.href}>
+        {/* Gradient Glow Background */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileHover={{ opacity: 1 }}
+          className={`absolute -inset-1 bg-gradient-to-r ${service.gradient} rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition-all duration-500`}
+        />
+        
+        {/* Card Content */}
+        <div className="relative bg-white rounded-2xl p-6 border border-gray-100 shadow-lg hover:shadow-2xl hover:border-transparent transition-all duration-500 overflow-hidden h-full">
+          {/* Decorative Corner */}
+          <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${service.gradient} opacity-5 rounded-bl-full`} />
+          
           {/* Icon */}
-          <div className={`w-14 h-14 ${colors.bg} rounded-xl flex items-center justify-center mb-5 ${colors.hoverBg} transition-colors duration-300`}>
-            <service.icon size={26} className={`${colors.text} group-hover:text-white transition-colors duration-300`} />
-          </div>
-
-          {/* Content */}
-          <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-            {service.title}
+          <motion.div
+            whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
+            transition={{ duration: 0.5 }}
+            className={`relative w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-lg ${service.shadowColor} mb-5`}
+          >
+            <service.icon size={26} className="text-white" />
+            <motion.div
+              initial={{ scale: 0 }}
+              whileHover={{ scale: 1 }}
+              className="absolute -top-1 -right-1 w-5 h-5 bg-white rounded-full flex items-center justify-center shadow-md"
+            >
+              <Sparkles size={10} className="text-amber-500" />
+            </motion.div>
+          </motion.div>
+          
+          {/* Title & Description */}
+          <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-cyan-500 transition-all">
+            {service.name}
           </h3>
-          <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+          <p className="text-gray-500 text-sm leading-relaxed mb-4">
             {service.description}
           </p>
-
+          
           {/* Features */}
-          <div className="flex flex-wrap gap-2 mb-4">
+          <div className="flex flex-wrap gap-2 mb-5">
             {service.features.map((feature) => (
-              <span
+              <motion.span
                 key={feature}
-                className={`text-xs px-2.5 py-1 ${colors.bg} ${colors.text} rounded-full font-medium`}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                whileHover={{ scale: 1.05 }}
+                className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-${service.color}-50 text-${service.color}-600 text-xs font-medium`}
               >
+                <CheckCircle2 size={10} />
                 {feature}
-              </span>
+              </motion.span>
             ))}
           </div>
-
+          
           {/* CTA */}
-          <div className="flex items-center text-blue-600 font-medium text-sm group-hover:text-blue-700">
-            Learn More
-            <ArrowRight size={16} className="ml-1.5 group-hover:translate-x-1 transition-transform" />
-          </div>
+          <motion.div
+            initial={{ opacity: 0, x: -10 }}
+            whileHover={{ opacity: 1, x: 0 }}
+            className="flex items-center gap-2 text-sm font-semibold"
+          >
+            <span className={`text-${service.color}-600`}>Learn More</span>
+            <motion.div
+              animate={{ x: [0, 5, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              <ArrowRight size={16} className={`text-${service.color}-600`} />
+            </motion.div>
+          </motion.div>
         </div>
       </Link>
     </motion.div>
   );
-}
+};
 
 export default function Services() {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
+
   return (
-    <section className="py-16 lg:py-20 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Corporate Services */}
+    <section ref={sectionRef} className="relative py-24 overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50">
+      {/* Background Decorations */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
+        
+        {/* Gradient Orbs */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-10"
+          animate={{ 
+            x: [0, 50, 0],
+            y: [0, -30, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute top-20 -left-20 w-96 h-96 bg-gradient-to-r from-blue-200/40 to-cyan-200/40 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{ 
+            x: [0, -50, 0],
+            y: [0, 30, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute bottom-20 -right-20 w-[500px] h-[500px] bg-gradient-to-r from-purple-200/30 to-pink-200/30 rounded-full blur-3xl"
+        />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
-            Corporate <span className="italic text-blue-600">Services</span>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ delay: 0.2 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-100 to-cyan-100 border border-blue-200 mb-6"
+          >
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+            >
+              <Sparkles size={16} className="text-blue-600" />
+            </motion.div>
+            <span className="text-sm font-semibold text-blue-700">Our Services</span>
+          </motion.div>
+          
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Comprehensive{' '}
+            <span className="relative">
+              <span className="relative z-10 bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                Compliance Solutions
+              </span>
+              <motion.span
+                initial={{ scaleX: 0 }}
+                animate={isInView ? { scaleX: 1 } : {}}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="absolute -bottom-2 left-0 right-0 h-3 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 -skew-x-6 origin-left"
+              />
+            </span>
           </h2>
-          <p className="text-gray-500 max-w-xl mx-auto">
-            From company formation to ongoing compliance, we provide comprehensive corporate services.
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            From company registration to technical certifications, we provide end-to-end compliance services trusted by 10,000+ businesses across India
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mb-16">
-          {corporateServices.map((service, index) => (
-            <ServiceCard key={service.title} service={service} index={index} />
-          ))}
-        </div>
+        {/* Corporate Services */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.3 }}
+          className="mb-20"
+        >
+          <div className="flex items-center gap-4 mb-8">
+            <motion.div
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 0.5 }}
+              className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-blue-500 flex items-center justify-center shadow-lg shadow-blue-500/30"
+            >
+              <Building2 size={24} className="text-white" />
+            </motion.div>
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900">Corporate Services</h3>
+              <p className="text-gray-500 text-sm">Business registration & compliance solutions</p>
+            </div>
+          </div>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+            className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6"
+          >
+            {corporateServices.map((service, index) => (
+              <ServiceCard key={service.name} service={service} index={index} />
+            ))}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.8 }}
+            className="mt-8 text-center"
+          >
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-1 transition-all group"
+            >
+              View All Corporate Services
+              <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </motion.div>
+        </motion.div>
 
         {/* Technical Services */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-10"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.5 }}
         >
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
-            Technical <span className="italic text-cyan-600">Certifications</span>
-          </h2>
-          <p className="text-gray-500 max-w-xl mx-auto">
-            Get your products certified and approved by regulatory bodies with our expert services.
-          </p>
+          <div className="flex items-center gap-4 mb-8">
+            <motion.div
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 0.5 }}
+              className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-teal-500 flex items-center justify-center shadow-lg shadow-cyan-500/30"
+            >
+              <Cpu size={24} className="text-white" />
+            </motion.div>
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900">Technical Services</h3>
+              <p className="text-gray-500 text-sm">Certifications & regulatory approvals</p>
+            </div>
+          </div>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
+            {technicalServices.map((service, index) => (
+              <ServiceCard key={service.name} service={service} index={index} />
+            ))}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 1 }}
+            className="mt-8 text-center"
+          >
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-teal-500 text-white font-semibold rounded-xl shadow-lg shadow-cyan-500/25 hover:shadow-xl hover:shadow-cyan-500/30 hover:-translate-y-1 transition-all group"
+            >
+              View All Technical Services
+              <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </motion.div>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {technicalServices.map((service, index) => (
-            <ServiceCard key={service.title} service={service} index={index} />
-          ))}
-        </div>
-
-        {/* CTA */}
+        {/* Bottom CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-12 text-center"
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 1.2 }}
+          className="mt-20 relative"
         >
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gray-900 hover:bg-gray-800 text-white rounded-full font-semibold shadow-lg transition-all"
-          >
-            Get Free Consultation
-            <ArrowRight size={20} />
-          </Link>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-3xl blur-xl opacity-20" />
+          <div className="relative bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 rounded-3xl p-8 md:p-12 overflow-hidden">
+            {/* Animated Background */}
+            <motion.div
+              animate={{ x: ['0%', '100%'] }}
+              transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -skew-x-12"
+            />
+            
+            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+              <div className="text-center lg:text-left">
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 1.3 }}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-4"
+                >
+                  <motion.div
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    <Shield size={16} className="text-emerald-400" />
+                  </motion.div>
+                  <span className="text-sm font-medium text-white">Free Consultation Available</span>
+                </motion.div>
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                  Not sure which service you need?
+                </h3>
+                <p className="text-gray-300 max-w-lg">
+                  Our compliance experts will guide you through the process and recommend the right certifications for your business.
+                </p>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <motion.a
+                  whileHover={{ scale: 1.05, y: -3 }}
+                  whileTap={{ scale: 0.95 }}
+                  href="https://wa.me/919266450125?text=Hi%2C%20I%20need%20help%20choosing%20the%20right%20compliance%20service"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold rounded-xl shadow-lg shadow-green-500/30 hover:shadow-xl transition-all flex items-center justify-center gap-2 group"
+                >
+                  <span>Chat on WhatsApp</span>
+                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </motion.a>
+                <motion.a
+                  whileHover={{ scale: 1.05, y: -3 }}
+                  whileTap={{ scale: 0.95 }}
+                  href="tel:1800121410410"
+                  className="px-8 py-4 bg-white/10 border border-white/20 text-white font-bold rounded-xl hover:bg-white/20 transition-all flex items-center justify-center gap-2"
+                >
+                  <span>Call: 1800-121-410-410</span>
+                </motion.a>
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

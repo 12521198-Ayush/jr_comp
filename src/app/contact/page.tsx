@@ -1,276 +1,640 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, MessageCircle, Send, Building2, Cpu } from 'lucide-react';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { Phone, Mail, Clock, MessageCircle, Headphones, FileCheck, Users, ArrowRight, Sparkles, MapPin, Send, CheckCircle, Building2, Cpu, Shield, Zap } from 'lucide-react';
+import { useRef } from 'react';
+import Link from 'next/link';
+
+// Floating particles component
+function FloatingParticles() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {[...Array(12)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-2 h-2 bg-cyan-400/30 rounded-full"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+          }}
+          animate={{
+            y: [0, -20, 0],
+            x: [0, Math.random() * 15 - 7, 0],
+            opacity: [0.3, 0.7, 0.3],
+            scale: [1, 1.3, 1],
+          }}
+          transition={{
+            duration: Math.random() * 3 + 3,
+            repeat: Infinity,
+            delay: Math.random() * 2,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+// Animated wave background
+function WaveBackground() {
+  return (
+    <div className="absolute bottom-0 left-0 right-0 overflow-hidden">
+      <motion.svg
+        viewBox="0 0 1440 320"
+        className="w-full h-auto"
+        preserveAspectRatio="none"
+      >
+        <motion.path
+          fill="rgba(255,255,255,0.1)"
+          animate={{
+            d: [
+              "M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z",
+              "M0,160L48,181.3C96,203,192,245,288,261.3C384,277,480,267,576,234.7C672,203,768,149,864,133.3C960,117,1056,139,1152,154.7C1248,171,1344,181,1392,186.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z",
+            ],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut",
+          }}
+        />
+      </motion.svg>
+    </div>
+  );
+}
 
 const contactInfo = [
   {
     icon: Phone,
-    title: 'Phone',
-    details: ['1800 121 410 410'],
-    action: 'tel:+919876543210',
+    title: 'Call Us',
+    details: ['1800-121-410-410', '(Toll Free)'],
+    action: 'tel:1800121410410',
+    gradient: 'from-blue-500 to-blue-600',
+    delay: 0,
   },
   {
     icon: Mail,
-    title: 'Email',
+    title: 'Email Us',
     details: ['support@jrcompliance.com'],
-    action: 'mailto:info@jrcompliance.com',
+    action: 'mailto:support@jrcompliance.com',
+    gradient: 'from-cyan-500 to-teal-500',
+    delay: 0.1,
   },
-  // {
-  //   icon: MapPin,
-  //   title: 'Office',
-  //   details: ['123 Business Hub, Sector 5', 'New Delhi, India - 110001'],
-  //   action: 'https://maps.google.com',
-  // },
   {
     icon: Clock,
-    title: 'Working Hours',
-    details: ['Monday - Friday', '9:30 AM - 5:30 PM'],
+    title: 'Business Hours',
+    details: ['Monday - Saturday', '9:30 AM - 6:30 PM IST'],
     action: null,
+    gradient: 'from-amber-500 to-orange-500',
+    delay: 0.2,
+  },
+  {
+    icon: Headphones,
+    title: '24/7 Support',
+    details: ['Quick Response', 'Expert Assistance'],
+    action: null,
+    gradient: 'from-emerald-500 to-green-500',
+    delay: 0.3,
   },
 ];
 
-const services = [
-  { category: 'Corporate Services', items: ['Company Registration', 'GST Registration', 'Annual Compliance', 'FSSAI License', 'PSARA License'] },
-  { category: 'Technical Services', items: ['BIS Registration', 'AERB Registration', 'EPR Services', 'WPC Approval'] },
+const serviceHighlights = [
+  {
+    icon: Building2,
+    title: 'Corporate Compliance',
+    description: 'Company Registration, GST, FSSAI, ISO, MSME, and all business registrations',
+    features: ['Private Limited Company', 'LLP Registration', 'GST Filing', 'Annual Compliance'],
+    gradient: 'from-blue-600 to-indigo-600',
+  },
+  {
+    icon: Cpu,
+    title: 'Technical Approvals',
+    description: 'BIS, WPC, TEC, AERB, EPR, and product certification services',
+    features: ['BIS Certification', 'WPC Approval', 'TEC Certificate', 'EPR Registration'],
+    gradient: 'from-cyan-500 to-teal-500',
+  },
 ];
 
+const quickActions = [
+  { icon: FileCheck, label: 'Get a Quote', href: '/contact' },
+  { icon: MessageCircle, label: 'Live Chat', href: '#' },
+  { icon: Phone, label: 'Schedule Call', href: 'tel:1800121410410' },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring' as const,
+      stiffness: 100,
+      damping: 12,
+    },
+  },
+};
+
 export default function ContactPage() {
+  const heroRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+
+  const heroY = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative py-16 lg:py-20 overflow-hidden bg-gradient-to-b from-slate-50 via-blue-50/30 to-white">
-        <div className="absolute inset-0 hero-pattern opacity-50" />
+      {/* Hero Section with Parallax */}
+      <section ref={heroRef} className="relative min-h-[70vh] flex items-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+        <FloatingParticles />
+        <WaveBackground />
         
-        <div className="absolute top-20 right-20 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl" />
+        {/* Animated gradient orbs */}
+        <motion.div
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.3, 0.5, 0.3],
+            x: [0, 50, 0],
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-gradient-to-br from-cyan-500/30 to-blue-500/30 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.2, 0.4, 0.2],
+            x: [0, -30, 0],
+          }}
+          transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute -bottom-20 -left-20 w-[400px] h-[400px] bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-3xl"
+        />
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Grid pattern */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBtLTEgMGExIDEgMCAxIDAgMiAwIDEgMSAwIDEgMCAtMiAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDgpIi8+PC9nPjwvc3ZnPg==')] opacity-50" />
+
+        <motion.div
+          style={{ y: heroY, opacity: heroOpacity }}
+          className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
+        >
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center max-w-3xl mx-auto"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="text-center max-w-4xl mx-auto"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full mb-6">
-              <MessageCircle size={18} className="text-blue-600" />
-              <span className="text-sm font-semibold text-blue-700">Contact Us</span>
-            </div>
+            <motion.div
+              variants={itemVariants}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-8"
+            >
+              <motion.div
+                animate={{ rotate: [0, 360] }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+              >
+                <MessageCircle size={20} className="text-cyan-400" />
+              </motion.div>
+              <span className="text-sm font-semibold text-cyan-300 tracking-wide uppercase">Get in Touch</span>
+            </motion.div>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Let&apos;s Start Your <span className="gradient-text">Compliance Journey</span>
-            </h1>
+            <motion.h1
+              variants={itemVariants}
+              className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight"
+            >
+              Let&apos;s Start Your{' '}
+              <span className="relative inline-block">
+                <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+                  Compliance Journey
+                </span>
+                <motion.span
+                  className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ delay: 0.8, duration: 0.8 }}
+                />
+              </span>
+            </motion.h1>
 
-            <p className="text-lg text-gray-600">
-              Get in touch with our experts for a free consultation. We&apos;re here to help you 
-              navigate the complexities of business compliance.
-            </p>
+            <motion.p
+              variants={itemVariants}
+              className="text-xl md:text-2xl text-blue-100/80 leading-relaxed max-w-3xl mx-auto mb-12"
+            >
+              Have questions about business registration, compliance, or certifications? 
+              Our team of experts is ready to assist you with a free consultation.
+            </motion.p>
+
+            {/* Quick action buttons */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap gap-4 justify-center"
+            >
+              {quickActions.map((action, index) => (
+                <motion.a
+                  key={action.label}
+                  href={action.href}
+                  whileHover={{ scale: 1.05, y: -3 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`inline-flex items-center gap-3 px-6 py-4 ${
+                    index === 0 
+                      ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/25' 
+                      : 'bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white/20'
+                  } rounded-full font-semibold transition-all`}
+                >
+                  <action.icon size={20} />
+                  {action.label}
+                </motion.a>
+              ))}
+            </motion.div>
+          </motion.div>
+        </motion.div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        >
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+            className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2"
+          >
+            <motion.div
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="w-1.5 h-3 bg-white/50 rounded-full"
+            />
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* Contact Cards Section */}
+      <section className="relative py-20 -mt-16 z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
+            {contactInfo.map((info, index) => (
+              <motion.div
+                key={info.title}
+                variants={itemVariants}
+                whileHover={{ 
+                  y: -12, 
+                  boxShadow: '0 25px 50px rgba(0,0,0,0.15)',
+                  transition: { duration: 0.3 }
+                }}
+                className="group relative bg-white rounded-3xl p-7 shadow-xl border border-gray-100 overflow-hidden"
+              >
+                {/* Animated gradient border on hover */}
+                <motion.div
+                  className={`absolute inset-0 bg-gradient-to-br ${info.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                />
+                
+                {/* Floating decoration */}
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                  className="absolute -top-10 -right-10 w-24 h-24 bg-gradient-to-br from-gray-100 to-gray-50 rounded-full opacity-50"
+                />
+
+                <div className="relative z-10">
+                  <motion.div
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.5 }}
+                    className={`w-14 h-14 mb-5 rounded-2xl bg-gradient-to-br ${info.gradient} flex items-center justify-center shadow-lg`}
+                  >
+                    <info.icon size={26} className="text-white" />
+                  </motion.div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">{info.title}</h3>
+                  {info.details.map((detail, i) => (
+                    <p key={i} className="text-gray-600">{detail}</p>
+                  ))}
+                  {info.action && (
+                    <motion.a
+                      href={info.action}
+                      whileHover={{ x: 5 }}
+                      className="inline-flex items-center gap-2 text-blue-600 font-semibold mt-4 group-hover:text-cyan-600 transition-colors"
+                    >
+                      Connect Now
+                      <ArrowRight size={18} />
+                    </motion.a>
+                  )}
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Contact Cards */}
-      <section className="py-8 bg-white">
-        <div className="mx-auto my-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 -mt-12">
-            {contactInfo.map((info, index) => (
+      {/* Services Highlight Section */}
+      <section className="py-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <motion.span
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="inline-block px-4 py-2 bg-gradient-to-r from-blue-100 to-cyan-100 text-blue-700 rounded-full text-sm font-semibold mb-6"
+            >
+              Our Expertise
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+            >
+              How Can We Help You?
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-gray-600 max-w-2xl mx-auto text-lg"
+            >
+              From starting a new business to obtaining technical certifications, 
+              we provide comprehensive compliance solutions.
+            </motion.p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {serviceHighlights.map((service, index) => (
               <motion.div
-                key={info.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow"
+                key={service.title}
+                initial={{ opacity: 0, y: 50, rotateY: index === 0 ? -10 : 10 }}
+                whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2, duration: 0.8 }}
+                whileHover={{ 
+                  scale: 1.03,
+                  transition: { duration: 0.3 }
+                }}
+                className="group relative bg-white rounded-3xl p-8 shadow-xl border border-gray-100 overflow-hidden"
               >
-                <div className="w-12 h-12 mb-4 rounded-xl bg-blue-50 flex items-center justify-center">
-                  <info.icon size={22} className="text-blue-600" />
+                {/* Animated background gradient */}
+                <motion.div
+                  className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                />
+                
+                {/* Decorative circle */}
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+                  className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-gray-100 to-white rounded-full"
+                />
+
+                <div className="relative z-10">
+                  <motion.div
+                    whileHover={{ rotate: 10, scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
+                    className={`w-16 h-16 mb-6 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-lg`}
+                  >
+                    <service.icon size={30} className="text-white" />
+                  </motion.div>
+                  
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+                  
+                  <div className="space-y-3">
+                    {service.features.map((feature, i) => (
+                      <motion.div
+                        key={feature}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 + i * 0.1 }}
+                        className="flex items-center gap-3"
+                      >
+                        <motion.div
+                          whileHover={{ scale: 1.2, rotate: 360 }}
+                          transition={{ duration: 0.3 }}
+                          className="w-6 h-6 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center flex-shrink-0"
+                        >
+                          <CheckCircle size={14} className="text-white" />
+                        </motion.div>
+                        <span className="text-gray-700 font-medium">{feature}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  <motion.div
+                    whileHover={{ x: 5 }}
+                    className="mt-6"
+                  >
+                    <Link
+                      href="/services"
+                      className={`inline-flex items-center gap-2 text-transparent bg-gradient-to-r ${service.gradient} bg-clip-text font-bold`}
+                    >
+                      Learn More
+                      <ArrowRight size={18} className="text-blue-600" />
+                    </Link>
+                  </motion.div>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{info.title}</h3>
-                {info.details.map((detail, i) => (
-                  <p key={i} className="text-gray-600 text-sm">{detail}</p>
-                ))}
-                {info.action && (
-                  <a href={info.action} className="text-blue-600 text-sm font-medium mt-3 inline-block hover:underline">
-                    Connect →
-                  </a>
-                )}
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Contact Form Section */}
-      {/* <section className="py-16 lg:py-20 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100"
-            >
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                Send us a Message
-              </h2>
-              <p className="text-gray-600 mb-6">
-                Fill out the form below and we&apos;ll get back to you within 24 hours.
-              </p>
+      {/* Why Contact Us Section */}
+      <section className="py-24 relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+        <FloatingParticles />
+        
+        {/* Animated background */}
+        <motion.div
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.1, 0.2, 0.1],
+          }}
+          transition={{ duration: 10, repeat: Infinity }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl"
+        />
 
-              <form className="space-y-5">
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1.5">Your Name *</label>
-                    <input
-                      type="text"
-                      placeholder="John Doe"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1.5">Phone Number *</label>
-                    <input
-                      type="tel"
-                      placeholder="1800 121 410 410"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1.5">Email Address *</label>
-                  <input
-                    type="email"
-                    placeholder="john@example.com"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1.5">Service Required *</label>
-                  <select className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all bg-white">
-                    <option value="">Select a service</option>
-                    <optgroup label="Corporate Services">
-                      <option value="company-registration">Company Registration</option>
-                      <option value="gst-registration">GST Registration</option>
-                      <option value="annual-compliance">Annual Compliance</option>
-                      <option value="fssai-license">FSSAI License</option>
-                      <option value="psara-license">PSARA License</option>
-                    </optgroup>
-                    <optgroup label="Technical Services">
-                      <option value="bis-registration">BIS Registration</option>
-                      <option value="aerb-registration">AERB Registration</option>
-                      <option value="epr-services">EPR Services</option>
-                      <option value="wpc-approval">WPC Approval</option>
-                    </optgroup>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1.5">Your Message</label>
-                  <textarea
-                    rows={4}
-                    placeholder="Tell us about your requirements..."
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all resize-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold shadow-lg shadow-blue-600/25 hover:shadow-xl transition-all flex items-center justify-center gap-2"
-                >
-                  <Send size={20} />
-                  Send Message
-                </button>
-              </form>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="space-y-6"
-            >
-              <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-6 text-white">
-                <h3 className="text-xl font-bold mb-5">Our Services</h3>
-                <div className="space-y-5">
-                  {services.map((service) => (
-                    <div key={service.category}>
-                      <div className="flex items-center gap-2 mb-2">
-                        {service.category === 'Corporate Services' ? (
-                          <Building2 size={18} className="text-cyan-300" />
-                        ) : (
-                          <Cpu size={18} className="text-cyan-300" />
-                        )}
-                        <span className="font-semibold text-cyan-200">{service.category}</span>
-                      </div>
-                      <ul className="grid grid-cols-2 gap-1.5">
-                        {service.items.map((item) => (
-                          <li key={item} className="text-sm text-blue-100">• {item}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl p-6 text-white">
-                <h3 className="text-xl font-bold mb-3">Quick Connect via WhatsApp</h3>
-                <p className="text-green-100 mb-5 text-sm">
-                  Get instant response on WhatsApp. Our team is available to assist you.
-                </p>
-                <a
-                  href="https://wa.me/919876543210?text=Hi, I need assistance with compliance services"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-green-600 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all"
-                >
-                  <MessageCircle size={18} />
-                  Chat on WhatsApp
-                </a>
-              </div>
-
-              <div className="bg-gray-100 rounded-2xl h-48 flex items-center justify-center border border-gray-200">
-                <div className="text-center">
-                  <MapPin size={36} className="text-gray-400 mx-auto mb-2" />
-                  <p className="text-gray-500 text-sm font-medium">123 Business Hub, Sector 5</p>
-                  <p className="text-gray-400 text-sm">New Delhi, India - 110001</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* CTA Section */}
-      <section className="py-16 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="text-center mb-16"
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Have Questions?
-            </h2>
-            <p className="text-gray-600 mb-8 max-w-xl mx-auto">
-              Check out our service pages for detailed information and FAQs, or give us a call!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:+919876543210"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full font-semibold shadow-lg shadow-blue-600/25 hover:shadow-xl transition-all"
+            <motion.span
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 text-cyan-300 rounded-full text-sm font-semibold mb-6"
+            >
+              Why Choose JR Compliance
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-4xl md:text-5xl font-bold text-white mb-6"
+            >
+              Experience the Difference
+            </motion.h2>
+          </motion.div>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto"
+          >
+            {[
+              { icon: Shield, text: 'Expert Team of CAs, CS & Lawyers' },
+              { icon: Zap, text: 'Quick Turnaround Time' },
+              { icon: CheckCircle, text: 'Transparent Pricing' },
+              { icon: Users, text: 'Dedicated Relationship Manager' },
+              { icon: MapPin, text: 'Pan-India Service Coverage' },
+              { icon: Headphones, text: '24/7 Customer Support' },
+            ].map((item, index) => (
+              <motion.div
+                key={item.text}
+                variants={itemVariants}
+                whileHover={{ 
+                  scale: 1.05, 
+                  backgroundColor: 'rgba(255,255,255,0.15)',
+                  transition: { duration: 0.2 }
+                }}
+                className="flex items-center gap-4 p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl cursor-pointer group"
               >
-                <Phone size={20} />
-                Call: 1800 121 410 410
-              </a>
-              <a
-                href="mailto:info@jrcompliance.com"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-gray-200 text-gray-700 rounded-full font-semibold hover:border-blue-500 hover:text-blue-600 transition-all bg-white"
-              >
-                <Mail size={20} />
-                Email Us
-              </a>
+                <motion.div
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                  className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/30 to-blue-500/30 flex items-center justify-center flex-shrink-0"
+                >
+                  <item.icon size={24} className="text-cyan-400" />
+                </motion.div>
+                <span className="text-white font-medium text-lg group-hover:text-cyan-300 transition-colors">{item.text}</span>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 rounded-[2.5rem] p-12 md:p-16 overflow-hidden shadow-2xl"
+          >
+            {/* Decorative elements */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+              className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"
+            />
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
+              className="absolute bottom-0 left-0 w-48 h-48 bg-cyan-400/20 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"
+            />
+
+            <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <motion.div
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ type: 'spring', stiffness: 200 }}
+                  className="w-16 h-16 mb-6 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center"
+                >
+                  <Sparkles size={28} className="text-yellow-300" />
+                </motion.div>
+
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  className="text-4xl md:text-5xl font-bold text-white mb-6"
+                >
+                  Ready to Get Started?
+                </motion.h2>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="text-blue-100 text-xl leading-relaxed"
+                >
+                  Contact us today for a free consultation. Our experts are available 
+                  to guide you through the entire compliance process.
+                </motion.p>
+              </div>
+
+              <div className="space-y-4">
+                <motion.a
+                  href="tel:1800121410410"
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  whileHover={{ scale: 1.03, x: 5 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="flex items-center gap-4 p-5 bg-white rounded-2xl shadow-lg group"
+                >
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
+                    <Phone size={24} className="text-white" />
+                  </div>
+                  <div>
+                    <div className="text-sm text-gray-500 font-medium">Toll Free Number</div>
+                    <div className="text-xl font-bold text-gray-900">1800-121-410-410</div>
+                  </div>
+                  <ArrowRight size={24} className="ml-auto text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
+                </motion.a>
+
+                <motion.a
+                  href="mailto:support@jrcompliance.com"
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 }}
+                  whileHover={{ scale: 1.03, x: 5 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="flex items-center gap-4 p-5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl group"
+                >
+                  <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center">
+                    <Mail size={24} className="text-white" />
+                  </div>
+                  <div>
+                    <div className="text-sm text-blue-200 font-medium">Email Us</div>
+                    <div className="text-xl font-bold text-white">support@jrcompliance.com</div>
+                  </div>
+                  <ArrowRight size={24} className="ml-auto text-white/50 group-hover:text-white group-hover:translate-x-1 transition-all" />
+                </motion.a>
+              </div>
             </div>
           </motion.div>
         </div>
