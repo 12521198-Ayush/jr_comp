@@ -1,9 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, ChevronDown, Phone, ArrowRight, Search, Building2, FileText, Globe, Shield, Lightbulb, UtensilsCrossed, TrendingUp, Calculator, Users, Coins, Cpu, Factory, Radio, Wifi } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, ArrowRight, Search, Building2, FileText, Globe, Shield, Lightbulb, UtensilsCrossed, TrendingUp, Calculator, Users, Coins, Cpu, Factory, Radio, Wifi, Home } from 'lucide-react';
 
 // Corporate Services Categories
 const corporateCategories = [
@@ -268,7 +269,7 @@ export default function Header() {
   const filteredTechnicalItems = getFilteredItems(technicalCategories);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <header className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-300 ${
       isScrolled 
         ? 'bg-slate-900/95 backdrop-blur-xl shadow-lg shadow-black/10 border-b border-white/5' 
         : 'bg-transparent'
@@ -618,171 +619,271 @@ export default function Header() {
             className="lg:hidden p-2 text-white/80 hover:text-white transition-colors"
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            <Menu size={24} />
           </button>
         </div>
       </nav>
 
-      {/* Mobile Menu */}
-      <div className={`lg:hidden fixed inset-0 top-16 bg-slate-900/98 backdrop-blur-xl transition-all duration-300 ${
-        isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-      }`}>
-        <div className="h-full overflow-y-auto pb-24">
-          <div className="px-3 py-4 space-y-2">
+      {/* Mobile Menu Modal - Rendered via Portal */}
+      <MobileMenuModal 
+        isOpen={isMobileMenuOpen} 
+        onClose={() => setIsMobileMenuOpen(false)}
+        mobileActiveSection={mobileActiveSection}
+        setMobileActiveSection={setMobileActiveSection}
+      />
+    </header>
+  );
+}
+
+// Mobile Menu Modal Component
+function MobileMenuModal({ 
+  isOpen, 
+  onClose,
+  mobileActiveSection,
+  setMobileActiveSection
+}: { 
+  isOpen: boolean; 
+  onClose: () => void;
+  mobileActiveSection: string | null;
+  setMobileActiveSection: (section: string | null) => void;
+}) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
+  // Handle escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    if (isOpen) {
+      window.addEventListener('keydown', handleEscape);
+    }
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [isOpen, onClose]);
+
+  if (!mounted) return null;
+
+  const modalContent = (
+    <div 
+      className={`fixed inset-0 transition-all duration-300 ${
+        isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+      }`}
+      style={{ zIndex: 99999 }}
+    >
+      {/* Backdrop */}
+      <div 
+        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+        onClick={onClose}
+      />
+      
+      {/* Modal Content */}
+      <div 
+        className={`absolute inset-x-0 top-0 bg-slate-900 max-h-[100vh] overflow-hidden transform transition-transform duration-300 ${
+          isOpen ? 'translate-y-0' : '-translate-y-full'
+        }`}
+      >
+        {/* Modal Header */}
+        <div className="flex items-center justify-between px-4 py-4 border-b border-white/10 bg-slate-900">
+          <Link href="/" onClick={onClose} className="flex items-center">
+            <Image
+              src="/JRlogo.png"
+              alt="JR Compliance"
+              width={140}
+              height={36}
+              className="w-auto h-9 object-contain brightness-0 invert"
+            />
+          </Link>
+          <button
+            onClick={onClose}
+            className="p-2 text-white/80 hover:text-white transition-colors rounded-lg hover:bg-white/10"
+            aria-label="Close menu"
+          >
+            <X size={24} />
+          </button>
+        </div>
+
+        {/* Scrollable Content */}
+        <div className="overflow-y-auto max-h-[calc(100vh-80px)] bg-slate-900">
+          <div className="px-4 py-4 space-y-3">
             {/* Home */}
             <Link
               href="/"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center gap-2 px-3 py-3 text-white font-medium text-base rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+              onClick={onClose}
+              className="flex items-center gap-3 px-4 py-3 text-white font-medium text-base rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
             >
-              <div className="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">
-                <Building2 size={16} className="text-blue-400" />
+              <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center">
+                <Home size={20} className="text-blue-400" />
               </div>
-              Home
+              <span>Home</span>
             </Link>
 
             {/* Corporate Services */}
-            <div className="rounded-xl border border-white/10 overflow-hidden">
+            <div className="rounded-xl border border-white/10 overflow-hidden bg-white/[0.02]">
               <button
                 onClick={() => setMobileActiveSection(mobileActiveSection === 'corporate' ? null : 'corporate')}
-                className="w-full flex items-center justify-between px-3 py-3 text-white font-semibold text-base bg-blue-600/10 hover:bg-blue-600/20 transition-colors"
+                className="w-full flex items-center justify-between px-4 py-3 text-white font-semibold text-base hover:bg-white/5 transition-colors"
               >
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">
-                    <FileText size={16} className="text-blue-400" />
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center">
+                    <FileText size={20} className="text-blue-400" />
                   </div>
-                  <span>Corporate Services</span>
+                  <div className="text-left">
+                    <span className="block">Corporate Services</span>
+                    <span className="text-xs text-white/50 font-normal">100+ Services</span>
+                  </div>
                 </div>
-                <ChevronDown size={20} className={`transition-transform duration-200 text-blue-400 ${mobileActiveSection === 'corporate' ? 'rotate-180' : ''}`} />
+                <ChevronDown size={20} className={`transition-transform duration-300 text-blue-400 ${mobileActiveSection === 'corporate' ? 'rotate-180' : ''}`} />
               </button>
-              <div className={`overflow-hidden transition-all duration-300 ${
-                mobileActiveSection === 'corporate' ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
-              }`}>
-                <div className="p-2 space-y-2 bg-white/[0.02] max-h-[360px] overflow-y-auto">
-                  {corporateCategories.map((category) => {
-                    const IconComponent = category.icon;
-                    return (
-                      <div key={category.id} className="rounded-lg border border-white/5 overflow-hidden">
-                        <div className="flex items-center gap-2 px-3 py-2 bg-white/5">
-                          <div className="w-6 h-6 rounded bg-blue-500/20 flex items-center justify-center">
-                            <IconComponent size={12} className="text-blue-400" />
+              
+              {mobileActiveSection === 'corporate' && (
+                <div className="border-t border-white/10 max-h-[50vh] overflow-y-auto">
+                  <div className="p-3 space-y-2">
+                    {corporateCategories.map((category) => {
+                      const IconComponent = category.icon;
+                      return (
+                        <div key={category.id} className="rounded-lg border border-white/5 overflow-hidden">
+                          <div className="flex items-center gap-2 px-3 py-2.5 bg-blue-500/10">
+                            <div className="w-7 h-7 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                              <IconComponent size={14} className="text-blue-400" />
+                            </div>
+                            <span className="text-blue-400 font-medium text-sm">{category.name}</span>
+                            <span className="ml-auto text-[10px] text-white/50 bg-white/10 px-2 py-0.5 rounded-full">{category.items.length}</span>
                           </div>
-                          <span className="text-blue-400 font-medium text-sm">{category.name}</span>
-                          <span className="ml-auto text-[10px] text-white/40 bg-white/5 px-1.5 py-0.5 rounded-full">{category.items.length}</span>
+                          <div className="p-2 space-y-1 bg-slate-900/50">
+                            {category.items.map((item) => (
+                              <Link
+                                key={item.href}
+                                href={item.href}
+                                onClick={onClose}
+                                className="flex items-center justify-between px-3 py-2.5 text-white/80 hover:text-white text-sm rounded-lg hover:bg-white/5 transition-colors"
+                              >
+                                <span>{item.name}</span>
+                                <ArrowRight size={14} className="text-white/30" />
+                              </Link>
+                            ))}
+                          </div>
                         </div>
-                        <div className="p-1 space-y-0.5 max-h-32 overflow-y-auto">
-                          {category.items.map((item) => (
-                            <Link
-                              key={item.href}
-                              href={item.href}
-                              onClick={() => setIsMobileMenuOpen(false)}
-                              className="flex items-center justify-between px-3 py-2 text-white/80 hover:text-white text-sm rounded hover:bg-white/5 transition-colors"
-                            >
-                              <span>{item.name}</span>
-                              <ArrowRight size={12} className="text-white/30" />
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
 
             {/* Technical Services */}
-            <div className="rounded-xl border border-white/10 overflow-hidden">
+            <div className="rounded-xl border border-white/10 overflow-hidden bg-white/[0.02]">
               <button
                 onClick={() => setMobileActiveSection(mobileActiveSection === 'technical' ? null : 'technical')}
-                className="w-full flex items-center justify-between px-3 py-3 text-white font-semibold text-base bg-cyan-600/10 hover:bg-cyan-600/20 transition-colors"
+                className="w-full flex items-center justify-between px-4 py-3 text-white font-semibold text-base hover:bg-white/5 transition-colors"
               >
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center">
-                    <Cpu size={16} className="text-cyan-400" />
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center">
+                    <Cpu size={20} className="text-cyan-400" />
                   </div>
-                  <span>Technical Services</span>
+                  <div className="text-left">
+                    <span className="block">Technical Services</span>
+                    <span className="text-xs text-white/50 font-normal">Certifications & Approvals</span>
+                  </div>
                 </div>
-                <ChevronDown size={20} className={`transition-transform duration-200 text-cyan-400 ${mobileActiveSection === 'technical' ? 'rotate-180' : ''}`} />
+                <ChevronDown size={20} className={`transition-transform duration-300 text-cyan-400 ${mobileActiveSection === 'technical' ? 'rotate-180' : ''}`} />
               </button>
-              <div className={`overflow-hidden transition-all duration-300 ${
-                mobileActiveSection === 'technical' ? 'max-h-[350px] opacity-100' : 'max-h-0 opacity-0'
-              }`}>
-                <div className="p-2 space-y-2 bg-white/[0.02] max-h-[310px] overflow-y-auto">
-                  {technicalCategories.map((category) => {
-                    const IconComponent = category.icon;
-                    return (
-                      <div key={category.id} className="rounded-lg border border-white/5 overflow-hidden">
-                        <div className="flex items-center gap-2 px-3 py-2 bg-white/5">
-                          <div className="w-6 h-6 rounded bg-cyan-500/20 flex items-center justify-center">
-                            <IconComponent size={12} className="text-cyan-400" />
+              
+              {mobileActiveSection === 'technical' && (
+                <div className="border-t border-white/10 max-h-[50vh] overflow-y-auto">
+                  <div className="p-3 space-y-2">
+                    {technicalCategories.map((category) => {
+                      const IconComponent = category.icon;
+                      return (
+                        <div key={category.id} className="rounded-lg border border-white/5 overflow-hidden">
+                          <div className="flex items-center gap-2 px-3 py-2.5 bg-cyan-500/10">
+                            <div className="w-7 h-7 rounded-lg bg-cyan-500/20 flex items-center justify-center">
+                              <IconComponent size={14} className="text-cyan-400" />
+                            </div>
+                            <span className="text-cyan-400 font-medium text-sm">{category.name}</span>
+                            <span className="ml-auto text-[10px] text-white/50 bg-white/10 px-2 py-0.5 rounded-full">{category.items.length}</span>
                           </div>
-                          <span className="text-cyan-400 font-medium text-sm">{category.name}</span>
-                          <span className="ml-auto text-[10px] text-white/40 bg-white/5 px-1.5 py-0.5 rounded-full">{category.items.length}</span>
+                          <div className="p-2 space-y-1 bg-slate-900/50">
+                            {category.items.map((item) => (
+                              <Link
+                                key={item.href}
+                                href={item.href}
+                                onClick={onClose}
+                                className="flex items-center justify-between px-3 py-2.5 text-white/80 hover:text-white text-sm rounded-lg hover:bg-white/5 transition-colors"
+                              >
+                                <span>{item.name}</span>
+                                <ArrowRight size={14} className="text-white/30" />
+                              </Link>
+                            ))}
+                          </div>
                         </div>
-                        <div className="p-1 space-y-0.5 max-h-28 overflow-y-auto">
-                          {category.items.map((item) => (
-                            <Link
-                              key={item.href}
-                              href={item.href}
-                              onClick={() => setIsMobileMenuOpen(false)}
-                              className="flex items-center justify-between px-3 py-2 text-white/80 hover:text-white text-sm rounded hover:bg-white/5 transition-colors"
-                            >
-                              <span>{item.name}</span>
-                              <ArrowRight size={12} className="text-white/30" />
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
 
             {/* About */}
             <Link
               href="/about"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center gap-2 px-3 py-3 text-white font-medium text-base rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+              onClick={onClose}
+              className="flex items-center gap-3 px-4 py-3 text-white font-medium text-base rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
             >
-              <div className="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center">
-                <Users size={16} className="text-purple-400" />
+              <div className="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center">
+                <Users size={20} className="text-purple-400" />
               </div>
-              About Us
+              <span>About Us</span>
             </Link>
 
             {/* Contact */}
             <Link
               href="/contact"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center gap-2 px-3 py-3 text-white font-medium text-base rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+              onClick={onClose}
+              className="flex items-center gap-3 px-4 py-3 text-white font-medium text-base rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
             >
-              <div className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center">
-                <Phone size={16} className="text-emerald-400" />
+              <div className="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center">
+                <Phone size={20} className="text-emerald-400" />
               </div>
-              Contact Us
+              <span>Contact Us</span>
             </Link>
 
-            {/* Mobile CTA */}
-            <div className="pt-3 space-y-2">
+            {/* CTA Section */}
+            <div className="pt-4 space-y-3 border-t border-white/10 mt-4">
               <a
                 href="tel:1800121410410"
-                className="flex items-center justify-center gap-2 w-full px-3 py-3 bg-white/5 border border-white/10 text-white font-medium text-base rounded-lg hover:bg-white/10 transition-colors"
+                className="flex items-center justify-center gap-2 w-full px-4 py-3.5 bg-white/5 border border-white/10 text-white font-medium text-base rounded-xl hover:bg-white/10 transition-colors"
               >
-                <Phone size={18} />
+                <Phone size={20} />
                 <span>1800-121-410-410</span>
               </a>
               <Link
                 href="/contact"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block w-full px-3 py-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white text-center font-bold text-base rounded-lg transition-colors shadow-lg shadow-blue-500/20"
+                onClick={onClose}
+                className="flex items-center justify-center gap-2 w-full px-4 py-3.5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white text-center font-bold text-base rounded-xl transition-colors shadow-lg shadow-blue-500/25"
               >
-                Get Started Today
+                <span>Get Started Today</span>
+                <ArrowRight size={18} />
               </Link>
             </div>
           </div>
         </div>
       </div>
-    </header>
+    </div>
   );
+
+  return createPortal(modalContent, document.body);
 }
