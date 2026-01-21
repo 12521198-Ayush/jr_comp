@@ -103,7 +103,7 @@ export default function ServicePageTemplate({
         href="https://wa.me/919266450125"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center shadow-2xl shadow-green-500/30 hover:scale-110 transition-transform"
+        className="fixed bottom-20 right-6 z-50 w-14 h-14 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center shadow-2xl shadow-green-500/30 hover:scale-110 transition-transform"
         aria-label="Chat on WhatsApp"
       >
         <MessageCircle size={26} className="text-white" />
@@ -153,19 +153,19 @@ export default function ServicePageTemplate({
               </p>
 
               {/* Stats Row */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+              {/* <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 mb-10">
                 {stats.map((stat, index) => (
-                  <div key={index} className="text-center p-4 rounded-xl bg-white/5 border border-white/5">
-                    <div className={`text-2xl font-bold ${colors.text} flex items-center justify-center gap-1`}>
+                  <div key={index} className="text-center p-5 sm:p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/15 transition-all">
+                    <div className={`text-3xl sm:text-4xl font-bold ${colors.text} flex items-center justify-center gap-2`}>
                       {stat.value}
                       {stat.label.toLowerCase().includes('rating') && (
-                        <Star size={16} className="text-amber-400 fill-amber-400" />
+                        <Star size={22} className="text-amber-400 fill-amber-400" />
                       )}
                     </div>
-                    <p className="text-xs text-gray-500 mt-1">{stat.label}</p>
+                    <p className="text-sm text-gray-400 mt-2 font-medium">{stat.label}</p>
                   </div>
                 ))}
-              </div>
+              </div> */}
 
               {/* Why Choose Section */}
               <div className="hidden lg:block">
@@ -529,18 +529,40 @@ export default function ServicePageTemplate({
       </section>
 
       {/* Sticky Bottom Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 bg-slate-900/95 backdrop-blur-xl border-t border-white/10 py-3 px-4 lg:hidden">
-        <div className="flex items-center justify-between max-w-7xl mx-auto">
-          <div>
-            <p className="text-sm text-gray-400">Get {title},</p>
-            <p className="text-white font-semibold">Starting At ₹18,000*/year</p>
+      <div className="fixed bottom-0 left-0 right-0 z-40 bg-slate-900/95 backdrop-blur-xl border-t border-white/10 py-3 px-4">
+        <div className="flex items-center justify-between max-w-7xl mx-auto gap-4">
+          {/* Left - Pricing Info */}
+          <div className="hidden sm:block">
+            <p className="text-sm sm:text-base text-white font-semibold">
+              Get <span className={colors.text}>Expert Assistance</span>,
+            </p>
+            <p className="text-gray-400 text-xs sm:text-sm">Starting At <span className="text-white font-bold">₹18,000*</span>/year</p>
           </div>
+
+          {/* Center - Service Info (hidden on mobile) */}
+          <div className="hidden md:flex items-center gap-3 px-4 py-2 rounded-xl bg-white/5 border border-white/10">
+            <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${colors.gradient} flex items-center justify-center`}>
+              <Icon size={20} className="text-white" />
+            </div>
+            <div>
+              <p className="text-white font-semibold text-sm">{title}</p>
+              <p className="text-gray-400 text-xs">{subtitle}</p>
+            </div>
+          </div>
+
+          {/* Mobile - Simple text */}
+          <div className="sm:hidden">
+            <p className="text-white font-semibold text-sm">{title}</p>
+            <p className="text-gray-400 text-xs">Starting At ₹18,000*/year</p>
+          </div>
+
+          {/* Right - CTA Button */}
           <a
             href="tel:1800121410410"
-            className={`flex items-center gap-2 px-6 py-3 bg-gradient-to-r ${colors.gradient} text-white font-semibold rounded-xl shadow-lg`}
+            className="flex items-center gap-2 px-5 sm:px-8 py-3 bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-slate-900 font-bold rounded-xl shadow-lg shadow-amber-500/20 transition-all"
           >
-            <span>Get Quotes</span>
-            <ArrowRight size={18} />
+            <span className="text-sm sm:text-base">Get Quotes</span>
+            <Sparkles size={18} />
           </a>
         </div>
       </div>

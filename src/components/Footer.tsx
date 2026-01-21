@@ -168,12 +168,18 @@ export default function Footer() {
 
           {/* Disclaimer */}
           <div className="pt-8 border-t border-white/10">
-            <p className="text-gray-500 text-xs leading-relaxed mb-6">
-              <span className="font-medium text-gray-400">Disclaimer:</span> JR Compliance Pvt. Ltd. | 
-              Registered Office: 123, Business Tower, Sector 18, New Delhi - 110001 | 
-              Phone: +91-1800-121-410-410 | Email: info@jrcompliance.com | 
-              *The prices shown are estimates. Actual prices may vary based on your business details and requirements.
-            </p>
+            <div className="mb-6 p-4 rounded-xl bg-white/5 border border-white/10">
+              <h5 className="font-semibold text-gray-300 text-sm mb-2">Disclaimer</h5>
+              <p className="text-gray-500 text-xs leading-relaxed mb-3">
+                To all whom it may concern, JR Compliance is not liable for any direct, indirect, incidental, special, or consequential damages from the use of any information contained on our website or from any action/decision taken as a result of using the site.
+              </p>
+              <p className="text-gray-500 text-xs leading-relaxed mb-3">
+                The information provided on this website is with the sole intention to give information, not a professional opinion. Moreover, our website might include copyrighted material that may or may not have been specifically authorized by the owner; however, it is used for the purpose of providing information. That constitutes a &quot;fair means&quot; under Section 52 of the Copyright Act, 1957.
+              </p>
+              <p className="text-gray-500 text-xs leading-relaxed">
+                We do not promote or provide any government-issued documents. We are a private compliance consultancy firm offering professional guidance and support to business owners in obtaining the relevant certifications from the respective government authorities.
+              </p>
+            </div>
             
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-gray-500 text-sm">

@@ -28,13 +28,11 @@ export default function WhyChooseUs() {
             className="relative order-2 lg:order-1"
           >
             <div className="aspect-square lg:aspect-[4/3] rounded-3xl bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden">
-              <div className="text-center">
-                <div className="w-24 h-24 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center shadow-xl">
-                  <Award size={48} className="text-white" />
-                </div>
-                <p className="text-gray-400 font-medium">JR Compliance</p>
-                <p className="text-gray-300 text-sm">Your Trusted Partner</p>
-              </div>
+              <img 
+                src="/banner.png" 
+                alt="JR Compliance Banner" 
+                className="w-full h-full object-cover"
+              />
             </div>
             {/* Decorative Badge */}
             <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-xl">

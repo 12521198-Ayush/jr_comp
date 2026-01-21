@@ -383,11 +383,50 @@ export default function Hero() {
         href="https://wa.me/919266450125?text=Hi%2C%20I%20need%20help%20with%20compliance%20services"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center shadow-2xl shadow-green-500/30 hover:scale-110 transition-transform"
+        className="fixed bottom-20 right-6 z-50 w-14 h-14 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center shadow-2xl shadow-green-500/30 hover:scale-110 transition-transform"
         aria-label="Chat on WhatsApp"
       >
         <MessageCircle size={26} className="text-white" />
       </a>
+
+      {/* Sticky Bottom Bar */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 bg-slate-900/95 backdrop-blur-xl border-t border-white/10 py-3 px-4">
+        <div className="flex items-center justify-between max-w-7xl mx-auto gap-4">
+          {/* Left - Pricing Info */}
+          <div className="hidden sm:block">
+            <p className="text-sm sm:text-base text-white font-semibold">
+              Get <span className="text-cyan-400">Expert Assistance</span>
+            </p>
+            <p className="text-gray-400 text-xs sm:text-sm">Starting At <span className="text-white font-bold">₹999*</span> only</p>
+          </div>
+
+          {/* Center - Trust Badge (hidden on mobile) */}
+          <div className="hidden md:flex items-center gap-3 px-4 py-2 rounded-xl bg-white/5 border border-white/10">
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
+              <Shield size={20} className="text-white" />
+            </div>
+            <div>
+              <p className="text-white font-semibold text-sm">100+ Services</p>
+              <p className="text-gray-400 text-xs">BIS, FSSAI, GST & More</p>
+            </div>
+          </div>
+
+          {/* Mobile - Simple text */}
+          <div className="sm:hidden">
+            <p className="text-white font-semibold text-sm">JR Compliance</p>
+            <p className="text-gray-400 text-xs">Starting At ₹999* only</p>
+          </div>
+
+          {/* Right - CTA Button */}
+          <Link
+            href="/contact"
+            className="flex items-center gap-2 px-5 sm:px-8 py-3 bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-slate-900 font-bold rounded-xl shadow-lg shadow-amber-500/20 transition-all"
+          >
+            <span className="text-sm sm:text-base">Get Quotes</span>
+            <ArrowRight size={18} />
+          </Link>
+        </div>
+      </div>
     </section>
   );
 }

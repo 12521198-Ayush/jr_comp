@@ -2,7 +2,8 @@
 
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import Link from 'next/link';
-import { Award, Users, Target, Heart, CheckCircle, ArrowRight, Building2, Cpu, Shield, Zap, Sparkles, Globe, TrendingUp, Clock, FileCheck } from 'lucide-react';
+import { Award, Users, Target, Heart, CheckCircle, ArrowRight, Building2, Cpu, Shield, Zap, Sparkles, Globe, TrendingUp, Clock, FileCheck, Linkedin, Mail } from 'lucide-react';
+import Image from 'next/image';
 import { useRef, useEffect, useState } from 'react';
 
 // Animated counter component
@@ -97,6 +98,33 @@ const values = [
     title: 'Reliability',
     description: 'Consistent, dependable service delivery with dedicated support throughout your compliance journey.',
     gradient: 'from-emerald-500 to-teal-500',
+  },
+];
+
+const teamMembers = [
+  {
+    name: 'Rishikesh Mishra',
+    role: 'CEO',
+    image: '/team/Rishikesh Mishra.png',
+    description: 'Leading JR Compliance with a vision to simplify regulatory processes for businesses across India.',
+  },
+  {
+    name: 'Jai Kumar',
+    role: 'Director',
+    image: '/team/Jai Kumar.png',
+    description: 'Driving strategic growth and business development across all compliance services.',
+  },
+  {
+    name: 'Lalit',
+    role: 'Technical Director',
+    image: '/team/Lalit.png',
+    description: 'Expert in technical certifications including BIS, WPC, and TEC approvals.',
+  },
+  {
+    name: 'Siddharth',
+    role: 'Admin',
+    image: '/team/siddharth.png',
+    description: 'Ensures smooth operations and timely delivery of all compliance services.',
   },
 ];
 
@@ -500,6 +528,85 @@ export default function AboutPage() {
                   </h3>
                   <p className="text-gray-600 text-center leading-relaxed">{value.description}</p>
                 </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="py-24 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <motion.span
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="inline-block px-4 py-2 bg-gradient-to-r from-blue-100 to-cyan-100 text-blue-700 rounded-full text-sm font-semibold mb-6"
+            >
+              Meet Our Team
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+            >
+              The Experts Behind Your Success
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-gray-600 max-w-2xl mx-auto text-lg"
+            >
+              Our dedicated team of professionals brings years of experience and expertise to help your business thrive.
+            </motion.p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {teamMembers.map((member, index) => (
+              <motion.div
+                key={member.name}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15, type: 'spring', stiffness: 100 }}
+                whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                className="group relative bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300"
+              >
+                {/* Image Container */}
+                <div className="relative h-72 overflow-hidden bg-gradient-to-br from-blue-50 to-cyan-50">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                  />
+                  {/* Gradient overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">
+                    {member.name}
+                  </h3>
+                  <p className="text-blue-600 font-medium text-sm mb-3">{member.role}</p>
+                  <p className="text-gray-500 text-sm leading-relaxed">{member.description}</p>
+                </div>
+
+                {/* Decorative gradient border on hover */}
+                <motion.div
+                  className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+                />
               </motion.div>
             ))}
           </div>
