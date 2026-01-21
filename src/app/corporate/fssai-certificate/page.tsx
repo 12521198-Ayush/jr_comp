@@ -138,7 +138,7 @@ export default function FSSAIModificationPage() {
               </h1>
 
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="mb-6">
-                <p className="text-2xl md:text-3xl font-light text-gray-700">Update Your License,{' '}<span className="font-semibold text-gray-900">Starting at ₹2,999*</span></p>
+                <p className="text-2xl md:text-3xl font-light text-gray-700">Update Your License{' '}<span className="font-semibold text-gray-900">Hassle-Free</span></p>
               </motion.div>
 
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="inline-flex items-center gap-3 px-5 py-3 bg-green-50 rounded-xl border border-green-200 mb-8">

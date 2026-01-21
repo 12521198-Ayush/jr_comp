@@ -43,7 +43,7 @@ export default function CTA() {
               { value: '5000+', label: 'Certifications Done', icon: BadgeCheck },
               { value: '25+', label: 'Services', icon: Award },
               { value: '500+', label: 'Businesses Served', icon: Building2 },
-              { value: '₹50 Cr.', label: 'Saved for Clients', icon: Users },
+              { value: '10+', label: 'Years Experience', icon: Users },
             ].map((stat, index) => (
               <div key={index} className="flex items-center gap-2 text-white/90">
                 <span className="text-lg lg:text-xl font-bold">{stat.value}</span>

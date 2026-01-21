@@ -536,7 +536,6 @@ export default function ServicePageTemplate({
             <p className="text-sm sm:text-base text-white font-semibold">
               Get <span className={colors.text}>Expert Assistance</span>,
             </p>
-            <p className="text-gray-400 text-xs sm:text-sm">Starting At <span className="text-white font-bold">₹18,000*</span>/year</p>
           </div>
 
           {/* Center - Service Info (hidden on mobile) */}
@@ -553,7 +552,7 @@ export default function ServicePageTemplate({
           {/* Mobile - Simple text */}
           <div className="sm:hidden">
             <p className="text-white font-semibold text-sm">{title}</p>
-            <p className="text-gray-400 text-xs">Starting At ₹18,000*/year</p>
+            
           </div>
 
           {/* Right - CTA Button */}

@@ -392,12 +392,12 @@ export default function Hero() {
       {/* Sticky Bottom Bar */}
       <div className="fixed bottom-0 left-0 right-0 z-40 bg-slate-900/95 backdrop-blur-xl border-t border-white/10 py-3 px-4">
         <div className="flex items-center justify-between max-w-7xl mx-auto gap-4">
-          {/* Left - Pricing Info */}
+          {/* Left - Info */}
           <div className="hidden sm:block">
             <p className="text-sm sm:text-base text-white font-semibold">
               Get <span className="text-cyan-400">Expert Assistance</span>
             </p>
-            <p className="text-gray-400 text-xs sm:text-sm">Starting At <span className="text-white font-bold">₹999*</span> only</p>
+            <p className="text-gray-400 text-xs sm:text-sm">Free Consultation Available</p>
           </div>
 
           {/* Center - Trust Badge (hidden on mobile) */}
@@ -414,7 +414,6 @@ export default function Hero() {
           {/* Mobile - Simple text */}
           <div className="sm:hidden">
             <p className="text-white font-semibold text-sm">JR Compliance</p>
-            <p className="text-gray-400 text-xs">Starting At ₹999* only</p>
           </div>
 
           {/* Right - CTA Button */}
