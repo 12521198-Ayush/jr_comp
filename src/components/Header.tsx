@@ -4,156 +4,139 @@ import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, ChevronDown, Phone, ArrowRight, Search, Building2, FileText, Globe, Shield, Lightbulb, UtensilsCrossed, TrendingUp, Calculator, Users, Coins, Cpu, Factory, Radio, Wifi, Home } from 'lucide-react';
+import { Menu, X, ChevronDown, ChevronRight, Phone, ArrowRight, Search, Building2, FileText, Globe, Shield, Lightbulb, UtensilsCrossed, TrendingUp, Calculator, Users, Coins, Cpu, Factory, Radio, Wifi, Home, MessageCircle } from 'lucide-react';
 
 // Corporate Services Categories
 const corporateCategories = [
   {
     id: 'company-registration',
     name: 'Company Registration',
+    description: 'Register your business entity with complete legal compliance',
     icon: Building2,
     items: [
-      { name: 'Private Limited Company', href: '/corporate/private-limited-company-registration-consultant' },
-      { name: 'Public Limited Company', href: '/corporate/public-limited-company-registration' },
-      { name: 'One Person Company', href: '/corporate/opc-registration' },
-      { name: 'LLP Registration', href: '/corporate/llp-registration' },
-      { name: 'Partnership Firm', href: '/corporate/partnership-firm-registration' },
-      { name: 'Section 8 Company', href: '/corporate/section-8-company-registration' },
-      { name: 'Nidhi Company', href: '/corporate/nidhi-company-registration' },
-      { name: 'Producer Company', href: '/corporate/producer-company-registration' },
-      { name: 'Society Registration', href: '/corporate/society-registration' },
-      { name: 'Trust Registration', href: '/corporate/trust-registration' },
-      { name: 'NGO Registration', href: '/corporate/ngo-registration' },
-      { name: 'Foreign Company', href: '/corporate/foreign-company-registration' },
+      { name: 'Private Limited Company', href: '/corporate/private-limited-company-registration-consultant', desc: 'Most popular for startups' },
+      { name: 'Public Limited Company', href: '/corporate/public-limited-company-registration', desc: 'For large enterprises' },
+      { name: 'One Person Company', href: '/corporate/opc-registration', desc: 'Single owner business' },
+      { name: 'LLP Registration', href: '/corporate/llp-registration', desc: 'Limited liability partnership' },
+      { name: 'Partnership Firm', href: '/corporate/partnership-firm-registration', desc: 'Traditional partnership' },
+      { name: 'Section 8 Company', href: '/corporate/section-8-company-registration', desc: 'Non-profit organization' },
+      { name: 'Nidhi Company', href: '/corporate/nidhi-company-registration', desc: 'Mutual benefit society' },
+      { name: 'Producer Company', href: '/corporate/producer-company-registration', desc: 'For farmers & producers' },
+      { name: 'Society Registration', href: '/corporate/society-registration', desc: 'Charitable societies' },
+      { name: 'Trust Registration', href: '/corporate/trust-registration', desc: 'Public & private trusts' },
+      { name: 'NGO Registration', href: '/corporate/ngo-registration', desc: 'Non-governmental org' },
+      { name: 'Foreign Company', href: '/corporate/foreign-company-registration', desc: 'For foreign entities' },
     ]
   },
   {
     id: 'mca-services',
     name: 'MCA Services',
+    description: 'Ministry of Corporate Affairs filings and compliance',
     icon: FileText,
     items: [
-      { name: 'ROC Return', href: '/corporate/roc-return' },
-      { name: 'MSME Return', href: '/corporate/msme-return' },
-      { name: 'Company Name Change', href: '/corporate/company-name-change' },
-      { name: 'Director Appointment', href: '/corporate/director-appointment' },
-      { name: 'Registered Office Change', href: '/corporate/registered-office-change' },
-      { name: 'Share Transfer', href: '/corporate/share-transfer' },
-      { name: 'Increase Authorized Capital', href: '/corporate/increase-authorized-capital' },
-      { name: 'LLP Agreement Amendment', href: '/corporate/llp-agreement-amendment' },
-      { name: 'Company Closure', href: '/corporate/company-closure' },
+      { name: 'ROC Return', href: '/corporate/roc-return', desc: 'Annual compliance filing' },
+      { name: 'MSME Return', href: '/corporate/msme-return', desc: 'MSME annual returns' },
     ]
   },
   {
     id: 'import-export',
-    name: 'Import Export Service',
+    name: 'Import Export',
+    description: 'International trade licenses and registrations',
     icon: Globe,
     items: [
-      { name: 'IEC Registration', href: '/corporate/iec-registration' },
-      { name: 'AD Code Registration', href: '/corporate/ad-code-registration' },
-      { name: 'RCMC Certificate', href: '/corporate/rcmc-certificate' },
-      { name: 'APEDA Registration', href: '/corporate/apeda-registration' },
-      { name: 'Spice Board Registration', href: '/corporate/spice-board-registration' },
-      { name: 'Tea Board Registration', href: '/corporate/tea-board-registration' },
-      { name: 'Coffee Board Registration', href: '/corporate/coffee-board-registration' },
-      { name: 'FIEO Registration', href: '/corporate/fieo-registration' },
-      { name: 'DGFT License', href: '/corporate/dgft-license' },
+      { name: 'IEC Registration', href: '/corporate/iec-registration', desc: 'Import export code' },
+      { name: 'APEDA Registration', href: '/corporate/apeda-registration', desc: 'Agricultural exports' },
+      { name: 'Spice Board Registration', href: '/corporate/spice-board-registration-consultant', desc: 'Spice exports' },
+      { name: 'Tea Board Registration', href: '/corporate/tea-board-registration', desc: 'Tea exports' },
+      { name: 'Coffee Board Registration', href: '/corporate/coffee-board-registration', desc: 'Coffee exports' },
     ]
   },
   {
     id: 'govt-license',
     name: 'Government License',
+    description: 'Essential government licenses for your business',
     icon: Shield,
     items: [
-      { name: 'PSARA License', href: '/corporate/psara-license-registration-consultant' },
-      { name: 'Shop & Establishment', href: '/corporate/shop-and-establishment-act-registration' },
-      { name: 'Trade License', href: '/corporate/trade-license' },
-      { name: 'RERA Registration', href: '/corporate/rera-registration' },
-      { name: 'MSME Registration', href: '/corporate/msme-registration' },
-      { name: 'Startup India', href: '/corporate/startup-india-registration' },
-      { name: 'NITI Aayog', href: '/corporate/niti-aayog' },
-      { name: 'ISO Certification', href: '/corporate/iso-certification' },
-      { name: 'AYUSH License', href: '/corporate/ayush-license' },
-      { name: 'Drug License', href: '/corporate/drug-license' },
+      { name: 'PSARA License', href: '/corporate/psara-license-registration-consultant', desc: 'Security agency license' },
+      { name: 'Shop & Establishment', href: '/corporate/shop-and-establishment-act-registration', desc: 'Shop registration' },
+      { name: 'RERA Registration', href: '/corporate/rera-registration', desc: 'Real estate registration' },
+      { name: 'MSME Registration', href: '/corporate/msme-registration', desc: 'Udyam registration' },
+      { name: 'Startup India', href: '/corporate/startup-india-registration', desc: 'DPIIT recognition' },
+      { name: 'NITI Aayog', href: '/corporate/niti-aayog', desc: 'NGO Darpan registration' },
+      { name: 'ISO Certification', href: '/corporate/iso-certification', desc: 'Quality standards' },
+      { name: 'AYUSH License', href: '/corporate/ayush-license', desc: 'Traditional medicine' },
     ]
   },
   {
     id: 'ipr-services',
     name: 'IPR Services',
+    description: 'Protect your intellectual property rights',
     icon: Lightbulb,
     items: [
-      { name: 'Trademark Registration', href: '/corporate/trademark-registration' },
-      { name: 'Trademark Objection', href: '/corporate/trademark-objection' },
-      { name: 'Trademark Opposition', href: '/corporate/trademark-opposition' },
-      { name: 'Trademark Renewal', href: '/corporate/trademark-renewal' },
-      { name: 'Copyright Registration', href: '/corporate/copyright-registration' },
-      { name: 'Patent Registration', href: '/corporate/patent-registration-consultant' },
-      { name: 'Design Registration', href: '/corporate/design-registration' },
+      { name: 'Trademark Registration', href: '/corporate/trademark-registration', desc: 'Brand protection' },
+      { name: 'Copyright Registration', href: '/corporate/copyright-registration', desc: 'Creative protection' },
+      { name: 'Patent Registration', href: '/corporate/patent-registration-consultant', desc: 'Invention protection' },
     ]
   },
   {
     id: 'fssai',
     name: 'FSSAI',
+    description: 'Food safety and standards authority licenses',
     icon: UtensilsCrossed,
     items: [
-      { name: 'FSSAI Registration', href: '/corporate/fssai-certificate' },
-      { name: 'FSSAI State License', href: '/corporate/fssai-state-license' },
-      { name: 'FSSAI Central License', href: '/corporate/fssai-central-license' },
-      { name: 'FSSAI Modification', href: '/corporate/fssai-modification' },
-      { name: 'FSSAI Renewal', href: '/corporate/fssai-renewal' },
-      { name: 'FSSAI Annual Return', href: '/corporate/fssai-annual-return' },
+      { name: 'FSSAI Registration', href: '/corporate/fssai-certificate', desc: 'Basic food license' },
+      { name: 'FSSAI Modification', href: '/corporate/fssai-modification', desc: 'Modify license details' },
     ]
   },
   {
     id: 'sebi-business',
     name: 'SEBI Business',
+    description: 'Financial services and SEBI registrations',
     icon: TrendingUp,
     items: [
-      { name: 'NBFC Registration', href: '/corporate/nbfc-registration' },
-      { name: 'Microfinance Company', href: '/corporate/microfinance-company-registration' },
-      { name: 'Asset Reconstruction Company', href: '/corporate/asset-reconstruction-company-registration' },
-      { name: 'Insurance Company', href: '/corporate/insurance-company-registration' },
-      { name: 'Mutual Fund Company', href: '/corporate/mutual-fund-company-registration' },
-      { name: 'Portfolio Manager', href: '/corporate/portfolio-manager-registration' },
+      { name: 'NBFC Registration', href: '/corporate/nbfc-registration', desc: 'Non-banking finance' },
+      { name: 'Microfinance Company', href: '/corporate/microfinance-company-registration', desc: 'Microfinance license' },
+      { name: 'Asset Reconstruction', href: '/corporate/asset-reconstruction-company-registration', desc: 'ARC registration' },
+      { name: 'Insurance Company', href: '/corporate/insurance-company-registration', desc: 'Insurance license' },
+      { name: 'Mutual Fund Company', href: '/corporate/mutual-fund-company-registration', desc: 'AMC registration' },
+      { name: 'Portfolio Manager', href: '/corporate/portfolio-manager-registration', desc: 'PMS registration' },
     ]
   },
   {
     id: 'tax-accounting',
     name: 'Tax & Accounting',
+    description: 'Tax registration and filing services',
     icon: Calculator,
     items: [
-      { name: 'GST Registration', href: '/corporate/gst-registration' },
-      { name: 'GST Return Filing', href: '/corporate/gst-return' },
-      { name: 'Income Tax Return', href: '/corporate/income-tax-return-filing' },
-      { name: 'PAN for Company', href: '/corporate/pan-registration-company' },
-      { name: 'PAN for Individual', href: '/corporate/pan-registration-individual' },
-      { name: 'TAN Registration', href: '/corporate/tan-registration' },
-      { name: 'Professional Tax', href: '/corporate/professional-tax-registration' },
-      { name: 'DSC Certificate', href: '/corporate/dsc-certificate' },
+      { name: 'GST Registration', href: '/corporate/gst-registration', desc: 'Goods & services tax' },
+      { name: 'GST Return Filing', href: '/corporate/gst-return', desc: 'Monthly/quarterly returns' },
+      { name: 'Income Tax Return', href: '/corporate/income-tax-return-filing', desc: 'ITR filing services' },
+      { name: 'PAN for Company', href: '/corporate/pan-registration-company', desc: 'Company PAN card' },
+      { name: 'PAN for Individual', href: '/corporate/pan-registration-individual', desc: 'Individual PAN' },
+      { name: 'Professional Tax', href: '/corporate/professional-tax-registration', desc: 'State professional tax' },
+      { name: 'DSC Certificate', href: '/corporate/dsc-certificate', desc: 'Digital signature' },
     ]
   },
   {
     id: 'labour-compliance',
     name: 'Labour Compliance',
+    description: 'Employee and labour law compliance',
     icon: Users,
     items: [
-      { name: 'EPF Registration', href: '/corporate/epf-registration' },
-      { name: 'ESIC Registration', href: '/corporate/esic-registration' },
-      { name: 'PF & ESI Return', href: '/corporate/pf-esi-return' },
-      { name: 'Labour License', href: '/corporate/labour-license' },
-      { name: 'Factory License', href: '/corporate/factory-license' },
-      { name: 'Minimum Wages Act', href: '/corporate/minimum-wages-act' },
+      { name: 'EPF Registration', href: '/corporate/epf-registration', desc: 'Provident fund' },
+      { name: 'ESIC Registration', href: '/corporate/esic-registration', desc: 'Employee insurance' },
+      { name: 'PF & ESI Return', href: '/corporate/pf-esi-return', desc: 'Monthly returns' },
     ]
   },
   {
     id: 'fund-raising',
     name: 'Fund Raising',
+    description: 'Funding and grant registration services',
     icon: Coins,
     items: [
-      { name: 'CSR Registration', href: '/corporate/csr-regisration' },
-      { name: 'FCRA Registration', href: '/corporate/fcra-registration' },
-      { name: 'Seed Funding', href: '/corporate/seed-funding' },
-      { name: '80G & 12A Registration', href: '/corporate/80g-12a-registration' },
-      { name: 'Grant Application', href: '/corporate/grant-application' },
+      { name: 'CSR Registration', href: '/corporate/csr-regisration', desc: 'Corporate social responsibility' },
+      { name: 'FCRA Registration', href: '/corporate/fcra-registration', desc: 'Foreign contributions' },
+      { name: 'Seed Funding', href: '/corporate/seed-funding', desc: 'Startup funding' },
     ]
   },
 ];
@@ -163,62 +146,53 @@ const technicalCategories = [
   {
     id: 'bis',
     name: 'BIS Certification',
+    description: 'Bureau of Indian Standards product certifications',
     icon: Cpu,
     items: [
-      { name: 'BIS FMCS', href: '/approval/bis-certification' },
-      { name: 'BIS CRS', href: '/approval/bis-crs' },
-      { name: 'ISI Mark', href: '/approval/isi-certificate' },
-      { name: 'BIS Hallmark', href: '/approval/bis-hallmark' },
-      { name: 'BIS Laboratory', href: '/approval/bis-laboratory' },
+      { name: 'BIS Certification', href: '/approval/bis-certification', desc: 'Foreign manufacturer cert' },
+      { name: 'ISI Mark', href: '/approval/isi-certificate', desc: 'Indian standards mark' },
     ]
   },
   {
     id: 'pollution',
     name: 'Pollution Advisory',
+    description: 'Environmental clearances and waste management',
     icon: Factory,
     items: [
-      { name: 'CPCB Registration', href: '/approval/cpcb-registration' },
-      { name: 'State Pollution Board', href: '/approval/state-pollution-board' },
-      { name: 'EPR Certification', href: '/approval/epr-certification' },
-      { name: 'E-Waste Authorization', href: '/approval/e-waste-authorization' },
-      { name: 'Plastic Waste Authorization', href: '/approval/plastic-waste' },
-      { name: 'Battery Waste Authorization', href: '/approval/battery-waste' },
-      { name: 'Hazardous Waste', href: '/approval/hazardous-waste' },
-      { name: 'BEE Certification', href: '/approval/bee-certification' },
+      { name: 'CPCB Registration', href: '/approval/cpcb-registration', desc: 'Central pollution board' },
+      { name: 'State Pollution Board', href: '/approval/state-pollution-board', desc: 'State level NOC' },
+      { name: 'EPR Certification', href: '/approval/epr-certification', desc: 'Extended producer resp.' },
+      { name: 'BEE Certification', href: '/approval/bee-certification', desc: 'Energy efficiency' },
     ]
   },
   {
     id: 'tec',
     name: 'TEC Certification',
+    description: 'Telecom Engineering Centre approvals',
     icon: Radio,
     items: [
-      { name: 'TEC Certificate', href: '/approval/tec-certificate' },
-      { name: 'MTCTE Certification', href: '/approval/mtcte-certification' },
-      { name: 'TEC Laboratory', href: '/approval/tec-laboratory' },
-      { name: 'Telecom License', href: '/approval/telecom-license' },
+      { name: 'TEC Certificate', href: '/approval/tec-certificate', desc: 'Telecom equipment cert' },
     ]
   },
   {
     id: 'wpc',
     name: 'WPC Certification',
+    description: 'Wireless Planning & Coordination approvals',
     icon: Wifi,
     items: [
-      { name: 'WPC ETA Approval', href: '/approval/wpc-certification' },
-      { name: 'WPC License', href: '/approval/wpc-license' },
-      { name: 'SACFA Clearance', href: '/approval/sacfa-clearance' },
-      { name: 'Dealer Possession License', href: '/approval/dealer-possession-license' },
-      { name: 'Non-Dealer Possession License', href: '/approval/non-dealer-possession-license' },
+      { name: 'WPC ETA Approval', href: '/approval/wpc-certification', desc: 'Equipment type approval' },
+      { name: 'Dealer Possession License', href: '/approval/dealer-possession-license', desc: 'For dealers' },
+      { name: 'Non-Dealer License', href: '/approval/non-dealer-possession-license', desc: 'End user license' },
     ]
   },
   {
     id: 'others',
     name: 'Other Approvals',
+    description: 'Additional regulatory approvals and certifications',
     icon: Shield,
     items: [
-      { name: 'CDSCO Registration', href: '/approval/cdsco-registration' },
-      { name: 'AERB License', href: '/approval/aerb-license' },
-      { name: 'PESO Approval', href: '/approval/peso-approval' },
-      { name: 'LMPC Certificate', href: '/approval/lmpc-certificate' },
+      { name: 'CDSCO Registration', href: '/approval/cdsco-registration', desc: 'Medical devices' },
+      { name: 'AERB License', href: '/approval/aerb-license', desc: 'Atomic energy board' },
     ]
   },
 ];
@@ -281,9 +255,9 @@ export default function Header() {
             <Image
               src="/JRlogo.png"
               alt="JR Compliance"
-              width={140}
-              height={36}
-              className="w-auto h-9 lg:h-10 object-contain brightness-0 invert"
+              width={180}
+              height={45}
+              className="w-auto h-10 lg:h-12 object-contain brightness-0 invert"
               priority
             />
           </Link>
@@ -312,127 +286,152 @@ export default function Header() {
                 <ChevronDown size={14} className={`transition-transform duration-200 ${activeDropdown === 'corporate' ? 'rotate-180' : ''}`} />
               </button>
               
-              {/* Mega Menu Dropdown */}
-              <div className={`fixed left-1/2 -translate-x-1/2 top-20 pt-2 transition-all duration-200 ${
-                activeDropdown === 'corporate' ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
+              {/* Mega Menu Dropdown - Light Theme */}
+              <div className={`fixed left-1/2 -translate-x-1/2 top-16 lg:top-20 pt-4 transition-all duration-300 ${
+                activeDropdown === 'corporate' ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4'
               }`}>
-                <div className="w-[90vw] max-w-4xl bg-slate-900/98 backdrop-blur-xl rounded-xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden">
-                  {/* Search Bar */}
-                  <div className="p-3 border-b border-white/10 bg-gradient-to-r from-blue-600/10 to-transparent">
-                    <div className="flex items-center justify-between mb-2">
-                      <h2 className="text-base font-bold text-white">Corporate Services</h2>
-                      <span className="text-xs text-white/50">100+ Services</span>
-                    </div>
-                    <div className="relative">
-                      <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/40" />
-                      <input
-                        type="text"
-                        placeholder="Search corporate services..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full pl-9 pr-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm placeholder:text-white/40 focus:outline-none focus:border-blue-500/50"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Search Results */}
-                  {filteredCorporateItems && filteredCorporateItems.length > 0 ? (
-                    <div className="p-3 max-h-[50vh] overflow-y-auto">
-                      <p className="text-xs text-white/50 mb-2">Search Results ({filteredCorporateItems.length})</p>
-                      <div className="grid grid-cols-3 gap-2">
-                        {filteredCorporateItems.map((item) => (
-                          <Link
-                            key={item.href}
-                            href={item.href}
-                            className="flex items-center justify-between px-3 py-2 rounded-lg text-white/80 hover:text-white hover:bg-white/5 border border-white/5 hover:border-white/10 transition-all group"
-                          >
-                            <div>
-                              <p className="text-sm font-medium">{item.name}</p>
-                              <p className="text-[10px] text-white/40">{item.category}</p>
-                            </div>
-                            <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity text-blue-400" />
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  ) : filteredCorporateItems && filteredCorporateItems.length === 0 ? (
-                    <div className="p-8 text-center">
-                      <p className="text-white/50 text-sm">No services found for &quot;{searchQuery}&quot;</p>
-                    </div>
-                  ) : (
-                    /* Categories and Items View */
-                    <div className="flex min-h-[280px] max-h-[350px]">
-                      {/* Categories Sidebar */}
-                      <div className="w-52 border-r border-white/10 bg-white/[0.02]">
-                        <div className="p-2 h-full max-h-[350px] overflow-y-auto">
-                          {corporateCategories.map((category) => {
-                            const IconComponent = category.icon;
-                            return (
-                              <button
-                                key={category.id}
-                                onMouseEnter={() => setActiveCorporateCategory(category.id)}
-                                className={`w-full flex items-center gap-2 px-2 py-2 rounded-lg text-left transition-all mb-0.5 ${
-                                  activeCorporateCategory === category.id
-                                    ? 'bg-blue-600/20 text-white border-l-2 border-blue-500'
-                                    : 'text-white/70 hover:text-white hover:bg-white/5'
-                                }`}
-                              >
-                                <div className={`w-7 h-7 rounded flex items-center justify-center ${
-                                  activeCorporateCategory === category.id ? 'bg-blue-500/20' : 'bg-white/5'
-                                }`}>
-                                  <IconComponent size={14} className={activeCorporateCategory === category.id ? 'text-blue-400' : 'text-white/50'} />
-                                </div>
-                                <span className="text-xs font-medium">{category.name}</span>
-                              </button>
-                            );
-                          })}
+                <div className="w-[95vw] max-w-5xl bg-white rounded-2xl shadow-2xl shadow-black/20 overflow-hidden border border-gray-100">
+                  <div className="flex">
+                    {/* Left Sidebar - Categories */}
+                    <div className="w-64 bg-gray-50/80 border-r border-gray-100 py-4">
+                      {/* Search Bar */}
+                      <div className="px-4 mb-4">
+                        <div className="relative">
+                          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                          <input
+                            type="text"
+                            placeholder="Search services..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-800 text-sm placeholder:text-gray-400 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all"
+                          />
                         </div>
                       </div>
-
-                      {/* Items Grid */}
-                      <div className="flex-1 p-3">
-                        {corporateCategories.map((category) => (
-                          <div
-                            key={category.id}
-                            className={`${activeCorporateCategory === category.id ? 'block' : 'hidden'}`}
-                          >
-                            <div className="flex items-center gap-2 mb-3 pb-2 border-b border-white/10">
-                              <div className="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">
-                                <category.icon size={16} className="text-blue-400" />
+                      
+                      {/* Category List */}
+                      <div className="space-y-0.5 max-h-[380px] overflow-y-auto px-2">
+                        {corporateCategories.map((category) => {
+                          const IconComponent = category.icon;
+                          return (
+                            <button
+                              key={category.id}
+                              onMouseEnter={() => setActiveCorporateCategory(category.id)}
+                              className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left transition-all group ${
+                                activeCorporateCategory === category.id
+                                  ? 'bg-blue-50 text-blue-700'
+                                  : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+                              }`}
+                            >
+                              <div className="flex items-center gap-3">
+                                <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${
+                                  activeCorporateCategory === category.id 
+                                    ? 'bg-blue-100' 
+                                    : 'bg-white border border-gray-200 group-hover:border-gray-300'
+                                }`}>
+                                  <IconComponent size={16} className={activeCorporateCategory === category.id ? 'text-blue-600' : 'text-gray-500'} />
+                                </div>
+                                <span className="text-sm font-medium">{category.name}</span>
                               </div>
-                              <div>
-                                <h3 className="text-sm text-white font-bold">{category.name}</h3>
-                                <p className="text-[10px] text-white/50">{category.items.length} services</p>
-                              </div>
-                            </div>
-                            <div className="grid grid-cols-2 gap-1.5 max-h-[240px] overflow-y-auto">
-                              {category.items.map((item) => (
-                                <Link
-                                  key={item.href}
-                                  href={item.href}
-                                  className="flex items-center justify-between px-2.5 py-2 rounded-lg text-white/70 hover:text-white hover:bg-white/5 border border-white/5 hover:border-blue-500/30 transition-all group"
-                                >
-                                  <span className="text-xs">{item.name}</span>
-                                  <ArrowRight size={10} className="opacity-0 group-hover:opacity-100 transition-opacity text-blue-400" />
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
+                              <ChevronRight size={16} className={`transition-colors ${
+                                activeCorporateCategory === category.id ? 'text-blue-600' : 'text-gray-400'
+                              }`} />
+                            </button>
+                          );
+                        })}
                       </div>
                     </div>
-                  )}
 
-                  {/* Footer */}
-                  {/* <div className="px-3 py-2 bg-gradient-to-r from-blue-600/10 to-transparent border-t border-white/10">
-                    <Link
-                      href="/services"
-                      className="flex items-center gap-1.5 text-sm text-blue-400 hover:text-blue-300 transition-colors font-medium"
-                    >
-                      <span>View All Corporate Services</span>
-                      <ArrowRight size={12} />
-                    </Link>
-                  </div> */}
+                    {/* Right Side - Items Grid */}
+                    <div className="flex-1 flex flex-col">
+                      {/* Search Results */}
+                      {filteredCorporateItems && filteredCorporateItems.length > 0 ? (
+                        <div className="p-4 max-h-[420px] overflow-y-auto">
+                          <p className="text-xs text-gray-500 mb-3 font-medium">Found {filteredCorporateItems.length} services</p>
+                          <div className="grid grid-cols-3 gap-2">
+                            {filteredCorporateItems.map((item) => (
+                              <Link
+                                key={item.href}
+                                href={item.href}
+                                className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 border border-transparent hover:border-gray-200 transition-all group"
+                              >
+                                <div className="flex-1">
+                                  <p className="text-sm font-medium text-gray-800 group-hover:text-blue-600">{item.name}</p>
+                                  <p className="text-xs text-gray-400">{item.category}</p>
+                                </div>
+                                <ChevronRight size={14} className="text-gray-300 group-hover:text-blue-500" />
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      ) : filteredCorporateItems && filteredCorporateItems.length === 0 ? (
+                        <div className="p-12 text-center flex-1 flex items-center justify-center">
+                          <div>
+                            <Search size={40} className="mx-auto text-gray-300 mb-3" />
+                            <p className="text-gray-500 text-sm">No services found for &quot;{searchQuery}&quot;</p>
+                          </div>
+                        </div>
+                      ) : (
+                        <>
+                          {/* Items Content */}
+                          <div className="p-5 flex-1 max-h-[340px] overflow-y-auto">
+                            {corporateCategories.map((category) => (
+                              <div
+                                key={category.id}
+                                className={`${activeCorporateCategory === category.id ? 'block' : 'hidden'}`}
+                              >
+                                <div className="grid grid-cols-3 gap-2">
+                                  {category.items.map((item) => (
+                                    <Link
+                                      key={item.href}
+                                      href={item.href}
+                                      className="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-blue-50 border border-transparent hover:border-blue-100 transition-all group"
+                                    >
+                                      <div className="flex-1">
+                                        <p className="text-sm font-medium text-gray-800 group-hover:text-blue-600">{item.name}</p>
+                                        <p className="text-xs text-gray-400">{item.desc}</p>
+                                      </div>
+                                      <ChevronRight size={14} className="text-gray-300 group-hover:text-blue-500 flex-shrink-0" />
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Bottom Footer - Selected Category Info */}
+                          <div className="border-t border-gray-100 bg-gradient-to-r from-blue-50 to-white">
+                            {corporateCategories.map((category) => (
+                              <div
+                                key={category.id}
+                                className={`${activeCorporateCategory === category.id ? 'block' : 'hidden'}`}
+                              >
+                                <div className="px-5 py-4 flex items-center justify-between">
+                                  <div className="flex items-center gap-3">
+                                    <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center">
+                                      <category.icon size={20} className="text-blue-600" />
+                                    </div>
+                                    <div>
+                                      <p className="text-sm font-semibold text-gray-800">{category.name}</p>
+                                      <p className="text-xs text-gray-500">{category.description}</p>
+                                    </div>
+                                  </div>
+                                  <a
+                                    href="https://wa.me/919266450125?text=Hi%2C%20I%20need%20help%20with%20compliance%20services"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium rounded-lg transition-colors"
+                                  >
+                                    <MessageCircle size={14} />
+                                    <span>WhatsApp</span>
+                                  </a>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -451,127 +450,152 @@ export default function Header() {
                 <ChevronDown size={14} className={`transition-transform duration-200 ${activeDropdown === 'technical' ? 'rotate-180' : ''}`} />
               </button>
               
-              {/* Mega Menu Dropdown */}
-              <div className={`fixed left-1/2 -translate-x-1/2 top-20 pt-2 transition-all duration-200 ${
-                activeDropdown === 'technical' ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
+              {/* Mega Menu Dropdown - Light Theme */}
+              <div className={`fixed left-1/2 -translate-x-1/2 top-16 lg:top-20 pt-4 transition-all duration-300 ${
+                activeDropdown === 'technical' ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4'
               }`}>
-                <div className="w-[85vw] max-w-3xl bg-slate-900/98 backdrop-blur-xl rounded-xl border border-white/10 shadow-2xl shadow-black/40 overflow-hidden">
-                  {/* Search Bar */}
-                  <div className="p-3 border-b border-white/10 bg-gradient-to-r from-cyan-600/10 to-transparent">
-                    <div className="flex items-center justify-between mb-2">
-                      <h2 className="text-base font-bold text-white">Technical Services</h2>
-                      <span className="text-xs text-white/50">Certifications & Approvals</span>
-                    </div>
-                    <div className="relative">
-                      <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/40" />
-                      <input
-                        type="text"
-                        placeholder="Search technical services..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full pl-9 pr-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm placeholder:text-white/40 focus:outline-none focus:border-cyan-500/50"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Search Results */}
-                  {filteredTechnicalItems && filteredTechnicalItems.length > 0 ? (
-                    <div className="p-3 max-h-[50vh] overflow-y-auto">
-                      <p className="text-xs text-white/50 mb-2">Search Results ({filteredTechnicalItems.length})</p>
-                      <div className="grid grid-cols-2 gap-2">
-                        {filteredTechnicalItems.map((item) => (
-                          <Link
-                            key={item.href}
-                            href={item.href}
-                            className="flex items-center justify-between px-3 py-2 rounded-lg text-white/80 hover:text-white hover:bg-white/5 border border-white/5 hover:border-white/10 transition-all group"
-                          >
-                            <div>
-                              <p className="text-sm font-medium">{item.name}</p>
-                              <p className="text-[10px] text-white/40">{item.category}</p>
-                            </div>
-                            <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity text-cyan-400" />
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  ) : filteredTechnicalItems && filteredTechnicalItems.length === 0 ? (
-                    <div className="p-8 text-center">
-                      <p className="text-white/50 text-sm">No services found for &quot;{searchQuery}&quot;</p>
-                    </div>
-                  ) : (
-                    /* Categories and Items View */
-                    <div className="flex min-h-[240px] max-h-[300px]">
-                      {/* Categories Sidebar */}
-                      <div className="w-48 border-r border-white/10 bg-white/[0.02]">
-                        <div className="p-2 h-full max-h-[300px] overflow-y-auto">
-                          {technicalCategories.map((category) => {
-                            const IconComponent = category.icon;
-                            return (
-                              <button
-                                key={category.id}
-                                onMouseEnter={() => setActiveTechnicalCategory(category.id)}
-                                className={`w-full flex items-center gap-2 px-2 py-2 rounded-lg text-left transition-all mb-0.5 ${
-                                  activeTechnicalCategory === category.id
-                                    ? 'bg-cyan-600/20 text-white border-l-2 border-cyan-500'
-                                    : 'text-white/70 hover:text-white hover:bg-white/5'
-                                }`}
-                              >
-                                <div className={`w-7 h-7 rounded flex items-center justify-center ${
-                                  activeTechnicalCategory === category.id ? 'bg-cyan-500/20' : 'bg-white/5'
-                                }`}>
-                                  <IconComponent size={14} className={activeTechnicalCategory === category.id ? 'text-cyan-400' : 'text-white/50'} />
-                                </div>
-                                <span className="text-xs font-medium">{category.name}</span>
-                              </button>
-                            );
-                          })}
+                <div className="w-[95vw] max-w-4xl bg-white rounded-2xl shadow-2xl shadow-black/20 overflow-hidden border border-gray-100">
+                  <div className="flex">
+                    {/* Left Sidebar - Categories */}
+                    <div className="w-56 bg-gray-50/80 border-r border-gray-100 py-4">
+                      {/* Search Bar */}
+                      <div className="px-4 mb-4">
+                        <div className="relative">
+                          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                          <input
+                            type="text"
+                            placeholder="Search approvals..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-800 text-sm placeholder:text-gray-400 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-100 transition-all"
+                          />
                         </div>
                       </div>
-
-                      {/* Items Grid */}
-                      <div className="flex-1 p-3">
-                        {technicalCategories.map((category) => (
-                          <div
-                            key={category.id}
-                            className={`${activeTechnicalCategory === category.id ? 'block' : 'hidden'}`}
-                          >
-                            <div className="flex items-center gap-2 mb-3 pb-2 border-b border-white/10">
-                              <div className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center">
-                                <category.icon size={16} className="text-cyan-400" />
+                      
+                      {/* Category List */}
+                      <div className="space-y-0.5 max-h-[320px] overflow-y-auto px-2">
+                        {technicalCategories.map((category) => {
+                          const IconComponent = category.icon;
+                          return (
+                            <button
+                              key={category.id}
+                              onMouseEnter={() => setActiveTechnicalCategory(category.id)}
+                              className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left transition-all group ${
+                                activeTechnicalCategory === category.id
+                                  ? 'bg-cyan-50 text-cyan-700'
+                                  : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+                              }`}
+                            >
+                              <div className="flex items-center gap-3">
+                                <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${
+                                  activeTechnicalCategory === category.id 
+                                    ? 'bg-cyan-100' 
+                                    : 'bg-white border border-gray-200 group-hover:border-gray-300'
+                                }`}>
+                                  <IconComponent size={16} className={activeTechnicalCategory === category.id ? 'text-cyan-600' : 'text-gray-500'} />
+                                </div>
+                                <span className="text-sm font-medium">{category.name}</span>
                               </div>
-                              <div>
-                                <h3 className="text-sm text-white font-bold">{category.name}</h3>
-                                <p className="text-[10px] text-white/50">{category.items.length} services</p>
-                              </div>
-                            </div>
-                            <div className="grid grid-cols-2 gap-1.5 max-h-[200px] overflow-y-auto">
-                              {category.items.map((item) => (
-                                <Link
-                                  key={item.href}
-                                  href={item.href}
-                                  className="flex items-center justify-between px-2.5 py-2 rounded-lg text-white/70 hover:text-white hover:bg-white/5 border border-white/5 hover:border-cyan-500/30 transition-all group"
-                                >
-                                  <span className="text-xs">{item.name}</span>
-                                  <ArrowRight size={10} className="opacity-0 group-hover:opacity-100 transition-opacity text-cyan-400" />
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
+                              <ChevronRight size={16} className={`transition-colors ${
+                                activeTechnicalCategory === category.id ? 'text-cyan-600' : 'text-gray-400'
+                              }`} />
+                            </button>
+                          );
+                        })}
                       </div>
                     </div>
-                  )}
 
-                  {/* Footer */}
-                  {/* <div className="px-3 py-2 bg-gradient-to-r from-cyan-600/10 to-transparent border-t border-white/10">
-                    <Link
-                      href="/services"
-                      className="flex items-center gap-1.5 text-sm text-cyan-400 hover:text-cyan-300 transition-colors font-medium"
-                    >
-                      <span>View All Technical Services</span>
-                      <ArrowRight size={12} />
-                    </Link>
-                  </div> */}
+                    {/* Right Side - Items Grid */}
+                    <div className="flex-1 flex flex-col">
+                      {/* Search Results */}
+                      {filteredTechnicalItems && filteredTechnicalItems.length > 0 ? (
+                        <div className="p-4 max-h-[380px] overflow-y-auto">
+                          <p className="text-xs text-gray-500 mb-3 font-medium">Found {filteredTechnicalItems.length} approvals</p>
+                          <div className="grid grid-cols-2 gap-2">
+                            {filteredTechnicalItems.map((item) => (
+                              <Link
+                                key={item.href}
+                                href={item.href}
+                                className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 border border-transparent hover:border-gray-200 transition-all group"
+                              >
+                                <div className="flex-1">
+                                  <p className="text-sm font-medium text-gray-800 group-hover:text-cyan-600">{item.name}</p>
+                                  <p className="text-xs text-gray-400">{item.category}</p>
+                                </div>
+                                <ChevronRight size={14} className="text-gray-300 group-hover:text-cyan-500" />
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      ) : filteredTechnicalItems && filteredTechnicalItems.length === 0 ? (
+                        <div className="p-12 text-center flex-1 flex items-center justify-center">
+                          <div>
+                            <Search size={40} className="mx-auto text-gray-300 mb-3" />
+                            <p className="text-gray-500 text-sm">No approvals found for &quot;{searchQuery}&quot;</p>
+                          </div>
+                        </div>
+                      ) : (
+                        <>
+                          {/* Items Content */}
+                          <div className="p-5 flex-1 max-h-[280px] overflow-y-auto">
+                            {technicalCategories.map((category) => (
+                              <div
+                                key={category.id}
+                                className={`${activeTechnicalCategory === category.id ? 'block' : 'hidden'}`}
+                              >
+                                <div className="grid grid-cols-2 gap-2">
+                                  {category.items.map((item) => (
+                                    <Link
+                                      key={item.href}
+                                      href={item.href}
+                                      className="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-cyan-50 border border-transparent hover:border-cyan-100 transition-all group"
+                                    >
+                                      <div className="flex-1">
+                                        <p className="text-sm font-medium text-gray-800 group-hover:text-cyan-600">{item.name}</p>
+                                        <p className="text-xs text-gray-400">{item.desc}</p>
+                                      </div>
+                                      <ChevronRight size={14} className="text-gray-300 group-hover:text-cyan-500 flex-shrink-0" />
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Bottom Footer - Selected Category Info */}
+                          <div className="border-t border-gray-100 bg-gradient-to-r from-cyan-50 to-white">
+                            {technicalCategories.map((category) => (
+                              <div
+                                key={category.id}
+                                className={`${activeTechnicalCategory === category.id ? 'block' : 'hidden'}`}
+                              >
+                                <div className="px-5 py-4 flex items-center justify-between">
+                                  <div className="flex items-center gap-3">
+                                    <div className="w-10 h-10 rounded-xl bg-cyan-100 flex items-center justify-center">
+                                      <category.icon size={20} className="text-cyan-600" />
+                                    </div>
+                                    <div>
+                                      <p className="text-sm font-semibold text-gray-800">{category.name}</p>
+                                      <p className="text-xs text-gray-500">{category.description}</p>
+                                    </div>
+                                  </div>
+                                  <a
+                                    href="https://wa.me/919266450125?text=Hi%2C%20I%20need%20help%20with%20technical%20certifications"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium rounded-lg transition-colors"
+                                  >
+                                    <MessageCircle size={14} />
+                                    <span>WhatsApp</span>
+                                  </a>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -605,12 +629,15 @@ export default function Header() {
             </a>
 
             {/* CTA Button */}
-            <Link
-              href="/contact"
-              className="px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold rounded-lg transition-all hover:scale-105 active:scale-95"
+            <a
+              href="https://wa.me/919266450125?text=Hi%2C%20I%20need%20help%20with%20compliance%20services"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-5 py-2.5 bg-green-500 hover:bg-green-600 text-white text-sm font-semibold rounded-lg transition-all hover:scale-105 active:scale-95"
             >
-              Get Started
-            </Link>
+              <MessageCircle size={18} />
+              <span>WhatsApp</span>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -702,9 +729,9 @@ function MobileMenuModal({
             <Image
               src="/JRlogo.png"
               alt="JR Compliance"
-              width={140}
-              height={36}
-              className="w-auto h-9 object-contain brightness-0 invert"
+              width={180}
+              height={45}
+              className="w-auto h-10 object-contain brightness-0 invert"
             />
           </Link>
           <button
@@ -870,14 +897,16 @@ function MobileMenuModal({
                 <Phone size={20} />
                 <span>1800-121-410-410</span>
               </a>
-              <Link
-                href="/contact"
+              <a
+                href="https://wa.me/919266450125?text=Hi%2C%20I%20need%20help%20with%20compliance%20services"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={onClose}
-                className="flex items-center justify-center gap-2 w-full px-4 py-3.5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white text-center font-bold text-base rounded-xl transition-colors shadow-lg shadow-blue-500/25"
+                className="flex items-center justify-center gap-2 w-full px-4 py-3.5 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white text-center font-bold text-base rounded-xl transition-colors shadow-lg shadow-green-500/25"
               >
-                <span>Get Started Today</span>
-                <ArrowRight size={18} />
-              </Link>
+                <MessageCircle size={20} />
+                <span>WhatsApp Us</span>
+              </a>
             </div>
           </div>
         </div>

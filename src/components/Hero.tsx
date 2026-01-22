@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useMemo } from 'react';
 import Link from 'next/link';
-import { Search, ArrowRight, Phone, MessageCircle, CheckCircle, ChevronRight, Users, Clock, Award, Shield, BadgeCheck, Lock } from 'lucide-react';
+import { Search, ArrowRight, Phone, MessageCircle, CheckCircle, ChevronRight, Users, Clock, Award, Shield, BadgeCheck, Lock, Star } from 'lucide-react';
 
 const services = [
   { name: 'BIS Certification', href: '/approval/bis-certification', category: 'Technical' },
@@ -48,6 +48,18 @@ export default function Hero() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showStickyBar, setShowStickyBar] = useState(false);
+  const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
+  const formRef = useRef<HTMLDivElement>(null);
+
+  // Featured services for sticky bar rotation
+  const featuredServices = [
+    { name: 'BIS Certification', desc: 'Bureau of Indian Standards' },
+    { name: 'TEC Certification', desc: 'Telecom Engineering Centre' },
+    { name: 'FSSAI License', desc: 'Food Safety & Standards' },
+    { name: 'ISO Certification', desc: 'International Standards' },
+    { name: 'WPC Certification', desc: 'Wireless Planning & Coordination' },
+  ];
 
   // Calculate progress step based on form completion
   const currentStep = formData.phone.length === 10 ? 3 : formData.email.includes('@') ? 2 : formData.name.length > 2 ? 1 : 0;
@@ -67,6 +79,60 @@ export default function Hero() {
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Rotate featured services every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentServiceIndex((prev) => (prev + 1) % featuredServices.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [featuredServices.length]);
+
+  // Show sticky bar on scroll, hide when form visible or near footer
+  useEffect(() => {
+    const handleVisibility = () => {
+      const formElement = formRef.current;
+      const footer = document.querySelector('footer');
+      const scrollY = window.scrollY;
+      
+      // Only show after scrolling down 300px
+      if (scrollY < 300) {
+        setShowStickyBar(false);
+        return;
+      }
+      
+      let hideBar = false;
+      
+      // Check if form is in viewport
+      if (formElement) {
+        const formRect = formElement.getBoundingClientRect();
+        const formVisible = formRect.top < window.innerHeight && formRect.bottom > 0;
+        if (formVisible) hideBar = true;
+      }
+      
+      // Check if footer is in viewport
+      if (footer) {
+        const footerRect = footer.getBoundingClientRect();
+        const footerVisible = footerRect.top < window.innerHeight;
+        if (footerVisible) hideBar = true;
+      }
+      
+      // Also hide when near bottom of page
+      const nearBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 100;
+      if (nearBottom) hideBar = true;
+      
+      setShowStickyBar(!hideBar);
+    };
+
+    window.addEventListener('scroll', handleVisibility);
+    window.addEventListener('resize', handleVisibility);
+    handleVisibility(); // Initial check
+    
+    return () => {
+      window.removeEventListener('scroll', handleVisibility);
+      window.removeEventListener('resize', handleVisibility);
+    };
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -125,6 +191,34 @@ export default function Hero() {
                   Compliance
                 </span>
               </h1>
+
+              {/* Trusted Clients Logo Reel */}
+              <div className="mb-6 overflow-hidden">
+                <p className="text-xs text-gray-500 mb-2 text-center lg:text-left">Trusted by Industry Leaders</p>
+                <div className="relative">
+                  {/* Scrolling container */}
+                  <div className="flex animate-scroll">
+                    {/* First set of logos */}
+                    <div className="flex items-center gap-8 px-4 shrink-0">
+                      <img src="/logo/6750381b5985420c3fd6e61f_sony.png" alt="Sony" className="h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                      <img src="/logo/681867c363c09e87654cd69f_Tata_Play_2022_logo 1.png" alt="Tata Play" className="h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                      <img src="/logo/6750381ad02e6dfd82a68f4d_healthify.png" alt="Healthify" className="h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                      <img src="/logo/6750381bca61ce816f91953e_sennhe.png" alt="Sennheiser" className="h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                      <img src="/logo/672dc1a691c67b848963be5a_lipi logo.png" alt="Lipi" className="h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                      <img src="/logo/68495d3d9d0d20176f5d4f90_ISC Logo.png" alt="ISC" className="h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                    </div>
+                    {/* Duplicate set for seamless loop */}
+                    <div className="flex items-center gap-8 px-4 shrink-0">
+                      <img src="/logo/6750381b5985420c3fd6e61f_sony.png" alt="Sony" className="h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                      <img src="/logo/681867c363c09e87654cd69f_Tata_Play_2022_logo 1.png" alt="Tata Play" className="h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                      <img src="/logo/6750381ad02e6dfd82a68f4d_healthify.png" alt="Healthify" className="h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                      <img src="/logo/6750381bca61ce816f91953e_sennhe.png" alt="Sennheiser" className="h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                      <img src="/logo/672dc1a691c67b848963be5a_lipi logo.png" alt="Lipi" className="h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                      <img src="/logo/68495d3d9d0d20176f5d4f90_ISC Logo.png" alt="ISC" className="h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               {/* Subheading */}
               <p className="text-lg sm:text-xl text-gray-400 max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed">
@@ -221,134 +315,166 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Right Side - Enquiry Form (Same as Service Page) */}
-            <div className="w-full max-w-md mx-auto lg:mx-0 lg:ml-auto relative">
-              {/* Secure Badge */}
-              {/* <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-                <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full text-sm font-medium shadow-lg shadow-emerald-500/30">
-                  <Lock size={14} />
-                  <span>Secure Process</span>
+            {/* Right Side - Enquiry Form */}
+            <div ref={formRef} className="w-full max-w-md mx-auto lg:mx-0 lg:ml-auto relative">
+              {/* Floating Badge */}
+              <div className="absolute -top-4 left-6 z-10">
+                <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-full text-xs font-semibold shadow-lg shadow-emerald-500/25">
+                  <Lock size={12} />
+                  <span>100% Secure</span>
                 </div>
-              </div> */}
+              </div>
 
-              <div className="bg-slate-900/80 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl overflow-hidden">
-                {/* Form Header */}
-                <div className="px-6 py-5 bg-white/5 border-b border-white/5">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-3">
-                      <span className="text-gray-400 text-sm">Step</span>
-                      <span className={`px-3 py-1 rounded-full text-sm font-semibold ${
-                        currentStep === 3 
-                          ? 'bg-emerald-500/20 text-emerald-400' 
-                          : 'bg-white/10 text-white'
-                      }`}>
-                        {currentStep}/3
-                      </span>
+              <div className="bg-gradient-to-br from-slate-800 via-slate-800 to-slate-900 rounded-2xl border border-white/10 shadow-2xl shadow-black/50 overflow-hidden">
+                {/* Premium Header */}
+                <div className="relative px-6 py-5 bg-gradient-to-r from-blue-600/10 via-cyan-500/5 to-purple-600/10 border-b border-white/5">
+                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.15),transparent_50%)]" />
+                  <div className="relative flex items-center justify-between">
+                    <div>
+                      <h3 className="text-lg font-bold text-white">Get Expert Consultation</h3>
+                      <p className="text-xs text-gray-400 mt-0.5">Free quote in 2 minutes</p>
                     </div>
-                    <div className="flex items-center gap-1.5 text-emerald-400">
-                      <BadgeCheck size={18} />
-                      <span className="text-sm font-medium">Free Consultation</span>
-                    </div>
+                    {/* <div className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500/10 rounded-full border border-emerald-500/20">
+                      <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
+                      <span className="text-xs font-medium text-emerald-400">Online</span>
+                    </div> */}
                   </div>
-                  {/* Progress Bar */}
-                  <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 transition-all duration-300"
-                      style={{ width: `${(currentStep / 3) * 100}%` }}
-                    />
+                  
+                  {/* Progress Steps */}
+                  <div className="mt-4 flex items-center gap-2">
+                    {[1, 2, 3].map((step) => (
+                      <div key={step} className="flex-1 flex items-center gap-2">
+                        <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
+                          currentStep >= step 
+                            ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/30' 
+                            : 'bg-white/5 text-gray-500 border border-white/10'
+                        }`}>
+                          {currentStep > step ? <CheckCircle size={14} /> : step}
+                        </div>
+                        {step < 3 && (
+                          <div className={`flex-1 h-0.5 rounded-full transition-all ${
+                            currentStep > step ? 'bg-gradient-to-r from-blue-500 to-cyan-500' : 'bg-white/10'
+                          }`} />
+                        )}
+                      </div>
+                    ))}
                   </div>
-                </div>
-
-                {/* Form Title */}
-                <div className="px-6 pt-5">
-                  <h3 className="text-xl font-bold text-white">Get Free Quotes in a Few Steps</h3>
                 </div>
 
                 {/* Form Body */}
-                <div className="p-6 pt-4">
+                <div className="p-6">
                   {isSubmitted ? (
                     <div className="text-center py-8">
-                      <div className="w-20 h-20 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <CheckCircle size={40} className="text-emerald-400" />
+                      <div className="relative w-20 h-20 mx-auto mb-4">
+                        <div className="absolute inset-0 bg-emerald-500/20 rounded-full animate-ping" />
+                        <div className="relative w-full h-full bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full flex items-center justify-center">
+                          <CheckCircle size={36} className="text-white" />
+                        </div>
                       </div>
-                      <h4 className="text-xl font-bold text-white mb-2">Thank You!</h4>
-                      <p className="text-gray-400 mb-4">Our expert will contact you shortly.</p>
+                      <h4 className="text-xl font-bold text-white mb-2">Request Submitted!</h4>
+                      <p className="text-gray-400 text-sm">Our expert will call you within 30 minutes</p>
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} className="space-y-4">
                       {/* Name Field */}
-                      <div className="relative">
-                        <input
-                          type="text"
-                          name="name"
-                          placeholder="Your Full Name*"
-                          value={formData.name}
-                          onChange={handleChange}
-                          required
-                          className="w-full px-4 py-4 rounded-xl bg-white/5 border border-white/10 focus:border-white/20 focus:bg-white/10 text-white placeholder-gray-500 transition-all outline-none"
-                        />
-                        {formData.name.length > 2 && (
-                          <CheckCircle size={20} className="absolute right-4 top-4 text-emerald-400" />
-                        )}
+                      <div className="relative group">
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl opacity-0 group-focus-within:opacity-100 blur-xl transition-opacity" />
+                        <div className="relative">
+                          <Users size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-cyan-400 transition-colors" />
+                          <input
+                            type="text"
+                            name="name"
+                            placeholder="Full Name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                            className="w-full pl-12 pr-12 py-3.5 rounded-xl bg-white/5 border border-white/10 focus:border-cyan-500/50 focus:bg-white/10 text-white placeholder-gray-500 transition-all outline-none"
+                          />
+                          {formData.name.length > 2 && (
+                            <CheckCircle size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-emerald-400" />
+                          )}
+                        </div>
                       </div>
 
                       {/* Email Field */}
-                      <div className="relative">
-                        <input
-                          type="email"
-                          name="email"
-                          placeholder="Your Email Address*"
-                          value={formData.email}
-                          onChange={handleChange}
-                          required
-                          className="w-full px-4 py-4 rounded-xl bg-white/5 border border-white/10 focus:border-white/20 focus:bg-white/10 text-white placeholder-gray-500 transition-all outline-none"
-                        />
-                        {formData.email.includes('@') && formData.email.includes('.') && (
-                          <CheckCircle size={20} className="absolute right-4 top-4 text-emerald-400" />
-                        )}
+                      <div className="relative group">
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl opacity-0 group-focus-within:opacity-100 blur-xl transition-opacity" />
+                        <div className="relative">
+                          <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-[18px] h-[18px] text-gray-500 group-focus-within:text-cyan-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                          </svg>
+                          <input
+                            type="email"
+                            name="email"
+                            placeholder="Email Address"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                            className="w-full pl-12 pr-12 py-3.5 rounded-xl bg-white/5 border border-white/10 focus:border-cyan-500/50 focus:bg-white/10 text-white placeholder-gray-500 transition-all outline-none"
+                          />
+                          {formData.email.includes('@') && formData.email.includes('.') && (
+                            <CheckCircle size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-emerald-400" />
+                          )}
+                        </div>
                       </div>
 
                       {/* Phone Field */}
-                      <div className="relative flex">
-                        <span className="inline-flex items-center px-4 rounded-l-xl bg-white/10 border border-r-0 border-white/10 text-gray-400 font-medium">
-                          +91
-                        </span>
-                        <input
-                          type="tel"
-                          name="phone"
-                          placeholder="Your Mobile Number*"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          required
-                          pattern="[0-9]{10}"
-                          className="w-full px-4 py-4 rounded-r-xl bg-white/5 border border-l-0 border-white/10 focus:border-white/20 focus:bg-white/10 text-white placeholder-gray-500 transition-all outline-none"
-                        />
-                        {formData.phone.length === 10 && (
-                          <CheckCircle size={20} className="absolute right-4 top-4 text-emerald-400" />
-                        )}
+                      <div className="relative group">
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl opacity-0 group-focus-within:opacity-100 blur-xl transition-opacity" />
+                        <div className="relative flex">
+                          <span className="inline-flex items-center gap-1 px-3 rounded-l-xl bg-white/10 border border-r-0 border-white/10 text-cyan-400 font-medium text-sm">
+                            <span>🇮🇳</span>
+                            <span>+91</span>
+                          </span>
+                          <input
+                            type="tel"
+                            name="phone"
+                            placeholder="Mobile Number"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            required
+                            pattern="[0-9]{10}"
+                            className="w-full pl-4 pr-12 py-3.5 rounded-r-xl bg-white/5 border border-l-0 border-white/10 focus:border-cyan-500/50 focus:bg-white/10 text-white placeholder-gray-500 transition-all outline-none"
+                          />
+                          {formData.phone.length === 10 && (
+                            <CheckCircle size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-emerald-400" />
+                          )}
+                        </div>
                       </div>
 
-                      {/* Trust Message */}
-                      <div className="flex items-center gap-2 text-sm text-gray-500">
-                        <Shield size={16} className="text-emerald-400" />
-                        <span>We only send important messages — no spam</span>
+                      {/* Trust Indicators */}
+                      <div className="flex items-center justify-between py-2 px-1">
+                        <div className="flex items-center gap-4 text-xs text-gray-500">
+                          <span className="flex items-center gap-1"><Shield size={12} className="text-cyan-400" /> Secure</span>
+                          <span className="flex items-center gap-1"><Clock size={12} className="text-cyan-400" /> 2 min</span>
+                        </div>
+                        <span className="text-xs text-gray-500">No spam, ever</span>
                       </div>
 
                       {/* Submit Button */}
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full py-4 bg-gradient-to-r from-blue-500 to-cyan-500 hover:opacity-90 text-white rounded-xl font-semibold transition-all flex items-center justify-between px-6 disabled:opacity-70 shadow-lg"
+                        className="relative w-full py-4 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 bg-[length:200%_100%] hover:bg-right text-white rounded-xl font-bold transition-all duration-500 flex items-center justify-center gap-2 disabled:opacity-70 shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-cyan-500/30 hover:scale-[1.02] active:scale-[0.98] overflow-hidden group"
                       >
-                        <span className="text-lg">{isSubmitting ? 'Processing...' : 'Get Free Quotes'}</span>
+                        <span className="relative z-10">{isSubmitting ? 'Submitting...' : 'Get Free Consultation'}</span>
                         {isSubmitting ? (
-                          <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                         ) : (
-                          <ArrowRight size={22} />
+                          <ArrowRight size={20} className="relative z-10 group-hover:translate-x-1 transition-transform" />
                         )}
                       </button>
                     </form>
                   )}
+                </div>
+
+                {/* Footer Trust Bar */}
+                <div className="px-6 py-3 bg-white/[0.02] border-t border-white/5">
+                  <div className="flex items-center justify-center gap-6 text-xs text-gray-500">
+                    <span className="flex items-center gap-1.5"><Award size={14} className="text-amber-400" /> 15+ Years</span>
+                    <span className="flex items-center gap-1.5"><Users size={14} className="text-blue-400" /> 10,000+ Clients</span>
+                    <span className="flex items-center gap-1.5"><Star size={14} className="text-yellow-400" /> 4.9 Rating</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -389,40 +515,35 @@ export default function Hero() {
         <MessageCircle size={26} className="text-white" />
       </a>
 
-      {/* Sticky Bottom Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 bg-slate-900/95 backdrop-blur-xl border-t border-white/10 py-3 px-4">
-        <div className="flex items-center justify-between max-w-7xl mx-auto gap-4">
-          {/* Left - Info */}
-          <div className="hidden sm:block">
-            <p className="text-sm sm:text-base text-white font-semibold">
-              Get <span className="text-cyan-400">Expert Assistance</span>
+      {/* Sticky Bottom Bar - Minimal & Professional */}
+      <div className={`fixed bottom-0 left-0 right-0 z-40 bg-slate-950/98 backdrop-blur-xl border-t border-white/5 py-2.5 px-4 transition-all duration-500 ${showStickyBar ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 pointer-events-none'}`}>
+        <div className="flex items-center justify-between max-w-6xl mx-auto">
+          {/* Left - Minimal Text */}
+          <div className="hidden sm:flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+            <p className="text-sm text-gray-300">
+              Get <span className="text-white font-medium">Expert Guidance</span>
             </p>
-            <p className="text-gray-400 text-xs sm:text-sm">Free Consultation Available</p>
           </div>
 
-          {/* Center - Trust Badge (hidden on mobile) */}
-          <div className="hidden md:flex items-center gap-3 px-4 py-2 rounded-xl bg-white/5 border border-white/10">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
-              <Shield size={20} className="text-white" />
+          {/* Center - Rotating Service Badge */}
+          <div className="flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/5 border border-white/10">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
+              <BadgeCheck size={16} className="text-white" />
             </div>
-            <div>
-              <p className="text-white font-semibold text-sm">100+ Services</p>
-              <p className="text-gray-400 text-xs">BIS, FSSAI, GST & More</p>
+            <div className="min-w-[180px]">
+              <p className="text-white font-medium text-sm">{featuredServices[currentServiceIndex].name}</p>
+              <p className="text-gray-500 text-xs">{featuredServices[currentServiceIndex].desc}</p>
             </div>
-          </div>
-
-          {/* Mobile - Simple text */}
-          <div className="sm:hidden">
-            <p className="text-white font-semibold text-sm">JR Compliance</p>
           </div>
 
           {/* Right - CTA Button */}
           <Link
             href="/contact"
-            className="flex items-center gap-2 px-5 sm:px-8 py-3 bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-slate-900 font-bold rounded-xl shadow-lg shadow-amber-500/20 transition-all"
+            className="flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-slate-900 font-semibold text-sm rounded-full shadow-lg shadow-amber-500/20 transition-all hover:scale-105"
           >
-            <span className="text-sm sm:text-base">Get Quotes</span>
-            <ArrowRight size={18} />
+            <span>Get Quotes</span>
+            <ArrowRight size={16} />
           </Link>
         </div>
       </div>
