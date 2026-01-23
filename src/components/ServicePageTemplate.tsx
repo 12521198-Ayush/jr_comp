@@ -2,13 +2,13 @@
 
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
-import { 
-  ArrowRight, 
-  CheckCircle, 
-  Phone, 
-  Shield, 
-  Award, 
-  Users, 
+import {
+  ArrowRight,
+  CheckCircle,
+  Phone,
+  Shield,
+  Award,
+  Users,
   Star,
   Clock,
   BadgeCheck,
@@ -70,7 +70,12 @@ export default function ServicePageTemplate({
   const faqsPerPage = 5;
   const totalFaqPages = Math.ceil(faqs.length / faqsPerPage);
   const currentFaqs = faqs.slice(faqPage * faqsPerPage, (faqPage + 1) * faqsPerPage);
-
+  const mediaFeatures = [
+    { name: 'Economic Times', logo: 'https://m.economictimes.com/photo/msid-74726259,quality-100/et-logo.jpg', url: 'https://m.economictimes.com/industry/cons-products/fmcg/regulatory-delays-cripple-indian-cos-certifications-disrupt-fmcg-electronics-sectors-performance/amp_articleshow/126258894.cms' },
+    { name: 'Business World', logo: 'https://static.businessworld.in/bw-main-logo.png', url: 'https://www.businessworld.in/article/survey-flags-red-tape-as-key-risk-to-indias-manufacturing-momentum-585429' },
+    { name: 'Communications Today', logo: 'https://www.communicationstoday.co.in/wp-content/uploads/2020/10/glkgfdljkgkdf.png', url: 'https://www.communicationstoday.co.in/dot-revamps-security-certification-for-fibre-broadband-devices/' },
+    { name: 'Entrepreneur India', logo: 'https://www.entrepreneurindia.com/insight-new/images/logo.svg', url: 'https://www.entrepreneurindia.com/blog/en/article/how-dots-streamlining-of-indias-efforts-to-simplify-security-testing-extend-the-pro-tem-certification-scheme-and-others-could-boost-indigenous-telecom-equipment-manufacturing-could-spur-local-telecom-growth.58714' },
+  ];
   const colorClasses: Record<string, { bg: string; text: string; gradient: string; light: string; border: string }> = {
     blue: { bg: 'bg-blue-600', text: 'text-blue-400', gradient: 'from-blue-500 to-cyan-500', light: 'bg-blue-500/10', border: 'border-blue-500/20' },
     cyan: { bg: 'bg-cyan-600', text: 'text-cyan-400', gradient: 'from-cyan-500 to-teal-500', light: 'bg-cyan-500/10', border: 'border-cyan-500/20' },
@@ -91,40 +96,40 @@ export default function ServicePageTemplate({
       const formElement = formRef.current;
       const footer = document.querySelector('footer');
       const scrollY = window.scrollY;
-      
+
       // Only show after scrolling down 300px
       if (scrollY < 300) {
         setShowStickyBar(false);
         return;
       }
-      
+
       let hideBar = false;
-      
+
       // Check if form is in viewport
       if (formElement) {
         const formRect = formElement.getBoundingClientRect();
         const formVisible = formRect.top < window.innerHeight && formRect.bottom > 0;
         if (formVisible) hideBar = true;
       }
-      
+
       // Check if footer is in viewport
       if (footer) {
         const footerRect = footer.getBoundingClientRect();
         const footerVisible = footerRect.top < window.innerHeight;
         if (footerVisible) hideBar = true;
       }
-      
+
       // Also hide when near bottom of page
       const nearBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 100;
       if (nearBottom) hideBar = true;
-      
+
       setShowStickyBar(!hideBar);
     };
 
     window.addEventListener('scroll', handleVisibility);
     window.addEventListener('resize', handleVisibility);
     handleVisibility(); // Initial check
-    
+
     return () => {
       window.removeEventListener('scroll', handleVisibility);
       window.removeEventListener('resize', handleVisibility);
@@ -195,7 +200,7 @@ export default function ServicePageTemplate({
                 {' '}Today
               </h1>
 
-               {/* Trusted Clients Logo Reel */}
+              {/* Trusted Clients Logo Reel */}
               <div className="mb-4 sm:mb-6 overflow-hidden">
                 <p className="text-xs text-gray-500 mb-2 text-center lg:text-left">Trusted by Industry Leaders</p>
                 <div className="relative">
@@ -267,16 +272,16 @@ export default function ServicePageTemplate({
             </div>
 
             {/* Right Column - Form Card */}
-            <div ref={formRef} className="w-full max-w-sm sm:max-w-md mx-auto lg:mx-0 lg:ml-auto relative mt-4 lg:mt-0">
+            <div ref={formRef} className="w-full max-w-sm sm:max-w-md mx-auto lg:mx-0 lg:ml-auto relative mt-4 lg:mt-0 overflow-hidden">
               {/* Floating Badge */}
-              <div className="absolute -top-3 sm:-top-4 left-4 sm:left-6 z-10">
+              {/* <div className="absolute -top-3 sm:-top-4 left-4 sm:left-6 z-10">
                 <div className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-full text-xs font-semibold shadow-lg shadow-emerald-500/25">
                   <Lock size={10} className="sm:w-3 sm:h-3" />
                   <span>100% Secure</span>
                 </div>
-              </div>
+              </div> */}
 
-              <div className="bg-gradient-to-br from-slate-800 via-slate-800 to-slate-900 rounded-xl sm:rounded-2xl border border-white/10 shadow-2xl shadow-black/50 overflow-hidden">
+              <div className="bg-gradient-to-br from-slate-800 via-slate-800 to-slate-900 rounded-xl sm:rounded-2xl border border-white/10 shadow-2xl shadow-black/50 overflow-hidden w-full max-w-full">
                 {/* Premium Header */}
                 <div className="relative px-6 py-5 bg-gradient-to-r from-blue-600/10 via-cyan-500/5 to-purple-600/10 border-b border-white/5">
                   <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.15),transparent_50%)]" />
@@ -290,22 +295,20 @@ export default function ServicePageTemplate({
                       <span className="text-xs font-medium text-emerald-400">Online</span>
                     </div> */}
                   </div>
-                  
+
                   {/* Progress Steps */}
                   <div className="mt-4 flex items-center gap-2">
                     {[1, 2, 3].map((step) => (
                       <div key={step} className="flex-1 flex items-center gap-2">
-                        <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
-                          currentStep >= step 
-                            ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/30' 
-                            : 'bg-white/5 text-gray-500 border border-white/10'
-                        }`}>
+                        <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all ${currentStep >= step
+                          ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/30'
+                          : 'bg-white/5 text-gray-500 border border-white/10'
+                          }`}>
                           {currentStep > step ? <CheckCircle size={14} /> : step}
                         </div>
                         {step < 3 && (
-                          <div className={`flex-1 h-0.5 rounded-full transition-all ${
-                            currentStep > step ? 'bg-gradient-to-r from-blue-500 to-cyan-500' : 'bg-white/10'
-                          }`} />
+                          <div className={`flex-1 h-0.5 rounded-full transition-all ${currentStep > step ? 'bg-gradient-to-r from-blue-500 to-cyan-500' : 'bg-white/10'
+                            }`} />
                         )}
                       </div>
                     ))}
@@ -419,12 +422,65 @@ export default function ServicePageTemplate({
                   )}
                 </div>
 
+                <div className="px-2 sm:px-4 py-3 bg-white/[0.02] border-t border-white/5 overflow-hidden">
+                  <p className="text-[11px] sm:text-[12px] text-gray-400 text-center font-medium tracking-wide mb-1">
+                    Trusted & Recognized By
+                  </p>
+                  <p className="text-[9px] sm:text-[10px] text-gray-500 text-center mb-2 px-1">
+                    Featured across reputed platforms
+                  </p>
+
+                  <div className="relative overflow-hidden">
+                    {/* Scrolling container - pauses on hover */}
+                    <div className="flex animate-scroll-slow hover:[animation-play-state:paused]">
+                      <div className="flex shrink-0">
+                        {/* First set of logos */}
+                        {mediaFeatures.map((media) => (
+                          <a
+                            key={media.name}
+                            href={media.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="opacity-60 hover:opacity-100 transition-opacity flex-shrink-0 mx-2 sm:mx-3"
+                          >
+                            <img
+                              src={media.logo}
+                              alt={media.name}
+                              className="h-3 w-auto max-w-[85px] sm:max-w-[90px] brightness-0 invert object-contain"
+                            />
+                          </a>
+                        ))}
+                      </div>
+                      {/* Duplicate for seamless loop */}
+                      <div className="flex shrink-0">
+                        {mediaFeatures.map((media) => (
+                          <a
+                            key={`${media.name}-dup`}
+                            href={media.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="opacity-60 hover:opacity-100 transition-opacity flex-shrink-0 mx-2 sm:mx-3"
+                          >
+                            <img
+                              src={media.logo}
+                              alt={media.name}
+                              className="h-3 w-auto max-w-[85px] sm:max-w-[90px] brightness-0 invert object-contain"
+                            />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
                 {/* Footer Trust Bar */}
                 <div className="px-3 sm:px-6 py-2 sm:py-3 bg-white/[0.02] border-t border-white/5">
                   <div className="flex items-center justify-center gap-3 sm:gap-6 text-[10px] sm:text-xs text-gray-500">
-                    <span className="flex items-center gap-1 sm:gap-1.5"><Award size={12} className="text-amber-400 sm:w-3.5 sm:h-3.5" /> 15+ Yrs</span>
-                    <span className="flex items-center gap-1 sm:gap-1.5"><Users size={12} className="text-blue-400 sm:w-3.5 sm:h-3.5" /> 10K+ Clients</span>
-                    <span className="flex items-center gap-1 sm:gap-1.5"><Star size={12} className="text-yellow-400 sm:w-3.5 sm:h-3.5" /> 4.9 Rating</span>
+                    <span className="flex items-center gap-1.5">
+                      <Award size={14} className="text-amber-400" />
+                      15+ Years of Industry Experience
+                    </span>
                   </div>
                 </div>
               </div>
@@ -567,9 +623,8 @@ export default function ServicePageTemplate({
                   <span className="text-sm sm:text-base text-white font-medium pr-3 sm:pr-4">{faq.question}</span>
                   <ChevronDown
                     size={18}
-                    className={`text-gray-400 transition-transform flex-shrink-0 sm:w-5 sm:h-5 ${
-                      openFaq === index ? 'rotate-180' : ''
-                    }`}
+                    className={`text-gray-400 transition-transform flex-shrink-0 sm:w-5 sm:h-5 ${openFaq === index ? 'rotate-180' : ''
+                      }`}
                   />
                 </button>
                 {openFaq === index && (
@@ -637,67 +692,66 @@ export default function ServicePageTemplate({
       </section>
 
       {/* Sticky Bottom Bar - Left & Right Layout */}
-<div
-  className={`fixed bottom-0 left-0 right-0 z-40 transition-all duration-500 ${
-    showStickyBar
-      ? "translate-y-0 opacity-100"
-      : "translate-y-full opacity-0 pointer-events-none"
-  }`}
->
-  {/* Gradient border top */}
-  <div className="h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
+      <div
+        className={`fixed bottom-0 left-0 right-0 z-40 transition-all duration-500 ${showStickyBar
+          ? "translate-y-0 opacity-100"
+          : "translate-y-full opacity-0 pointer-events-none"
+          }`}
+      >
+        {/* Gradient border top */}
+        <div className="h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
 
-  <div className="bg-slate-950/98 backdrop-blur-xl py-3 sm:py-4 px-4 sm:px-6">
-    <div className="flex items-center justify-between max-w-6xl mx-auto gap-4">
+        <div className="bg-slate-950/98 backdrop-blur-xl py-3 sm:py-4 px-4 sm:px-6">
+          <div className="flex items-center justify-between max-w-6xl mx-auto gap-4">
 
-      {/* Left - Compliance Info */}
-      <div className="flex items-start gap-3">
-        <div
-          className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br ${colors.gradient} flex items-center justify-center flex-shrink-0 shadow-lg`}
-        >
-          <Icon size={18} className="text-white sm:w-5 sm:h-5" />
-        </div>
+            {/* Left - Compliance Info */}
+            <div className="flex items-start gap-3">
+              <div
+                className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br ${colors.gradient} flex items-center justify-center flex-shrink-0 shadow-lg`}
+              >
+                <Icon size={18} className="text-white sm:w-5 sm:h-5" />
+              </div>
 
-        <div className="min-w-0">
-          {/* Primary Heading */}
-          <p className="text-white font-semibold text-sm sm:text-base leading-tight truncate max-w-[180px] sm:max-w-[320px]">
-            {title || "Professional Compliance & Regulatory Services"}
-          </p>
+              <div className="min-w-0">
+                {/* Primary Heading */}
+                <p className="text-white font-semibold text-sm sm:text-base leading-tight truncate max-w-[180px] sm:max-w-[320px]">
+                  {title || "Professional Compliance & Regulatory Services"}
+                </p>
 
-          {/* Secondary Line */}
-          <p className="text-gray-400 text-xs sm:text-sm mt-0.5 hidden sm:block">
-            End-to-end compliance support with expert guidance & timely approvals
-          </p>
+                {/* Secondary Line */}
+                <p className="text-gray-400 text-xs sm:text-sm mt-0.5 hidden sm:block">
+                  End-to-end compliance support with expert guidance & timely approvals
+                </p>
 
-          {/* Trust Micro Copy */}
-          <p className="text-gray-500 text-[11px] sm:text-xs mt-0.5 hidden sm:block">
-            Serving startups, MSMEs & enterprises across India
-          </p>
+                {/* Trust Micro Copy */}
+                <p className="text-gray-500 text-[11px] sm:text-xs mt-0.5 hidden sm:block">
+                  Serving startups, MSMEs & enterprises across India
+                </p>
+              </div>
+            </div>
+
+            {/* Right - CTA */}
+            <div className="flex flex-col items-end gap-1 flex-shrink-0">
+              <Link
+                href="/contact"
+                className={`flex items-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3 bg-gradient-to-r ${colors.gradient} hover:opacity-90 text-white font-bold text-sm sm:text-base rounded-xl shadow-lg transition-all hover:scale-105 hover:shadow-xl`}
+              >
+                <span className="hidden sm:inline">
+                  Speak with a Compliance Expert
+                </span>
+                <span className="sm:hidden">Consult</span>
+                <ArrowRight size={16} className="sm:w-5 sm:h-5" />
+              </Link>
+
+              {/* CTA Subtext */}
+              <span className="text-gray-500 text-[11px] sm:text-xs hidden sm:block">
+                No obligation · Transparent process · Expert assistance
+              </span>
+            </div>
+
+          </div>
         </div>
       </div>
-
-      {/* Right - CTA */}
-      <div className="flex flex-col items-end gap-1 flex-shrink-0">
-        <Link
-          href="/contact"
-          className={`flex items-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3 bg-gradient-to-r ${colors.gradient} hover:opacity-90 text-white font-bold text-sm sm:text-base rounded-xl shadow-lg transition-all hover:scale-105 hover:shadow-xl`}
-        >
-          <span className="hidden sm:inline">
-            Speak with a Compliance Expert
-          </span>
-          <span className="sm:hidden">Consult</span>
-          <ArrowRight size={16} className="sm:w-5 sm:h-5" />
-        </Link>
-
-        {/* CTA Subtext */}
-        <span className="text-gray-500 text-[11px] sm:text-xs hidden sm:block">
-          No obligation · Transparent process · Expert assistance
-        </span>
-      </div>
-
-    </div>
-  </div>
-</div>
 
 
     </>

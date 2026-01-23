@@ -331,16 +331,16 @@ export default function Hero() {
             </div>
 
             {/* Right Side - Enquiry Form */}
-            <div ref={formRef} className="w-full max-w-md mx-auto lg:mx-0 lg:ml-auto relative">
+            <div ref={formRef} className="w-full max-w-md mx-auto lg:mx-0 lg:ml-auto relative overflow-hidden">
               {/* Floating Badge */}
-              <div className="absolute -top-4 left-6 z-10">
+              {/* <div className="absolute -top-4 left-6 z-10">
                 <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-full text-xs font-semibold shadow-lg shadow-emerald-500/25">
                   <Lock size={12} />
                   <span>100% Secure</span>
                 </div>
-              </div>
+              </div> */}
 
-              <div className="bg-gradient-to-br from-slate-800 via-slate-800 to-slate-900 rounded-2xl border border-white/10 shadow-2xl shadow-black/50 overflow-hidden">
+              <div className="bg-gradient-to-br from-slate-800 via-slate-800 to-slate-900 rounded-2xl border border-white/10 shadow-2xl shadow-black/50 overflow-hidden w-full max-w-full">
                 {/* Premium Header */}
                 <div className="relative px-6 py-5 bg-gradient-to-r from-blue-600/10 via-cyan-500/5 to-purple-600/10 border-b border-white/5">
                   <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.15),transparent_50%)]" />
@@ -482,51 +482,50 @@ export default function Hero() {
                 </div>
 
                 {/* As Seen On - Media Logos Reel */}
-                <div className="px-4 py-3 bg-white/[0.02] border-t border-white/5 overflow-hidden">
-                  <p className="text-[11px] text-gray-400 text-center font-medium tracking-wide mb-1">
+                <div className="px-2 sm:px-4 py-3 bg-white/[0.02] border-t border-white/5 overflow-hidden">
+                  <p className="text-[11px] sm:text-[12px] text-gray-400 text-center font-medium tracking-wide mb-1">
                     Trusted & Recognized By
                   </p>
-                  <p className="text-[10px] text-gray-500 text-center mb-2">
-                    Featured across reputed business and compliance-focused platforms
+                  <p className="text-[9px] sm:text-[10px] text-gray-500 text-center mb-2 px-1">
+                    Featured across reputed platforms
                   </p>
 
-                  <div className="relative overflow-hidden group">
+                  <div className="relative overflow-hidden">
                     {/* Scrolling container - pauses on hover */}
-                    <div className="flex animate-scroll-slow group-hover:[animation-play-state:paused]">
+                    <div className="flex animate-scroll-slow hover:[animation-play-state:paused]">
+                      <div className="flex shrink-0">
 
                       {/* First set of logos */}
-                      <div className="flex items-center gap-6 px-3 shrink-0">
                         {mediaFeatures.map((media) => (
                           <a
                             key={media.name}
                             href={media.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="opacity-60 hover:opacity-100 transition-opacity flex-shrink-0"
+                            className="opacity-60 hover:opacity-100 transition-opacity flex-shrink-0 mx-2 sm:mx-3"
                           >
                             <img
                               src={media.logo}
                               alt={media.name}
-                              className="h-4 w-auto max-w-[70px] brightness-0 invert object-contain"
+                              className="h-3 w-auto max-w-[85px] sm:max-w-[90px] brightness-0 invert object-contain"
                             />
                           </a>
                         ))}
                       </div>
-
                       {/* Duplicate for seamless loop */}
-                      <div className="flex items-center gap-6 px-3 shrink-0">
+                      <div className="flex shrink-0">
                         {mediaFeatures.map((media) => (
                           <a
                             key={`${media.name}-dup`}
                             href={media.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="opacity-60 hover:opacity-100 transition-opacity flex-shrink-0"
+                            className="opacity-60 hover:opacity-100 transition-opacity flex-shrink-0 mx-2 sm:mx-3"
                           >
                             <img
                               src={media.logo}
                               alt={media.name}
-                              className="h-4 w-auto max-w-[70px] brightness-0 invert object-contain"
+                              className="h-3 w-auto max-w-[85px] sm:max-w-[90px] brightness-0 invert object-contain"
                             />
                           </a>
                         ))}
@@ -534,7 +533,9 @@ export default function Hero() {
                     </div>
                   </div>
                 </div>
-                         {/* Footer Trust Bar */}
+
+                
+                {/* Footer Trust Bar */}
                 <div className="px-6 py-4 bg-white/[0.02] border-t border-white/5">
                   {/* Trust metrics */}
                   <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-gray-500">
@@ -561,12 +562,18 @@ export default function Hero() {
 
                 </div>
 
+                
+
 
 
               </div>
+              
             </div>
+
+            
           </div>
         </div>
+        
 
         {/* Stats Section */}
         <div className="relative py-8 sm:py-12 lg:py-16 border-t border-white/5">
