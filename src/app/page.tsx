@@ -3,6 +3,7 @@ import Services from '@/components/Services';
 import Process from '@/components/Process';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import Testimonials from '@/components/Testimonials';
+import AsSeenOn from '@/components/AsSeenOn';
 import CTA from '@/components/CTA';
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
       <Services />
       <Process />
       <WhyChooseUs />
+      <AsSeenOn />
       <Testimonials />
       <CTA />
     </>

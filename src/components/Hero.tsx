@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useMemo } from 'react';
 import Link from 'next/link';
-import { Search, ArrowRight, Phone, MessageCircle, CheckCircle, ChevronRight, Users, Clock, Award, Shield, BadgeCheck, Lock, Star } from 'lucide-react';
+import { Search, ArrowRight, Phone, CheckCircle, ChevronRight, Users, Clock, Award, Shield, BadgeCheck, Lock, Star } from 'lucide-react';
 
 const services = [
   { name: 'BIS Certification', href: '/approval/bis-certification', category: 'Technical' },
@@ -171,21 +171,21 @@ export default function Hero() {
       </div>
 
       {/* Main Content */}
-      <div className="relative">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 lg:pt-32 pb-16">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+      <div className="relative w-full overflow-hidden">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-32 pb-8 sm:pb-12 lg:pb-16">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-start">
             
             {/* Left Side - Content */}
-            <div className="text-center lg:text-left">
+            <div className="text-center lg:text-left overflow-hidden">
             
               {/* Trust Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8">
+              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-4 sm:mb-6 lg:mb-8">
                 <span className="text-cyan-400">✨</span>
-                <span className="text-sm font-medium text-gray-300">Trusted by 10,000+ enterprises India based</span>
+                <span className="text-xs sm:text-sm font-medium text-gray-300">Trusted by 10,000+ enterprises India based</span>
               </div>
 
               {/* Main Heading */}
-              <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-6">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-4 sm:mb-6">
                 Power Your Business{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
                   Compliance
@@ -193,51 +193,56 @@ export default function Hero() {
               </h1>
 
               {/* Trusted Clients Logo Reel */}
-              <div className="mb-6 overflow-hidden">
-                <p className="text-xs text-gray-500 mb-2 text-center lg:text-left">Trusted by Industry Leaders</p>
-                <div className="relative">
+              <div className="mb-6 overflow-hidden w-full max-w-full">
+                <p className="text-xs text-gray-400 mb-3 text-center lg:text-left">Helped many global brands achieve compliance</p>
+                <div className="relative w-full overflow-hidden">
                   {/* Scrolling container */}
-                  <div className="flex animate-scroll">
+                  <div className="flex animate-scroll w-max">
                     {/* First set of logos */}
-                    <div className="flex items-center gap-8 px-4 shrink-0">
-                      <img src="/logo/6750381b5985420c3fd6e61f_sony.png" alt="Sony" className="h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/681867c363c09e87654cd69f_Tata_Play_2022_logo 1.png" alt="Tata Play" className="h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/6750381ad02e6dfd82a68f4d_healthify.png" alt="Healthify" className="h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/6750381bca61ce816f91953e_sennhe.png" alt="Sennheiser" className="h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/672dc1a691c67b848963be5a_lipi logo.png" alt="Lipi" className="h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/68495d3d9d0d20176f5d4f90_ISC Logo.png" alt="ISC" className="h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                    <div className="flex items-center gap-10 sm:gap-12 px-4 shrink-0">
+                      <img src="/logo/6750381b5985420c3fd6e61f_sony.png" alt="Sony" className="h-6 sm:h-7 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                      <img src="/logo/681867c363c09e87654cd69f_Tata_Play_2022_logo 1.png" alt="Tata Play" className="h-6 sm:h-7 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                      <img src="/logo/6750381ad02e6dfd82a68f4d_healthify.png" alt="Healthify" className="h-6 sm:h-7 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                      <img src="/logo/6750381bca61ce816f91953e_sennhe.png" alt="Sennheiser" className="h-6 sm:h-7 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                      <img src="/logo/672dc1a691c67b848963be5a_lipi logo.png" alt="Lipi" className="h-6 sm:h-7 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                      <img src="/logo/68495d3d9d0d20176f5d4f90_ISC Logo.png" alt="ISC" className="h-6 sm:h-7 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                      {/* Text placeholders for Intertek and Newline */}
+                      <span className="text-gray-400 font-semibold text-sm sm:text-base opacity-60 hover:opacity-100 transition-opacity">Intertek</span>
+                      <span className="text-gray-400 font-semibold text-sm sm:text-base opacity-60 hover:opacity-100 transition-opacity">Newline</span>
                     </div>
                     {/* Duplicate set for seamless loop */}
-                    <div className="flex items-center gap-8 px-4 shrink-0">
-                      <img src="/logo/6750381b5985420c3fd6e61f_sony.png" alt="Sony" className="h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/681867c363c09e87654cd69f_Tata_Play_2022_logo 1.png" alt="Tata Play" className="h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/6750381ad02e6dfd82a68f4d_healthify.png" alt="Healthify" className="h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/6750381bca61ce816f91953e_sennhe.png" alt="Sennheiser" className="h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/672dc1a691c67b848963be5a_lipi logo.png" alt="Lipi" className="h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/68495d3d9d0d20176f5d4f90_ISC Logo.png" alt="ISC" className="h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                    <div className="flex items-center gap-10 sm:gap-12 px-4 shrink-0">
+                      <img src="/logo/6750381b5985420c3fd6e61f_sony.png" alt="Sony" className="h-6 sm:h-7 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                      <img src="/logo/681867c363c09e87654cd69f_Tata_Play_2022_logo 1.png" alt="Tata Play" className="h-6 sm:h-7 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                      <img src="/logo/6750381ad02e6dfd82a68f4d_healthify.png" alt="Healthify" className="h-6 sm:h-7 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                      <img src="/logo/6750381bca61ce816f91953e_sennhe.png" alt="Sennheiser" className="h-6 sm:h-7 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                      <img src="/logo/672dc1a691c67b848963be5a_lipi logo.png" alt="Lipi" className="h-6 sm:h-7 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                      <img src="/logo/68495d3d9d0d20176f5d4f90_ISC Logo.png" alt="ISC" className="h-6 sm:h-7 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                      <span className="text-gray-400 font-semibold text-sm sm:text-base opacity-60 hover:opacity-100 transition-opacity">Intertek</span>
+                      <span className="text-gray-400 font-semibold text-sm sm:text-base opacity-60 hover:opacity-100 transition-opacity">Newline</span>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Subheading */}
-              <p className="text-lg sm:text-xl text-gray-400 max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed">
+              <p className="text-sm sm:text-base lg:text-xl text-gray-400 max-w-full lg:max-w-xl mx-auto lg:mx-0 mb-6 sm:mb-8 leading-relaxed px-1 sm:px-0">
                 India&apos;s most trusted compliance partner for BIS, ISI, FSSAI, GST & 100+ regulatory services. 
                 Reach your business goals with our expert consultants.
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-8">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 mb-6 sm:mb-8">
                 <Link
                   href="/contact"
-                  className="group flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl transition-all hover:scale-105 active:scale-95 shadow-lg shadow-blue-500/25"
+                  className="group w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl transition-all hover:scale-105 active:scale-95 shadow-lg shadow-blue-500/25 text-sm sm:text-base"
                 >
                   <span>Start Free Consultation</span>
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <a
                   href="tel:1800121410410"
-                  className="group flex items-center gap-2 px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-semibold rounded-xl border border-white/10 hover:border-white/20 transition-all"
+                  className="group w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white/5 hover:bg-white/10 text-white font-semibold rounded-xl border border-white/10 hover:border-white/20 transition-all text-sm sm:text-base"
                 >
                   <Phone size={18} />
                   <span>Call Now</span>
@@ -245,30 +250,30 @@ export default function Hero() {
               </div>
 
               {/* Features */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-gray-400">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-4 lg:gap-6 text-xs sm:text-sm text-gray-400">
                 {features.map((feature) => (
-                  <div key={feature} className="flex items-center gap-2">
-                    <CheckCircle size={16} className="text-cyan-400" />
-                    <span>{feature}</span>
+                  <div key={feature} className="flex items-center gap-1 sm:gap-1.5 lg:gap-2">
+                    <CheckCircle size={12} className="text-cyan-400 sm:w-3.5 sm:h-3.5 lg:w-4 lg:h-4 flex-shrink-0" />
+                    <span className="whitespace-nowrap">{feature}</span>
                   </div>
                 ))}
               </div>
 
               {/* Search Section */}
-              <div className="mt-10 max-w-xl mx-auto lg:mx-0" ref={searchRef}>
+              <div className="mt-6 sm:mt-8 lg:mt-10 w-full max-w-full lg:max-w-xl mx-auto lg:mx-0" ref={searchRef}>
                 <div className="relative">
                   <div className="relative flex items-center">
-                    <Search size={20} className="absolute left-5 text-gray-400" />
+                    <Search size={18} className="absolute left-4 sm:left-5 text-gray-400" />
                     <input
                       type="text"
-                      placeholder="Search for services... (BIS, GST, FSSAI, etc.)"
+                      placeholder="Search services... (BIS, GST, FSSAI)"
                       value={searchQuery}
                       onChange={(e) => {
                         setSearchQuery(e.target.value);
                         setShowResults(true);
                       }}
                       onFocus={() => setShowResults(true)}
-                      className="w-full pl-14 pr-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all"
+                      className="w-full pl-11 sm:pl-14 pr-4 sm:pr-6 py-3 sm:py-4 bg-white/5 border border-white/10 rounded-xl sm:rounded-2xl text-white text-sm sm:text-base placeholder-gray-500 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all"
                     />
                   </div>
 
@@ -297,16 +302,16 @@ export default function Hero() {
                 </div>
 
                 {/* Quick Links */}
-                <div className="mt-4 flex flex-wrap items-center justify-center lg:justify-start gap-2">
-                  <span className="text-sm text-gray-500">Popular:</span>
-                  {['BIS Certification', 'GST Registration', 'FSSAI License', 'Trademark'].map((item) => (
+                <div className="mt-3 sm:mt-4 flex flex-wrap items-center justify-center lg:justify-start gap-1.5 sm:gap-2">
+                  <span className="text-xs sm:text-sm text-gray-500">Popular:</span>
+                  {['BIS', 'GST', 'FSSAI', 'Trademark'].map((item) => (
                     <button
                       key={item}
                       onClick={() => {
                         setSearchQuery(item);
                         setShowResults(true);
                       }}
-                      className="px-3 py-1.5 text-sm text-gray-400 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg border border-white/5 transition-all"
+                      className="px-2 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm text-gray-400 hover:text-white bg-white/5 hover:bg-white/10 rounded-md sm:rounded-lg border border-white/5 transition-all"
                     >
                       {item}
                     </button>
@@ -482,21 +487,21 @@ export default function Hero() {
         </div>
 
         {/* Stats Section */}
-        <div className="relative py-16 border-t border-white/5">
+        <div className="relative py-8 sm:py-12 lg:py-16 border-t border-white/5">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-8">
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="text-center p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-white/10 hover:bg-white/10 transition-all group"
+                  className="text-center p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white/5 border border-white/5 hover:border-white/10 hover:bg-white/10 transition-all group"
                 >
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 mb-4 group-hover:scale-110 transition-transform">
-                    <stat.icon size={24} className="text-cyan-400" />
+                  <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 mb-2 sm:mb-4 group-hover:scale-110 transition-transform">
+                    <stat.icon size={20} className="text-cyan-400 sm:w-6 sm:h-6" />
                   </div>
-                  <div className="text-3xl lg:text-4xl font-bold text-white mb-1">
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-0.5 sm:mb-1">
                     {stat.value}
                   </div>
-                  <p className="text-sm text-gray-400">{stat.label}</p>
+                  <p className="text-xs sm:text-sm text-gray-400">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -504,47 +509,39 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Floating WhatsApp Button */}
-      <a
-        href="https://wa.me/919266450125?text=Hi%2C%20I%20need%20help%20with%20compliance%20services"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-20 right-6 z-50 w-14 h-14 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center shadow-2xl shadow-green-500/30 hover:scale-110 transition-transform"
-        aria-label="Chat on WhatsApp"
-      >
-        <MessageCircle size={26} className="text-white" />
-      </a>
-
-      {/* Sticky Bottom Bar - Minimal & Professional */}
-      <div className={`fixed bottom-0 left-0 right-0 z-40 bg-slate-950/98 backdrop-blur-xl border-t border-white/5 py-2.5 px-4 transition-all duration-500 ${showStickyBar ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 pointer-events-none'}`}>
-        <div className="flex items-center justify-between max-w-6xl mx-auto">
-          {/* Left - Minimal Text */}
-          <div className="hidden sm:flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-            <p className="text-sm text-gray-300">
-              Get <span className="text-white font-medium">Expert Guidance</span>
-            </p>
-          </div>
-
-          {/* Center - Rotating Service Badge */}
-          <div className="flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/5 border border-white/10">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
-              <BadgeCheck size={16} className="text-white" />
+      {/* Sticky Bottom Bar - Premium & Centered Design */}
+      <div className={`fixed bottom-0 left-0 right-0 z-40 transition-all duration-500 ${showStickyBar ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 pointer-events-none'}`}>
+        {/* Gradient border top */}
+        <div className="h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
+        
+        <div className="bg-slate-950/98 backdrop-blur-xl py-3 sm:py-4 px-4 sm:px-6">
+          <div className="flex items-center justify-center gap-4 sm:gap-6 max-w-4xl mx-auto">
+            {/* Left - One-to-One Consultancy Badge */}
+            <div className="hidden sm:flex items-center gap-2.5 px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/20">
+              <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 animate-pulse" />
+              <span className="text-sm font-medium text-white">One-to-One Consultancy</span>
             </div>
-            <div className="min-w-[180px]">
-              <p className="text-white font-medium text-sm">{featuredServices[currentServiceIndex].name}</p>
-              <p className="text-gray-500 text-xs">{featuredServices[currentServiceIndex].desc}</p>
-            </div>
-          </div>
 
-          {/* Right - CTA Button */}
-          <Link
-            href="/contact"
-            className="flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-slate-900 font-semibold text-sm rounded-full shadow-lg shadow-amber-500/20 transition-all hover:scale-105"
-          >
-            <span>Get Quotes</span>
-            <ArrowRight size={16} />
-          </Link>
+            {/* Center - Rotating Service Badge */}
+            <div className="flex items-center gap-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 transition-colors">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
+                <BadgeCheck size={18} className="text-white sm:w-5 sm:h-5" />
+              </div>
+              <div className="min-w-[140px] sm:min-w-[180px]">
+                <p className="text-white font-semibold text-sm sm:text-base">{featuredServices[currentServiceIndex].name}</p>
+                <p className="text-gray-400 text-xs sm:text-sm">{featuredServices[currentServiceIndex].desc}</p>
+              </div>
+            </div>
+
+            {/* Right - CTA Button */}
+            <Link
+              href="/contact"
+              className="flex items-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3 bg-gradient-to-r from-amber-400 via-orange-500 to-amber-500 hover:from-amber-500 hover:via-orange-600 hover:to-amber-600 text-slate-900 font-bold text-sm sm:text-base rounded-xl shadow-lg shadow-amber-500/25 transition-all hover:scale-105 hover:shadow-xl hover:shadow-amber-500/30"
+            >
+              <span>Get Quotes</span>
+              <ArrowRight size={16} className="sm:w-5 sm:h-5" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>
