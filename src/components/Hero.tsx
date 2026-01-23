@@ -39,7 +39,7 @@ export default function Hero() {
   const [searchQuery, setSearchQuery] = useState('');
   const [showResults, setShowResults] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
-  
+
   // Enquiry form state
   const [formData, setFormData] = useState({
     name: '',
@@ -51,6 +51,14 @@ export default function Hero() {
   const [showStickyBar, setShowStickyBar] = useState(false);
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
   const formRef = useRef<HTMLDivElement>(null);
+
+  // Media features for "As Seen On"
+  const mediaFeatures = [
+    { name: 'Economic Times', logo: 'https://m.economictimes.com/photo/msid-74726259,quality-100/et-logo.jpg', url: 'https://m.economictimes.com/industry/cons-products/fmcg/regulatory-delays-cripple-indian-cos-certifications-disrupt-fmcg-electronics-sectors-performance/amp_articleshow/126258894.cms' },
+    { name: 'Business World', logo: 'https://static.businessworld.in/bw-main-logo.png', url: 'https://www.businessworld.in/article/survey-flags-red-tape-as-key-risk-to-indias-manufacturing-momentum-585429' },
+    { name: 'Communications Today', logo: 'https://www.communicationstoday.co.in/wp-content/uploads/2020/10/glkgfdljkgkdf.png', url: 'https://www.communicationstoday.co.in/dot-revamps-security-certification-for-fibre-broadband-devices/' },
+    { name: 'Entrepreneur India', logo: 'https://www.entrepreneurindia.com/insight-new/images/logo.svg', url: 'https://www.entrepreneurindia.com/blog/en/article/how-dots-streamlining-of-indias-efforts-to-simplify-security-testing-extend-the-pro-tem-certification-scheme-and-others-could-boost-indigenous-telecom-equipment-manufacturing-could-spur-local-telecom-growth.58714' },
+  ];
 
   // Featured services for sticky bar rotation
   const featuredServices = [
@@ -95,40 +103,40 @@ export default function Hero() {
       const formElement = formRef.current;
       const footer = document.querySelector('footer');
       const scrollY = window.scrollY;
-      
+
       // Only show after scrolling down 300px
       if (scrollY < 300) {
         setShowStickyBar(false);
         return;
       }
-      
+
       let hideBar = false;
-      
+
       // Check if form is in viewport
       if (formElement) {
         const formRect = formElement.getBoundingClientRect();
         const formVisible = formRect.top < window.innerHeight && formRect.bottom > 0;
         if (formVisible) hideBar = true;
       }
-      
+
       // Check if footer is in viewport
       if (footer) {
         const footerRect = footer.getBoundingClientRect();
         const footerVisible = footerRect.top < window.innerHeight;
         if (footerVisible) hideBar = true;
       }
-      
+
       // Also hide when near bottom of page
       const nearBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 100;
       if (nearBottom) hideBar = true;
-      
+
       setShowStickyBar(!hideBar);
     };
 
     window.addEventListener('scroll', handleVisibility);
     window.addEventListener('resize', handleVisibility);
     handleVisibility(); // Initial check
-    
+
     return () => {
       window.removeEventListener('scroll', handleVisibility);
       window.removeEventListener('resize', handleVisibility);
@@ -156,7 +164,7 @@ export default function Hero() {
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute top-40 right-20 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-        
+
         {/* Grid Pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
       </div>
@@ -174,10 +182,10 @@ export default function Hero() {
       <div className="relative w-full overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-32 pb-8 sm:pb-12 lg:pb-16">
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-start">
-            
+
             {/* Left Side - Content */}
             <div className="text-center lg:text-left overflow-hidden">
-            
+
               {/* Trust Badge */}
               <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-4 sm:mb-6 lg:mb-8">
                 <span className="text-cyan-400">✨</span>
@@ -191,6 +199,8 @@ export default function Hero() {
                   Compliance
                 </span>
               </h1>
+
+              
 
               {/* Trusted Clients Logo Reel */}
               <div className="mb-6 overflow-hidden w-full max-w-full">
@@ -227,7 +237,7 @@ export default function Hero() {
 
               {/* Subheading */}
               <p className="text-sm sm:text-base lg:text-xl text-gray-400 max-w-full lg:max-w-xl mx-auto lg:mx-0 mb-6 sm:mb-8 leading-relaxed px-1 sm:px-0">
-                India&apos;s most trusted compliance partner for BIS, ISI, FSSAI, GST & 100+ regulatory services. 
+                India&apos;s most trusted compliance partner for BIS, ISI, FSSAI, GST & 100+ regulatory services.
                 Reach your business goals with our expert consultants.
               </p>
 
@@ -344,22 +354,20 @@ export default function Hero() {
                       <span className="text-xs font-medium text-emerald-400">Online</span>
                     </div> */}
                   </div>
-                  
+
                   {/* Progress Steps */}
                   <div className="mt-4 flex items-center gap-2">
                     {[1, 2, 3].map((step) => (
                       <div key={step} className="flex-1 flex items-center gap-2">
-                        <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
-                          currentStep >= step 
-                            ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/30' 
-                            : 'bg-white/5 text-gray-500 border border-white/10'
-                        }`}>
+                        <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all ${currentStep >= step
+                          ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/30'
+                          : 'bg-white/5 text-gray-500 border border-white/10'
+                          }`}>
                           {currentStep > step ? <CheckCircle size={14} /> : step}
                         </div>
                         {step < 3 && (
-                          <div className={`flex-1 h-0.5 rounded-full transition-all ${
-                            currentStep > step ? 'bg-gradient-to-r from-blue-500 to-cyan-500' : 'bg-white/10'
-                          }`} />
+                          <div className={`flex-1 h-0.5 rounded-full transition-all ${currentStep > step ? 'bg-gradient-to-r from-blue-500 to-cyan-500' : 'bg-white/10'
+                            }`} />
                         )}
                       </div>
                     ))}
@@ -473,14 +481,88 @@ export default function Hero() {
                   )}
                 </div>
 
-                {/* Footer Trust Bar */}
-                <div className="px-6 py-3 bg-white/[0.02] border-t border-white/5">
-                  <div className="flex items-center justify-center gap-6 text-xs text-gray-500">
-                    <span className="flex items-center gap-1.5"><Award size={14} className="text-amber-400" /> 15+ Years</span>
-                    <span className="flex items-center gap-1.5"><Users size={14} className="text-blue-400" /> 10,000+ Clients</span>
-                    <span className="flex items-center gap-1.5"><Star size={14} className="text-yellow-400" /> 4.9 Rating</span>
+                {/* As Seen On - Media Logos Reel */}
+                <div className="px-4 py-3 bg-white/[0.02] border-t border-white/5 overflow-hidden">
+                  <p className="text-[11px] text-gray-400 text-center font-medium tracking-wide mb-1">
+                    Trusted & Recognized By
+                  </p>
+                  <p className="text-[10px] text-gray-500 text-center mb-2">
+                    Featured across reputed business and compliance-focused platforms
+                  </p>
+
+                  <div className="relative overflow-hidden group">
+                    {/* Scrolling container - pauses on hover */}
+                    <div className="flex animate-scroll-slow group-hover:[animation-play-state:paused]">
+
+                      {/* First set of logos */}
+                      <div className="flex items-center gap-6 px-3 shrink-0">
+                        {mediaFeatures.map((media) => (
+                          <a
+                            key={media.name}
+                            href={media.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="opacity-60 hover:opacity-100 transition-opacity flex-shrink-0"
+                          >
+                            <img
+                              src={media.logo}
+                              alt={media.name}
+                              className="h-4 w-auto max-w-[70px] brightness-0 invert object-contain"
+                            />
+                          </a>
+                        ))}
+                      </div>
+
+                      {/* Duplicate for seamless loop */}
+                      <div className="flex items-center gap-6 px-3 shrink-0">
+                        {mediaFeatures.map((media) => (
+                          <a
+                            key={`${media.name}-dup`}
+                            href={media.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="opacity-60 hover:opacity-100 transition-opacity flex-shrink-0"
+                          >
+                            <img
+                              src={media.logo}
+                              alt={media.name}
+                              className="h-4 w-auto max-w-[70px] brightness-0 invert object-contain"
+                            />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
+                         {/* Footer Trust Bar */}
+                <div className="px-6 py-4 bg-white/[0.02] border-t border-white/5">
+                  {/* Trust metrics */}
+                  <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-gray-500">
+                    <span className="flex items-center gap-1.5">
+                      <Award size={14} className="text-amber-400" />
+                      15+ Years of Industry Experience
+                    </span>
+
+                    {/* <span className="flex items-center gap-1.5">
+                      <Users size={14} className="text-blue-400" />
+                      10,000+ Businesses Served
+                    </span>
+
+                    <span className="flex items-center gap-1.5">
+                      <Star size={14} className="text-yellow-400" />
+                      4.9 Client Satisfaction Rating
+                    </span> */}
+                  </div>
+
+                  {/* Compliance micro text */}
+                  <p className="text-[10px] text-gray-600 text-center mt-2">
+                    Delivering reliable, transparent & regulation-aligned compliance solutions
+                  </p>
+
+                </div>
+
+
+
               </div>
             </div>
           </div>
@@ -509,27 +591,21 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Sticky Bottom Bar - Premium & Centered Design */}
+      {/* Sticky Bottom Bar - Left & Right Layout */}
       <div className={`fixed bottom-0 left-0 right-0 z-40 transition-all duration-500 ${showStickyBar ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 pointer-events-none'}`}>
         {/* Gradient border top */}
         <div className="h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
-        
-        <div className="bg-slate-950/98 backdrop-blur-xl py-3 sm:py-4 px-4 sm:px-6">
-          <div className="flex items-center justify-center gap-4 sm:gap-6 max-w-4xl mx-auto">
-            {/* Left - One-to-One Consultancy Badge */}
-            <div className="hidden sm:flex items-center gap-2.5 px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/20">
-              <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 animate-pulse" />
-              <span className="text-sm font-medium text-white">One-to-One Consultancy</span>
-            </div>
 
-            {/* Center - Rotating Service Badge */}
-            <div className="flex items-center gap-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 transition-colors">
+        <div className="bg-slate-950/98 backdrop-blur-xl py-3 sm:py-4 px-4 sm:px-6">
+          <div className="flex items-center justify-between max-w-6xl mx-auto">
+            {/* Left - Rotating Service Badge */}
+            <div className="flex items-center gap-3">
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
                 <BadgeCheck size={18} className="text-white sm:w-5 sm:h-5" />
               </div>
-              <div className="min-w-[140px] sm:min-w-[180px]">
-                <p className="text-white font-semibold text-sm sm:text-base">{featuredServices[currentServiceIndex].name}</p>
-                <p className="text-gray-400 text-xs sm:text-sm">{featuredServices[currentServiceIndex].desc}</p>
+              <div className="min-w-0">
+                <p className="text-white font-semibold text-sm sm:text-base truncate max-w-[150px] sm:max-w-[250px]">{featuredServices[currentServiceIndex].name}</p>
+                <p className="text-gray-400 text-xs sm:text-sm hidden sm:block">{featuredServices[currentServiceIndex].desc}</p>
               </div>
             </div>
 

@@ -108,3 +108,8 @@ body {
 .animate-scroll:hover {
   animation-play-state: paused;
 }
+
+/* Slower scroll animation for smaller reels */
+.animate-scroll-slow {
+  animation: scroll 12s linear infinite;
+}

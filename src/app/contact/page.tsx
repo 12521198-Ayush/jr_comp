@@ -161,7 +161,7 @@ export default function ContactPage() {
       <section ref={heroRef} className="relative min-h-[70vh] flex items-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
         <FloatingParticles />
         <WaveBackground />
-        
+
         {/* Animated gradient orbs */}
         <motion.div
           animate={{
@@ -230,7 +230,7 @@ export default function ContactPage() {
               variants={itemVariants}
               className="text-xl md:text-2xl text-blue-100/80 leading-relaxed max-w-3xl mx-auto mb-12"
             >
-              Have questions about business registration, compliance, or certifications? 
+              Have questions about business registration, compliance, or certifications?
               Our team of experts is ready to assist you with a free consultation.
             </motion.p>
 
@@ -239,23 +239,30 @@ export default function ContactPage() {
               variants={itemVariants}
               className="flex flex-wrap gap-4 justify-center"
             >
-              {quickActions.map((action, index) => (
-                <motion.a
-                  key={action.label}
-                  href={action.href}
-                  whileHover={{ scale: 1.05, y: -3 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`inline-flex items-center gap-3 px-6 py-4 ${
-                    index === 0 
-                      ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/25' 
-                      : 'bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white/20'
-                  } rounded-full font-semibold transition-all`}
-                >
-                  <action.icon size={20} />
-                  {action.label}
-                </motion.a>
-              ))}
+              {/* Call Now */}
+              <motion.a
+                href="tel:1800121410410"
+                whileHover={{ scale: 1.05, y: -3 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-3 px-7 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/25 rounded-full font-semibold transition-all"
+              >
+                <Phone size={20} />
+                Call Compliance Expert
+              </motion.a>
+
+              {/* WhatsApp */}
+              <motion.a
+                href="https://wa.me/911800121410410"
+                target="_blank"
+                whileHover={{ scale: 1.05, y: -3 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-3 px-7 py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white/20 rounded-full font-semibold transition-all"
+              >
+                <MessageCircle size={20} />
+                WhatsApp Us
+              </motion.a>
             </motion.div>
+
           </motion.div>
         </motion.div>
 
@@ -294,8 +301,8 @@ export default function ContactPage() {
               <motion.div
                 key={info.title}
                 variants={itemVariants}
-                whileHover={{ 
-                  y: -12, 
+                whileHover={{
+                  y: -12,
                   boxShadow: '0 25px 50px rgba(0,0,0,0.15)',
                   transition: { duration: 0.3 }
                 }}
@@ -305,7 +312,7 @@ export default function ContactPage() {
                 <motion.div
                   className={`absolute inset-0 bg-gradient-to-br ${info.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
                 />
-                
+
                 {/* Floating decoration */}
                 <motion.div
                   animate={{ rotate: 360 }}
@@ -375,7 +382,7 @@ export default function ContactPage() {
               transition={{ delay: 0.2 }}
               className="text-gray-600 max-w-2xl mx-auto text-lg"
             >
-              From starting a new business to obtaining technical certifications, 
+              From starting a new business to obtaining technical certifications,
               we provide comprehensive compliance solutions.
             </motion.p>
           </motion.div>
@@ -388,7 +395,7 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2, duration: 0.8 }}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.03,
                   transition: { duration: 0.3 }
                 }}
@@ -398,7 +405,7 @@ export default function ContactPage() {
                 <motion.div
                   className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
                 />
-                
+
                 {/* Decorative circle */}
                 <motion.div
                   animate={{ rotate: 360 }}
@@ -414,12 +421,12 @@ export default function ContactPage() {
                   >
                     <service.icon size={30} className="text-white" />
                   </motion.div>
-                  
+
                   <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
                     {service.title}
                   </h3>
                   <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
-                  
+
                   <div className="space-y-3">
                     {service.features.map((feature, i) => (
                       <motion.div
@@ -464,10 +471,10 @@ export default function ContactPage() {
       {/* Why Contact Us Section */}
       <section className="py-24 relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
         <FloatingParticles />
-        
+
         {/* Animated background */}
         <motion.div
-          animate={{ 
+          animate={{
             scale: [1, 1.2, 1],
             opacity: [0.1, 0.2, 0.1],
           }}
@@ -519,8 +526,8 @@ export default function ContactPage() {
               <motion.div
                 key={item.text}
                 variants={itemVariants}
-                whileHover={{ 
-                  scale: 1.05, 
+                whileHover={{
+                  scale: 1.05,
                   backgroundColor: 'rgba(255,255,255,0.15)',
                   transition: { duration: 0.2 }
                 }}
@@ -589,7 +596,7 @@ export default function ContactPage() {
                   transition={{ delay: 0.2 }}
                   className="text-blue-100 text-xl leading-relaxed"
                 >
-                  Contact us today for a free consultation. Our experts are available 
+                  Contact us today for a free consultation. Our experts are available
                   to guide you through the entire compliance process.
                 </motion.p>
               </div>

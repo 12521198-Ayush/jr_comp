@@ -147,7 +147,7 @@ export default function ServicePageTemplate({
   return (
     <>
       {/* WhatsApp Floating Button */}
-      <a
+      {/* <a
         href="https://wa.me/919266450125"
         target="_blank"
         rel="noopener noreferrer"
@@ -155,7 +155,7 @@ export default function ServicePageTemplate({
         aria-label="Chat on WhatsApp"
       >
         <MessageCircle size={26} className="text-white" />
-      </a>
+      </a> */}
 
       {/* Hero Section - Dark Theme matching homepage */}
       <section className="relative min-h-[60vh] sm:min-h-[70vh] overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 pt-20 sm:pt-24 pb-8 sm:pb-12 lg:pb-16">
@@ -636,43 +636,70 @@ export default function ServicePageTemplate({
         </div>
       </section>
 
-      {/* Sticky Bottom Bar - Premium & Centered Design */}
-      <div className={`fixed bottom-0 left-0 right-0 z-40 transition-all duration-500 ${showStickyBar ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 pointer-events-none'}`}>
-        {/* Gradient border top */}
-        <div className="h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
-        
-        <div className="bg-slate-950/98 backdrop-blur-xl py-3 sm:py-4 px-4 sm:px-6">
-          <div className="flex items-center justify-center gap-3 sm:gap-6 max-w-4xl mx-auto">
-            {/* Left - One-to-One Consultancy Badge (hidden on mobile) */}
-            <div className="hidden md:flex items-center gap-2.5 px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/20">
-              <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 animate-pulse" />
-              <span className="text-sm font-medium text-white">One-to-One Consultancy</span>
-            </div>
+      {/* Sticky Bottom Bar - Left & Right Layout */}
+<div
+  className={`fixed bottom-0 left-0 right-0 z-40 transition-all duration-500 ${
+    showStickyBar
+      ? "translate-y-0 opacity-100"
+      : "translate-y-full opacity-0 pointer-events-none"
+  }`}
+>
+  {/* Gradient border top */}
+  <div className="h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
 
-            {/* Center - Current Service Info */}
-            <div className="flex items-center gap-3 px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 transition-colors flex-1 sm:flex-none max-w-xs sm:max-w-none">
-              <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br ${colors.gradient} flex items-center justify-center flex-shrink-0 shadow-lg`}>
-                <Icon size={18} className="text-white sm:w-5 sm:h-5" />
-              </div>
-              <div className="min-w-0 flex-1 sm:flex-none sm:min-w-[160px] sm:max-w-[220px]">
-                <p className="text-white font-semibold text-sm sm:text-base truncate">{title}</p>
-                <p className="text-gray-400 text-xs sm:text-sm truncate hidden sm:block">{description.slice(0, 40)}...</p>
-                <p className="text-gray-400 text-xs sm:hidden">Get expert help today</p>
-              </div>
-            </div>
+  <div className="bg-slate-950/98 backdrop-blur-xl py-3 sm:py-4 px-4 sm:px-6">
+    <div className="flex items-center justify-between max-w-6xl mx-auto gap-4">
 
-            {/* Right - CTA Button */}
-            <Link
-              href="/contact"
-              className={`flex items-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3 bg-gradient-to-r ${colors.gradient} hover:opacity-90 text-white font-bold text-sm sm:text-base rounded-xl shadow-lg transition-all hover:scale-105 hover:shadow-xl flex-shrink-0`}
-            >
-              <span className="hidden sm:inline">Get Quotes</span>
-              <span className="sm:hidden">Quotes</span>
-              <ArrowRight size={16} className="sm:w-5 sm:h-5" />
-            </Link>
-          </div>
+      {/* Left - Compliance Info */}
+      <div className="flex items-start gap-3">
+        <div
+          className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br ${colors.gradient} flex items-center justify-center flex-shrink-0 shadow-lg`}
+        >
+          <Icon size={18} className="text-white sm:w-5 sm:h-5" />
+        </div>
+
+        <div className="min-w-0">
+          {/* Primary Heading */}
+          <p className="text-white font-semibold text-sm sm:text-base leading-tight truncate max-w-[180px] sm:max-w-[320px]">
+            {title || "Professional Compliance & Regulatory Services"}
+          </p>
+
+          {/* Secondary Line */}
+          <p className="text-gray-400 text-xs sm:text-sm mt-0.5 hidden sm:block">
+            End-to-end compliance support with expert guidance & timely approvals
+          </p>
+
+          {/* Trust Micro Copy */}
+          <p className="text-gray-500 text-[11px] sm:text-xs mt-0.5 hidden sm:block">
+            Serving startups, MSMEs & enterprises across India
+          </p>
         </div>
       </div>
+
+      {/* Right - CTA */}
+      <div className="flex flex-col items-end gap-1 flex-shrink-0">
+        <Link
+          href="/contact"
+          className={`flex items-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3 bg-gradient-to-r ${colors.gradient} hover:opacity-90 text-white font-bold text-sm sm:text-base rounded-xl shadow-lg transition-all hover:scale-105 hover:shadow-xl`}
+        >
+          <span className="hidden sm:inline">
+            Speak with a Compliance Expert
+          </span>
+          <span className="sm:hidden">Consult</span>
+          <ArrowRight size={16} className="sm:w-5 sm:h-5" />
+        </Link>
+
+        {/* CTA Subtext */}
+        <span className="text-gray-500 text-[11px] sm:text-xs hidden sm:block">
+          No obligation · Transparent process · Expert assistance
+        </span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
     </>
   );
 }

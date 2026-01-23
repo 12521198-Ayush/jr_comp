@@ -5,22 +5,22 @@ import { ExternalLink } from 'lucide-react';
 const mediaFeatures = [
   {
     name: 'Economic Times',
-    logo: '/media/economic-times.png',
+    logo: 'https://m.economictimes.com/photo/msid-74726259,quality-100/et-logo.jpg',
     url: 'https://m.economictimes.com/industry/cons-products/fmcg/regulatory-delays-cripple-indian-cos-certifications-disrupt-fmcg-electronics-sectors-performance/amp_articleshow/126258894.cms',
   },
   {
     name: 'Business World',
-    logo: '/media/business-world.png',
+    logo: 'https://static.businessworld.in/bw-main-logo.png',
     url: 'https://www.businessworld.in/article/survey-flags-red-tape-as-key-risk-to-indias-manufacturing-momentum-585429',
   },
   {
     name: 'Communications Today',
-    logo: '/media/communications-today.png',
+    logo: 'https://www.communicationstoday.co.in/wp-content/uploads/2020/10/glkgfdljkgkdf.png',
     url: 'https://www.communicationstoday.co.in/dot-revamps-security-certification-for-fibre-broadband-devices/',
   },
   {
     name: 'Entrepreneur India',
-    logo: '/media/entrepreneur-india.png',
+    logo: 'https://www.entrepreneurindia.com/insight-new/images/logo.svg',
     url: 'https://www.entrepreneurindia.com/blog/en/article/how-dots-streamlining-of-indias-efforts-to-simplify-security-testing-extend-the-pro-tem-certification-scheme-and-others-could-boost-indigenous-telecom-equipment-manufacturing-could-spur-local-telecom-growth.58714',
   },
 ];
@@ -53,11 +53,13 @@ export default function AsSeenOn() {
               rel="noopener noreferrer"
               className="group relative flex flex-col items-center justify-center p-6 sm:p-8 rounded-xl sm:rounded-2xl bg-white/5 border border-white/5 hover:border-cyan-500/30 hover:bg-white/10 transition-all duration-300"
             >
-              {/* Placeholder for logo - use text fallback */}
-              <div className="h-8 sm:h-10 flex items-center justify-center mb-3">
-                <span className="text-white font-bold text-sm sm:text-base text-center leading-tight">
-                  {media.name}
-                </span>
+              {/* Logo */}
+              <div className="h-10 sm:h-12 flex items-center justify-center mb-3">
+                <img 
+                  src={media.logo} 
+                  alt={media.name}
+                  className="h-8 sm:h-10 w-auto max-w-[140px] sm:max-w-[160px] object-contain brightness-0 invert opacity-70 group-hover:opacity-100 transition-opacity"
+                />
               </div>
               
               {/* Link indicator */}
