@@ -1,7 +1,6 @@
 'use client';
 
 import ServicePageTemplate from '@/components/ServicePageTemplate';
-import { Pill } from 'lucide-react';
 
 export default function AyushLicensePage() {
   return (
@@ -9,7 +8,7 @@ export default function AyushLicensePage() {
       title="AYUSH Manufacturing License"
       subtitle="Ayurveda, Yoga, Unani, Siddha & Homeopathy"
       description="Searching for quick AYUSH license registration? Get your Ayush manufacturing license registration online from best consultants for Ayurvedic, Unani, Siddha, and Homeopathic products."
-      icon={Pill}
+      logo="/services_logo/Ayush licence.png"
       color="green"
       benefits={[
         'Legal manufacturing authorization',

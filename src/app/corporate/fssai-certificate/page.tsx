@@ -1,7 +1,6 @@
 ﻿'use client';
 
 import ServicePageTemplate from '@/components/ServicePageTemplate';
-import { Utensils } from 'lucide-react';
 
 export default function FSSAIModificationPage() {
   return (
@@ -9,7 +8,7 @@ export default function FSSAIModificationPage() {
       title="FSSAI Modification"
       subtitle="Food Safety Compliance"
       description="FSSAI modification is essential when your business details change. Whether it's address, ownership, products, or business name - we help you update your license quickly and compliantly."
-      icon={Utensils}
+      logo="/services_logo/fssai.png"
       color="green"
       benefits={[
         'Legal validity - Updating changes promptly keeps your FSSAI license valid and prevents penalties or cancellation',

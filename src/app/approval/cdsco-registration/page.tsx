@@ -1,14 +1,13 @@
 'use client';
 
 import ServicePageTemplate from '@/components/ServicePageTemplate';
-import { Heart } from 'lucide-react';
 
 export default function CDSCORegistrationPage() {
   return (
     <ServicePageTemplate
       title="CDSCO Registration"
       subtitle="Medical Device Approval"
-      icon={Heart}
+      logo="/services_logo/cdsco.png"
       color="orange"
       description="CDSCO registration is mandatory for manufacturing or importing medical devices in India. Demonstrate your commitment to quality and safety standards in healthcare."
       stats={[

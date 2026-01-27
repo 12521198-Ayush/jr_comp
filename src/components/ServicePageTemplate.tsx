@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import {
   ArrowRight,
@@ -27,7 +28,8 @@ interface ServicePageProps {
   title: string;
   subtitle: string;
   description: string;
-  icon: LucideIcon;
+  icon?: LucideIcon;
+  logo?: string;
   color: string;
   benefits: string[];
   process: { step: string; description: string }[];
@@ -42,6 +44,7 @@ export default function ServicePageTemplate({
   subtitle,
   description,
   icon: Icon,
+  logo,
   color,
   benefits,
   process,
@@ -75,6 +78,9 @@ export default function ServicePageTemplate({
     { name: 'Business World', logo: 'https://static.businessworld.in/bw-main-logo.png', url: 'https://www.businessworld.in/article/survey-flags-red-tape-as-key-risk-to-indias-manufacturing-momentum-585429' },
     { name: 'Communications Today', logo: 'https://www.communicationstoday.co.in/wp-content/uploads/2020/10/glkgfdljkgkdf.png', url: 'https://www.communicationstoday.co.in/dot-revamps-security-certification-for-fibre-broadband-devices/' },
     { name: 'Entrepreneur India', logo: 'https://www.entrepreneurindia.com/insight-new/images/logo.svg', url: 'https://www.entrepreneurindia.com/blog/en/article/how-dots-streamlining-of-indias-efforts-to-simplify-security-testing-extend-the-pro-tem-certification-scheme-and-others-could-boost-indigenous-telecom-equipment-manufacturing-could-spur-local-telecom-growth.58714' },
+    { name: 'Zee News', logo: 'https://english.cdn.zeenews.com/static/public/updated_logos/english.svg', url: 'https://zeenews.india.com/jr-compliance-a-house-for-all-global-compliance-services-2411707.html' },
+    { name: 'Hindustan Times', logo: 'https://www.hindustantimes.com/static-content/1y/ht/ht_100_logoblack@2x.webp', url: 'https://www.hindustantimes.com/brand-post/jr-compliance-helping-indian-businesses-expand-global-outreach/story-vqZ4goyJEjTHMPwQiN2VxO.html' },
+    { name: 'Dainik Bhaskar', logo: 'https://i.pinimg.com/736x/d7/a6/d0/d7a6d0bd61a6d438a8f402bf8b229f1e.jpg', url: 'https://www.bhaskar.com/local/delhi-ncr/gurgaon/news/rishikesh-mishra-of-jr-compliance-believes-that-corporate-compliance-will-facilitate-economic-growth-129422333.html' },
   ];
   const colorClasses: Record<string, { bg: string; text: string; gradient: string; light: string; border: string }> = {
     blue: { bg: 'bg-blue-600', text: 'text-blue-400', gradient: 'from-blue-500 to-cyan-500', light: 'bg-blue-500/10', border: 'border-blue-500/20' },
@@ -185,8 +191,12 @@ export default function ServicePageTemplate({
             <div className="text-center lg:text-left">
               {/* Service Badge */}
               <div className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-4 sm:mb-6">
-                <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br ${colors.gradient} flex items-center justify-center`}>
-                  <Icon size={14} className="text-white sm:w-4 sm:h-4" />
+                <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-lg ${logo ? 'bg-white' : `bg-gradient-to-br ${colors.gradient}`} flex items-center justify-center overflow-hidden`}>
+                  {logo ? (
+                    <Image src={logo} alt={title} width={24} height={24} className="object-contain" />
+                  ) : Icon ? (
+                    <Icon size={14} className="text-white sm:w-4 sm:h-4" />
+                  ) : null}
                 </div>
                 <span className="text-xs sm:text-sm font-medium text-gray-300">{subtitle}</span>
               </div>
@@ -200,29 +210,35 @@ export default function ServicePageTemplate({
                 {' '}Today
               </h1>
 
-              {/* Trusted Clients Logo Reel */}
-              <div className="mb-4 sm:mb-6 overflow-hidden">
-                <p className="text-xs text-gray-500 mb-2 text-center lg:text-left">Trusted by Industry Leaders</p>
-                <div className="relative">
+              {/* Trusted Clients Logo Reel - Hidden on mobile, shown on sm+ */}
+              <div className="hidden sm:block mb-6 overflow-hidden">
+                <p className="text-xs text-gray-400 mb-3 text-center lg:text-left">Helped many global brands achieve compliance</p>
+                <div className="relative overflow-hidden" style={{ maxWidth: '100%' }}>
                   {/* Scrolling container */}
                   <div className="flex animate-scroll">
                     {/* First set of logos */}
-                    <div className="flex items-center gap-4 sm:gap-8 px-2 sm:px-4 shrink-0">
-                      <img src="/logo/6750381b5985420c3fd6e61f_sony.png" alt="Sony" className="h-4 sm:h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/681867c363c09e87654cd69f_Tata_Play_2022_logo 1.png" alt="Tata Play" className="h-4 sm:h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/6750381ad02e6dfd82a68f4d_healthify.png" alt="Healthify" className="h-4 sm:h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/6750381bca61ce816f91953e_sennhe.png" alt="Sennheiser" className="h-4 sm:h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/672dc1a691c67b848963be5a_lipi logo.png" alt="Lipi" className="h-4 sm:h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/68495d3d9d0d20176f5d4f90_ISC Logo.png" alt="ISC" className="h-4 sm:h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                    <div className="flex items-center gap-6 md:gap-8 lg:gap-10 px-4 shrink-0">
+                      <img src="/logo/6750381b5985420c3fd6e61f_sony.png" alt="Sony" className="h-8 md:h-9 lg:h-10 w-auto max-w-[100px] md:max-w-[120px] object-contain opacity-80 brightness-0 invert" />
+                      <img src="/logo/681867c363c09e87654cd69f_Tata_Play_2022_logo 1.png" alt="Tata Play" className="h-8 md:h-9 lg:h-10 w-auto max-w-[100px] md:max-w-[120px] object-contain opacity-80 brightness-0 invert" />
+                      <img src="/logo/6750381ad02e6dfd82a68f4d_healthify.png" alt="Healthify" className="h-8 md:h-9 lg:h-10 w-auto max-w-[100px] md:max-w-[120px] object-contain opacity-80 brightness-0 invert" />
+                      <img src="/logo/6750381bca61ce816f91953e_sennhe.png" alt="Sennheiser" className="h-8 md:h-9 lg:h-10 w-auto max-w-[100px] md:max-w-[120px] object-contain opacity-80 brightness-0 invert" />
+                      <img src="/logo/672dc1a691c67b848963be5a_lipi logo.png" alt="Lipi" className="h-8 md:h-9 lg:h-10 w-auto max-w-[100px] md:max-w-[120px] object-contain opacity-80 brightness-0 invert" />
+                      <img src="/logo/68495d3d9d0d20176f5d4f90_ISC Logo.png" alt="ISC" className="h-8 md:h-9 lg:h-10 w-auto max-w-[100px] md:max-w-[120px] object-contain opacity-80 brightness-0 invert" />
+                      <img src="/logo/Gta3nPom.png" alt="Gta3nPom" className="h-10 md:h-12 lg:h-14 w-auto max-w-[120px] md:max-w-[150px] object-contain opacity-80 brightness-0 invert -mx-2" />
+                      <img src="/logo/intertek.png" alt="Intertek" className="h-8 md:h-9 lg:h-10 w-auto max-w-[100px] md:max-w-[120px] object-contain opacity-80 brightness-0 invert" />
+                      <img src="/logo/newline.png" alt="Newline" className="h-8 md:h-9 lg:h-10 w-auto max-w-[100px] md:max-w-[120px] object-contain opacity-80 brightness-0 invert" />
                     </div>
                     {/* Duplicate set for seamless loop */}
-                    <div className="flex items-center gap-4 sm:gap-8 px-2 sm:px-4 shrink-0">
-                      <img src="/logo/6750381b5985420c3fd6e61f_sony.png" alt="Sony" className="h-4 sm:h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/681867c363c09e87654cd69f_Tata_Play_2022_logo 1.png" alt="Tata Play" className="h-4 sm:h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/6750381ad02e6dfd82a68f4d_healthify.png" alt="Healthify" className="h-4 sm:h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/6750381bca61ce816f91953e_sennhe.png" alt="Sennheiser" className="h-4 sm:h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/672dc1a691c67b848963be5a_lipi logo.png" alt="Lipi" className="h-4 sm:h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/68495d3d9d0d20176f5d4f90_ISC Logo.png" alt="ISC" className="h-4 sm:h-5 w-auto opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                    <div className="flex items-center gap-6 md:gap-8 lg:gap-10 px-4 shrink-0">
+                      <img src="/logo/6750381b5985420c3fd6e61f_sony.png" alt="Sony" className="h-8 md:h-9 lg:h-10 w-auto max-w-[100px] md:max-w-[120px] object-contain opacity-80 brightness-0 invert" />
+                      <img src="/logo/681867c363c09e87654cd69f_Tata_Play_2022_logo 1.png" alt="Tata Play" className="h-8 md:h-9 lg:h-10 w-auto max-w-[100px] md:max-w-[120px] object-contain opacity-80 brightness-0 invert" />
+                      <img src="/logo/6750381ad02e6dfd82a68f4d_healthify.png" alt="Healthify" className="h-8 md:h-9 lg:h-10 w-auto max-w-[100px] md:max-w-[120px] object-contain opacity-80 brightness-0 invert" />
+                      <img src="/logo/6750381bca61ce816f91953e_sennhe.png" alt="Sennheiser" className="h-8 md:h-9 lg:h-10 w-auto max-w-[100px] md:max-w-[120px] object-contain opacity-80 brightness-0 invert" />
+                      <img src="/logo/672dc1a691c67b848963be5a_lipi logo.png" alt="Lipi" className="h-8 md:h-9 lg:h-10 w-auto max-w-[100px] md:max-w-[120px] object-contain opacity-80 brightness-0 invert" />
+                      <img src="/logo/68495d3d9d0d20176f5d4f90_ISC Logo.png" alt="ISC" className="h-8 md:h-9 lg:h-10 w-auto max-w-[100px] md:max-w-[120px] object-contain opacity-80 brightness-0 invert" />
+                      <img src="/logo/Gta3nPom.png" alt="Gta3nPom" className="h-10 md:h-12 lg:h-14 w-auto max-w-[120px] md:max-w-[150px] object-contain opacity-80 brightness-0 invert -mx-2" />
+                      <img src="/logo/intertek.png" alt="Intertek" className="h-8 md:h-9 lg:h-10 w-auto max-w-[100px] md:max-w-[120px] object-contain opacity-80 brightness-0 invert" />
+                      <img src="/logo/newline.png" alt="Newline" className="h-8 md:h-9 lg:h-10 w-auto max-w-[100px] md:max-w-[120px] object-contain opacity-80 brightness-0 invert" />
                     </div>
                   </div>
                 </div>
@@ -446,8 +462,14 @@ export default function ServicePageTemplate({
                             <img
                               src={media.logo}
                               alt={media.name}
-                              className="h-3 w-auto max-w-[85px] sm:max-w-[90px] brightness-0 invert object-contain"
+                              className={`w-auto object-contain brightness-0 invert transition-all
+    ${media.name === 'BW Businessworld'
+                                  ? 'h-3 max-w-[90px]'
+                                  : 'h-5 sm:h-6 max-w-[130px] sm:max-w-[150px]'
+                                }
+  `}
                             />
+
                           </a>
                         ))}
                       </div>
@@ -464,8 +486,14 @@ export default function ServicePageTemplate({
                             <img
                               src={media.logo}
                               alt={media.name}
-                              className="h-3 w-auto max-w-[85px] sm:max-w-[90px] brightness-0 invert object-contain"
+                              className={`w-auto object-contain brightness-0 invert transition-all
+    ${media.name === 'BW Businessworld'
+                                  ? 'h-3 max-w-[90px]'
+                                  : 'h-5 sm:h-6 max-w-[130px] sm:max-w-[150px]'
+                                }
+  `}
                             />
+
                           </a>
                         ))}
                       </div>
@@ -707,9 +735,13 @@ export default function ServicePageTemplate({
             {/* Left - Compliance Info */}
             <div className="flex items-start gap-3">
               <div
-                className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br ${colors.gradient} flex items-center justify-center flex-shrink-0 shadow-lg`}
+                className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl ${logo ? 'bg-white' : `bg-gradient-to-br ${colors.gradient}`} flex items-center justify-center flex-shrink-0 shadow-lg overflow-hidden`}
               >
-                <Icon size={18} className="text-white sm:w-5 sm:h-5" />
+                {logo ? (
+                  <Image src={logo} alt={title} width={28} height={28} className="object-contain" />
+                ) : Icon ? (
+                  <Icon size={18} className="text-white sm:w-5 sm:h-5" />
+                ) : null}
               </div>
 
               <div className="min-w-0">

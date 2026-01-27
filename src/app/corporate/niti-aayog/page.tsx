@@ -1,7 +1,6 @@
 'use client';
 
 import ServicePageTemplate from '@/components/ServicePageTemplate';
-import { Building } from 'lucide-react';
 
 export default function NITIAayogPage() {
   return (
@@ -9,7 +8,7 @@ export default function NITIAayogPage() {
       title="NITI Aayog Registration"
       subtitle="NGO Darpan Portal Registration"
       description="Register your NGO with NITI Aayog through the NGO Darpan portal. JR Compliance offers expert support for NITI Aayog registration to help you access government grants and build trust."
-      icon={Building}
+      logo="/services_logo/niti ayogya.png"
       color="cyan"
       benefits={[
         'Access to government grants and schemes',

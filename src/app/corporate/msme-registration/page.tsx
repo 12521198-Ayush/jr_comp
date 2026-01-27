@@ -1,7 +1,6 @@
 'use client';
 
 import ServicePageTemplate from '@/components/ServicePageTemplate';
-import { Factory } from 'lucide-react';
 
 export default function MSMERegistrationPage() {
   return (
@@ -9,7 +8,7 @@ export default function MSMERegistrationPage() {
       title="MSME Registration"
       subtitle="Udyam Registration for MSMEs"
       description="Get MSME/Udyam registration for your business. JR Compliance provides complete assistance for MSME registration to avail government benefits and schemes."
-      icon={Factory}
+      logo="/services_logo/msme.png"
       color="amber"
       benefits={[
         'Government scheme eligibility',

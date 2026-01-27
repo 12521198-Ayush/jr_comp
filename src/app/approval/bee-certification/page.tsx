@@ -1,14 +1,13 @@
 'use client';
 
 import ServicePageTemplate from '@/components/ServicePageTemplate';
-import { Zap } from 'lucide-react';
 
 export default function BEECertificationPage() {
   return (
     <ServicePageTemplate
       title="BEE Certification"
       subtitle="Bureau of Energy Efficiency"
-      icon={Zap}
+      logo="/services_logo/Bee.png"
       color="amber"
       description="Looking to get BEE Certification? Get your BEE Certificate Registration from best consultants with hassle free process."
       benefits={[

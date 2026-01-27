@@ -1,14 +1,13 @@
 'use client';
 
 import ServicePageTemplate from '@/components/ServicePageTemplate';
-import { Package } from 'lucide-react';
 
 export default function ISICertificationPage() {
   return (
     <ServicePageTemplate
       title="ISI Certification"
       subtitle="Bureau of Indian Standards"
-      icon={Package}
+      logo="/services_logo/isi.png"
       color="emerald"
       description="The ISI Mark validates that your products conform to Indian quality standards, building consumer trust. Mandatory for many product categories like electrical appliances, cement, and safety equipment."
       stats={[

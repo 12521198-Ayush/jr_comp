@@ -1,7 +1,6 @@
 'use client';
 
 import ServicePageTemplate from '@/components/ServicePageTemplate';
-import { Leaf } from 'lucide-react';
 
 export default function TeaBoardPage() {
   return (
@@ -9,7 +8,7 @@ export default function TeaBoardPage() {
       title="Tea Board Registration"
       subtitle="Export Indian Tea Globally"
       description="Get Tea Board Registration for tea export business. JR Compliance provides complete assistance for tea growers, manufacturers, and exporters."
-      icon={Leaf}
+      logo="/services_logo/tea board.png"
       color="green"
       benefits={[
         'Tea export authorization',

@@ -1,14 +1,13 @@
 'use client';
 
 import ServicePageTemplate from '@/components/ServicePageTemplate';
-import { Wifi } from 'lucide-react';
 
 export default function WPCCertificationPage() {
   return (
     <ServicePageTemplate
       title="WPC Certification"
       subtitle="Wireless Planning & Coordination"
-      icon={Wifi}
+      logo="/services_logo/wpc.png"
       color="indigo"
       description="WPC Certification enables your wireless products to enter the Indian market legally. Essential for WiFi, Bluetooth, and RF devices to operate in India."
       stats={[

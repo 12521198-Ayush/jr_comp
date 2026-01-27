@@ -1,14 +1,13 @@
 'use client';
 
 import ServicePageTemplate from '@/components/ServicePageTemplate';
-import { Cpu } from 'lucide-react';
 
 export default function CRSCertificationPage() {
   return (
     <ServicePageTemplate
       title="CRS Certification"
       subtitle="Compulsory Registration Scheme"
-      icon={Cpu}
+      logo="/services_logo/bis.png"
       color="blue"
       description="CRS certification assures customers of product safety and quality, improving brand reputation and consumer trust. Mandatory for electronic and IT products in India."
       stats={[

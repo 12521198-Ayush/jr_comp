@@ -2,13 +2,26 @@
 
 import { useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { 
   ArrowRight, Building2, Cpu, FileCheck, Shield, Scale, 
-  Briefcase, Award, Sparkles, CheckCircle2, ChevronRight
+  Briefcase, Award, Sparkles, CheckCircle2, ChevronRight, LucideIcon
 } from 'lucide-react';
 
-const corporateServices = [
+interface ServiceItem {
+  name: string;
+  href: string;
+  description: string;
+  icon?: LucideIcon;
+  logo?: string;
+  features: string[];
+  color: string;
+  gradient: string;
+  shadowColor: string;
+}
+
+const corporateServices: ServiceItem[] = [
   { 
     name: 'Company Registration', 
     href: '/services/company-registration', 
@@ -33,7 +46,7 @@ const corporateServices = [
     name: 'FSSAI Licensing', 
     href: '/services/fssai-license', 
     description: 'Food business licensing and compliance for all categories',
-    icon: FileCheck,
+    logo: '/services_logo/fssai.png',
     features: ['Basic License', 'State License', 'Central License', 'Modifications'],
     color: 'amber',
     gradient: 'from-amber-500 to-orange-400',
@@ -61,33 +74,33 @@ const corporateServices = [
   },
 ];
 
-const technicalServices = [
+const technicalServices: ServiceItem[] = [
   { 
     name: 'BIS Certification', 
     href: '/approval/bis-certification', 
     description: 'Bureau of Indian Standards certification for products',
-    icon: Award,
+    logo: '/services_logo/bis.png',
     features: ['CRS Scheme', 'FMCS', 'ISI Mark', 'Lab Testing'],
     color: 'cyan',
     gradient: 'from-cyan-500 to-teal-400',
     shadowColor: 'shadow-cyan-500/25',
   },
   { 
-    name: 'WPC & TEC', 
-    href: '/approval/wpc-certification', 
-    description: 'Wireless and telecom equipment approval & licensing',
-    icon: Cpu,
-    features: ['ETA', 'Import License', 'Possession License', 'Type Approval'],
+    name: 'TEC Certification', 
+    href: '/approval/tec-certificate', 
+    description: 'Telecom Engineering Centre approval for telecom equipment',
+    logo: '/services_logo/TEC.png',
+    features: ['TEC Approval', 'Type Approval', 'MTCTE', 'Compliance'],
     color: 'indigo',
     gradient: 'from-indigo-500 to-blue-400',
     shadowColor: 'shadow-indigo-500/25',
   },
   { 
-    name: 'CDSCO Registration', 
-    href: '/approval/cdsco-registration', 
-    description: 'Medical device and pharmaceutical regulatory compliance',
-    icon: FileCheck,
-    features: ['MDR', 'IVD', 'Cosmetics', 'Pharmaceuticals'],
+    name: 'ISI Certification', 
+    href: '/approval/isi-certificate', 
+    description: 'ISI Mark certification for quality assurance of products',
+    logo: '/services_logo/isi.png',
+    features: ['ISI Mark', 'Quality Testing', 'Product Certification', 'Renewal'],
     color: 'teal',
     gradient: 'from-teal-500 to-emerald-400',
     shadowColor: 'shadow-teal-500/25',
@@ -127,7 +140,7 @@ const itemVariants = {
   },
 };
 
-const ServiceCard = ({ service, index }: { service: typeof corporateServices[0]; index: number }) => {
+const ServiceCard = ({ service, index }: { service: ServiceItem; index: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
 
@@ -155,13 +168,23 @@ const ServiceCard = ({ service, index }: { service: typeof corporateServices[0];
           {/* Decorative Corner */}
           <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${service.gradient} opacity-5 rounded-bl-full`} />
           
-          {/* Icon */}
+          {/* Icon or Logo */}
           <motion.div
             whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
             transition={{ duration: 0.5 }}
-            className={`relative w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-lg ${service.shadowColor} mb-5`}
+            className={`relative w-14 h-14 rounded-2xl ${service.logo ? 'bg-white border border-gray-200' : `bg-gradient-to-br ${service.gradient}`} flex items-center justify-center shadow-lg ${service.shadowColor} mb-5 overflow-hidden`}
           >
-            <service.icon size={26} className="text-white" />
+            {service.logo ? (
+              <Image
+                src={service.logo}
+                alt={service.name}
+                width={40}
+                height={40}
+                className="object-contain"
+              />
+            ) : service.icon ? (
+              <service.icon size={26} className="text-white" />
+            ) : null}
             <motion.div
               initial={{ scale: 0 }}
               whileHover={{ scale: 1 }}

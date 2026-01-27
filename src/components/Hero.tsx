@@ -58,6 +58,9 @@ export default function Hero() {
     { name: 'Business World', logo: 'https://static.businessworld.in/bw-main-logo.png', url: 'https://www.businessworld.in/article/survey-flags-red-tape-as-key-risk-to-indias-manufacturing-momentum-585429' },
     { name: 'Communications Today', logo: 'https://www.communicationstoday.co.in/wp-content/uploads/2020/10/glkgfdljkgkdf.png', url: 'https://www.communicationstoday.co.in/dot-revamps-security-certification-for-fibre-broadband-devices/' },
     { name: 'Entrepreneur India', logo: 'https://www.entrepreneurindia.com/insight-new/images/logo.svg', url: 'https://www.entrepreneurindia.com/blog/en/article/how-dots-streamlining-of-indias-efforts-to-simplify-security-testing-extend-the-pro-tem-certification-scheme-and-others-could-boost-indigenous-telecom-equipment-manufacturing-could-spur-local-telecom-growth.58714' },
+    { name: 'Zee News', logo: 'https://english.cdn.zeenews.com/static/public/updated_logos/english.svg', url: 'https://zeenews.india.com/jr-compliance-a-house-for-all-global-compliance-services-2411707.html' },
+    { name: 'Hindustan Times', logo: 'https://www.hindustantimes.com/static-content/1y/ht/ht_100_logoblack@2x.webp', url: 'https://www.hindustantimes.com/brand-post/jr-compliance-helping-indian-businesses-expand-global-outreach/story-vqZ4goyJEjTHMPwQiN2VxO.html' },
+    { name: 'Dainik Bhaskar', logo: 'https://i.pinimg.com/736x/d7/a6/d0/d7a6d0bd61a6d438a8f402bf8b229f1e.jpg', url: 'https://www.bhaskar.com/local/delhi-ncr/gurgaon/news/rishikesh-mishra-of-jr-compliance-believes-that-corporate-compliance-will-facilitate-economic-growth-129422333.html' },
   ];
 
   // Featured services for sticky bar rotation
@@ -200,7 +203,7 @@ export default function Hero() {
                 </span>
               </h1>
 
-              
+
 
               {/* Trusted Clients Logo Reel */}
               <div className="mb-6 overflow-hidden w-full max-w-full">
@@ -209,27 +212,32 @@ export default function Hero() {
                   {/* Scrolling container */}
                   <div className="flex animate-scroll w-max">
                     {/* First set of logos */}
-                    <div className="flex items-center gap-10 sm:gap-12 px-4 shrink-0">
-                      <img src="/logo/6750381b5985420c3fd6e61f_sony.png" alt="Sony" className="h-6 sm:h-7 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/681867c363c09e87654cd69f_Tata_Play_2022_logo 1.png" alt="Tata Play" className="h-6 sm:h-7 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/6750381ad02e6dfd82a68f4d_healthify.png" alt="Healthify" className="h-6 sm:h-7 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/6750381bca61ce816f91953e_sennhe.png" alt="Sennheiser" className="h-6 sm:h-7 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/672dc1a691c67b848963be5a_lipi logo.png" alt="Lipi" className="h-6 sm:h-7 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/68495d3d9d0d20176f5d4f90_ISC Logo.png" alt="ISC" className="h-6 sm:h-7 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      {/* Text placeholders for Intertek and Newline */}
-                      <span className="text-gray-400 font-semibold text-sm sm:text-base opacity-60 hover:opacity-100 transition-opacity">Intertek</span>
-                      <span className="text-gray-400 font-semibold text-sm sm:text-base opacity-60 hover:opacity-100 transition-opacity">Newline</span>
+                    <div className="flex items-center gap-8 sm:gap-10 px-4 shrink-0">
+                      <img src="/logo/6750381b5985420c3fd6e61f_sony.png" alt="Sony" className="h-9 sm:h-10 w-auto min-w-[70px] max-w-[120px] object-contain opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 brightness-0 invert" />
+                      <img src="/logo/681867c363c09e87654cd69f_Tata_Play_2022_logo 1.png" alt="Tata Play" className="h-9 sm:h-10 w-auto min-w-[70px] max-w-[120px] object-contain opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 brightness-0 invert" />
+                      <img src="/logo/6750381ad02e6dfd82a68f4d_healthify.png" alt="Healthify" className="h-9 sm:h-10 w-auto min-w-[70px] max-w-[120px] object-contain opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 brightness-0 invert" />
+                      <img src="/logo/6750381bca61ce816f91953e_sennhe.png" alt="Sennheiser" className="h-9 sm:h-10 w-auto min-w-[70px] max-w-[120px] object-contain opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 brightness-0 invert" />
+                      <img src="/logo/672dc1a691c67b848963be5a_lipi logo.png" alt="Lipi" className="h-9 sm:h-10 w-auto min-w-[70px] max-w-[120px] object-contain opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 brightness-0 invert" />
+                      <img src="/logo/68495d3d9d0d20176f5d4f90_ISC Logo.png" alt="ISC" className="h-9 sm:h-10 w-auto min-w-[70px] max-w-[120px] object-contain opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 brightness-0 invert" />
+                      <img src="/logo/Gta3nPom.png" alt="Gta3nPom" className="h-11 sm:h-14 w-auto min-w-[90px] max-w-[160px] object-contain opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 brightness-0 invert -mx-2" />
+                      <img src="/logo/intertek.png" alt="Intertek" className="h-9 sm:h-10 w-auto min-w-[70px] max-w-[120px] object-contain opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 brightness-0 invert" />
+                      <div className="h-9 sm:h-10 w-auto min-w-[90px] max-w-[140px] overflow-hidden flex items-center opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110">
+                        <img src="/logo/newline.png" alt="Newline" className="w-auto h-20 sm:h-24 object-cover brightness-0 invert" />
+                      </div>
                     </div>
                     {/* Duplicate set for seamless loop */}
-                    <div className="flex items-center gap-10 sm:gap-12 px-4 shrink-0">
-                      <img src="/logo/6750381b5985420c3fd6e61f_sony.png" alt="Sony" className="h-6 sm:h-7 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/681867c363c09e87654cd69f_Tata_Play_2022_logo 1.png" alt="Tata Play" className="h-6 sm:h-7 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/6750381ad02e6dfd82a68f4d_healthify.png" alt="Healthify" className="h-6 sm:h-7 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/6750381bca61ce816f91953e_sennhe.png" alt="Sennheiser" className="h-6 sm:h-7 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/672dc1a691c67b848963be5a_lipi logo.png" alt="Lipi" className="h-6 sm:h-7 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <img src="/logo/68495d3d9d0d20176f5d4f90_ISC Logo.png" alt="ISC" className="h-6 sm:h-7 w-auto opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                      <span className="text-gray-400 font-semibold text-sm sm:text-base opacity-60 hover:opacity-100 transition-opacity">Intertek</span>
-                      <span className="text-gray-400 font-semibold text-sm sm:text-base opacity-60 hover:opacity-100 transition-opacity">Newline</span>
+                    <div className="flex items-center gap-8 sm:gap-10 px-4 shrink-0">
+                      <img src="/logo/6750381b5985420c3fd6e61f_sony.png" alt="Sony" className="h-9 sm:h-10 w-auto min-w-[70px] max-w-[120px] object-contain opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 brightness-0 invert" />
+                      <img src="/logo/681867c363c09e87654cd69f_Tata_Play_2022_logo 1.png" alt="Tata Play" className="h-9 sm:h-10 w-auto min-w-[70px] max-w-[120px] object-contain opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 brightness-0 invert" />
+                      <img src="/logo/6750381ad02e6dfd82a68f4d_healthify.png" alt="Healthify" className="h-9 sm:h-10 w-auto min-w-[70px] max-w-[120px] object-contain opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 brightness-0 invert" />
+                      <img src="/logo/6750381bca61ce816f91953e_sennhe.png" alt="Sennheiser" className="h-9 sm:h-10 w-auto min-w-[70px] max-w-[120px] object-contain opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 brightness-0 invert" />
+                      <img src="/logo/672dc1a691c67b848963be5a_lipi logo.png" alt="Lipi" className="h-9 sm:h-10 w-auto min-w-[70px] max-w-[120px] object-contain opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 brightness-0 invert" />
+                      <img src="/logo/68495d3d9d0d20176f5d4f90_ISC Logo.png" alt="ISC" className="h-9 sm:h-10 w-auto min-w-[70px] max-w-[120px] object-contain opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 brightness-0 invert" />
+                      <img src="/logo/Gta3nPom.png" alt="Gta3nPom" className="h-11 sm:h-14 w-auto min-w-[90px] max-w-[160px] object-contain opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 brightness-0 invert -mx-2" />
+                      <img src="/logo/intertek.png" alt="Intertek" className="h-9 sm:h-10 w-auto min-w-[70px] max-w-[120px] object-contain opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 brightness-0 invert" />
+                      <div className="h-9 sm:h-10 w-auto min-w-[90px] max-w-[140px] overflow-hidden flex items-center opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110">
+                        <img src="/logo/newline.png" alt="Newline" className="w-auto h-20 sm:h-24 object-cover brightness-0 invert" />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -330,17 +338,16 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Right Side - Enquiry Form */}
-            <div ref={formRef} className="w-full max-w-md mx-auto lg:mx-0 lg:ml-auto relative overflow-hidden">
+            <div ref={formRef} className="w-full max-w-sm sm:max-w-md mx-auto lg:mx-0 lg:ml-auto relative mt-4 lg:mt-0 overflow-hidden">
               {/* Floating Badge */}
-              {/* <div className="absolute -top-4 left-6 z-10">
-                <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-full text-xs font-semibold shadow-lg shadow-emerald-500/25">
-                  <Lock size={12} />
+              {/* <div className="absolute -top-3 sm:-top-4 left-4 sm:left-6 z-10">
+                <div className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-full text-xs font-semibold shadow-lg shadow-emerald-500/25">
+                  <Lock size={10} className="sm:w-3 sm:h-3" />
                   <span>100% Secure</span>
                 </div>
               </div> */}
 
-              <div className="bg-gradient-to-br from-slate-800 via-slate-800 to-slate-900 rounded-2xl border border-white/10 shadow-2xl shadow-black/50 overflow-hidden w-full max-w-full">
+              <div className="bg-gradient-to-br from-slate-800 via-slate-800 to-slate-900 rounded-xl sm:rounded-2xl border border-white/10 shadow-2xl shadow-black/50 overflow-hidden w-full max-w-full">
                 {/* Premium Header */}
                 <div className="relative px-6 py-5 bg-gradient-to-r from-blue-600/10 via-cyan-500/5 to-purple-600/10 border-b border-white/5">
                   <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.15),transparent_50%)]" />
@@ -375,7 +382,7 @@ export default function Hero() {
                 </div>
 
                 {/* Form Body */}
-                <div className="p-6">
+                <div className="p-4 sm:p-6">
                   {isSubmitted ? (
                     <div className="text-center py-8">
                       <div className="relative w-20 h-20 mx-auto mb-4">
@@ -388,12 +395,12 @@ export default function Hero() {
                       <p className="text-gray-400 text-sm">Our expert will call you within 30 minutes</p>
                     </div>
                   ) : (
-                    <form onSubmit={handleSubmit} className="space-y-4">
+                    <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
                       {/* Name Field */}
                       <div className="relative group">
-                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl opacity-0 group-focus-within:opacity-100 blur-xl transition-opacity" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-lg sm:rounded-xl opacity-0 group-focus-within:opacity-100 blur-xl transition-opacity" />
                         <div className="relative">
-                          <Users size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-cyan-400 transition-colors" />
+                          <Users size={16} className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-cyan-400 transition-colors sm:w-[18px] sm:h-[18px]" />
                           <input
                             type="text"
                             name="name"
@@ -401,19 +408,19 @@ export default function Hero() {
                             value={formData.name}
                             onChange={handleChange}
                             required
-                            className="w-full pl-12 pr-12 py-3.5 rounded-xl bg-white/5 border border-white/10 focus:border-cyan-500/50 focus:bg-white/10 text-white placeholder-gray-500 transition-all outline-none"
+                            className="w-full pl-10 sm:pl-12 pr-10 sm:pr-12 py-3 sm:py-3.5 rounded-lg sm:rounded-xl bg-white/5 border border-white/10 focus:border-cyan-500/50 focus:bg-white/10 text-white text-sm sm:text-base placeholder-gray-500 transition-all outline-none"
                           />
                           {formData.name.length > 2 && (
-                            <CheckCircle size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-emerald-400" />
+                            <CheckCircle size={16} className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 text-emerald-400 sm:w-[18px] sm:h-[18px]" />
                           )}
                         </div>
                       </div>
 
                       {/* Email Field */}
                       <div className="relative group">
-                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl opacity-0 group-focus-within:opacity-100 blur-xl transition-opacity" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-lg sm:rounded-xl opacity-0 group-focus-within:opacity-100 blur-xl transition-opacity" />
                         <div className="relative">
-                          <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-[18px] h-[18px] text-gray-500 group-focus-within:text-cyan-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-[18px] sm:h-[18px] text-gray-500 group-focus-within:text-cyan-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                           </svg>
                           <input
@@ -423,19 +430,19 @@ export default function Hero() {
                             value={formData.email}
                             onChange={handleChange}
                             required
-                            className="w-full pl-12 pr-12 py-3.5 rounded-xl bg-white/5 border border-white/10 focus:border-cyan-500/50 focus:bg-white/10 text-white placeholder-gray-500 transition-all outline-none"
+                            className="w-full pl-10 sm:pl-12 pr-10 sm:pr-12 py-3 sm:py-3.5 rounded-lg sm:rounded-xl bg-white/5 border border-white/10 focus:border-cyan-500/50 focus:bg-white/10 text-white text-sm sm:text-base placeholder-gray-500 transition-all outline-none"
                           />
                           {formData.email.includes('@') && formData.email.includes('.') && (
-                            <CheckCircle size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-emerald-400" />
+                            <CheckCircle size={16} className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 text-emerald-400 sm:w-[18px] sm:h-[18px]" />
                           )}
                         </div>
                       </div>
 
                       {/* Phone Field */}
                       <div className="relative group">
-                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl opacity-0 group-focus-within:opacity-100 blur-xl transition-opacity" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-lg sm:rounded-xl opacity-0 group-focus-within:opacity-100 blur-xl transition-opacity" />
                         <div className="relative flex">
-                          <span className="inline-flex items-center gap-1 px-3 rounded-l-xl bg-white/10 border border-r-0 border-white/10 text-cyan-400 font-medium text-sm">
+                          <span className="inline-flex items-center gap-0.5 sm:gap-1 px-2 sm:px-3 rounded-l-lg sm:rounded-l-xl bg-white/10 border border-r-0 border-white/10 text-cyan-400 font-medium text-xs sm:text-sm">
                             <span>🇮🇳</span>
                             <span>+91</span>
                           </span>
@@ -447,41 +454,40 @@ export default function Hero() {
                             onChange={handleChange}
                             required
                             pattern="[0-9]{10}"
-                            className="w-full pl-4 pr-12 py-3.5 rounded-r-xl bg-white/5 border border-l-0 border-white/10 focus:border-cyan-500/50 focus:bg-white/10 text-white placeholder-gray-500 transition-all outline-none"
+                            className="w-full pl-3 sm:pl-4 pr-10 sm:pr-12 py-3 sm:py-3.5 rounded-r-lg sm:rounded-r-xl bg-white/5 border border-l-0 border-white/10 focus:border-cyan-500/50 focus:bg-white/10 text-white text-sm sm:text-base placeholder-gray-500 transition-all outline-none"
                           />
                           {formData.phone.length === 10 && (
-                            <CheckCircle size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-emerald-400" />
+                            <CheckCircle size={16} className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 text-emerald-400 sm:w-[18px] sm:h-[18px]" />
                           )}
                         </div>
                       </div>
 
                       {/* Trust Indicators */}
-                      <div className="flex items-center justify-between py-2 px-1">
-                        <div className="flex items-center gap-4 text-xs text-gray-500">
-                          <span className="flex items-center gap-1"><Shield size={12} className="text-cyan-400" /> Secure</span>
-                          <span className="flex items-center gap-1"><Clock size={12} className="text-cyan-400" /> 2 min</span>
+                      <div className="flex items-center justify-between py-1.5 sm:py-2 px-0.5 sm:px-1">
+                        <div className="flex items-center gap-2 sm:gap-4 text-[10px] sm:text-xs text-gray-500">
+                          <span className="flex items-center gap-0.5 sm:gap-1"><Shield size={10} className="text-cyan-400 sm:w-3 sm:h-3" /> Secure</span>
+                          <span className="flex items-center gap-0.5 sm:gap-1"><Clock size={10} className="text-cyan-400 sm:w-3 sm:h-3" /> 2 min</span>
                         </div>
-                        <span className="text-xs text-gray-500">No spam, ever</span>
+                        <span className="text-[10px] sm:text-xs text-gray-500">No spam, ever</span>
                       </div>
 
                       {/* Submit Button */}
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="relative w-full py-4 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 bg-[length:200%_100%] hover:bg-right text-white rounded-xl font-bold transition-all duration-500 flex items-center justify-center gap-2 disabled:opacity-70 shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-cyan-500/30 hover:scale-[1.02] active:scale-[0.98] overflow-hidden group"
+                        className="relative w-full py-3 sm:py-4 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 bg-[length:200%_100%] hover:bg-right text-white rounded-lg sm:rounded-xl font-bold text-sm sm:text-base transition-all duration-500 flex items-center justify-center gap-2 disabled:opacity-70 shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-cyan-500/30 hover:scale-[1.02] active:scale-[0.98] overflow-hidden group"
                       >
                         <span className="relative z-10">{isSubmitting ? 'Submitting...' : 'Get Free Consultation'}</span>
                         {isSubmitting ? (
-                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                          <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                         ) : (
-                          <ArrowRight size={20} className="relative z-10 group-hover:translate-x-1 transition-transform" />
+                          <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform sm:w-5 sm:h-5" />
                         )}
                       </button>
                     </form>
                   )}
                 </div>
 
-                {/* As Seen On - Media Logos Reel */}
                 <div className="px-2 sm:px-4 py-3 bg-white/[0.02] border-t border-white/5 overflow-hidden">
                   <p className="text-[11px] sm:text-[12px] text-gray-400 text-center font-medium tracking-wide mb-1">
                     Trusted & Recognized By
@@ -494,8 +500,7 @@ export default function Hero() {
                     {/* Scrolling container - pauses on hover */}
                     <div className="flex animate-scroll-slow hover:[animation-play-state:paused]">
                       <div className="flex shrink-0">
-
-                      {/* First set of logos */}
+                        {/* First set of logos */}
                         {mediaFeatures.map((media) => (
                           <a
                             key={media.name}
@@ -507,8 +512,14 @@ export default function Hero() {
                             <img
                               src={media.logo}
                               alt={media.name}
-                              className="h-3 w-auto max-w-[85px] sm:max-w-[90px] brightness-0 invert object-contain"
+                              className={`w-auto object-contain brightness-0 invert transition-all
+    ${media.name === 'BW Businessworld'
+                                  ? 'h-3 max-w-[90px]'
+                                  : 'h-5 sm:h-6 max-w-[130px] sm:max-w-[150px]'
+                                }
+  `}
                             />
+
                           </a>
                         ))}
                       </div>
@@ -525,8 +536,14 @@ export default function Hero() {
                             <img
                               src={media.logo}
                               alt={media.name}
-                              className="h-3 w-auto max-w-[85px] sm:max-w-[90px] brightness-0 invert object-contain"
+                              className={`w-auto object-contain brightness-0 invert transition-all
+    ${media.name === 'BW Businessworld'
+                                  ? 'h-3 max-w-[90px]'
+                                  : 'h-5 sm:h-6 max-w-[130px] sm:max-w-[150px]'
+                                }
+  `}
                             />
+
                           </a>
                         ))}
                       </div>
@@ -534,46 +551,22 @@ export default function Hero() {
                   </div>
                 </div>
 
-                
+
                 {/* Footer Trust Bar */}
-                <div className="px-6 py-4 bg-white/[0.02] border-t border-white/5">
-                  {/* Trust metrics */}
-                  <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-gray-500">
+                <div className="px-3 sm:px-6 py-2 sm:py-3 bg-white/[0.02] border-t border-white/5">
+                  <div className="flex items-center justify-center gap-3 sm:gap-6 text-[10px] sm:text-xs text-gray-500">
                     <span className="flex items-center gap-1.5">
                       <Award size={14} className="text-amber-400" />
                       15+ Years of Industry Experience
                     </span>
-
-                    {/* <span className="flex items-center gap-1.5">
-                      <Users size={14} className="text-blue-400" />
-                      10,000+ Businesses Served
-                    </span>
-
-                    <span className="flex items-center gap-1.5">
-                      <Star size={14} className="text-yellow-400" />
-                      4.9 Client Satisfaction Rating
-                    </span> */}
                   </div>
-
-                  {/* Compliance micro text */}
-                  <p className="text-[10px] text-gray-600 text-center mt-2">
-                    Delivering reliable, transparent & regulation-aligned compliance solutions
-                  </p>
-
                 </div>
-
-                
-
-
-
               </div>
-              
             </div>
 
-            
           </div>
         </div>
-        
+
 
         {/* Stats Section */}
         <div className="relative py-8 sm:py-12 lg:py-16 border-t border-white/5">

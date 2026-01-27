@@ -17,11 +17,11 @@ export const metadata: Metadata = {
   authors: [{ name: "JR Compliance" }],
   icons: {
     icon: [
-      { url: "/JRlogo.png", type: "image/png" },
+      { url: "/JRlogo2.png", type: "image/png" },
       { url: "/favicon.ico", sizes: "any" },
     ],
-    shortcut: "/JRlogo.png",
-    apple: "/JRlogo.png",
+    shortcut: "/JRlogo2.png",
+    apple: "/JRlogo2.png",
   },
   openGraph: {
     title: "JR Compliance - Expert Business Registration & Compliance Services",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "JR Compliance",
     locale: "en_IN",
     type: "website",
-    images: ["/JRlogo.png"],
+    images: ["/JRlogo2.png"],
   },
 };
 

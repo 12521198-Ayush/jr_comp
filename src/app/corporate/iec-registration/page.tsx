@@ -1,7 +1,6 @@
 'use client';
 
 import ServicePageTemplate from '@/components/ServicePageTemplate';
-import { Ship } from 'lucide-react';
 
 export default function IECRegistrationPage() {
   return (
@@ -9,7 +8,7 @@ export default function IECRegistrationPage() {
       title="Import Export Code (IEC)"
       subtitle="Your Gateway to International Trade"
       description="We make IEC registration hassle-free to ensure customer satisfaction. Get your Import Export Code online with expert guidance for seamless international trade operations."
-      icon={Ship}
+      logo="/services_logo/indian import export code.png"
       color="blue"
       benefits={[
         'Legal authorization for import/export',

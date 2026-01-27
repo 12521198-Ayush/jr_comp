@@ -1,7 +1,6 @@
 'use client';
 
 import ServicePageTemplate from '@/components/ServicePageTemplate';
-import { Apple } from 'lucide-react';
 
 export default function APEDARegistrationPage() {
   return (
@@ -9,7 +8,7 @@ export default function APEDARegistrationPage() {
       title="APEDA Registration"
       subtitle="Agricultural Products Export"
       description="Looking for expert assistance in APEDA Registration? APEDA Registration process is simple and hassle-free with JR Compliance guidance."
-      icon={Apple}
+      logo="/services_logo/apeda.png"
       color="green"
       benefits={[
         'Export authorization',

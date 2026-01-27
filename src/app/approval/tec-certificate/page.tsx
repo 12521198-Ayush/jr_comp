@@ -1,14 +1,13 @@
 'use client';
 
 import ServicePageTemplate from '@/components/ServicePageTemplate';
-import { Radio } from 'lucide-react';
 
 export default function TECCertificationPage() {
   return (
     <ServicePageTemplate
       title="TEC Certification"
       subtitle="Telecommunication Engineering Centre"
-      icon={Radio}
+      logo="/services_logo/TEC.png"
       color="cyan"
       description="TEC certification ensures your telecom products meet India's quality and safety standards. Essential for market entry and building customer trust in the telecom sector."
       stats={[

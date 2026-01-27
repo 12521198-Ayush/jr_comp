@@ -1,7 +1,6 @@
 'use client';
 
 import ServicePageTemplate from '@/components/ServicePageTemplate';
-import { Award } from 'lucide-react';
 
 export default function ISOCertificationPage() {
   return (
@@ -9,7 +8,7 @@ export default function ISOCertificationPage() {
       title="ISO Certification"
       subtitle="International Quality Standards"
       description="We make ISO certification online hassle-free to ensure customer satisfaction. Get your ISO Certification with expert guidance on various ISO standards and benefits."
-      icon={Award}
+      logo="/services_logo/iso.png"
       color="blue"
       benefits={[
         'International recognition',

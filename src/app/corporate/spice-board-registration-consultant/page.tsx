@@ -1,7 +1,6 @@
 'use client';
 
 import ServicePageTemplate from '@/components/ServicePageTemplate';
-import { Leaf } from 'lucide-react';
 
 export default function SpiceBoardPage() {
   return (
@@ -9,7 +8,7 @@ export default function SpiceBoardPage() {
       title="Spice Board Registration"
       subtitle="Export Your Spices Globally"
       description="Spice Board Registration in India - Get Experts Help for Spice Board Registration. JR Compliance provides complete assistance for spice exporters."
-      icon={Leaf}
+      logo="/services_logo/spices board india.png"
       color="orange"
       benefits={[
         'Spice export authorization',

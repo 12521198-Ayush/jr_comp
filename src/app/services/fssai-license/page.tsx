@@ -1,14 +1,13 @@
 'use client';
 
 import ServicePageTemplate from '@/components/ServicePageTemplate';
-import { Utensils } from 'lucide-react';
 
 export default function FSSAILicensePage() {
   return (
     <ServicePageTemplate
       title="FSSAI License"
       subtitle="Corporate Services"
-      icon={Utensils}
+      logo="/services_logo/fssai.png"
       color="emerald"
       description="Obtain FSSAI license for your food business with complete guidance on documentation and compliance. We help you get the right type of license - Basic, State, or Central - based on your business size and requirements."
       benefits={[

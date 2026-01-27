@@ -1,14 +1,13 @@
 'use client';
 
 import ServicePageTemplate from '@/components/ServicePageTemplate';
-import { Cpu } from 'lucide-react';
 
 export default function BISRegistrationPage() {
   return (
     <ServicePageTemplate
       title="BIS Registration"
       subtitle="Technical Services"
-      icon={Cpu}
+      logo="/services_logo/bis.png"
       color="cyan"
       description="Get BIS certification services from the best Consultants in India known for trusted guidance, 100% compliance, and the best results for businesses."
       benefits={[

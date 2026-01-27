@@ -101,7 +101,7 @@ export default function Testimonials() {
             </div>
 
             {/* Navigation */}
-            <div className="flex items-center justify-center gap-4 mt-8">
+            {/* <div className="flex items-center justify-center gap-4 mt-8">
               <button
                 onClick={prevTestimonial}
                 className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
@@ -125,7 +125,7 @@ export default function Testimonials() {
               >
                 <ChevronRight size={20} className="text-gray-600" />
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
 

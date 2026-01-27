@@ -17,6 +17,7 @@ const corporateCategories = [
       { name: 'Private Limited Company', href: '/corporate/private-limited-company-registration-consultant', desc: 'Most popular for startups' },
       { name: 'Public Limited Company', href: '/corporate/public-limited-company-registration', desc: 'For large enterprises' },
       { name: 'One Person Company', href: '/corporate/opc-registration', desc: 'Single owner business' },
+      { name: 'Sole Proprietorship', href: '/corporate/sole-proprietorship-registration', desc: 'Individual business' },
       { name: 'LLP Registration', href: '/corporate/llp-registration', desc: 'Limited liability partnership' },
       { name: 'Partnership Firm', href: '/corporate/partnership-firm-registration', desc: 'Traditional partnership' },
       { name: 'Section 8 Company', href: '/corporate/section-8-company-registration', desc: 'Non-profit organization' },
@@ -49,6 +50,7 @@ const corporateCategories = [
       { name: 'Spice Board Registration', href: '/corporate/spice-board-registration-consultant', desc: 'Spice exports' },
       { name: 'Tea Board Registration', href: '/corporate/tea-board-registration', desc: 'Tea exports' },
       { name: 'Coffee Board Registration', href: '/corporate/coffee-board-registration', desc: 'Coffee exports' },
+      { name: 'Tobacco Board', href: '/corporate/tobacco-board-registration-consultant', desc: 'Tobacco exports' },
     ]
   },
   {
@@ -74,8 +76,13 @@ const corporateCategories = [
     icon: Lightbulb,
     items: [
       { name: 'Trademark Registration', href: '/corporate/trademark-registration', desc: 'Brand protection' },
+      { name: 'Trademark Search', href: '/corporate/trademark-registration/trademark-search', desc: 'Check availability' },
+      { name: 'Trademark Objection', href: '/corporate/trademark-registration/trademark-objection', desc: 'Objection response' },
+      { name: 'Trademark Renewal', href: '/corporate/trademark-registration/trademark-renewal', desc: 'Renew trademark' },
       { name: 'Copyright Registration', href: '/corporate/copyright-registration', desc: 'Creative protection' },
+      { name: 'Copyright Objection', href: '/corporate/copyright-objection', desc: 'Objection response' },
       { name: 'Patent Registration', href: '/corporate/patent-registration-consultant', desc: 'Invention protection' },
+      { name: 'Design Registration', href: '/corporate/design-registration', desc: 'Product design' },
     ]
   },
   {
@@ -85,7 +92,10 @@ const corporateCategories = [
     icon: UtensilsCrossed,
     items: [
       { name: 'FSSAI Registration', href: '/corporate/fssai-certificate', desc: 'Basic food license' },
+      { name: 'FSSAI State License', href: '/corporate/fssai/fssai-state-license', desc: 'State level license' },
+      { name: 'FSSAI Central License', href: '/corporate/fssai/fssai-central-license', desc: 'Central license' },
       { name: 'FSSAI Modification', href: '/corporate/fssai-modification', desc: 'Modify license details' },
+      { name: 'Water Report', href: '/corporate/water-report', desc: 'FSSAI water testing' },
     ]
   },
   {
@@ -111,6 +121,7 @@ const corporateCategories = [
       { name: 'GST Registration', href: '/corporate/gst-registration', desc: 'Goods & services tax' },
       { name: 'GST Return Filing', href: '/corporate/gst-return', desc: 'Monthly/quarterly returns' },
       { name: 'Income Tax Return', href: '/corporate/income-tax-return-filing', desc: 'ITR filing services' },
+      { name: 'TDS Return', href: '/corporate/tds-return', desc: 'TDS filing services' },
       { name: 'PAN for Company', href: '/corporate/pan-registration-company', desc: 'Company PAN card' },
       { name: 'PAN for Individual', href: '/corporate/pan-registration-individual', desc: 'Individual PAN' },
       { name: 'Professional Tax', href: '/corporate/professional-tax-registration', desc: 'State professional tax' },
@@ -151,6 +162,9 @@ const technicalCategories = [
     items: [
       { name: 'BIS Certification', href: '/approval/bis-certification', desc: 'Foreign manufacturer cert' },
       { name: 'ISI Mark', href: '/approval/isi-certificate', desc: 'Indian standards mark' },
+      { name: 'FMCS Certification', href: '/approval/bis-certification/fmcs-bis-certification', desc: 'Foreign manufacturer scheme' },
+      { name: 'CRS Certification', href: '/approval/bis-certification/crs-certification', desc: 'Compulsory registration' },
+      { name: 'Scheme-X', href: '/approval/bis-certification/scheme-x', desc: 'Self-declaration scheme' },
     ]
   },
   {
@@ -160,18 +174,26 @@ const technicalCategories = [
     icon: Factory,
     items: [
       { name: 'CPCB Registration', href: '/approval/cpcb-registration', desc: 'Central pollution board' },
+      { name: 'CPCB Guidelines', href: '/approval/cpcb-guidelines', desc: 'Compliance guidelines' },
       { name: 'State Pollution Board', href: '/approval/state-pollution-board', desc: 'State level NOC' },
+      { name: 'Delhi Pollution Control', href: '/approval/delhi-pollution-control', desc: 'DPCC compliance' },
       { name: 'EPR Certification', href: '/approval/epr-certification', desc: 'Extended producer resp.' },
+      { name: 'EPR E-Waste', href: '/approval/epr-e-waste', desc: 'Electronic waste EPR' },
+      { name: 'EPR Battery Waste', href: '/approval/epr-battery-waste', desc: 'Battery waste EPR' },
+      { name: 'EPR Plastic Waste', href: '/approval/epr-plastic-waste', desc: 'Plastic waste EPR' },
+      { name: 'EPR Tyre Waste', href: '/approval/epr-tyre-waste', desc: 'Tyre waste EPR' },
+      { name: 'EPR Used Oil Waste', href: '/approval/epr-used-oil-waste', desc: 'Used oil EPR' },
       { name: 'BEE Certification', href: '/approval/bee-certification', desc: 'Energy efficiency' },
     ]
   },
   {
     id: 'tec',
-    name: 'TEC Certification',
+    name: 'DoT Certification',
     description: 'Telecom Engineering Centre approvals',
     icon: Radio,
     items: [
       { name: 'TEC Certificate', href: '/approval/tec-certificate', desc: 'Telecom equipment cert' },
+      { name: 'MTCTE Certification', href: '/approval/mtcte-certification', desc: 'Mandatory testing' },
     ]
   },
   {
@@ -253,11 +275,11 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center flex-shrink-0">
             <Image
-              src="/JRlogo.png"
+              src="/JRlogo2.png"
               alt="JR Compliance"
-              width={180}
-              height={45}
-              className="w-auto h-10 lg:h-12 object-contain brightness-0 invert"
+              width={250}
+              height={75}
+              className="w-auto h-15 lg:h-18 object-contain brightness-0 invert"
               priority
             />
           </Link>
@@ -345,9 +367,9 @@ export default function Header() {
                     <div className="flex-1 flex flex-col">
                       {/* Search Results */}
                       {filteredCorporateItems && filteredCorporateItems.length > 0 ? (
-                        <div className="p-4 max-h-[420px] overflow-y-auto">
+                        <div className="p-4 max-h-[380px] overflow-y-auto">
                           <p className="text-xs text-gray-500 mb-3 font-medium">Found {filteredCorporateItems.length} services</p>
-                          <div className="grid grid-cols-3 gap-2">
+                          <div className="grid grid-cols-2 gap-2">
                             {filteredCorporateItems.map((item) => (
                               <Link
                                 key={item.href}
@@ -373,7 +395,7 @@ export default function Header() {
                       ) : (
                         <>
                           {/* Items Content */}
-                          <div className="p-5 flex-1 max-h-[340px] overflow-y-auto">
+                          <div className="p-5 flex-1 max-h-[400px] overflow-y-auto">
                             {corporateCategories.map((category) => (
                               <div
                                 key={category.id}
@@ -640,14 +662,26 @@ export default function Header() {
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-white/80 hover:text-white transition-colors"
-            aria-label="Toggle menu"
-          >
-            <Menu size={24} />
-          </button>
+          {/* Mobile Actions */}
+          <div className="flex lg:hidden items-center gap-2">
+            {/* Mobile Call Button */}
+            <a
+              href="tel:1800121410410"
+              className="p-2 text-white/80 hover:text-white transition-colors"
+              aria-label="Call us"
+            >
+              <Phone size={22} />
+            </a>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 text-white/80 hover:text-white transition-colors"
+              aria-label="Toggle menu"
+            >
+              <Menu size={24} />
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -727,11 +761,11 @@ function MobileMenuModal({
         <div className="flex items-center justify-between px-4 py-4 border-b border-white/10 bg-slate-900">
           <Link href="/" onClick={onClose} className="flex items-center">
             <Image
-              src="/JRlogo.png"
+              src="/JRlogo2.png"
               alt="JR Compliance"
-              width={180}
-              height={45}
-              className="w-auto h-10 object-contain brightness-0 invert"
+              width={220}
+              height={55}
+              className="w-auto h-12 object-contain brightness-0 invert"
             />
           </Link>
           <button

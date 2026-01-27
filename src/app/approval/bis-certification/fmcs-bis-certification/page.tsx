@@ -1,14 +1,13 @@
 'use client';
 
 import ServicePageTemplate from '@/components/ServicePageTemplate';
-import { Globe } from 'lucide-react';
 
 export default function FMCSBISCertificationPage() {
   return (
     <ServicePageTemplate
       title="FMCS BIS Certification"
       subtitle="Foreign Manufacturers Certification"
-      icon={Globe}
+      logo="/services_logo/fmcs.png"
       color="purple"
       description="FMCS certification is mandatory for foreign manufacturers to sell products in India. Get ISI Mark certification for products manufactured outside India."
       stats={[

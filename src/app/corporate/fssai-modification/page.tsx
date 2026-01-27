@@ -1,7 +1,6 @@
 'use client';
 
 import ServicePageTemplate from '@/components/ServicePageTemplate';
-import { FileEdit } from 'lucide-react';
 
 export default function FSSAIModificationPage() {
   return (
@@ -9,7 +8,7 @@ export default function FSSAIModificationPage() {
       title="FSSAI Modification"
       subtitle="Update Your Food License"
       description="Need to update your FSSAI license details? JR Compliance helps food businesses modify their FSSAI registration or license efficiently, ensuring continued compliance with food safety standards."
-      icon={FileEdit}
+      logo="/services_logo/fssai.png"
       color="orange"
       benefits={[
         'Quick modification process',
