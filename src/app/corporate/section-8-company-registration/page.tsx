@@ -11,6 +11,7 @@ export default function Section8CompanyPage() {
       description="Professional Section 8 Company Certification Consultants in Delhi offer expert guidance in forming and maintaining compliance for non-profit organizations under the Indian Companies Act, 2013."
       icon={Heart}
       color="purple"
+      serviceInfo="JR Compliance provides complete Section 8 Company registration services for non-profit organizations seeking corporate structure with charitable objectives. Our corporate experts help draft MOA and AOA reflecting your organization's charitable, educational, or social objectives as required for Section 8 licensing. We prepare license applications, projected income-expenditure statements, and source of funds documentation for Central Government approval. Our team handles the complete MCA filing process, coordinates with ROC authorities, and ensures timely license and incorporation certificate issuance. We assist with PAN/TAN registration, 12A and 80G tax exemption applications, and FCRA registration for receiving foreign contributions. Post-registration, we provide annual compliance services including ROC filings and tax returns to maintain your Section 8 company's good standing."
       benefits={[
         'No minimum capital required',
         'Tax exemptions available',

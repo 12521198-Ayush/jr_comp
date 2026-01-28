@@ -11,6 +11,7 @@ export default function PlasticWasteCompliancePage() {
       icon={Package}
       color="blue"
       description="EPR Plastic Waste Compliance registration for producers, importers, and brand owners. Get complete support for Plastic Waste Management Rules compliance."
+      serviceInfo="At JR Compliance, we provide comprehensive EPR Plastic Waste compliance support for producers, importers, and brand owners using plastic packaging materials. Our environmental experts guide you through Plastic Waste Management Rules requirements and help you understand EPR obligations based on your plastic packaging categories. We handle EPR registration on the CPCB centralized portal, calculate accurate collection targets, and prepare detailed action plans for plastic waste management. Our team connects you with authorized plastic recyclers and waste processors, establishing proper collection and channelization mechanisms. We provide ongoing quarterly and annual return filing, target tracking, and audit support to maintain compliance. Post-registration, we offer compliance monitoring, certificate management, and guidance on evolving plastic waste regulations and Extended Producer Responsibility norms."
       benefits={[
         'Mandatory for plastic packaging producers',
         'Complete plastic waste management compliance',

@@ -11,6 +11,7 @@ export default function StartupIndiaPage() {
       description="Get your Startup India Certificate and unlock exclusive benefits including tax exemptions, funding support, and easier compliance. Join the movement transforming India's entrepreneurial ecosystem."
       icon={Rocket}
       color="indigo"
+      serviceInfo="At JR Compliance, we provide comprehensive Startup India registration services to help innovative businesses access government benefits and recognition. Our startup advisors verify your eligibility based on innovation, scalability, and incorporation date criteria as per DPIIT guidelines. We prepare detailed applications including business descriptions, innovation statements, and supporting documentation for the Startup India portal. Our team assists with DPIIT recognition application, tracks approval status, and helps address any clarifications required. We guide you through tax exemption applications under Section 80-IAC for eligible startups and assist with angel tax exemption certifications. Post-registration, we provide ongoing support for accessing Startup India Hub resources, seed funding schemes, and government tender benefits available to recognized startups."
       benefits={[
         'Tax exemption for 3 consecutive years',
         'Self-certification for 9 labor and environment laws',

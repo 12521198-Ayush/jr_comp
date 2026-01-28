@@ -11,6 +11,7 @@ export default function TrademarkFormalityCheckFailPage() {
       description="Expert assistance to resolve trademark formality check failures. We help you address deficiencies, submit required documents, and ensure your application proceeds smoothly."
       icon={AlertCircle}
       color="orange"
+      serviceInfo="At JR Compliance, we specialize in resolving trademark formality check failures that can delay or derail your registration. Our IP experts analyze the deficiency notice to identify exact requirements - whether document corrections, specification amendments, or missing information. We prepare corrected applications addressing each deficiency point with supporting documentation. Our team handles fee discrepancy resolutions, classification corrections, and representation specification amendments. We ensure proper formatting of logos, affidavits, and priority documents as per Registry standards. Our quick turnaround approach meets Registry deadlines, preventing application abandonment. We also review the corrected submission thoroughly before filing to avoid repeat formality failures and expedite your trademark's journey to registration."
       benefits={[
         'Quick Resolution - Fast turnaround to address formality deficiencies',
         'Expert Analysis - Identify exact reasons for formality failure',

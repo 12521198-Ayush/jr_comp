@@ -11,6 +11,7 @@ export default function PANCompanyPage() {
       description="Get PAN Card for your company or LLP. JR Compliance provides complete assistance for PAN registration and application for business entities."
       icon={CreditCard}
       color="blue"
+      serviceInfo="JR Compliance provides comprehensive PAN registration services for companies, LLPs, partnership firms, and other business entities requiring tax identification. Our tax registration experts prepare Form 49A applications with accurate entity details and ensure all supporting documentation meets Income Tax Department requirements. We handle the complete PAN application process through authorized channels, coordinate document verification, and track application status until card delivery. For foreign companies and entities, we assist with Form 49AA applications with proper documentation and attestation requirements. Our team ensures PAN linkage with incorporation details and helps set up your TAN registration simultaneously when needed. Post-registration, we provide support for PAN correction applications, duplicate PAN card requests, and Aadhaar-PAN linking requirements."
       benefits={[
         'Tax compliance requirement',
         'Bank account opening',

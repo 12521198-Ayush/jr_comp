@@ -221,6 +221,7 @@ export default function Hero() {
                       <img src="/logo/68495d3d9d0d20176f5d4f90_ISC Logo.png" alt="ISC" className="h-9 sm:h-10 w-auto min-w-[70px] max-w-[120px] object-contain opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 brightness-0 invert" />
                       <img src="/logo/Gta3nPom.png" alt="Gta3nPom" className="h-11 sm:h-14 w-auto min-w-[90px] max-w-[160px] object-contain opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 brightness-0 invert -mx-2" />
                       <img src="/logo/intertek.png" alt="Intertek" className="h-9 sm:h-10 w-auto min-w-[70px] max-w-[120px] object-contain opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 brightness-0 invert" />
+                      <img src="/logo/toray_logo.png" alt="Toray" className="h-9 sm:h-10 w-auto min-w-[70px] max-w-[120px] object-contain opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 brightness-0 invert" />
                       <div className="h-9 sm:h-10 w-auto min-w-[90px] max-w-[140px] overflow-hidden flex items-center opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110">
                         <img src="/logo/newline.png" alt="Newline" className="w-auto h-20 sm:h-24 object-cover brightness-0 invert" />
                       </div>
@@ -235,6 +236,7 @@ export default function Hero() {
                       <img src="/logo/68495d3d9d0d20176f5d4f90_ISC Logo.png" alt="ISC" className="h-9 sm:h-10 w-auto min-w-[70px] max-w-[120px] object-contain opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 brightness-0 invert" />
                       <img src="/logo/Gta3nPom.png" alt="Gta3nPom" className="h-11 sm:h-14 w-auto min-w-[90px] max-w-[160px] object-contain opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 brightness-0 invert -mx-2" />
                       <img src="/logo/intertek.png" alt="Intertek" className="h-9 sm:h-10 w-auto min-w-[70px] max-w-[120px] object-contain opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 brightness-0 invert" />
+                      <img src="/logo/toray_logo.png" alt="Toray" className="h-9 sm:h-10 w-auto min-w-[70px] max-w-[120px] object-contain opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110 brightness-0 invert" />
                       <div className="h-9 sm:h-10 w-auto min-w-[90px] max-w-[140px] overflow-hidden flex items-center opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-110">
                         <img src="/logo/newline.png" alt="Newline" className="w-auto h-20 sm:h-24 object-cover brightness-0 invert" />
                       </div>

@@ -11,6 +11,7 @@ export default function ESICRegistrationPage() {
       description="Get ESIC registration for your establishment. JR Compliance provides complete assistance for ESIC registration and compliance for employers and employees."
       icon={HeartPulse}
       color="red"
+      serviceInfo="JR Compliance provides comprehensive ESIC registration services for establishments employing 10 or more employees in ESIC-notified areas. Our compliance experts guide you through the ESIC portal registration process, ensuring accurate submission of establishment details and employee information. We prepare all required documentation including employee wage data, address proof, and establishment registration certificates. Our team assists with IP number generation for employees and helps you understand contribution calculations and benefit structures. We set up compliance frameworks for monthly ESIC contributions and proper record-keeping procedures. Post-registration, we provide ongoing support for monthly contribution challan generation, half-yearly return filing, and employee benefit claims coordination to maintain your ESIC compliance."
       benefits={[
         'Employee health coverage',
         'Medical benefits',

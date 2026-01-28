@@ -11,6 +11,7 @@ export default function TDSReturnPage() {
       description="We make TDS return filing procedure hassle-free to ensure customer satisfaction. Register your TDS return online with expert guidance on e-filing features, forms, and process."
       icon={Calculator}
       color="green"
+      serviceInfo="JR Compliance provides comprehensive TDS return filing services for deductors across all forms including 24Q (salary), 26Q (non-salary), 27Q (NRI payments), and 27EQ (TCS). Our tax compliance experts collect and verify deduction data, validate PAN details, and prepare accurate quarterly TDS returns. We calculate correct TDS amounts based on applicable sections and rates, ensuring proper deduction and compliance with Income Tax Act provisions. Our team handles the complete e-filing process on TRACES, generates Form 16/16A for deductees, and manages challan-CIN matching for filed returns. We address any mismatches or defaults identified by the department and file correction statements when required. Post-filing, we provide ongoing TDS compliance support, lower deduction certificate assistance, and help with TDS refund claims when excess tax has been deducted."
       benefits={[
         'Avoid interest and penalty',
         'Maintain compliance with IT Act',

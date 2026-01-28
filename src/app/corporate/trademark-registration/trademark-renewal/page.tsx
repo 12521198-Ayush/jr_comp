@@ -11,6 +11,7 @@ export default function TrademarkRenewalPage() {
       description="Professional trademark renewal services to maintain your brand protection. We handle timely renewal filings to ensure uninterrupted trademark rights."
       icon={RefreshCw}
       color="green"
+      serviceInfo="At JR Compliance, we provide proactive trademark renewal services to ensure your brand protection continues without interruption. Our IP management team tracks renewal deadlines across your trademark portfolio, sending timely reminders before the 10-year validity period expires. We handle renewal applications through the official Trademark Registry portal with proper documentation and fee payment. For marks that have lapsed, we file restoration applications within the one-year grace period to revive your rights with applicable surcharges. Our team verifies current ownership details, updates addresses if changed, and ensures renewal certificates reflect accurate information. We maintain comprehensive renewal records and provide portfolio management services for businesses with multiple trademarks. By outsourcing renewal tracking to us, you eliminate the risk of inadvertent lapse and maintain continuous protection for your valuable brand assets."
       benefits={[
         'Timely Renewal - File before expiry to avoid lapse',
         'Restoration Filing - Restore expired trademarks within grace period',

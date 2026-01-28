@@ -213,8 +213,11 @@ const technicalCategories = [
     description: 'Additional regulatory approvals and certifications',
     icon: Shield,
     items: [
-      { name: 'CDSCO Registration', href: '/approval/cdsco-registration', desc: 'Medical devices' },
-      { name: 'AERB License', href: '/approval/aerb-license', desc: 'Atomic energy board' },
+      { name: 'CDSCO Medical Devices', href: '/approval/cdsco-registration', desc: 'Medical devices' },
+      { name: 'Cosmetic CDSCO', href: '/approval/cdsco-cosmetic', desc: 'Cosmetic products' },
+      { name: 'IVD CDSCO Registration', href: '/approval/cdsco-ivd', desc: 'In-vitro diagnostics' },
+      { name: 'Drug CDSCO Registration', href: '/approval/cdsco-drug', desc: 'Drug licensing' },
+      { name: 'AERB License', href: '/approval/aerb-license', desc: 'Radiation safety' },
     ]
   },
 ];

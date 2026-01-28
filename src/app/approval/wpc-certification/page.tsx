@@ -6,10 +6,11 @@ export default function WPCCertificationPage() {
   return (
     <ServicePageTemplate
       title="WPC Certification"
-      subtitle="Wireless Planning & Coordination"
+      subtitle="Wireless Product Approval under WPC Guidelines"
       logo="/services_logo/wpc.png"
       color="indigo"
-      description="WPC Certification enables your wireless products to enter the Indian market legally. Essential for WiFi, Bluetooth, and RF devices to operate in India."
+      description="Regulatory assistance for wireless and RF-enabled products under WPC and ETA approval norms."
+      serviceInfo="Our specialists at JR Compliance guide you through the Wireless Planning & Coordination Wing approval process for all radio frequency devices entering the Indian market. We handle Equipment Type Approval (ETA) applications, coordinate testing at authorized laboratories, and ensure complete compliance with Indian spectrum regulations. Our team manages the entire documentation process including technical specifications, frequency details, and import permits required for your wireless products. We stay current with WPC policy changes and help you navigate both dealer and non-dealer possession license requirements efficiently. Our consultants provide end-to-end support from initial assessment to final approval, ensuring a smooth certification journey. Post-certification, we offer ongoing support to ensure your wireless products remain compliant throughout their lifecycle."
       stats={[
         { value: '2500+', label: 'WPC Certifications' },
         { value: '4.9', label: 'Google Rating' },

@@ -5,11 +5,12 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export default function SchemeXPage() {
   return (
     <ServicePageTemplate
-      title="Scheme-X Certification"
-      subtitle="Self-Declaration Conformity Scheme"
+      title="Scheme-X"
+      subtitle="Product Approval under BIS Scheme-X"
       logo="/services_logo/bis.png"
       color="blue"
-      description="Scheme-X is a self-declaration conformity assessment scheme under BIS for products that meet Indian Standards. Get expert assistance for Scheme-X certification and ensure your products comply with BIS requirements."
+      description="Compliance assistance for products requiring approval under BIS Scheme-X regulations."
+      serviceInfo="JR Compliance provides specialized support for BIS Scheme-X, a self-declaration conformity assessment scheme that offers a streamlined path to Indian market access. Our experts help you understand the eligibility criteria and determine if your products qualify for this simplified certification route. We guide you through product testing at BIS-recognized laboratories and assist in preparing all self-declaration documents and technical files. Our team ensures accurate identification of applicable Indian Standards and helps you meet all compliance requirements efficiently. We handle the complete registration process on the BIS portal, minimizing delays and ensuring successful approval. Post-registration, we provide ongoing compliance monitoring, annual maintenance support, and assistance with any regulatory updates affecting your Scheme-X certification."
       stats={[
         { value: '1500+', label: 'Scheme-X Registrations' },
         { value: '4.9', label: 'Google Rating' },

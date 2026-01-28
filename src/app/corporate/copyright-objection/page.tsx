@@ -9,6 +9,7 @@ export default function CopyrightObjectionPage() {
       title="Copyright Objection Response"
       subtitle="Protect Your Creative Rights"
       description="Professional copyright objection response services. We help you overcome objections raised during copyright examination and secure your copyright registration."
+      serviceInfo="At JR Compliance, we provide expert assistance for responding to copyright objections raised by the Copyright Office during examination. Our intellectual property specialists analyze the objection notice, understand the grounds for objection, and develop a comprehensive response strategy. We prepare detailed written replies addressing each objection point with supporting evidence, legal arguments, and clarifications as needed. Our team ensures your response is filed within the stipulated deadline and in the proper format required by the Copyright Office. We coordinate with Copyright Office authorities, attend hearings if required, and work towards securing your copyright registration. Post-resolution, we provide ongoing support for copyright maintenance, assignment documentation, and protection of your creative works."
       icon={AlertTriangle}
       color="orange"
       benefits={[

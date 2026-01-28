@@ -11,6 +11,7 @@ export default function CoffeeBoardPage() {
       description="Get Coffee Board Registration for coffee export business. JR Compliance provides complete assistance for coffee growers, curers, and exporters."
       icon={Coffee}
       color="amber"
+      serviceInfo="JR Compliance provides comprehensive Coffee Board registration services for growers, curers, dealers, and exporters of Indian coffee. Our export consultants guide you through the registration categories including estate registration, curing works license, and exporter authorization as per Coffee Board requirements. We prepare complete documentation including plantation details, processing facility credentials, and export capabilities for the registration application. Our team handles the complete Coffee Board submission process on their portal, tracks application status, and coordinates with Board officials. We assist with understanding coffee quality certification, auction participation, and export documentation requirements. Post-registration, we provide ongoing support for registration renewals, compliance with Coffee Board rules, and assistance with accessing export promotion schemes and quality improvement programs."
       benefits={[
         'Coffee export authorization',
         'Grower/Curer registration',

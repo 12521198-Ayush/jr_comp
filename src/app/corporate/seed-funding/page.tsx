@@ -11,6 +11,7 @@ export default function SeedFundingPage() {
       description="Get assistance for seed funding for your startup. JR Compliance helps startups access seed funding through government schemes and investor networks."
       icon={Sprout}
       color="green"
+      serviceInfo="JR Compliance provides comprehensive seed funding assistance to help early-stage startups secure capital through government schemes and investor networks. Our startup advisors assess your funding requirements and guide you through various seed funding options including the Startup India Seed Fund Scheme. We help prepare compelling business plans, pitch decks, and financial projections required for funding applications and investor presentations. Our team assists with incubator partnerships, accelerator applications, and connections with angel investor networks in your industry. We guide you through due diligence preparation, term sheet negotiation basics, and investment documentation requirements. Post-funding, we provide ongoing support for compliance with investor reporting requirements and guidance on subsequent funding rounds as your startup scales."
       benefits={[
         'Capital for early stage',
         'Government scheme access',

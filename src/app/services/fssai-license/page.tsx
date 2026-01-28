@@ -10,6 +10,7 @@ export default function FSSAILicensePage() {
       logo="/services_logo/fssai.png"
       color="emerald"
       description="Obtain FSSAI license for your food business with complete guidance on documentation and compliance. We help you get the right type of license - Basic, State, or Central - based on your business size and requirements."
+      serviceInfo="JR Compliance provides comprehensive FSSAI license services for food businesses of all sizes across India. Our food safety experts assess your business type, turnover, and operations to recommend the appropriate license category - Basic Registration, State License, or Central License. We prepare complete documentation including business registration, address proof, food safety management plans, and product lists for FoSCoS portal submission. Our team handles the entire application process, coordinates facility inspections if required, and addresses queries from food safety authorities. We ensure your food business meets all hygiene and safety standards mandated by FSSAI. Post-licensing, we provide annual return filing, license modification, renewal services, and ongoing food safety compliance support."
       benefits={[
         'Expert guidance on license type selection',
         'Complete documentation support',

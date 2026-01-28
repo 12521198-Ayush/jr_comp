@@ -11,6 +11,7 @@ export default function WPCApprovalPage() {
       icon={Radio}
       color="purple"
       description="Wireless Planning & Coordination (WPC) approval is mandatory for wireless and radio frequency devices in India. We provide comprehensive WPC ETA (Equipment Type Approval) services for Bluetooth, WiFi, cellular, and other RF equipment."
+      serviceInfo="At JR Compliance, we provide complete WPC approval services for wireless and RF-enabled products entering the Indian market. Our wireless regulatory experts guide you through Equipment Type Approval requirements, frequency allocation procedures, and import permit processes. We coordinate testing at authorized laboratories, prepare technical documentation including RF specifications, and handle Saral Sanchar portal submissions. Our team manages the complete approval process, tracks application status, and addresses queries from WPC authorities. We assist with both dealer and non-dealer possession license requirements as per your business needs. Post-approval, we provide license renewal support, amendment services, and ongoing regulatory compliance monitoring for your wireless equipment portfolio."
       benefits={[
         'Complete ETA application support',
         'Technical documentation preparation',

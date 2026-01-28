@@ -6,11 +6,12 @@ import { Battery } from 'lucide-react';
 export default function EPRBatteryWastePage() {
   return (
     <ServicePageTemplate
-      title="EPR Battery Waste"
-      subtitle="Battery Waste Extended Producer Responsibility"
+      title="EPR – Battery Waste"
+      subtitle="Battery Waste Management as per EPR Rules"
       icon={Battery}
       color="amber"
-      description="EPR Battery Waste registration is mandatory for producers and importers of batteries. Comply with Battery Waste Management Rules 2022 and ensure responsible battery disposal and recycling."
+      description="Guidance on battery waste management obligations including registration, targets, and reporting."
+      serviceInfo="JR Compliance provides expert guidance for Battery Waste Management Rules 2022 compliance for producers and importers of all battery types. Our environmental consultants help you understand the specific EPR requirements for your battery categories including portable, automotive, and industrial batteries. We assist with EPR registration, collection target determination, and action plan development tailored to your business operations. Our team connects you with authorized battery recyclers and refurbishers, ensuring proper end-of-life management of waste batteries. We prepare comprehensive documentation and handle all portal submissions for quarterly and annual returns. Post-registration, we provide ongoing compliance monitoring, target tracking, certificate verification, and support for any regulatory amendments affecting battery waste EPR."
       stats={[
         { value: '1500+', label: 'Battery EPR Registrations' },
         { value: '4.9', label: 'Google Rating' },

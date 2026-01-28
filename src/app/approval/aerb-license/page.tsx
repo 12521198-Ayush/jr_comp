@@ -7,10 +7,11 @@ export default function AERBLicensePage() {
   return (
     <ServicePageTemplate
       title="AERB License"
-      subtitle="Atomic Energy Regulatory Board"
+      subtitle="Radiation Safety Licensing from AERB"
       icon={Radiation}
       color="orange"
-      description="We make the AERB license registration hassle-free. Get your AERB certificate today from best consultants. Click here to know how to get AERB approvals and know AERB certificate registration process."
+      description="Radiation safety licensing support for equipment and facilities regulated by AERB."
+      serviceInfo="JR Compliance provides comprehensive support for obtaining Atomic Energy Regulatory Board licenses for radiation-generating equipment and facilities. Our radiation safety experts guide you through the entire licensing process, from initial application on the eLORA portal to final approval. We assist with Radiation Safety Officer (RSO) requirements, facility layout planning, and shielding calculations to meet AERB safety standards. Our team prepares all necessary documentation including radiation safety procedures, personnel monitoring arrangements, and waste disposal plans. We coordinate facility inspections and help address any observations from AERB officials promptly. Post-licensing, we provide ongoing support for license renewals, amendments, and compliance monitoring to ensure your facility maintains AERB standards throughout operations."
       benefits={[
         'Mandatory for radiation equipment',
         'X-ray machine registration',

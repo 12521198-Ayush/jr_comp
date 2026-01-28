@@ -11,6 +11,7 @@ export default function EPFRegistrationPage() {
       description="Get EPF registration for your establishment. JR Compliance provides complete assistance for EPF registration and PF compliance for employers."
       icon={Wallet}
       color="teal"
+      serviceInfo="At JR Compliance, we provide comprehensive EPF registration services for establishments employing 20 or more employees as mandated under the EPF Act. Our compliance experts guide you through the EPFO registration process on the Unified Portal, ensuring accurate submission of establishment and employee details. We prepare all required documentation including employee wage records, PAN, and establishment proof for registration. Our team assists with Universal Account Number (UAN) generation for employees and sets up your compliance framework for monthly PF contributions. We help integrate payroll systems with EPFO requirements and establish proper record-keeping procedures. Post-registration, we provide ongoing support for monthly ECR filing, challan payments, and annual PF return submissions to keep your establishment compliant with EPFO regulations."
       benefits={[
         'Employee retirement savings',
         'Legal compliance',

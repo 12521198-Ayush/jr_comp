@@ -11,6 +11,7 @@ export default function IVDCDSCOPage() {
       icon={Microscope}
       color="cyan"
       description="Looking for expert assistance for In Vitro Diagnostics (IVDs) CDSCO Registration? Click to know all about In Vitro Diagnostics (IVDs) CDSCO Registration process."
+      serviceInfo="JR Compliance provides comprehensive IVD registration services under CDSCO guidelines and Medical Device Rules 2017 for manufacturers and importers of diagnostic products. Our regulatory experts assist with accurate device classification under Class A, B, C, or D categories based on risk assessment and intended use. We help compile complete technical documentation including device master files, analytical performance validation data, and clinical evidence required for IVD approval. Our team manages the entire SUGAM portal submission process, coordinates testing requirements, and handles CDSCO correspondence. We assist with manufacturing license applications, import registration for foreign IVDs, and post-market surveillance requirements. Post-approval, we provide ongoing support for license renewals, product modifications, and vigilance reporting to maintain your IVD market authorization."
       benefits={[
         'Mandatory for IVD market access in India',
         'Class A, B, C, D IVD registration',

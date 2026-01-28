@@ -5,11 +5,12 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export default function CDSCORegistrationPage() {
   return (
     <ServicePageTemplate
-      title="CDSCO Registration"
-      subtitle="Medical Device Approval"
+      title="CDSCO Medical Devices"
+      subtitle="Medical Device Registration as per CDSCO Regulations"
       logo="/services_logo/cdsco.png"
       color="orange"
-      description="CDSCO registration is mandatory for manufacturing or importing medical devices in India. Demonstrate your commitment to quality and safety standards in healthcare."
+      description="End-to-end assistance for registering medical devices in compliance with India's medical device regulations."
+      serviceInfo="JR Compliance's regulatory experts specialize in navigating the complex Medical Device Rules 2017 and Drug & Cosmetics Act requirements for your medical devices. We provide complete support from device classification and risk assessment to clinical evidence compilation and SUGAM portal submissions. Our team coordinates with notified bodies, manages comprehensive technical documentation, and handles all communication with CDSCO authorities on your behalf. We ensure your products meet stringent safety and performance standards while accelerating your time-to-market. Our consultants guide you through every stage of the approval process, addressing queries promptly and maintaining compliance. Post-registration, we offer vigilance reporting support, license renewal services, and ongoing compliance management."
       stats={[
         { value: '1800+', label: 'CDSCO Registrations' },
         { value: '4.9', label: 'Google Rating' },

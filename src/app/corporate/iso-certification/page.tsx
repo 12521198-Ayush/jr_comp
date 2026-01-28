@@ -8,6 +8,7 @@ export default function ISOCertificationPage() {
       title="ISO Certification"
       subtitle="International Quality Standards"
       description="We make ISO certification online hassle-free to ensure customer satisfaction. Get your ISO Certification with expert guidance on various ISO standards and benefits."
+      serviceInfo="JR Compliance provides comprehensive ISO certification support for businesses seeking international quality recognition across various standards including ISO 9001, ISO 14001, ISO 27001, ISO 22000, and more. Our quality management experts assess your business processes, identify applicable ISO standards, and guide you through implementation requirements. We help develop quality management systems, document procedures, and prepare your organization for certification audits. Our team coordinates with accredited certification bodies, schedules audits, and assists with addressing any non-conformities identified during the certification process. We provide training support for your team to understand and maintain ISO compliance. Post-certification, we offer surveillance audit preparation, recertification support, and ongoing quality management system improvement guidance."
       logo="/services_logo/iso.png"
       color="blue"
       benefits={[

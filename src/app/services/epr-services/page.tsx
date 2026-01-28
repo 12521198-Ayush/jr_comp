@@ -11,6 +11,7 @@ export default function EPRServicesPage() {
       icon={Recycle}
       color="green"
       description="Extended Producer Responsibility (EPR) makes producers responsible for environmentally-sound management of their products at end-of-life. We provide comprehensive EPR compliance services for e-waste, plastic waste, battery waste, and tyre waste."
+      serviceInfo="At JR Compliance, we provide end-to-end EPR compliance services for producers, importers, and brand owners across all waste categories including e-waste, plastic waste, battery waste, tyre waste, and used oil. Our environmental consultants assess your product portfolio, determine applicable EPR obligations, and develop comprehensive compliance strategies. We handle EPR registration on CPCB portals, calculate collection targets, and prepare detailed action plans for each waste category. Our team connects you with authorized recyclers and waste processors, establishing efficient collection and channelization mechanisms. We provide ongoing quarterly and annual return filing, target tracking, and audit support to keep your business penalty-free. Post-registration, we offer compliance monitoring, certificate management, and guidance on evolving EPR regulations across all waste streams."
       benefits={[
         'Complete EPR registration support',
         'Annual EPR target assessment',

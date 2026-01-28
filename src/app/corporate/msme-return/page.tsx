@@ -11,6 +11,7 @@ export default function MSMEReturnPage() {
       description="Learn how to file MSME Return Form 1. JR Compliance provides complete assistance for MSME return filing and compliance requirements."
       icon={FileText}
       color="blue"
+      serviceInfo="JR Compliance provides comprehensive MSME return filing services to help micro, small, and medium enterprises maintain their compliance and access government benefits. Our MSME compliance experts collect your business data including investment and turnover figures to prepare accurate returns as required under Udyam guidelines. We verify your enterprise classification remains valid based on current investment and turnover thresholds. Our team handles the complete return filing process on the Udyam portal, ensuring timely submission of mandatory disclosures. We assist with Udyam registration updates when business details change and ensure your enterprise maintains eligibility for MSME schemes and benefits. Post-filing, we provide ongoing compliance monitoring and guidance on accessing various government incentives and schemes available to registered MSMEs."
       benefits={[
         'Legal compliance',
         'MSME benefits access',

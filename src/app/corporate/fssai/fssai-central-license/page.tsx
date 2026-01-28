@@ -8,6 +8,7 @@ export default function FSSAICentralLicensePage() {
       title="FSSAI Central License"
       subtitle="Large-Scale Food Businesses"
       description="Obtain FSSAI Central License for large food businesses. Central license is mandatory for businesses with annual turnover above Rs 20 crores or operating in multiple states."
+      serviceInfo="JR Compliance provides expert assistance for obtaining FSSAI Central License for large-scale food businesses, importers, and multi-state operators. Our food safety consultants assess your business operations, manufacturing capacity, and geographic spread to ensure Central License eligibility and compliance. We prepare comprehensive documentation including manufacturing process details, HACCP plans, quality control procedures, and product specifications required for central licensing. Our team handles the complete FoSCoS portal submission, coordinates with central FSSAI authorities, and manages facility inspections. We ensure your operations meet the stringent requirements for pan-India food business operations and import/export activities. Post-licensing, we provide annual compliance support, renewal management, and assistance with license modifications as your business expands."
       logo="/services_logo/fssai.png"
       color="blue"
       benefits={[

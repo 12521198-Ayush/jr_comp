@@ -8,6 +8,7 @@ export default function AyushLicensePage() {
       title="AYUSH Manufacturing License"
       subtitle="Ayurveda, Yoga, Unani, Siddha & Homeopathy"
       description="Searching for quick AYUSH license registration? Get your Ayush manufacturing license registration online from best consultants for Ayurvedic, Unani, Siddha, and Homeopathic products."
+      serviceInfo="At JR Compliance, we provide complete assistance for obtaining AYUSH manufacturing licenses for Ayurvedic, Unani, Siddha, and Homeopathic medicine production. Our regulatory experts guide you through the Drugs and Cosmetics Act requirements specific to AYUSH products and help prepare comprehensive license applications. We assist with facility setup compliance, GMP requirements, and documentation including manufacturing formulas, product specifications, and quality control procedures. Our team coordinates with state drug licensing authorities, handles application submissions, and manages factory inspections. We ensure your manufacturing premises meet all AYUSH ministry guidelines for equipment, storage, and production processes. Post-licensing, we provide product registration support, license renewal services, and ongoing regulatory compliance management for your AYUSH manufacturing operations."
       logo="/services_logo/Ayush licence.png"
       color="green"
       benefits={[

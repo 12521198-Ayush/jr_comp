@@ -11,6 +11,7 @@ export default function CSRRegistrationPage() {
       description="Get CSR registration and compliance assistance. JR Compliance helps companies meet their CSR obligations under Companies Act 2013."
       icon={Heart}
       color="pink"
+      serviceInfo="JR Compliance provides comprehensive CSR registration and compliance services for companies meeting CSR threshold requirements under Companies Act 2013. Our corporate governance experts guide you through CSR-1 registration with the Ministry of Corporate Affairs for implementing agencies and help companies identify eligible implementing partners. We assist with CSR policy formulation, committee constitution, and annual CSR planning aligned with Schedule VII activities. Our team prepares CSR-2 forms, impact assessment reports, and annual disclosures required for board reports and ROC filings. We help identify credible CSR implementation projects, evaluate NGO partners, and monitor fund utilization for compliance documentation. Post-registration, we provide ongoing support for annual CSR reporting, unspent amount transfer procedures, and guidance on impact assessment requirements for large CSR spends."
       benefits={[
         'Legal compliance',
         'Social impact',

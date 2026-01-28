@@ -11,6 +11,7 @@ export default function OPCRegistrationPage() {
       description="Register your One Person Company (OPC) with expert guidance. OPC allows a single entrepreneur to operate a corporate entity with limited liability benefits."
       icon={User}
       color="indigo"
+      serviceInfo="At JR Compliance, we provide complete One Person Company registration services for solo entrepreneurs seeking corporate structure benefits with simplified compliance. Our corporate experts verify your eligibility for OPC formation and guide you through member and nominee requirements as per Companies Act provisions. We handle DSC and DIN procurement, name reservation with RUN form, and complete SPICe+ filing for OPC incorporation. Our team prepares customized MOA and AOA reflecting your business activities and capital structure. We coordinate with ROC authorities, track application status, and ensure timely certificate of incorporation. Post-registration, we assist with PAN/TAN, bank account opening, and provide ongoing annual compliance services. We also advise on conversion requirements when your OPC exceeds threshold limits."
       benefits={[
         'Single person ownership',
         'Limited liability protection',

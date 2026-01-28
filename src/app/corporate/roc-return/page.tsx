@@ -11,6 +11,7 @@ export default function ROCReturnPage() {
       description="We make ROC return registration or filing hassle-free to ensure customer satisfaction. Get your ROC return filing form online with expert guidance on annual filing requirements."
       icon={FileCheck}
       color="blue"
+      serviceInfo="At JR Compliance, we provide comprehensive ROC return filing services for companies and LLPs to maintain their annual compliance with the Registrar of Companies. Our corporate compliance experts prepare and file all mandatory annual forms including AOC-4 (financial statements), MGT-7 (annual return), and associated forms for companies. For LLPs, we handle Form 8 and Form 11 filings as per the LLP Act requirements. We coordinate with your auditors to gather necessary data, prepare director and shareholder details, and ensure accurate filings before due dates. Our team manages event-based filings like changes in directors, registered office, share capital, and other corporate modifications. Post-filing, we provide compliance monitoring, deadline tracking, and ongoing corporate secretarial support to keep your company in good standing with MCA."
       benefits={[
         'Avoid penalties for late filing',
         'Maintain company active status',

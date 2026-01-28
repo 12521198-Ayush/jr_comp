@@ -6,10 +6,11 @@ export default function BEECertificationPage() {
   return (
     <ServicePageTemplate
       title="BEE Certification"
-      subtitle="Bureau of Energy Efficiency"
+      subtitle="Energy Efficiency Compliance for Regulated Products"
       logo="/services_logo/Bee.png"
       color="amber"
-      description="Looking to get BEE Certification? Get your BEE Certificate Registration from best consultants with hassle free process."
+      description="Helping manufacturers comply with energy efficiency standards and labeling requirements."
+      serviceInfo="At JR Compliance, we guide manufacturers through the Bureau of Energy Efficiency certification process, ensuring your appliances meet mandatory star rating requirements. Our consultants help identify if your products fall under mandatory or voluntary labeling categories and determine the applicable energy efficiency standards. We coordinate comprehensive product testing at NABL-accredited laboratories and prepare all documentation required for BEE registration. Our team manages the complete application process on the BEE portal, handling technical queries and ensuring timely approvals. We assist with star label design and compliance verification, ensuring your products display accurate energy efficiency information. Post-certification, we provide renewal support, help with label updates when standards change, and ensure ongoing compliance with BEE regulations."
       benefits={[
         'Energy efficiency star rating',
         'Mandatory for specified appliances',

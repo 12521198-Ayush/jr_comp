@@ -8,6 +8,7 @@ export default function APEDARegistrationPage() {
       title="APEDA Registration"
       subtitle="Agricultural Products Export"
       description="Looking for expert assistance in APEDA Registration? APEDA Registration process is simple and hassle-free with JR Compliance guidance."
+      serviceInfo="At JR Compliance, we provide complete APEDA registration support for businesses looking to export agricultural and processed food products from India. Our export consultants assess your product categories and guide you through the Registration Cum Membership Certificate (RCMC) application process. We prepare comprehensive documentation including IEC details, product specifications, and export capabilities for APEDA portal submission. Our team handles the complete registration process, coordinates with APEDA authorities, and ensures timely approval of your membership. We assist with understanding export incentives, market access support, and trade fair participation benefits available through APEDA. Post-registration, we provide RCMC renewal support, compliance monitoring, and guidance on accessing APEDA schemes for agricultural export promotion."
       logo="/services_logo/apeda.png"
       color="green"
       benefits={[

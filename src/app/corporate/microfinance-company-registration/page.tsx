@@ -11,6 +11,7 @@ export default function MicrofinanceCompanyPage() {
       description="Looking for expert assistance in Micro finance Company Registration? Get complete guidance on how to start a microfinance company with regulatory compliance."
       icon={Banknote}
       color="emerald"
+      serviceInfo="JR Compliance provides comprehensive microfinance company registration services for entities focused on financial inclusion and serving underserved communities. Our regulatory experts guide you through NBFC-MFI registration requirements with RBI including minimum capital, qualifying assets criteria, and lending rate norms. We assist with company incorporation and prepare detailed business plans focusing on microfinance operations, target beneficiary groups, and rural outreach strategies. Our team handles the complete RBI license application, policy framework documentation, and fair practice code development. We coordinate with regulatory authorities and address compliance queries throughout the registration process. Post-registration, we provide ongoing support for RBI returns, prudential compliance, priority sector reporting, and annual filings to maintain your microfinance company's good standing."
       benefits={[
         'Serve underserved communities',
         'RBI regulated operations',

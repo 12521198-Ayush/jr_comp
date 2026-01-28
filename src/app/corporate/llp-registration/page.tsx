@@ -11,6 +11,7 @@ export default function LLPRegistrationPage() {
       description="Are you searching for LLP Registration Consultants in India? Get your LLP Certificate now with expert guidance on online LLP Registration in Delhi."
       icon={Scale}
       color="cyan"
+      serviceInfo="JR Compliance provides comprehensive LLP registration services for professionals and entrepreneurs seeking the benefits of limited liability with partnership flexibility. Our corporate experts help with LLP name approval, ensuring compliance with MCA naming guidelines and availability checks. We handle DSC and DPIN procurement for all designated partners and prepare customized LLP Agreement covering capital contribution, profit sharing, and management responsibilities. Our team manages the complete FiLLiP form filing process, tracks application status, and coordinates with MCA authorities for timely incorporation. We assist with obtaining Certificate of Incorporation, PAN/TAN registration, and opening LLP bank accounts. Post-registration, we provide annual compliance services including Form 8 and Form 11 filing to keep your LLP in good standing."
       benefits={[
         'Limited liability for partners',
         'Separate legal entity',

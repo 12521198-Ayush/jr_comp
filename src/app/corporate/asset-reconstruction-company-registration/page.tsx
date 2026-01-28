@@ -11,6 +11,7 @@ export default function AssetReconstructionCompanyPage() {
       description="We make the Asset Reconstruction Company registration hassle-free to ensure customer satisfaction. Get complete guidance on ARC registration with RBI."
       icon={Landmark}
       color="purple"
+      serviceInfo="At JR Compliance, we provide specialized Asset Reconstruction Company registration services for entities looking to acquire and resolve stressed assets from banks and financial institutions. Our regulatory experts guide you through RBI's ARC licensing requirements including minimum Net Owned Funds, sponsor qualifications, and capital adequacy norms. We assist with company incorporation and prepare comprehensive RBI applications covering business strategy, acquisition methodology, and resolution frameworks. Our team handles security receipt structuring documentation and trust deed preparation for ARC operations. We coordinate the complete RBI submission process and address regulatory queries throughout the approval journey. Post-registration, we provide ongoing compliance support for RBI returns, capital adequacy monitoring, and SARFAESI compliance to keep your ARC operationally sound."
       benefits={[
         'NPAs acquisition and resolution',
         'RBI regulated operations',

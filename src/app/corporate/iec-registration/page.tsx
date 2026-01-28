@@ -8,6 +8,7 @@ export default function IECRegistrationPage() {
       title="Import Export Code (IEC)"
       subtitle="Your Gateway to International Trade"
       description="We make IEC registration hassle-free to ensure customer satisfaction. Get your Import Export Code online with expert guidance for seamless international trade operations."
+      serviceInfo="JR Compliance provides quick and hassle-free Import Export Code registration for businesses looking to engage in international trade. Our trade experts guide you through the DGFT online portal registration process, ensuring accurate submission of all required details. We prepare and verify all documentation including PAN, Aadhaar, bank account details, and business registration certificates before submission. Our team handles the complete IEC application process, tracks status, and ensures timely issuance of your IEC certificate. We assist with any queries from DGFT authorities and help resolve issues that may arise during processing. Post-registration, we provide support for IEC modification, RCMC registration, and guidance on export incentive schemes available for your business sector."
       logo="/services_logo/indian import export code.png"
       color="blue"
       benefits={[

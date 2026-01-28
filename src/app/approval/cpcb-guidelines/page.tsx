@@ -11,6 +11,7 @@ export default function CPCBGuidelinesPage() {
       icon={FileText}
       color="emerald"
       description="Get expert assistance for CPCB guidelines compliance including environmental standards, waste management rules, and pollution control norms. Ensure your business meets all Central Pollution Control Board requirements."
+      serviceInfo="At JR Compliance, we provide comprehensive guidance on CPCB guidelines compliance for businesses across India. Our environmental consultants help you understand applicable environmental standards, waste management rules, and pollution control norms for your industry. We assist with emission and effluent standards compliance, hazardous waste handling procedures, and environmental monitoring requirements as per CPCB regulations. Our team prepares environmental management plans, conducts gap assessments, and implements corrective measures to achieve full compliance. We guide you through CPCB portal registrations, authorization applications, and annual return submissions. Post-compliance, we provide ongoing monitoring, audit preparation, and support for adapting to evolving CPCB guidelines and environmental regulations."
       stats={[
         { value: '3000+', label: 'Compliance Projects' },
         { value: '4.9', label: 'Google Rating' },

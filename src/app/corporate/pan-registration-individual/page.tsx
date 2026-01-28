@@ -11,6 +11,7 @@ export default function PANIndividualPage() {
       description="Get PAN Card for individuals. JR Compliance provides complete assistance for PAN registration and application for individuals, NRIs, and foreign nationals."
       icon={CreditCard}
       color="sky"
+      serviceInfo="At JR Compliance, we provide quick and efficient PAN card registration services for Indian citizens, NRIs, and foreign nationals requiring Indian tax identification. Our registration experts prepare Form 49A or 49AA applications with accurate personal details and ensure all supporting documents meet Income Tax Department specifications. We handle the complete application process through authorized PAN centers, coordinate document verification, and track application status until card delivery. For NRIs and foreign nationals, we assist with proper attestation and consular verification of documents as required. Our team provides guidance on Aadhaar-PAN linking requirements and helps resolve any application discrepancies or rejections. Post-registration, we offer support for PAN correction applications, duplicate card requests, and address updates."
       benefits={[
         'Tax compliance',
         'Bank account opening',

@@ -11,6 +11,7 @@ export default function NidhiCompanyPage() {
       description="Looking for the finest Nidhi company consultant? Get your Nidhi Company Registration today from best company registration consultants with complete compliance support."
       icon={Users}
       color="emerald"
+      serviceInfo="JR Compliance provides specialized Nidhi Company registration services for groups looking to establish mutual benefit finance companies. Our corporate experts guide you through Nidhi Rules 2014 requirements including minimum member and capital thresholds. We handle company incorporation as a public limited company with appropriate objects clause for accepting deposits and lending to members. Our team prepares detailed MOA, AOA, and compliance documentation required for Nidhi company operations. We assist with meeting Net Owned Funds requirements, member enrollment targets, and first-year compliance filings with ROC. Post-registration, we provide ongoing support for Nidhi returns, annual compliance, and guidance on maintaining the prescribed ratios and thresholds as mandated under Nidhi Company Rules."
       benefits={[
         'Accept deposits from members',
         'Provide loans to members',

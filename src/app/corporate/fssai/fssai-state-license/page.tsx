@@ -8,6 +8,7 @@ export default function FSSAIStateLicensePage() {
       title="FSSAI State License"
       subtitle="Medium-Scale Food Businesses"
       description="Obtain FSSAI State License for medium-sized food businesses. State license is required for businesses with annual turnover between Rs 12 lakhs to Rs 20 crores."
+      serviceInfo="At JR Compliance, we provide comprehensive support for obtaining FSSAI State License for medium-scale food businesses operating within a single state. Our food safety experts assess your business type, turnover, and operations to confirm State License eligibility and requirements. We prepare complete documentation including business registration, address proof, food safety management plan, and product details for FoSCoS portal submission. Our team handles the entire application process, coordinating with state food safety authorities and addressing any queries or inspection requirements. We ensure your premises meet FSSAI hygiene standards and guide you through any facility improvements if needed. Post-licensing, we provide annual return filing support, license renewal services, and ongoing food safety compliance management."
       logo="/services_logo/fssai.png"
       color="green"
       benefits={[

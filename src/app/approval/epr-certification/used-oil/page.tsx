@@ -11,6 +11,7 @@ export default function UsedOilCompliancePage() {
       icon={Droplet}
       color="orange"
       description="EPR Used Oil Compliance registration for lubricant producers and importers. Complete support for Hazardous Waste Management Rules compliance."
+      serviceInfo="JR Compliance provides expert guidance for used oil compliance under Hazardous Waste Management Rules for lubricant producers and importers. Our environmental consultants help you understand your used oil management obligations and develop effective collection and recycling strategies. We assist with EPR authorization applications, collection target determination, and action plan preparation for CPCB submissions. Our team connects you with authorized used oil re-refiners and recyclers, ensuring proper channelization of waste lubricants. We handle quarterly and annual return filing, maintain compliance documentation, and prepare you for regulatory audits. Post-registration, we provide ongoing compliance monitoring, authorization renewals, and guidance on regulatory updates affecting used oil management."
       benefits={[
         'Mandatory for lubricant manufacturers and importers',
         'Complete used oil management compliance',

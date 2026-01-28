@@ -11,6 +11,7 @@ export default function TrademarkOppositionPage() {
       description="Expert trademark opposition services - whether you need to oppose a conflicting mark or defend your application against opposition. We handle complete opposition proceedings."
       icon={Shield}
       color="red"
+      serviceInfo="At JR Compliance, we provide comprehensive trademark opposition services to protect your brand rights against conflicting marks or defend your application against third-party challenges. For filing opposition, we monitor trademark journals, identify potentially conflicting applications, and file timely opposition notices on grounds of prior rights, deceptive similarity, or bad faith. For defense services, we analyze opposition notices, prepare counter-statements addressing each allegation, and build evidence demonstrating your legitimate rights. Our team handles evidence filing, affidavit drafting, and cross-examination of opponent witnesses. We attend opposition hearings with thorough preparation and persuasive arguments. Whether protecting an established brand or defending a new application, our strategic approach and deep understanding of opposition procedures help secure favorable outcomes."
       benefits={[
         'Filing Opposition - Oppose marks that conflict with your trademark',
         'Defense Services - Defend your trademark against opposition',

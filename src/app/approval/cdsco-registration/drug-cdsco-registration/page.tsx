@@ -11,6 +11,7 @@ export default function DrugCDSCOPage() {
       icon={Pill}
       color="red"
       description="Drug CDSCO Registration services for pharmaceutical products. Get complete support for drug manufacturing and import licenses from expert consultants."
+      serviceInfo="JR Compliance provides comprehensive pharmaceutical registration services under CDSCO and Drugs & Cosmetics Act for drug manufacturers and importers. Our regulatory affairs specialists guide you through the appropriate approval pathway based on your drug category - new drug, generic, biological, or phytopharmaceutical. We prepare complete dossiers including Chemistry, Manufacturing & Controls (CMC) data, stability studies, bioequivalence reports, and clinical trial documentation as required. Our team manages the entire approval process on SUGAM portal, coordinates with CDSCO reviewers, and addresses technical queries professionally. We assist with manufacturing license applications, import registration, and Form 40/41 certifications. Post-approval, we provide ongoing support for product variations, license renewals, pharmacovigilance compliance, and regulatory updates affecting your pharmaceutical products."
       benefits={[
         'Drug manufacturing license support',
         'Import registration assistance',

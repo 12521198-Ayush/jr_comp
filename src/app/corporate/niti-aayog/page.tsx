@@ -8,6 +8,7 @@ export default function NITIAayogPage() {
       title="NITI Aayog Registration"
       subtitle="NGO Darpan Portal Registration"
       description="Register your NGO with NITI Aayog through the NGO Darpan portal. JR Compliance offers expert support for NITI Aayog registration to help you access government grants and build trust."
+      serviceInfo="JR Compliance provides comprehensive support for registering your NGO, Trust, or Society on the NITI Aayog NGO Darpan portal. Our experts guide you through eligibility requirements and help prepare all necessary documentation including registration certificates, PAN, bank details, and organizational information. We handle the complete online registration process, ensuring accurate submission of your NGO's mission, activities, and geographic coverage. Our team assists with signatory verification, document uploads, and any queries from the Darpan team during the approval process. We help you obtain your unique NGO ID that enables access to government grants, CSR funding, and various government schemes. Post-registration, we provide support for profile updates, compliance requirements, and guidance on accessing government funding opportunities for your organization."
       logo="/services_logo/niti ayogya.png"
       color="cyan"
       benefits={[

@@ -11,6 +11,7 @@ export default function TrademarkModificationPage() {
       description="Professional trademark modification services to update your registered trademark details. We handle name changes, address updates, and other modifications with the Trademark Registry."
       icon={Edit3}
       color="blue"
+      serviceInfo="At JR Compliance, we provide comprehensive trademark modification services to keep your registration records accurate and current. Our IP team handles proprietor name changes due to company restructuring, mergers, or individual name corrections with proper supporting documentation. We process address updates, whether simple relocations or registered office changes requiring ROC certificates. Our services include trademark assignment recording when ownership transfers through sale, inheritance, or business succession. We handle license recordation for franchising arrangements and user permission agreements. Our team also assists with specification amendments to expand or narrow goods/services coverage. We ensure all modifications comply with Trademark Registry procedures and maintain the validity and enforceability of your trademark rights."
       benefits={[
         'Name Change Update - Modify proprietor/company name on trademark',
         'Address Update - Change registered address on trademark records',

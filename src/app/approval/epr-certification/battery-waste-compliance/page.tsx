@@ -11,6 +11,7 @@ export default function BatteryWasteCompliancePage() {
       icon={Battery}
       color="amber"
       description="Meet Battery Waste Management Rules 2022 requirements and avoid penalties. Demonstrate commitment to sustainable battery disposal and recycling."
+      serviceInfo="JR Compliance provides expert guidance for Battery Waste Management Rules 2022 compliance for producers, importers, and recyclers of all battery types. Our environmental consultants help you understand EPR obligations for portable, automotive, and industrial battery categories. We assist with EPR registration, collection target calculation, and action plan development as per the new battery waste rules. Our team connects you with authorized battery recyclers and refurbishers to establish compliant collection and recycling channels. We prepare comprehensive documentation for CPCB portal submissions and handle quarterly and annual return filing. Post-registration, we provide ongoing compliance monitoring, target achievement tracking, and support for adapting to regulatory updates in battery waste management."
       stats={[
         { value: '800+', label: 'Battery EPR Registrations' },
         { value: '4.9', label: 'Google Rating' },

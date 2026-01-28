@@ -11,6 +11,7 @@ export default function PortfolioManagerRegistrationPage() {
       description="Register as a Portfolio Manager with SEBI. JR Compliance provides complete assistance for Portfolio Manager registration and compliance requirements."
       icon={Briefcase}
       color="indigo"
+      serviceInfo="JR Compliance provides comprehensive Portfolio Manager registration services for entities seeking SEBI authorization to manage client investment portfolios. Our regulatory experts guide you through SEBI's eligibility criteria including minimum net worth requirements, principal officer qualifications, and infrastructure norms. We prepare detailed SEBI registration applications covering investment philosophy, risk management systems, and compliance frameworks for discretionary and non-discretionary PMS services. Our team handles the complete regulatory submission, responds to SEBI queries, and coordinates throughout the approval process. We assist with setting up custody arrangements, client onboarding procedures, and performance reporting systems. Post-registration, we provide ongoing compliance support for SEBI returns, client reporting, disclosure requirements, and audit coordination to maintain your PMS license in good standing."
       benefits={[
         'SEBI authorized operations',
         'Client fund management',

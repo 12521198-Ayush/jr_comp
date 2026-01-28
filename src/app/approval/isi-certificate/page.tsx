@@ -6,10 +6,11 @@ export default function ISICertificationPage() {
   return (
     <ServicePageTemplate
       title="ISI Certification"
-      subtitle="Bureau of Indian Standards"
+      subtitle="Product Safety Certification under ISI Standards"
       logo="/services_logo/isi.png"
       color="emerald"
-      description="The ISI Mark validates that your products conform to Indian quality standards, building consumer trust. Mandatory for many product categories like electrical appliances, cement, and safety equipment."
+      description="Ensuring products comply with Indian safety standards required for ISI mark certification."
+      serviceInfo="Our certification experts at JR Compliance provide complete support for obtaining the prestigious ISI Mark, which signifies conformity to Indian Standards. We guide manufacturers through comprehensive product testing at BIS-recognized laboratories, factory inspection preparation, and quality management system implementation. Our team handles all documentation requirements, application filing on the BIS portal, and coordination with BIS officers throughout the certification process. We assist with scheme selection including Scheme-I for domestic manufacturers and Scheme-II for foreign manufacturers, ensuring your manufacturing processes meet all required standards. Our consultants provide regular updates and address any queries that arise during the evaluation. Post-certification, we offer renewal support, surveillance audit preparation, and ongoing compliance maintenance services."
       stats={[
         { value: '3500+', label: 'ISI Certifications' },
         { value: '4.9', label: 'Google Rating' },

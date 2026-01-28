@@ -11,6 +11,7 @@ export default function PatentRegistrationPage() {
       description="Patent Registration in India - Get Experts Help for Patent Registration. JR Compliance provides complete assistance for patent filing and prosecution."
       icon={Lightbulb}
       color="amber"
+      serviceInfo="JR Compliance provides comprehensive patent registration services to protect your inventions and innovations in India. Our patent experts conduct prior art searches to assess patentability and novelty of your invention before filing. We prepare detailed patent specifications including claims, descriptions, and drawings that comprehensively protect your invention. Our team handles provisional and complete patent application filings, manages publication requests, and coordinates examination responses with the Indian Patent Office. We draft persuasive replies to examination reports addressing novelty, inventive step, and industrial applicability objections. Post-grant, we provide patent maintenance services including annual renewal fee payments, assignment recordings, and licensing documentation. We also assist with patent enforcement strategies and infringement analysis when needed."
       benefits={[
         'Exclusive rights to invention',
         '20 years protection',

@@ -11,6 +11,7 @@ export default function DSCCertificatePage() {
       description="Looking for an easy way to obtain a DSC certificate? Get your Digital Signature Certificate now from best DSC service provider with quick processing."
       icon={Key}
       color="blue"
+      serviceInfo="At JR Compliance, we provide quick and hassle-free Digital Signature Certificate services for individuals and organizations needing secure electronic authentication. Our DSC experts guide you in choosing the appropriate class and type of DSC - Class 3 for MCA/GST filings, DGFT submissions, e-tendering, and other regulatory requirements. We handle the complete application process with Certifying Authorities, collect and verify your identity documents, and coordinate video verification when required. Our team ensures quick processing for standard and express DSC requirements, with USB token procurement and installation assistance. We provide guidance on DSC usage for various portals and applications. Post-issuance, we offer renewal reminder services, revocation assistance, and support for any technical issues with your digital signature tokens."
       benefits={[
         'Legal validity for e-documents',
         'MCA portal access',

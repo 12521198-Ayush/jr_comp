@@ -6,11 +6,12 @@ import { Radio } from 'lucide-react';
 export default function DealerPossessionLicensePage() {
   return (
     <ServicePageTemplate
-      title="Dealer Possession License"
-      subtitle="DPL - WPC License"
+      title="Dealer Possession License (DPL)"
+      subtitle="Authorization to Deal in Wireless Equipment"
       icon={Radio}
       color="purple"
-      description="Dealer Possession License (DPL) for trading wireless equipment in India. Get complete support for WPC DPL registration from expert consultants."
+      description="Authorization support for businesses dealing in wireless and RF communication equipment."
+      serviceInfo="JR Compliance provides expert support for obtaining Dealer Possession License from the WPC Wing of Department of Telecommunications. Our regulatory consultants guide dealers, distributors, and traders through the complete DPL application process for wireless communication equipment. We help identify the appropriate equipment categories for your business operations and prepare comprehensive documentation for license application. Our team handles Saral Sanchar portal submissions, tracks application status, and coordinates with WPC officials to ensure timely approvals. We assist with security clearance requirements where applicable and manage all communication with regulatory authorities. Post-licensing, we provide renewal support, amendment assistance for adding new equipment categories, and ongoing compliance monitoring for your wireless equipment dealing operations."
       benefits={[
         'Legal authorization to deal in wireless equipment',
         'Trading and selling wireless devices',

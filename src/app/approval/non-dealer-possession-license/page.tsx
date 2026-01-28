@@ -6,11 +6,12 @@ import { Wifi } from 'lucide-react';
 export default function NonDealerPossessionLicensePage() {
   return (
     <ServicePageTemplate
-      title="Non-Dealer Possession License"
-      subtitle="NDPL - WPC License"
+      title="Non-Dealer Possession License (NDPL)"
+      subtitle="Permission to Possess Wireless Equipment"
       icon={Wifi}
       color="violet"
-      description="The NDPL License, which stands for Non-Dealer Possession License, is given to businesses that do not sell or own wireless products but need to possess them."
+      description="Licensing assistance for entities possessing wireless equipment without trading or selling."
+      serviceInfo="At JR Compliance, we provide specialized support for obtaining Non-Dealer Possession License from WPC for organizations that use wireless equipment for internal purposes. Our regulatory consultants guide corporates, institutions, and research facilities through the NDPL application process for legitimate possession of radio frequency devices. We help prepare the required documentation including equipment details, justification for possession, and organizational credentials. Our team handles complete Saral Sanchar portal submissions, application tracking, and coordination with WPC officials throughout the approval process. We assist with security clearance requirements and manage all regulatory communications on your behalf. Post-licensing, we provide renewal support, amendment services for additional equipment, and ongoing compliance monitoring for your wireless equipment possession."
       benefits={[
         'Legal possession of wireless equipment',
         'For entities not dealing in wireless products',

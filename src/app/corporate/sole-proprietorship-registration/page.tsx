@@ -11,6 +11,7 @@ export default function SoleProprietorshipPage() {
       description="Register your sole proprietorship firm with expert guidance. The simplest and most straightforward business structure for individual entrepreneurs."
       icon={FileText}
       color="emerald"
+      serviceInfo="JR Compliance provides quick and efficient sole proprietorship registration services for individual entrepreneurs starting their business journey. Our experts guide you through the various registrations that establish your proprietorship's legal identity including GST registration, MSME/Udyam registration, and Shop Act license. We help obtain business-specific licenses and registrations like FSSAI for food businesses, professional tax registration, and trade licenses as applicable. Our team prepares all documentation including Aadhaar, PAN, and address proof for various registration applications. We assist with opening current bank accounts in your business name and obtaining necessary certifications for your trade. Post-registration, we provide ongoing compliance support including GST returns, income tax filing, and MSME return submission to keep your proprietorship compliant with all applicable regulations."
       benefits={[
         'Easiest business structure to set up',
         'Complete control over business decisions',

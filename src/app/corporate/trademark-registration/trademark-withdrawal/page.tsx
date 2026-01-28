@@ -11,6 +11,7 @@ export default function TrademarkWithdrawalPage() {
       description="Professional trademark withdrawal services. We help you formally withdraw trademark applications or registrations when needed, ensuring proper legal procedure is followed."
       icon={XCircle}
       color="gray"
+      serviceInfo="At JR Compliance, we provide professional trademark withdrawal services when strategic or practical considerations require discontinuing an application or registration. Our IP team advises on withdrawal implications including fee recovery possibilities, impact on priority claims, and effect on related applications. We handle complete withdrawal from all classes or partial withdrawal to focus on core business areas while reducing fees. Our services include opposition withdrawal when settlements are reached, application abandonment documentation, and voluntary surrender of registered trademarks. We prepare proper TM-O forms with required statements and ensure withdrawals are recorded correctly in Registry records. We also advise on timing considerations - whether to withdraw before examination to avoid objections on record, or strategic withdrawals during opposition negotiations. Our approach ensures proper legal closure while protecting your options for future filings."
       benefits={[
         'Formal Withdrawal - Proper legal withdrawal of trademark application',
         'Registration Surrender - Voluntary surrender of trademark rights',

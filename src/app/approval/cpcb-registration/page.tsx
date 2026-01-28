@@ -7,10 +7,11 @@ export default function CPCBPage() {
   return (
     <ServicePageTemplate
       title="CPCB Registration"
-      subtitle="Central Pollution Control Board"
+      subtitle="Central Pollution Control Board Compliance Services"
       icon={Building2}
       color="green"
-      description="CPCB Registration services for waste management, EPR authorization, and environmental compliance. Get complete support from expert consultants."
+      description="Assistance with central environmental registrations and nationwide compliance requirements."
+      serviceInfo="JR Compliance provides comprehensive support for Central Pollution Control Board registrations and environmental compliance requirements across India. Our environmental consultants help identify all applicable CPCB registrations for your business, including EPR authorization, hazardous waste management, and various waste category registrations. We prepare detailed compliance plans, waste management documentation, and submit applications on the CPCB centralized portal on your behalf. Our team coordinates with authorized recyclers and waste processors, ensuring your business meets all environmental obligations efficiently. We handle quarterly and annual return filing, compliance monitoring, and audit preparation to keep you penalty-free. Post-registration, we provide ongoing environmental compliance management, authorization renewals, and assistance with any regulatory changes affecting your operations."
       benefits={[
         'EPR authorization support',
         'Hazardous waste authorization',

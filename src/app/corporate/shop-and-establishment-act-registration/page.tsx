@@ -11,6 +11,7 @@ export default function ShopEstablishmentPage() {
       description="Get Shop and Establishment Act registration for your business. JR Compliance provides complete assistance for shop license registration across all states."
       icon={Store}
       color="rose"
+      serviceInfo="At JR Compliance, we provide comprehensive Shop and Establishment Act registration services for businesses across all Indian states. Our labor law compliance experts determine applicable state-specific requirements and help prepare complete applications with required documentation. We handle the complete registration process on respective state labor department portals, ensuring accurate submission of establishment details, employee information, and working hour declarations. Our team coordinates inspections when required and ensures timely license issuance. We assist with understanding state-specific regulations regarding working hours, weekly holidays, overtime, and employee welfare provisions. Post-registration, we provide renewal reminder services, amendment assistance for changes in business details, and ongoing labor law compliance guidance for your establishment."
       benefits={[
         'Legal compliance',
         'Business legitimacy',

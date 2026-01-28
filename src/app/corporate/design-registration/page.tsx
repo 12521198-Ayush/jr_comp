@@ -9,6 +9,7 @@ export default function DesignRegistrationPage() {
       title="Design Registration"
       subtitle="Protect Your Product Design"
       description="Professional design registration services to protect the visual appearance of your products. We handle complete design registration with the Design Office under the Designs Act, 2000."
+      serviceInfo="JR Compliance provides comprehensive design registration services to protect the visual appearance of your products under the Designs Act, 2000. Our intellectual property experts conduct design searches to assess registrability and identify any similar registered designs in the marketplace. We prepare high-quality design representations, draft application documents, and ensure your design meets all statutory requirements for registration. Our team handles the complete filing process with the Design Office, responds to examination reports, and works towards securing your design registration. We assist with understanding design classifications, multi-design applications, and priority claims for international designs. Post-registration, we provide renewal support, assignment services, and guidance on enforcing your design rights against infringement."
       icon={Palette}
       color="pink"
       benefits={[

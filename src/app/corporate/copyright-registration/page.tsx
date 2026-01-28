@@ -11,6 +11,7 @@ export default function CopyrightRegistrationPage() {
       description="We make the Copyright registration process hassle-free. Get complete guidance on documents required for copyright registration in India and its process."
       icon={Copyright}
       color="purple"
+      serviceInfo="At JR Compliance, we provide complete copyright registration services to protect your original literary, artistic, musical, and cinematographic works. Our intellectual property experts assess your work's eligibility for copyright protection and guide you through the registration process with the Copyright Office. We prepare detailed applications including work descriptions, authorship claims, and first publication details as required for copyright filing. Our team handles the complete online submission, tracks application status, and responds to any objections or discrepancies raised during examination. We assist with copyright assignments, licensing documentation, and infringement cease-and-desist communications when needed. Post-registration, we provide portfolio management services and help you maintain evidence of creation dates and ownership for enforcement purposes."
       benefits={[
         'Legal protection for original works',
         'Exclusive reproduction rights',

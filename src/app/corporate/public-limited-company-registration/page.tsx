@@ -11,6 +11,7 @@ export default function PublicLimitedCompanyPage() {
       description="Need a Public Limited Company Registration Consultant? Apply for Public Limited Company Registration with our expert consultants for seamless and professional assistance."
       icon={Building2}
       color="indigo"
+      serviceInfo="At JR Compliance, we provide comprehensive Public Limited Company registration services for businesses planning to raise capital from the public and achieve stock exchange listing. Our corporate experts guide you through the complex incorporation requirements including minimum director and shareholder norms. We handle DSC and DIN procurement, name approval with RUN form, and complete SPICe+ filing for public company incorporation. Our team prepares detailed MOA and AOA reflecting your business scope, share capital structure, and corporate governance framework. We coordinate with ROC authorities and ensure compliance with enhanced disclosure requirements for public companies. Post-incorporation, we assist with statutory register maintenance, board meeting compliance, and annual filing services to keep your public company in good standing."
       benefits={[
         'Raise capital from public',
         'Stock exchange listing eligible',

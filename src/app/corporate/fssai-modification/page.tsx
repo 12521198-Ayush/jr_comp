@@ -8,6 +8,7 @@ export default function FSSAIModificationPage() {
       title="FSSAI Modification"
       subtitle="Update Your Food License"
       description="Need to update your FSSAI license details? JR Compliance helps food businesses modify their FSSAI registration or license efficiently, ensuring continued compliance with food safety standards."
+      serviceInfo="JR Compliance provides expert assistance for updating your FSSAI license details through the FoSCoS portal quickly and accurately. Our food safety consultants assess your modification requirements and guide you through the appropriate process for minor or major changes. We prepare all necessary documentation including address proof, ownership transfer documents, or updated product lists as required for your specific modification. Our team handles the complete online submission process, ensuring all fields are correctly filled and supporting documents are properly uploaded. We track your application status, respond to queries from FSSAI authorities, and ensure timely approval of modifications. Post-modification, we provide license renewal reminders and ongoing compliance support for your food business."
       logo="/services_logo/fssai.png"
       color="orange"
       benefits={[

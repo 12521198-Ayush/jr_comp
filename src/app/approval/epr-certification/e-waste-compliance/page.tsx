@@ -11,6 +11,7 @@ export default function EWasteCompliancePage() {
       icon={Monitor}
       color="cyan"
       description="Meet E-Waste Management Rules 2022 requirements and avoid heavy penalties. Demonstrate responsible e-waste recycling and circular economy commitment."
+      serviceInfo="At JR Compliance, we provide comprehensive E-Waste EPR compliance support for producers, importers, and brand owners of electrical and electronic equipment. Our environmental consultants guide you through E-Waste Management Rules 2022 requirements and help you understand your EPR obligations based on your product categories. We handle EPR registration on the CPCB centralized portal, accurate collection target calculation, and detailed action plan preparation. Our team connects you with authorized e-waste recyclers and dismantlers, establishing efficient collection and channelization mechanisms. We provide ongoing quarterly and annual return filing, target tracking, and audit support to keep your business penalty-free. Post-registration, we offer compliance monitoring, certificate management, and guidance on evolving e-waste regulations."
       stats={[
         { value: '1200+', label: 'E-Waste EPR Registrations' },
         { value: '4.9', label: 'Google Rating' },

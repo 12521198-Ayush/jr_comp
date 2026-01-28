@@ -6,10 +6,11 @@ export default function CRSCertificationPage() {
   return (
     <ServicePageTemplate
       title="CRS Certification"
-      subtitle="Compulsory Registration Scheme"
+      subtitle="Mandatory Product Registration under CRS Scheme"
       logo="/services_logo/bis.png"
       color="blue"
-      description="CRS certification assures customers of product safety and quality, improving brand reputation and consumer trust. Mandatory for electronic and IT products in India."
+      description="Helping businesses register mandatory electronic products under the BIS CRS scheme."
+      serviceInfo="At JR Compliance, we provide expert guidance for Compulsory Registration Scheme (CRS) certification, ensuring your electronic and IT products meet mandatory Indian safety standards. Our consultants help identify applicable standards for your products and coordinate testing at BIS-recognized laboratories. We prepare all required documentation, submit applications on the BIS portal, and track your certification status throughout the process. Our team stays updated with the latest additions to the CRS product list, helping you maintain compliance as regulations evolve. We handle all communication with BIS authorities and provide timely responses to any queries. Post-registration, we offer annual renewal services, inclusion filing for new models, and ongoing compliance support to keep your products legally available in the Indian market."
       stats={[
         { value: '3000+', label: 'CRS Certifications' },
         { value: '4.9', label: 'Google Rating' },

@@ -11,6 +11,7 @@ export default function TrademarkSearchPage() {
       description="Conduct comprehensive trademark search before registration. JR Compliance provides thorough trademark availability search to protect your brand."
       icon={Search}
       color="indigo"
+      serviceInfo="At JR Compliance, we conduct exhaustive trademark searches to assess the registrability and availability of your proposed brand name, logo, or slogan. Our IP research team searches the official trademark database, common law sources, and business registries to identify conflicting marks. We analyze phonetic similarities, visual resemblances, and conceptual overlaps that could lead to rejection or opposition. Our comprehensive search reports include risk assessment, recommendations on distinctiveness, and suggestions for stronger alternatives if needed. We examine prior marks across relevant classes and provide strategic advice on filing approach. This proactive research helps avoid costly objections and infringement disputes, saving you time and legal expenses in the long run."
       benefits={[
         'Avoid registration rejection',
         'Identify similar marks',

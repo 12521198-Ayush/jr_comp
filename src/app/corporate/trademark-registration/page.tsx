@@ -11,6 +11,7 @@ export default function TrademarkRegistrationPage() {
       description="Trademark registration protects your brand identity legally. We handle end-to-end filing, objection response, and registration with the Trademark Registry."
       icon={Award}
       color="purple"
+      serviceInfo="At JR Compliance, we provide comprehensive trademark registration services to protect your brand identity and intellectual property. Our IP experts conduct thorough trademark searches to assess availability and infringement risks before filing. We handle complete application preparation, class selection, and filing with the Trademark Registry of India. Our team responds to examination reports, formality objections, and drafts persuasive replies to overcome registration hurdles. We represent clients at trademark hearings and handle opposition proceedings when required. Post-registration, we provide renewal reminders, modification services, and ongoing trademark portfolio management to ensure your brand remains protected."
       benefits={[
         'Legal Protection - Exclusive rights to use your brand name, logo, or slogan across India',
         'Brand Value - Registered trademarks become valuable business assets over time',

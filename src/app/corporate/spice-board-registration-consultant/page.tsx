@@ -8,6 +8,7 @@ export default function SpiceBoardPage() {
       title="Spice Board Registration"
       subtitle="Export Your Spices Globally"
       description="Spice Board Registration in India - Get Experts Help for Spice Board Registration. JR Compliance provides complete assistance for spice exporters."
+      serviceInfo="At JR Compliance, we provide comprehensive Spice Board registration support for exporters, traders, and manufacturers of Indian spices. Our export consultants guide you through the Registration Cum Membership Certificate (RCMC) application process and help prepare all required documentation. We assist with understanding the different registration categories - exporter, dealer, or processor - and ensure you apply under the correct classification. Our team handles the complete online application, coordinates with Spice Board authorities, and ensures timely approval of your registration. We help you understand quality certification requirements, testing protocols, and export documentation needed for international spice trade. Post-registration, we provide RCMC renewal support, compliance monitoring, and guidance on accessing Spice Board schemes for export promotion."
       logo="/services_logo/spices board india.png"
       color="orange"
       benefits={[

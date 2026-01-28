@@ -11,6 +11,7 @@ export default function TrademarkEvidenceFilingPage() {
       description="Professional trademark evidence filing services. We help compile, organize, and file compelling evidence to support your trademark application or defend against objections and oppositions."
       icon={FileCheck}
       color="green"
+      serviceInfo="At JR Compliance, we provide strategic trademark evidence filing services to build compelling cases for registration or defense. Our IP team develops evidence strategies based on objection grounds or opposition allegations, identifying what documentation will most effectively support your position. We compile usage evidence including sales invoices, advertising materials, product packaging, and promotional campaigns demonstrating trademark use in commerce. Our experts draft user affidavits with proper attestation, organize turnover figures and advertising expenditure data, and gather consumer recognition evidence when needed. We index and paginate evidence bundles per Trademark Registry requirements, ensuring admissibility and easy reference. Whether establishing acquired distinctiveness, proving prior use, or demonstrating reputation in opposition proceedings, our thorough evidence compilation strengthens your case for favorable outcomes."
       benefits={[
         'Evidence Strategy - Develop comprehensive evidence filing plan',
         'Document Organization - Properly organize and index all evidence',

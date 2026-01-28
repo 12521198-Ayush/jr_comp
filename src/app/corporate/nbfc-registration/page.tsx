@@ -11,6 +11,7 @@ export default function NBFCRegistrationPage() {
       description="Looking for a consultant for NBFC registration? Get complete guidance on NBFC license registration with RBI compliance and regulatory requirements."
       icon={Landmark}
       color="purple"
+      serviceInfo="At JR Compliance, we provide end-to-end NBFC registration services for companies seeking to enter the non-banking financial services sector. Our regulatory experts guide you through RBI's eligibility criteria including minimum Net Owned Funds, director qualifications, and business plan requirements. We assist with company incorporation as a public limited company with appropriate objects clause for NBFC activities. Our team prepares comprehensive RBI license applications including business projections, capital adequacy calculations, and fair practice codes. We handle the complete RBI submission process, respond to regulatory queries, and coordinate inspections if required. Post-registration, we provide ongoing compliance support including statutory returns, prudential norms monitoring, and RBI correspondence management to keep your NBFC compliant."
       benefits={[
         'Financial services authorization',
         'RBI regulated operations',

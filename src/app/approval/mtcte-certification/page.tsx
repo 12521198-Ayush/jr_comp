@@ -11,6 +11,7 @@ export default function MTCTEPage() {
       icon={Radio}
       color="purple"
       description="MTCTE certification is mandatory for telecom equipment sold in India. Get expert assistance for Mandatory Testing and Certification of Telecom Equipment from TEC-authorized labs."
+      serviceInfo="At JR Compliance, we provide expert guidance for Mandatory Testing and Certification of Telecom Equipment under TEC regulations. Our telecom regulatory specialists help you understand MTCTE requirements, identify applicable Essential Requirements (ERs), and prepare your equipment for certification. We coordinate testing at TEC-authorized laboratories, manage test report documentation, and ensure compliance with all technical standards. Our team handles the complete TEC portal submission, application tracking, and communication with TEC authorities throughout the certification process. We assist with both self-declaration and conformity assessment routes based on your product category and testing requirements. Post-certification, we provide certificate renewal support, amendment services for product updates, and ongoing regulatory compliance monitoring."
       stats={[
         { value: '2000+', label: 'MTCTE Certifications' },
         { value: '4.9', label: 'Google Rating' },

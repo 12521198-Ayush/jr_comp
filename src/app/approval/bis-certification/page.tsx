@@ -5,11 +5,12 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export default function BISRegistrationPage() {
   return (
     <ServicePageTemplate
-      title="BIS Registration"
-      subtitle="Technical Services"
+      title="BIS Certification"
+      subtitle="Ensuring Product Compliance with BIS Standards"
       logo="/services_logo/bis.png"
       color="cyan"
-      description="Get BIS certification services from the best Consultants in India known for trusted guidance, 100% compliance, and the best results for businesses."
+      description="Helping manufacturers meet Indian quality and safety standards through structured certification and ongoing compliance support."
+      serviceInfo="At JR Compliance, our team of experienced BIS consultants guides you through every step of the certification process, from initial product assessment to final approval. We handle all documentation requirements, coordinate with BIS-recognized laboratories for product testing, and ensure your application meets all regulatory standards. With our deep understanding of Indian Standards and BIS procedures, we minimize delays and help you achieve certification efficiently. Our dedicated support team provides regular updates throughout the process and assists with any queries from BIS officials. Post-certification, we offer comprehensive renewal management, surveillance audit preparation, and assistance with amendments or expansions to your product range."
       benefits={[
         'Expert product evaluation',
         'Complete documentation support',

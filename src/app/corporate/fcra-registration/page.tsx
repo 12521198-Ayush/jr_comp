@@ -11,6 +11,7 @@ export default function FCRARegistrationPage() {
       description="Get FCRA registration for your NGO. JR Compliance provides complete assistance for FCRA registration to receive foreign contributions legally."
       icon={Globe}
       color="indigo"
+      serviceInfo="At JR Compliance, we provide comprehensive FCRA registration services for NGOs, trusts, and societies seeking to receive foreign contributions for charitable activities. Our regulatory experts verify your organization's eligibility based on track record requirements and guide you through the FCRA application process with the Ministry of Home Affairs. We prepare detailed applications including utilization statements, activity reports, and organizational documentation required for FCRA approval. Our team handles the complete online submission process, tracks application status, and responds to MHA queries promptly. We assist with opening designated FCRA bank accounts and establishing compliance frameworks for foreign contribution management. Post-registration, we provide ongoing support for quarterly and annual FCRA return filing, FC-4 submissions, and renewal applications to maintain your organization's FCRA compliance."
       benefits={[
         'Foreign contribution receipt',
         'International donor access',

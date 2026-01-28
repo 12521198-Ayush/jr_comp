@@ -11,6 +11,7 @@ export default function PFESIReturnPage() {
       description="Get expert help for PF and ESI return filing. JR Compliance provides complete assistance for monthly PF/ESI compliance and return filing."
       icon={FileSpreadsheet}
       color="violet"
+      serviceInfo="At JR Compliance, we provide comprehensive PF and ESI return filing services to ensure your establishment maintains timely compliance with labor welfare regulations. Our payroll compliance experts collect and verify employee wage data, calculate accurate contribution amounts, and prepare monthly Electronic Challan cum Returns (ECR) for EPFO submission. We handle ESIC contribution calculations and file half-yearly returns with proper employee details and wage records. Our team ensures timely challan generation and payment reminders to avoid interest charges and penalties. We reconcile contribution records, maintain employee-wise compliance documentation, and provide audit support for PF/ESI inspections. Post-filing, we offer annual return preparation, employee exit formalities assistance, and ongoing compliance monitoring to keep your establishment in good standing with EPFO and ESIC authorities."
       benefits={[
         'Timely compliance',
         'Avoid penalties',

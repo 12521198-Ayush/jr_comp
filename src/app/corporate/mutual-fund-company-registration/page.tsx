@@ -11,6 +11,7 @@ export default function MutualFundCompanyPage() {
       description="Searching for the finest consultants who can assist you in how to start a mutual fund company registration? Get complete guidance on mutual fund company registration."
       icon={TrendingUp}
       color="blue"
+      serviceInfo="JR Compliance provides comprehensive mutual fund company registration services for entities seeking to establish Asset Management Companies (AMCs) under SEBI regulations. Our regulatory experts guide you through SEBI's eligibility criteria including sponsor qualifications, minimum net worth requirements, and fund management experience norms. We assist with establishing the mutual fund trust structure, appointing trustees, and setting up the AMC. Our team prepares detailed SEBI registration applications covering investment philosophy, risk management frameworks, and compliance systems. We handle the complete regulatory submission process and coordinate with SEBI authorities throughout the approval journey. Post-registration, we provide ongoing compliance support for scheme filings, SEBI returns, portfolio disclosures, and investor protection requirements to maintain your AMC's regulatory standing."
       benefits={[
         'SEBI regulated operations',
         'Pool investor funds professionally',

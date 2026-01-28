@@ -11,6 +11,7 @@ export default function TrademarkObjectionPage() {
       description="Expert trademark objection response services. We help you draft compelling responses to overcome examination objections and secure your trademark registration."
       icon={AlertTriangle}
       color="red"
+      serviceInfo="At JR Compliance, we provide strategic trademark objection response services to overcome examination hurdles and secure your registration. Our IP specialists analyze the examination report to understand exact objection grounds - whether absolute grounds like descriptiveness or lack of distinctiveness, or relative grounds citing conflicting prior marks. We research case law, gather usage evidence, and build compelling arguments to address each objection point. Our team drafts persuasive reply statements demonstrating acquired distinctiveness through extensive use, differentiating your mark from cited references, or establishing honest concurrent use. We compile supporting evidence including sales figures, advertising expenditure, and consumer recognition surveys when needed. Our strategic approach and attention to detail help maximize your chances of overcoming objections and proceeding to registration."
       benefits={[
         'Expert Legal Response - Professionally drafted objection replies',
         'High Success Rate - Proven track record of overcoming objections',

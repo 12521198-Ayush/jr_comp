@@ -11,6 +11,7 @@ export default function TrustRegistrationPage() {
       description="Register your Trust with JR Compliance. Get expert guidance on trust registration process, documentation, and compliance requirements."
       icon={Heart}
       color="purple"
+      serviceInfo="At JR Compliance, we provide comprehensive charitable trust registration services for individuals and groups seeking to establish trusts for religious, educational, or charitable purposes. Our trust formation experts guide you through the Trust Deed drafting process, ensuring proper articulation of objectives, trustee powers, and operational framework. We advise on optimal trust structure based on your charitable goals and operational requirements. Our team handles the complete registration process with the Charity Commissioner or Sub-Registrar as applicable in your state. We assist with 12A registration for income tax exemption and 80G registration for donor tax benefits. Post-registration, we provide ongoing compliance support including annual filings, trustee changes, deed amendments, and guidance on maintaining proper books and records as required for charitable trusts."
       benefits={[
         'Charitable activities authorization',
         'Tax exemptions under 12A & 80G',

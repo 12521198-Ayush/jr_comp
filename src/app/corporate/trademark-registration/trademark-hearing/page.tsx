@@ -11,6 +11,7 @@ export default function TrademarkHearingPage() {
       description="Expert representation at trademark hearings before the Registrar of Trademarks. We prepare comprehensive arguments and present your case effectively to secure registration."
       icon={Gavel}
       color="indigo"
+      serviceInfo="At JR Compliance, we provide expert representation at trademark hearings to present your case effectively before the Registrar of Trademarks. Our experienced IP professionals thoroughly prepare by analyzing the examination report, reviewing case history, and identifying the strongest arguments for registration. We research relevant case law and precedents to support your position with authoritative citations. Our team prepares written submissions, evidence compilations, and legal arguments addressing each objection ground comprehensively. We attend hearings in person or via video conferencing, presenting persuasive oral arguments and responding to Registrar queries professionally. Post-hearing, we handle any additional submissions required and track the final decision. Our hearing representation has helped numerous clients overcome complex objections and secure their trademark registrations."
       benefits={[
         'Expert Representation - Experienced professionals represent your case',
         'Comprehensive Preparation - Thorough case preparation with evidence',

@@ -5,11 +5,12 @@ import ServicePageTemplate from '@/components/ServicePageTemplate';
 export default function FMCSBISCertificationPage() {
   return (
     <ServicePageTemplate
-      title="FMCS BIS Certification"
-      subtitle="Foreign Manufacturers Certification"
+      title="FMCS (Foreign Manufacturers)"
+      subtitle="BIS Certification for Foreign Manufacturers"
       logo="/services_logo/fmcs.png"
       color="purple"
-      description="FMCS certification is mandatory for foreign manufacturers to sell products in India. Get ISI Mark certification for products manufactured outside India."
+      description="Assisting overseas manufacturers with BIS certification and representation in India."
+      serviceInfo="JR Compliance specializes in helping foreign manufacturers navigate the BIS certification process for entering the Indian market. As your Authorized Indian Representative (AIR), we handle all regulatory requirements on your behalf, from initial application to final certification. Our team manages factory inspection coordination, ensuring your overseas manufacturing facilities meet BIS standards and requirements. We prepare comprehensive documentation, coordinate product testing at recognized laboratories, and maintain ongoing communication with BIS officials. Our consultants understand the unique challenges faced by foreign manufacturers and provide tailored solutions to expedite your certification. Post-certification, we offer complete AIR services including compliance monitoring, annual renewal management, and representation during any regulatory proceedings."
       stats={[
         { value: '2500+', label: 'FMCS Certifications' },
         { value: '4.9', label: 'Google Rating' },

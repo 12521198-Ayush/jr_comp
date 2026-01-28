@@ -7,10 +7,11 @@ export default function StatePollutionBoardPage() {
   return (
     <ServicePageTemplate
       title="State Pollution Control Board"
-      subtitle="SPCB & PCC Registration"
+      subtitle="Environmental Permissions from State Authorities"
       icon={Factory}
       color="emerald"
-      description="Get State Pollution Control Board Certificate now with India's leading compliance service provider. Click here and know easy steps for SPCB/PCC registration."
+      description="Obtaining state-level environmental consents and operational permissions for businesses."
+      serviceInfo="At JR Compliance, we provide end-to-end support for obtaining State Pollution Control Board consents and environmental permissions across all Indian states. Our environmental experts assess your industry category (Red, Orange, Green, or White) and determine the applicable consent requirements for your operations. We prepare comprehensive documentation including pollution control equipment details, emission data, and environmental management plans for CTE and CTO applications. Our team handles the complete application process on respective state portals and coordinates site inspections with SPCB officials. We assist with hazardous waste authorization, air and water pollution compliance, and factory license coordination as per state-specific requirements. Post-consent, we provide annual return filing support, consent renewals, and ongoing environmental compliance management for your facilities."
       benefits={[
         'Consent to Establish (CTE) support',
         'Consent to Operate (CTO) assistance',

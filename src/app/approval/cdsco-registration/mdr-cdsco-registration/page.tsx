@@ -11,6 +11,7 @@ export default function MDRCDSCOPage() {
       icon={Activity}
       color="red"
       description="We make the MDR license procedure hassle-free to ensure customer satisfaction. Click here to know how to get a CDSCO registration. Get your CDSCO certificate today."
+      serviceInfo="At JR Compliance, we provide expert regulatory support for medical device registration under CDSCO and Medical Device Rules 2017 for manufacturers and importers. Our specialists assist with accurate device classification into Class A, B, C, or D categories based on risk assessment criteria. We help compile comprehensive technical documentation including device master files, quality management certifications, and clinical evidence required for registration. Our team manages the entire SUGAM portal submission process, coordinates testing at notified bodies, and handles all CDSCO correspondence on your behalf. We assist with manufacturing license applications for domestic companies and import registration for foreign medical device companies. Post-registration, we provide ongoing support for license renewals, product amendments, adverse event reporting, and compliance with evolving medical device regulations."
       benefits={[
         'Mandatory for medical device market access',
         'Class A, B, C, D device registration',

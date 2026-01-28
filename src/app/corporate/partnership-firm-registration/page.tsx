@@ -11,6 +11,7 @@ export default function PartnershipFirmPage() {
       description="JR Compliance - finest partnership firm registration service provider. Get your partnership firm registration today with expert guidance on benefits, documents, and registration process."
       icon={Handshake}
       color="blue"
+      serviceInfo="JR Compliance provides complete partnership firm registration services for businesses looking to operate with shared ownership and management. Our corporate experts help draft comprehensive Partnership Deeds covering capital contribution, profit sharing ratios, roles, responsibilities, and dispute resolution mechanisms. We guide you through partner eligibility requirements and documentation needed for firm registration with the Registrar of Firms. Our team handles the complete state-level registration process, prepares required affidavits, and coordinates with authorities for timely registration certificate. We assist with PAN application, bank account opening, and GST registration for your partnership firm. Post-registration, we provide ongoing compliance support, deed amendment services, and guidance on conversion to LLP or company when your business scales."
       benefits={[
         'Easy to form and manage',
         'Shared decision making',

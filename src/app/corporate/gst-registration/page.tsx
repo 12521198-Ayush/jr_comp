@@ -11,6 +11,7 @@ export default function GSTRegistrationPage() {
       description="Get hassle-free GST registration with expert guidance. Our GST Registration Consultants in Delhi offer seamless and efficient services, ensuring compliance and accuracy for your business."
       icon={Receipt}
       color="blue"
+      serviceInfo="At JR Compliance, we provide hassle-free GST registration services for businesses of all types across India. Our tax experts assess your business structure and determine the appropriate GST registration type - regular, composition scheme, or casual taxable person. We prepare all required documentation including business proof, address verification, and promoter details for accurate portal submission. Our team handles the complete GST application process, tracks status, and responds to any queries from tax authorities promptly. We assist with GSTIN activation, first return filing guidance, and ongoing compliance setup. Post-registration, we offer GST return filing services, ITC reconciliation, and tax planning support to ensure your business remains compliant and optimizes tax benefits."
       benefits={[
         'Legal recognition as supplier',
         'Input tax credit benefits',

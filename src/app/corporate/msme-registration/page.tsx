@@ -8,6 +8,7 @@ export default function MSMERegistrationPage() {
       title="MSME Registration"
       subtitle="Udyam Registration for MSMEs"
       description="Get MSME/Udyam registration for your business. JR Compliance provides complete assistance for MSME registration to avail government benefits and schemes."
+      serviceInfo="At JR Compliance, we provide hassle-free MSME/Udyam registration services to help small and medium enterprises access government benefits and schemes. Our consultants verify your business eligibility, determine the appropriate enterprise category (Micro, Small, or Medium), and gather all required information for registration. We handle the complete Udyam portal registration process, ensuring accurate submission of investment and turnover details as per MSME classification norms. Our team assists with PAN and Aadhaar linking, GST integration, and NIC code selection for your business activities. We ensure quick processing and help you obtain your Udyam Registration Certificate without delays. Post-registration, we provide ongoing support for updating enterprise details, accessing government schemes, and maintaining your MSME status."
       logo="/services_logo/msme.png"
       color="amber"
       benefits={[

@@ -12,6 +12,7 @@ export default function AERBRegistrationPage() {
       icon={Zap}
       color="orange"
       description="Atomic Energy Regulatory Board (AERB) registration is mandatory for radiation-generating equipment in India. We provide comprehensive AERB licensing services for medical, industrial, and research applications including X-ray machines, CT scanners, and other radiation equipment."
+      serviceInfo="At JR Compliance, we provide comprehensive AERB registration services for radiation-generating equipment and facilities across medical, industrial, and research sectors. Our radiation safety experts guide you through the complete licensing process on the eLORA portal, from application submission to final approval. We assist with Radiation Safety Officer (RSO) requirements, facility design review, shielding adequacy calculations, and safety procedure documentation. Our team prepares all necessary compliance documents including radiation safety manuals, personnel monitoring arrangements, and emergency procedures as per AERB safety codes. We coordinate facility inspections and help address AERB observations promptly. Post-licensing, we provide ongoing support for license renewals, amendments, compliance audits, and radiation safety training for your personnel."
       benefits={[
         'Expert regulatory guidance',
         'Complete documentation support',

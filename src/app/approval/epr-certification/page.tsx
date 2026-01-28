@@ -7,10 +7,11 @@ export default function EPRCertificationPage() {
   return (
     <ServicePageTemplate
       title="EPR Certification"
-      subtitle="Extended Producer Responsibility"
+      subtitle="Extended Producer Responsibility Compliance in India"
       icon={Recycle}
       color="green"
-      description="EPR certification ensures your business meets environmental regulations for waste management. Demonstrate your commitment to sustainability and responsible waste handling."
+      description="Supporting producers, importers, and brand owners in fulfilling Extended Producer Responsibility obligations."
+      serviceInfo="JR Compliance's EPR consultants help you understand and fulfill your environmental obligations under CPCB guidelines effectively. We assist with EPR registration on the centralized portal, accurate target calculation, and comprehensive action plan development tailored to your business needs. Our team connects you with authorized recyclers and waste processors, ensuring proper channelization of end-of-life products as per regulatory requirements. We provide complete quarterly and annual return filing support, ongoing compliance monitoring, and audit assistance to keep you penalty-free. Our experts guide you through the complexities of E-waste, Plastic waste, Battery waste, and other EPR categories. With our end-to-end support, you can meet your EPR targets effectively while contributing to sustainable waste management practices in India."
       stats={[
         { value: '1500+', label: 'EPR Registrations' },
         { value: '4.9', label: 'Google Rating' },

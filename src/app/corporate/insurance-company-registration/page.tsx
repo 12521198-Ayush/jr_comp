@@ -11,6 +11,7 @@ export default function InsuranceCompanyPage() {
       description="We make the Insurance Company registration process easy. Get your Insurance Company Registration today from best company registration consultants."
       icon={Shield}
       color="blue"
+      serviceInfo="At JR Compliance, we provide specialized insurance company registration services for entities seeking to enter the life, general, or health insurance sectors. Our regulatory experts guide you through IRDAI licensing requirements including minimum capital norms, promoter eligibility, and solvency margin calculations. We assist with company incorporation and prepare comprehensive registration applications covering business plans, actuarial projections, and reinsurance arrangements. Our team handles the complete IRDAI submission process, coordinates with regulatory authorities, and addresses compliance queries. We prepare corporate governance frameworks, product filing procedures, and internal control systems as required for insurance operations. Post-registration, we provide ongoing compliance support for IRDAI returns, solvency monitoring, and regulatory correspondence to keep your insurance company fully compliant."
       benefits={[
         'Legal insurance business operations',
         'IRDAI regulated credibility',

@@ -11,6 +11,7 @@ export default function PrivateLimitedCompanyPage() {
       description="Incorporate your Private Limited Company with expert guidance. We handle end-to-end registration including name approval, documentation, DSC/DIN, and incorporation certificate."
       icon={Building2}
       color="blue"
+      serviceInfo="At JR Compliance, we provide end-to-end Private Limited Company registration services to help entrepreneurs establish their business with a robust corporate structure. Our corporate experts guide you through name availability search and reservation, ensuring your company name meets MCA guidelines. We handle DSC procurement for all directors, DIN application, and complete MCA filing with SPICe+ form and associated forms. Our team prepares MOA, AOA, and other incorporation documents tailored to your business objectives and shareholding structure. We coordinate with the Registrar of Companies, track application status, and ensure timely certificate of incorporation. Post-incorporation, we provide PAN/TAN registration, bank account opening assistance, and ongoing annual compliance services including ROC filings."
       benefits={[
         'Limited Liability - Personal assets cannot be seized to clear company debts, protecting owners from business losses',
         'Increased Credibility - A private limited company is perceived as more reliable and businesslike than sole traders or partnerships',

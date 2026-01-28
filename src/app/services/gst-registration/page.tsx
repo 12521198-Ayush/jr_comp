@@ -11,6 +11,7 @@ export default function GSTRegistrationPage() {
       icon={Receipt}
       color="indigo"
       description="Get your GST registration done quickly and efficiently. Our experts ensure accurate filing and complete compliance with GST regulations. We handle everything from application to certificate delivery."
+      serviceInfo="At JR Compliance, we provide hassle-free GST registration services for businesses, professionals, and e-commerce operators across India. Our tax experts assess your registration requirements, determine the appropriate registration type, and prepare all necessary documentation. We handle the complete GST portal application, upload required documents, and ensure accurate submission of business and promoter details. Our team tracks application status, responds to queries or notices from GST authorities, and ensures timely approval of your GSTIN. We assist with additional registrations including composition scheme, ISD registration, and multi-state registration as per your business needs. Post-registration, we provide GST return filing support, compliance monitoring, and guidance on GST amendments and modifications."
       benefits={[
         'Quick GSTIN in 3-5 working days',
         'Complete documentation support',

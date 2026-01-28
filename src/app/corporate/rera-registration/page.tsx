@@ -11,6 +11,7 @@ export default function RERARegistrationPage() {
       description="We make RERA registration hassle-free. Get your RERA Registration now from the best consultants for real estate agents, brokers, and developers."
       icon={Building2}
       color="blue"
+      serviceInfo="At JR Compliance, we provide comprehensive RERA registration services for real estate developers, promoters, and agents across all Indian states. Our regulatory experts guide you through state-specific RERA requirements and help prepare complete registration applications with all required documentation. We assist developers with project registration including land title documents, project plans, approvals status, and agreement formats as per RERA guidelines. For agents and brokers, we handle individual and company registration applications with proper credentials and documentation. Our team manages the complete online submission process, tracks application status, and coordinates with RERA authorities for timely registration. Post-registration, we provide ongoing compliance support for quarterly updates, annual returns, and project completion disclosures to maintain your RERA registration."
       benefits={[
         'Legal authorization to operate',
         'Consumer confidence',

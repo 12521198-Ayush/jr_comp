@@ -11,6 +11,7 @@ export default function SocietyRegistrationPage() {
       description="Looking to register a society? JR Compliance offers end-to-end society registration services to help you legally establish your society under the Societies Registration Act with ease and speed."
       icon={Users}
       color="emerald"
+      serviceInfo="JR Compliance provides comprehensive society registration services for groups seeking to establish charitable, literary, scientific, or social organizations under the Societies Registration Act. Our registration experts guide you through state-specific requirements and help draft the Memorandum of Association and Rules & Regulations tailored to your society's objectives. We assist with gathering minimum member requirements, preparing required affidavits, and compiling all documentation for registration. Our team handles the complete submission process with the Registrar of Societies, tracks application status, and addresses any queries or objections. We assist with 12A and 80G tax exemption applications, FCRA registration, and NITI Aayog Darpan enrollment for your registered society. Post-registration, we provide ongoing compliance support including annual return filings, governing body changes, and bylaw amendment services."
       benefits={[
         'Legal recognition',
         'Democratic governance',

@@ -8,6 +8,7 @@ export default function TeaBoardPage() {
       title="Tea Board Registration"
       subtitle="Export Indian Tea Globally"
       description="Get Tea Board Registration for tea export business. JR Compliance provides complete assistance for tea growers, manufacturers, and exporters."
+      serviceInfo="JR Compliance provides complete Tea Board registration support for tea growers, manufacturers, blenders, brokers, and exporters across India. Our experts guide you through the appropriate registration category and help prepare comprehensive documentation for your application. We handle manufacturer license applications, warehouse registrations, and exporter registrations as per Tea Board requirements. Our team coordinates with Tea Board authorities, manages application submissions, and ensures timely approval of your registration. We assist with understanding quality standards, auction participation requirements, and export documentation for international tea trade. Post-registration, we provide license renewal support, compliance monitoring, and guidance on accessing Tea Board schemes and incentives for your tea business."
       logo="/services_logo/tea board.png"
       color="green"
       benefits={[

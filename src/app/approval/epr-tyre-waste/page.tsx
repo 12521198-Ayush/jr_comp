@@ -6,11 +6,12 @@ import { CircleDot } from 'lucide-react';
 export default function EPRTyreWastePage() {
   return (
     <ServicePageTemplate
-      title="EPR Tyre Waste"
-      subtitle="Tyre Waste Extended Producer Responsibility"
+      title="EPR – Tyre Waste"
+      subtitle="Tyre Waste Management Compliance in India"
       icon={CircleDot}
       color="slate"
-      description="EPR Tyre Waste registration is mandatory for tyre producers and importers. Comply with EPR guidelines for End-of-Life Tyres and ensure responsible tyre recycling and disposal."
+      description="Assistance with tyre waste recycling compliance as mandated by Indian environmental regulations."
+      serviceInfo="JR Compliance provides specialized support for EPR compliance related to End-of-Life Tyres as per Indian environmental regulations. Our environmental consultants guide tyre producers and importers through the EPR registration process and help develop effective waste tyre management strategies. We assist with accurate EPR target calculation, action plan preparation, and documentation for CPCB portal submissions. Our team connects you with authorized tyre recyclers and pyrolysis plants, ensuring proper channelization of waste tyres for recycling and material recovery. We handle quarterly and annual return filing, collection target monitoring, and EPR certificate management. Post-registration, we provide ongoing compliance support, audit preparation, and assistance with any regulatory updates affecting tyre waste EPR obligations."
       stats={[
         { value: '500+', label: 'Tyre EPR Registrations' },
         { value: '4.9', label: 'Google Rating' },

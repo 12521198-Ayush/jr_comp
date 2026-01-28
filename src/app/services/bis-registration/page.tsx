@@ -11,6 +11,7 @@ export default function BISRegistrationPage() {
       icon={Cpu}
       color="cyan"
       description="Bureau of Indian Standards (BIS) certification is mandatory for various products in India. We provide comprehensive BIS registration services including ISI Mark, CRS (Compulsory Registration Scheme), and BIS Certification for electronics, IT products, and other regulated goods."
+      serviceInfo="At JR Compliance, we provide complete BIS certification services for manufacturers seeking to enter the Indian market with compliant products. Our BIS experts help identify applicable standards for your products and guide you through the appropriate certification route - ISI Mark, CRS, or FMCS for foreign manufacturers. We coordinate product testing at BIS-recognized laboratories, prepare comprehensive documentation, and manage the complete BIS portal application process. Our team handles factory inspection coordination, addresses BIS officer queries, and ensures timely certification approval. We assist with scheme selection, surveillance audit preparation, and license renewal management. Post-certification, we provide ongoing compliance monitoring, amendment services for product updates, and support for expanding your certified product portfolio."
       benefits={[
         'Expert product evaluation',
         'Complete documentation support',

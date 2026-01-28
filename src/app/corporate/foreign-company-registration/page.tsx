@@ -11,6 +11,7 @@ export default function ForeignCompanyPage() {
       description="JR Compliance guarantees to provide you complete support in acquiring the Foreign Company Certificate. Get expert guidance on Foreign Company Registration in India."
       icon={Globe}
       color="indigo"
+      serviceInfo="JR Compliance provides comprehensive services for foreign companies establishing business presence in India through liaison offices, branch offices, or project offices. Our corporate experts guide you through RBI approval requirements and help choose the appropriate establishment structure based on your business objectives. We prepare detailed applications including activity scope, funding arrangements, and compliance undertakings for Reserve Bank of India approval. Our team handles MCA registration formalities, PAN/TAN applications, and all regulatory documentation for your Indian establishment. We assist with opening bank accounts, obtaining business registrations, and setting up operational compliance frameworks. Post-establishment, we provide ongoing support for annual compliance filings, RBI reporting requirements, and renewal applications to maintain your foreign company's good standing in India."
       benefits={[
         'Legal presence in India',
         'Access to Indian market',

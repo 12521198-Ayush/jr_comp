@@ -11,6 +11,7 @@ export default function WaterReportPage() {
       description="Ensure your food business meets FSSAI standards with accurate water quality reports. JR Compliance offers certified water testing services essential for FSSAI license and ongoing compliance."
       icon={Droplets}
       color="cyan"
+      serviceInfo="JR Compliance provides comprehensive water testing and report services essential for FSSAI license compliance for food businesses. Our food safety experts coordinate water sample collection from NABL-accredited laboratories at your food business location. We ensure testing covers all parameters mandated by FSSAI including physical, chemical, and microbiological quality specifications. Our team provides certified test reports in the format accepted by FSSAI authorities for license applications and renewals. We guide you on water treatment requirements if reports indicate any parameter deviations from prescribed standards. Post-testing, we provide ongoing water quality monitoring services with periodic testing schedules to maintain continuous FSSAI compliance. Our experts advise on water source management and quality improvement measures for food manufacturing operations."
       benefits={[
         'FSSAI compliance requirement',
         'Food safety assurance',

@@ -11,6 +11,7 @@ export default function ProducerCompanyPage() {
       description="Complete Producer Company Registration easily. Get your Producer Company Registration from best company registration consultants with expert guidance on incorporation procedure."
       icon={Wheat}
       color="green"
+      serviceInfo="At JR Compliance, we provide comprehensive Producer Company registration services for farmers, artisans, and primary producers seeking collective business organization. Our corporate experts guide you through the unique requirements of Producer Companies under Part IXA of Companies Act including member eligibility and objects. We assist with gathering minimum producer members, drafting customized MOA and AOA for your produce categories, and preparing incorporation documents. Our team handles the complete MCA filing, coordinates with ROC authorities, and ensures timely certificate of incorporation. We help establish governance structures, member enrollment procedures, and voting rights frameworks suitable for producer cooperatives. Post-registration, we provide ongoing compliance support, board meeting coordination, and annual filing services to keep your Producer Company in good standing."
       benefits={[
         'Limited liability for members',
         'Democratic management',

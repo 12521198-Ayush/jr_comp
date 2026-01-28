@@ -11,6 +11,7 @@ export default function ProfessionalTaxPage() {
       description="Get Professional Tax registration for your business. JR Compliance provides complete assistance for PT registration and compliance across all states."
       icon={Receipt}
       color="orange"
+      serviceInfo="JR Compliance provides comprehensive Professional Tax registration services for employers and self-employed professionals across all applicable Indian states. Our tax compliance experts determine your PT obligations based on your business location and employee strength, guiding you through state-specific registration requirements. We prepare and submit PT registration applications on respective state portals with all required documentation. Our team assists with employer PT enrollment and employee PT deduction calculations based on salary slabs. We set up compliance frameworks for monthly/quarterly PT deductions and annual return filing as per state regulations. Post-registration, we provide ongoing support for PT return filing, payment challans, and compliance monitoring to ensure you meet all Professional Tax obligations in states where you operate."
       benefits={[
         'Legal compliance',
         'Avoid penalties',

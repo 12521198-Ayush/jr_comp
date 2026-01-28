@@ -11,6 +11,7 @@ export default function IncomeTaxReturnPage() {
       description="Get professional help for Income Tax Return filing. JR Compliance provides complete ITR filing services for individuals, businesses, and companies."
       icon={Calculator}
       color="emerald"
+      serviceInfo="At JR Compliance, we provide comprehensive Income Tax Return filing services for individuals, HUFs, firms, companies, and other entities across all ITR forms. Our tax experts analyze your income sources, investments, and deductions to determine the appropriate ITR form and optimize your tax liability legally. We collect and verify all supporting documents including Form 16, capital gains statements, and business financials for accurate return preparation. Our team calculates tax liability, claims applicable deductions under Sections 80C to 80U, and ensures maximum legitimate tax savings. We handle the complete e-filing process on the Income Tax portal, generate and verify ITR-V, and track refund status when applicable. Post-filing, we provide support for tax notices, rectification requests, and revised return filing if needed."
       benefits={[
         'Legal compliance',
         'Refund processing',

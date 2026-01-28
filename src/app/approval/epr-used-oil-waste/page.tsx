@@ -6,11 +6,12 @@ import { Droplets } from 'lucide-react';
 export default function EPRUsedOilWastePage() {
   return (
     <ServicePageTemplate
-      title="EPR Used Oil Waste"
-      subtitle="Used Oil Extended Producer Responsibility"
+      title="EPR – Used Oil"
+      subtitle="Used Oil Recycling & EPR Compliance"
       icon={Droplets}
       color="yellow"
-      description="EPR Used Oil registration is mandatory for lubricant producers and importers. Comply with Hazardous Waste Management Rules for used oil collection, recycling, and environmentally safe disposal."
+      description="Ensuring lawful recycling and reporting of used oil under EPR guidelines."
+      serviceInfo="At JR Compliance, we provide comprehensive EPR compliance support for used oil management under Hazardous Waste Management Rules. Our environmental consultants guide lubricant producers and importers through the registration process and help develop effective used oil collection and recycling strategies. We assist with EPR authorization applications, collection target determination, and action plan preparation for CPCB submissions. Our team connects you with authorized used oil recyclers and re-refiners, ensuring proper channelization and environmentally safe processing of waste lubricants. We handle all documentation requirements, quarterly and annual return filing, and compliance certificate management. Post-registration, we provide ongoing monitoring, audit support, and assistance with any regulatory changes affecting used oil EPR obligations."
       stats={[
         { value: '300+', label: 'Used Oil EPR Registrations' },
         { value: '4.9', label: 'Google Rating' },

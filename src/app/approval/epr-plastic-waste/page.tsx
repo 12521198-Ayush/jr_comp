@@ -6,11 +6,12 @@ import { Package } from 'lucide-react';
 export default function EPRPlasticWastePage() {
   return (
     <ServicePageTemplate
-      title="EPR Plastic Waste"
-      subtitle="Plastic Waste Extended Producer Responsibility"
+      title="EPR – Plastic Waste"
+      subtitle="Plastic Waste Compliance under EPR Framework"
       icon={Package}
       color="cyan"
-      description="EPR Plastic Waste registration is mandatory for producers, importers, and brand owners using plastic packaging. Comply with Plastic Waste Management Rules and contribute to sustainable plastic management."
+      description="Helping organizations meet plastic waste management rules through structured EPR compliance."
+      serviceInfo="At JR Compliance, we provide complete EPR Plastic Waste compliance support for producers, importers, and brand owners using plastic packaging materials. Our environmental experts guide you through Plastic Waste Management Rules requirements, helping you understand obligations based on your plastic packaging categories. We assist with EPR registration on the CPCB centralized portal, EPR target calculation, and comprehensive action plan development. Our team helps you connect with authorized plastic waste processors and recyclers, establishing efficient collection and recycling mechanisms. We handle all documentation requirements, quarterly and annual return filing, and EPR certificate procurement from registered recyclers. Post-registration, we provide ongoing compliance monitoring, target achievement tracking, and assistance with evolving plastic waste regulations."
       stats={[
         { value: '3000+', label: 'Plastic EPR Registrations' },
         { value: '4.9', label: 'Google Rating' },

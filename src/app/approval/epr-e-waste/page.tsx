@@ -6,11 +6,12 @@ import { Monitor } from 'lucide-react';
 export default function EPREWastePage() {
   return (
     <ServicePageTemplate
-      title="EPR E-Waste"
-      subtitle="E-Waste Extended Producer Responsibility"
+      title="EPR – E-Waste"
+      subtitle="E-Waste Management Compliance for Producers"
       icon={Monitor}
       color="green"
-      description="EPR E-Waste registration is mandatory for producers, importers, and brand owners of electrical and electronic equipment. Ensure compliance with E-Waste Management Rules and CPCB guidelines."
+      description="Compliance support for responsible collection, recycling, and reporting of electronic waste."
+      serviceInfo="At JR Compliance, we provide comprehensive EPR E-Waste compliance support for producers, importers, and brand owners of electrical and electronic equipment. Our environmental consultants guide you through E-Waste Management Rules requirements, helping you understand your obligations and develop effective compliance strategies. We assist with EPR registration on the CPCB centralized portal, accurate target calculation based on your product categories, and action plan preparation. Our team connects you with authorized e-waste recyclers and dismantlers, ensuring proper channelization of end-of-life electronic products. We handle quarterly and annual return filing, collection target tracking, and compliance documentation management. Post-registration, we provide ongoing monitoring, audit support, and assistance with regulatory updates to keep your e-waste EPR obligations fully compliant."
       stats={[
         { value: '2500+', label: 'E-Waste EPR Registrations' },
         { value: '4.9', label: 'Google Rating' },

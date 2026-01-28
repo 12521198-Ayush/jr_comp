@@ -11,6 +11,7 @@ export default function GSTReturnPage() {
       description="Get expert help for GST return filing. JR Compliance GST return filing consultants ensure timely and accurate GST compliance for your business."
       icon={FileSpreadsheet}
       color="green"
+      serviceInfo="JR Compliance provides comprehensive GST return filing services to ensure your business maintains timely tax compliance. Our GST experts handle all return types including GSTR-1, GSTR-3B, GSTR-9, and GSTR-9C based on your registration type and turnover thresholds. We collect and verify your sales, purchase, and expense data to prepare accurate returns with proper input tax credit claims. Our team reconciles GSTR-2A/2B data with your purchase records to maximize eligible ITC while minimizing discrepancies. We ensure timely filing to avoid late fees and interest charges, and handle any notices or queries from GST authorities. Post-filing, we provide compliance reports, ITC optimization recommendations, and ongoing tax advisory services to keep your GST affairs in order."
       benefits={[
         'Timely compliance',
         'Avoid penalties',

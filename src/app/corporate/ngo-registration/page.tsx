@@ -11,6 +11,7 @@ export default function NGORegistrationPage() {
       description="Want to register a Trust, Society, or Non-profit Company (NGO)? JR Compliance provides expert guidance for NGO registration with complete documentation support and compliance assistance."
       icon={Heart}
       color="purple"
+      serviceInfo="At JR Compliance, we provide comprehensive NGO registration services to help you establish charitable, educational, or social organizations with proper legal structure. Our experts guide you in choosing the right entity type - Trust, Society, or Section 8 Company - based on your objectives and operational requirements. We draft Trust Deeds, Society Memorandums, and bylaws tailored to your organization's mission and governance needs. Our team handles the complete registration process with respective state authorities or MCA as applicable. We assist with 12A and 80G registrations for tax exemptions, NITI Aayog Darpan registration, and FCRA registration for foreign funding eligibility. Post-registration, we provide ongoing compliance support including annual return filings, audit coordination, and governance documentation to maintain your NGO's credibility."
       benefits={[
         'Legal recognition for your organization',
         'Eligibility for government grants',

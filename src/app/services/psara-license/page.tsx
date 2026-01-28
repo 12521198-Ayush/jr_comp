@@ -11,6 +11,7 @@ export default function PSARALicensePage() {
       icon={Shield}
       color="amber"
       description="Obtain PSARA (Private Security Agencies Regulation Act) license for your private security business. We handle the complete application process including documentation, police verification, and follow-up with authorities."
+      serviceInfo="JR Compliance provides comprehensive PSARA license services for private security agencies across all states in India. Our regulatory experts guide you through state-specific PSARA requirements and help prepare complete documentation for license application. We assist with company registration verification, police verification coordination, and security guard training documentation. Our team handles the complete application submission, tracks progress with controlling authorities, and addresses any queries or clarifications required. We ensure compliance with all PSARA Act provisions including principal employer obligations and security personnel verification. Post-licensing, we provide renewal support, amendment services for expanding operations, and ongoing regulatory compliance guidance for your security business."
       benefits={[
         'End-to-end application assistance',
         'State-wise license expertise',

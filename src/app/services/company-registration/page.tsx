@@ -11,6 +11,7 @@ export default function CompanyRegistrationPage() {
       icon={Building2}
       color="blue"
       description="Start your entrepreneurial journey with JR Compliance. We provide end-to-end company registration services including Private Limited Company, LLP, One Person Company, and Partnership Firm registration with minimal documentation and quick processing."
+      serviceInfo="JR Compliance provides comprehensive company registration services to help entrepreneurs establish their business entities quickly and efficiently. Our corporate law experts guide you through entity selection - Private Limited Company, LLP, OPC, or Partnership - based on your business needs and growth plans. We handle the complete registration process including DSC procurement, DIN application, name approval, and MCA filing with accurate documentation. Our team prepares MOA, AOA, LLP Agreement, and other incorporation documents tailored to your business requirements. We coordinate with ROC authorities, track application status, and ensure timely certificate of incorporation. Post-registration, we provide PAN/TAN registration, bank account opening support, and ongoing annual compliance services to keep your company in good standing."
       benefits={[
         'Quick registration within 7-10 working days',
         'Complete documentation support',

@@ -6,11 +6,12 @@ import { Building } from 'lucide-react';
 export default function DelhiPollutionControlPage() {
   return (
     <ServicePageTemplate
-      title="Delhi Pollution Control"
-      subtitle="DPCC Consent & Authorization"
+      title="DPCC Registration"
+      subtitle="Delhi Pollution Control Compliance & Authorization"
       icon={Building}
       color="green"
       description="Get DPCC (Delhi Pollution Control Committee) consent to establish and operate your business in Delhi NCR. Complete assistance for environmental clearances, consent management, and pollution control compliance."
+      serviceInfo="JR Compliance provides comprehensive support for Delhi Pollution Control Committee registrations and environmental consents for businesses in Delhi NCR. Our environmental consultants assess your industry category, determine applicable consent requirements, and guide you through Delhi-specific pollution control regulations. We prepare complete documentation packages including pollution control equipment details, emission data, and environmental management plans for CTE and CTO applications. Our team handles all DPCC portal submissions, tracks application status, and coordinates site inspections with DPCC officials. We assist with hazardous waste, bio-medical waste, and e-waste authorizations as per Delhi regulations and NGT guidelines. Post-consent, we provide annual environmental statement filing, consent renewals, and ongoing compliance monitoring for your Delhi operations."
       stats={[
         { value: '2000+', label: 'DPCC Consents' },
         { value: '4.9', label: 'Google Rating' },

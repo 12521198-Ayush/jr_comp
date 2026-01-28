@@ -11,6 +11,7 @@ export default function TobaccoBoardPage() {
       description="Tobacco Board Registration Consultant online in India - JR Compliance provides complete assistance for tobacco growers, traders, and exporters."
       icon={Leaf}
       color="amber"
+      serviceInfo="At JR Compliance, we provide comprehensive Tobacco Board registration services for growers, traders, dealers, and exporters of Virginia tobacco in India. Our export consultants guide you through the registration categories - grower registration, curer license, trader registration, and exporter authorization - helping you choose the appropriate category. We prepare complete documentation including land records for growers, trade licenses, and export credentials for the registration process. Our team handles the complete Tobacco Board application submission, tracks status, and coordinates with Board officials for timely registration. We assist with understanding auction norms, quality grading requirements, and export procedures for Virginia tobacco. Post-registration, we provide ongoing support for registration renewals, compliance with tobacco board guidelines, and assistance with accessing export incentives and support schemes."
       benefits={[
         'Legal tobacco trading authorization',
         'Export license eligibility',

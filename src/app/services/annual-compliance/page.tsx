@@ -11,6 +11,7 @@ export default function AnnualCompliancePage() {
       icon={FileText}
       color="violet"
       description="Ensure your company stays compliant with all statutory requirements. Our comprehensive annual compliance services cover ROC filings, annual returns, board meetings, and all mandatory compliances required under the Companies Act."
+      serviceInfo="At JR Compliance, we provide comprehensive annual compliance services for companies and LLPs to maintain their statutory compliance throughout the year. Our corporate compliance team handles all mandatory ROC filings including AOC-4, MGT-7, and event-based forms for companies, and Form 8 and Form 11 for LLPs. We coordinate board meeting schedules, prepare agendas, minutes, and resolutions for quarterly board meetings and Annual General Meetings. Our experts manage statutory register maintenance, director KYC compliance, and DIN updates for your directors. We track compliance deadlines, send timely reminders, and ensure all filings are completed before due dates to avoid penalties. Post-filing, we provide compliance certificates, maintain proper records, and offer ongoing corporate secretarial support to keep your company in good standing with MCA."
       benefits={[
         'Complete ROC filing services',
         'Annual return preparation and filing',

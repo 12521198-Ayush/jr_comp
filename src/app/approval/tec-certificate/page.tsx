@@ -6,10 +6,11 @@ export default function TECCertificationPage() {
   return (
     <ServicePageTemplate
       title="TEC Certification"
-      subtitle="Telecommunication Engineering Centre"
+      subtitle="Regulatory Approval for Telecom Equipment in India"
       logo="/services_logo/TEC.png"
       color="cyan"
-      description="TEC certification ensures your telecom products meet India's quality and safety standards. Essential for market entry and building customer trust in the telecom sector."
+      description="Guiding telecom equipment manufacturers through mandatory TEC approval as per Indian regulatory requirements."
+      serviceInfo="For businesses designing, manufacturing, importing, or selling telecom equipment in India, obtaining a certificate, is a necessary requirement. In other words, they ensure that your products do not breach any Indian regulatory norms and show your concern about quality and safety. With a TEC certification, it’s no longer only about compliance; you are redefining the benchmarks of the market."
       stats={[
         { value: '2000+', label: 'TEC Certifications' },
         { value: '4.9', label: 'Google Rating' },

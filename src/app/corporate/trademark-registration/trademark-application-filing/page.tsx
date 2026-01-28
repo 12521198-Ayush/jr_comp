@@ -11,6 +11,7 @@ export default function TrademarkApplicationFilingPage() {
       description="Professional trademark application filing services to protect your brand identity. We handle complete application preparation and submission to the Trademark Registry of India."
       icon={FileText}
       color="purple"
+      serviceInfo="At JR Compliance, we provide meticulous trademark application filing services to ensure your brand receives optimal legal protection. Our IP specialists analyze your trademark type - word mark, device mark, or combination - and recommend the most effective filing strategy. We accurately identify applicable Nice Classification classes to provide comprehensive coverage for your goods and services. Our team prepares the TM-A application with proper specifications, disclaimers, and claims of priority if applicable. We ensure all documentation including Power of Attorney, user affidavit, and logo specimens meet Registry requirements. Our filing process includes application tracking, status monitoring, and immediate notification of any Registry communications to ensure timely responses."
       benefits={[
         'Expert Application Drafting - Professionally prepared applications to minimize objections',
         'Proper Class Selection - Accurate identification of trademark classes for comprehensive protection',
