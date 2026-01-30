@@ -6,18 +6,18 @@ import { motion } from 'framer-motion';
 import { Phone, Mail, Facebook, Twitter, Linkedin, Instagram, ArrowRight, Building2, Cpu, MapPin } from 'lucide-react';
 
 const corporateServices = [
-  { name: 'Company Registration', href: '/services/company-registration' },
-  { name: 'GST Registration', href: '/services/gst-registration' },
-  { name: 'Annual Compliance', href: '/services/annual-compliance' },
-  { name: 'FSSAI License', href: '/services/fssai-license' },
-  { name: 'PSARA License', href: '/services/psara-license' },
+  { name: 'Company Registration', href: '/corporate/private-limited-company-registration-consultant' },
+  { name: 'GST Registration', href: '/corporate/gst-registration' },
+  { name: 'Trademark Registration', href: '/corporate/trademark-registration' },
+  { name: 'FSSAI License', href: '/corporate/fssai-certificate' },
+  { name: 'PSARA License', href: '/corporate/psara-license-registration-consultant' },
 ];
 
 const technicalServices = [
-  { name: 'BIS Registration', href: '/services/bis-registration' },
-  { name: 'AERB Registration', href: '/services/aerb-registration' },
-  { name: 'EPR Services', href: '/services/epr-services' },
-  { name: 'WPC Approval', href: '/services/wpc-approval' },
+  { name: 'BIS Certification', href: '/approval/bis-certification' },
+  { name: 'AERB License', href: '/approval/aerb-license' },
+  { name: 'EPR Certification', href: '/approval/epr-certification' },
+  { name: 'WPC Certification', href: '/approval/wpc-certification' },
 ];
 
 const quickLinks = [
@@ -27,9 +27,8 @@ const quickLinks = [
 ];
 
 const usefulLinks = [
-  { name: 'Blog', href: '/blog' },
-  { name: 'FAQ Centre', href: '/faq' },
-  { name: 'Resources', href: '/resources' },
+  { name: 'Blog', href: 'https://blogs.jrcompliance.com/', external: true },
+  { name: 'Site Map', href: '/site-map', external: false },
 ];
 
 export default function Footer() {
@@ -67,25 +66,11 @@ export default function Footer() {
                 <Image
                   src="/JRlogo2.png"
                   alt="JR Compliance"
-                  width={180}
-                  height={48}
-                  className="h-10 w-auto object-contain brightness-0 invert"
+                  width={250}
+                  height={75}
+                  className="h-16 w-auto object-contain brightness-0 invert"
                 />
               </Link>
-              
-              {/* Location Tabs */}
-              <div className="flex gap-3 mb-4">
-                {['Delhi', 'Mumbai', 'Bangalore', 'Hyderabad'].map((city, index) => (
-                  <button
-                    key={city}
-                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
-                      index === 0 ? 'bg-white/20 text-white' : 'bg-white/5 text-gray-400 hover:bg-white/10'
-                    }`}
-                  >
-                    {city}
-                  </button>
-                ))}
-              </div>
 
               <div className="space-y-3">
                 <a href="tel:+911800121410410" className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors text-sm">
@@ -133,9 +118,20 @@ export default function Footer() {
               <ul className="space-y-2">
                 {usefulLinks.map((link) => (
                   <li key={link.name}>
-                    <Link href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm">
-                      {link.name}
-                    </Link>
+                    {link.external ? (
+                      <a 
+                        href={link.href} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-gray-400 hover:text-white transition-colors text-sm"
+                      >
+                        {link.name}
+                      </a>
+                    ) : (
+                      <Link href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm">
+                        {link.name}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
