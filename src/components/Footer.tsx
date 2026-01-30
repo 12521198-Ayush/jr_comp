@@ -187,13 +187,20 @@ export default function Footer() {
               </p>
               {/* Social Links */}
               <div className="flex gap-3">
-                {[Facebook, Twitter, Linkedin, Instagram].map((Icon, index) => (
+                {[
+                  { Icon: Facebook, href: 'https://www.facebook.com/jrcompliance' },
+                  { Icon: Twitter, href: 'https://x.com/JrCompliance' },
+                  { Icon: Linkedin, href: 'https://www.linkedin.com/company/jr-compliance-&-testing-labs' },
+                  { Icon: Instagram, href: 'https://www.instagram.com/jrcompliance' },
+                ].map((social, index) => (
                   <a
                     key={index}
-                    href="#"
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors text-gray-400 hover:text-white"
                   >
-                    <Icon size={16} />
+                    <social.Icon size={16} />
                   </a>
                 ))}
               </div>

@@ -105,25 +105,25 @@ const teamMembers = [
   {
     name: 'Rishikesh Mishra',
     role: 'CEO',
-    image: '/team/Rishikesh Mishra.png',
+    image: '/team/Rishikesh Mishra2.png',
     description: 'Leading JR Compliance with a vision to simplify regulatory processes for businesses across India.',
   },
   {
     name: 'Jai Kumar',
     role: 'Director',
-    image: '/team/Jai Kumar.png',
+    image: '/team/Jai Kumar2.png',
     description: 'Driving strategic growth and business development across all compliance services.',
   },
   {
     name: 'Lalit',
     role: 'Technical Director',
-    image: '/team/Lalit.png',
+    image: '/team/Lalit2.png',
     description: 'Expert in technical certifications including BIS, WPC, and TEC approvals.',
   },
   {
     name: 'Siddharth',
     role: 'Admin',
-    image: '/team/siddharth.png',
+    image: '/team/siddharth2.png',
     description: 'Ensures smooth operations and timely delivery of all compliance services.',
   },
 ];
