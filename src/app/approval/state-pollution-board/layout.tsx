@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'State Pollution Control Board Registration | SPCB Compliance',
-  description: 'Get State Pollution Control Board (SPCB) registration for your business. Complete assistance with NOC, Consent to Establish (CTE), and Consent to Operate (CTO) approvals.',
-  keywords: 'SPCB registration, state pollution control board, CTE, CTO, pollution NOC, environmental compliance',
+  title: 'State Pollution Control Committee | SPCB Registration',
+  description: 'Get State Pollution Control Board Certificate now with India\'s leading compliance service provider. Click here and know easy steps.',
+  keywords: 'SPCB registration, state pollution control board, CTE, CTO, pollution NOC, environmental compliance, pollution control committee',
   openGraph: {
-    title: 'State Pollution Control Board Registration | SPCB Compliance',
-    description: 'Get State Pollution Control Board (SPCB) registration for your business.',
+    title: 'State Pollution Control Committee | SPCB Registration',
+    description: 'Get State Pollution Control Board Certificate now with India\'s leading compliance service provider.',
     url: 'https://www.jrcompliance.com/approval/state-pollution-board',
     siteName: 'JR Compliance',
     locale: 'en_IN',

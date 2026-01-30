@@ -76,9 +76,10 @@ const corporateCategories = [
     icon: Lightbulb,
     items: [
       { name: 'Trademark Registration', href: '/corporate/trademark-registration', desc: 'Brand protection' },
-      { name: 'Trademark Search', href: '/corporate/trademark-registration/trademark-search', desc: 'Check availability' },
-      { name: 'Trademark Objection', href: '/corporate/trademark-registration/trademark-objection', desc: 'Objection response' },
-      { name: 'Trademark Renewal', href: '/corporate/trademark-registration/trademark-renewal', desc: 'Renew trademark' },
+      { name: 'Trademark Hearing', href: '/corporate/trademark-hearing', desc: 'Hearing assistance' },
+      { name: 'Trademark Opposition', href: '/corporate/trademark-opposition', desc: 'Opposition response' },
+      { name: 'Trademark Evidence Filing', href: '/corporate/trademark-evidence-filing', desc: 'Evidence submission' },
+      { name: 'Trademark Withdrawal', href: '/corporate/trademark-withdrawal', desc: 'Withdraw application' },
       { name: 'Copyright Registration', href: '/corporate/copyright-registration', desc: 'Creative protection' },
       { name: 'Copyright Objection', href: '/corporate/copyright-objection', desc: 'Objection response' },
       { name: 'Patent Registration', href: '/corporate/patent-registration-consultant', desc: 'Invention protection' },
@@ -214,9 +215,10 @@ const technicalCategories = [
     icon: Shield,
     items: [
       { name: 'CDSCO Medical Devices', href: '/approval/cdsco-registration', desc: 'Medical devices' },
-      { name: 'Cosmetic CDSCO', href: '/approval/cdsco-cosmetic', desc: 'Cosmetic products' },
-      { name: 'IVD CDSCO Registration', href: '/approval/cdsco-ivd', desc: 'In-vitro diagnostics' },
-      { name: 'Drug CDSCO Registration', href: '/approval/cdsco-drug', desc: 'Drug licensing' },
+      { name: 'MDR CDSCO Registration', href: '/approval/cdsco-registration/mdr-cdsco-registration', desc: 'Medical device rules' },
+      { name: 'Cosmetic CDSCO', href: '/approval/cdsco-registration/cosmetic-cdsco-registration', desc: 'Cosmetic products' },
+      { name: 'IVD CDSCO Registration', href: '/approval/cdsco-registration/in-vitro-diagnostics', desc: 'In-vitro diagnostics' },
+      { name: 'Drug CDSCO Registration', href: '/approval/cdsco-registration/drug-cdsco-registration', desc: 'Drug licensing' },
       { name: 'AERB License', href: '/approval/aerb-license', desc: 'Radiation safety' },
     ]
   },

@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'MSME Registration | Udyam Registration Services for Small Business',
-  description: 'Get MSME/Udyam registration for your business. JR Compliance provides complete assistance for MSME registration to avail government benefits and schemes.',
-  keywords: 'MSME registration, Udyam registration, small business, micro enterprise, government schemes',
+  title: 'MSME Registration Online | MSME Certification Consultant Near me',
+  description: 'We make MSME registration unchallenging without compromising our client\'s time constraints and do MSME registration online. Get MSME Certificate Online. Contact us to know the benefits and process of MSME registration.',
+  keywords: 'MSME registration, Udyam registration, small business, micro enterprise, government schemes, MSME certificate',
   openGraph: {
-    title: 'MSME Registration | Udyam Registration Services for Small Business',
-    description: 'Get MSME/Udyam registration for your business. Complete assistance for MSME registration.',
+    title: 'MSME Registration Online | MSME Certification Consultant Near me',
+    description: 'We make MSME registration unchallenging. Get MSME Certificate Online.',
     url: 'https://www.jrcompliance.com/corporate/msme-registration',
     siteName: 'JR Compliance',
     locale: 'en_IN',

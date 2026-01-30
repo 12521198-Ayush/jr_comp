@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Non-Dealer Possession License | NDPL for Personal Arms',
-  description: 'Get Non-Dealer Possession License (NDPL) for personal arms and ammunition. Complete support for individual license application and compliance.',
-  keywords: 'non-dealer possession license, NDPL license, personal arms license, individual ammunition license',
+  title: 'Non Dealer Possession License (NDPL) | Wireless Products License',
+  description: 'The NDPL License, which stands for "Non-Dealer Possession License," is given to businesses that do not sell or own wireless products.',
+  keywords: 'non-dealer possession license, NDPL license, wireless products license, NDPL registration',
   openGraph: {
-    title: 'Non-Dealer Possession License | NDPL for Personal Arms',
-    description: 'Get Non-Dealer Possession License (NDPL) for personal arms and ammunition.',
+    title: 'Non Dealer Possession License (NDPL) | Wireless Products License',
+    description: 'The NDPL License is given to businesses that do not sell or own wireless products.',
     url: 'https://www.jrcompliance.com/approval/non-dealer-possession-license',
     siteName: 'JR Compliance',
     locale: 'en_IN',

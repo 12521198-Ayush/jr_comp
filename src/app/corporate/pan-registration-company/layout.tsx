@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'PAN Registration for Company | Corporate PAN Application Services',
-  description: 'Get PAN Card for your company or LLP. JR Compliance provides complete assistance for PAN registration and application for business entities.',
+  title: 'PAN Registration (Company)',
+  description: 'Need a PAN for your company? JR Compliance offers fast and reliable company PAN registration services to help you get your Permanent Account Number for tax and legal compliance.',
   keywords: 'PAN card company, corporate PAN, business PAN, PAN registration, tax identification',
   openGraph: {
-    title: 'PAN Registration for Company | Corporate PAN Application Services',
-    description: 'Get PAN Card for your company or LLP. Complete assistance for PAN registration.',
+    title: 'PAN Registration (Company)',
+    description: 'Need a PAN for your company? JR Compliance offers fast and reliable company PAN registration services.',
     url: 'https://www.jrcompliance.com/corporate/pan-registration-company',
     siteName: 'JR Compliance',
     locale: 'en_IN',

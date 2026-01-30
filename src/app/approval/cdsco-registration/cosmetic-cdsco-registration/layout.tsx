@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Cosmetic CDSCO Registration | Cosmetic Product Registration India',
-  description: 'Get Cosmetic CDSCO Registration for cosmetic products in India. Complete support for import license and compliance with Drugs and Cosmetics Act.',
+  title: 'COSMETIC CDSCO REGISTRATION | Cosmetic Product Registration',
+  description: 'Looking for expert assistance in Cosmetic Cdsco Registration? Click to know all about Cosmetic Cdsco Registration.',
   keywords: 'cosmetic CDSCO registration, cosmetic product registration, cosmetic import license, CDSCO cosmetics',
   openGraph: {
-    title: 'Cosmetic CDSCO Registration | Cosmetic Product Registration India',
-    description: 'Get Cosmetic CDSCO Registration for cosmetic products in India.',
+    title: 'COSMETIC CDSCO REGISTRATION | Cosmetic Product Registration',
+    description: 'Looking for expert assistance in Cosmetic Cdsco Registration?',
     url: 'https://www.jrcompliance.com/approval/cdsco-registration/cosmetic-cdsco-registration',
     siteName: 'JR Compliance',
     locale: 'en_IN',

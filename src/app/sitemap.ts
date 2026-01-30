@@ -38,32 +38,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  // Services pages
-  const servicesPages = [
-    'aerb-registration',
-    'annual-compliance',
-    'bis-registration',
-    'company-registration',
-    'epr-services',
-    'fssai-license',
-    'gst-registration',
-    'psara-license',
-    'wpc-approval',
-  ].map((slug) => ({
-    url: `${baseUrl}/services/${slug}`,
-    lastModified: currentDate,
-    changeFrequency: 'weekly' as const,
-    priority: 0.9,
-  }))
-
   // Approval pages
   const approvalPages = [
     'aerb-license',
     'bee-certification',
     'bis-certification',
-    'cdsco-cosmetic',
-    'cdsco-drug',
-    'cdsco-ivd',
     'cdsco-registration',
     'cpcb-guidelines',
     'cpcb-registration',
@@ -194,6 +173,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'tea-board-registration',
     'tobacco-board-registration-consultant',
     'trademark-registration',
+    'trademark-hearing',
+    'trademark-opposition',
+    'trademark-evidence-filing',
+    'trademark-withdrawal',
     'trust-registration',
     'water-report',
   ].map((slug) => ({
@@ -217,15 +200,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Trademark Registration sub-pages
   const trademarkSubPages = [
     'trademark-application-filing',
-    'trademark-evidence-filing',
     'trademark-formality-check-fail',
-    'trademark-hearing',
     'trademark-modification',
     'trademark-objection',
-    'trademark-opposition',
     'trademark-renewal',
     'trademark-search',
-    'trademark-withdrawal',
   ].map((slug) => ({
     url: `${baseUrl}/corporate/trademark-registration/${slug}`,
     lastModified: currentDate,
@@ -235,7 +214,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...mainPages,
-    ...servicesPages,
     ...approvalPages,
     ...bisCertificationSubPages,
     ...cdscoSubPages,

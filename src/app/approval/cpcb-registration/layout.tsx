@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'CPCB Registration | Central Pollution Control Board Compliance',
+  title: 'CPCB REGISTRATION | Central Pollution Control Board',
   description: 'Get CPCB registration for hazardous waste management, e-waste recycling, and other environmental compliance requirements. Expert guidance for CPCB approvals.',
   keywords: 'CPCB registration, Central Pollution Control Board, hazardous waste, environmental compliance',
   openGraph: {
-    title: 'CPCB Registration | Central Pollution Control Board Compliance',
+    title: 'CPCB REGISTRATION | Central Pollution Control Board',
     description: 'Get CPCB registration for hazardous waste management and environmental compliance.',
     url: 'https://www.jrcompliance.com/approval/cpcb-registration',
     siteName: 'JR Compliance',

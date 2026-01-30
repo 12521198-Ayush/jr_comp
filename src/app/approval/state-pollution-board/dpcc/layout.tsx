@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'DPCC Registration | Delhi Pollution Control Committee Approval',
-  description: 'Get DPCC registration and approval for businesses operating in Delhi. Complete support for Consent to Establish, Consent to Operate, and environmental compliance.',
-  keywords: 'DPCC registration, Delhi Pollution Control Committee, CTE Delhi, CTO Delhi, environmental approval',
+  title: 'How to get registration in DPCC | DPCC Certificate | Delhi Pollution Control Committee & Waste Management Authorization',
+  description: 'Looking for a DPCC license consultant? Get DPCC certificate today online. Click here to know all aspects of DPCC registration - its registration process, functions, objectives, and policies.',
+  keywords: 'DPCC registration, Delhi Pollution Control Committee, DPCC certificate, DPCC license, waste management authorization',
   openGraph: {
-    title: 'DPCC Registration | Delhi Pollution Control Committee Approval',
-    description: 'Get DPCC registration and approval for businesses operating in Delhi.',
+    title: 'DPCC Certificate | Delhi Pollution Control Committee Registration',
+    description: 'Looking for a DPCC license consultant? Get DPCC certificate today online.',
     url: 'https://www.jrcompliance.com/approval/state-pollution-board/dpcc',
     siteName: 'JR Compliance',
     locale: 'en_IN',
