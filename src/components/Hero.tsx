@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useRef, useMemo } from 'react';
 import Link from 'next/link';
-import { Search, ArrowRight, Phone, CheckCircle, ChevronRight, Users, Clock, Award, Shield, BadgeCheck, Lock, Star } from 'lucide-react';
+import { Search, ArrowRight, Phone, CheckCircle, ChevronRight, Users, Clock, Award, Shield, BadgeCheck, Lock, Star, AlertCircle } from 'lucide-react';
+import { submitLeadWithAutoDetection } from '@/lib/api';
 
 const services = [
   { name: 'BIS Certification', href: '/approval/bis-certification', category: 'Technical' },
@@ -48,6 +49,7 @@ export default function Hero() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [showStickyBar, setShowStickyBar] = useState(false);
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
   const formRef = useRef<HTMLDivElement>(null);
@@ -149,14 +151,31 @@ export default function Hero() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    // Clear error when user starts typing
+    if (submitError) setSubmitError(null);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    setSubmitError(null);
+    
+    try {
+      await submitLeadWithAutoDetection(
+        formData,
+        'Homepage - Enquiry Form',
+      );
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitError(
+        error instanceof Error 
+          ? error.message 
+          : 'Something went wrong. Please try again or call us directly.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -486,6 +505,14 @@ export default function Hero() {
                           <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform sm:w-5 sm:h-5" />
                         )}
                       </button>
+
+                      {/* Error Message */}
+                      {submitError && (
+                        <div className="flex items-center gap-2 p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm">
+                          <AlertCircle size={16} className="flex-shrink-0" />
+                          <span>{submitError}</span>
+                        </div>
+                      )}
                     </form>
                   )}
                 </div>
