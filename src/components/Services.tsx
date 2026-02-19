@@ -24,7 +24,7 @@ interface ServiceItem {
 const corporateServices: ServiceItem[] = [
   { 
     name: 'Company Registration', 
-    href: '/services/company-registration', 
+    href: '/corporate/private-limited-company-registration-consultant', 
     description: 'Register Private Limited, LLP, OPC & more with expert guidance',
     icon: Building2,
     features: ['Private Limited', 'LLP', 'OPC', 'Partnership'],
@@ -34,7 +34,7 @@ const corporateServices: ServiceItem[] = [
   },
   { 
     name: 'GST & Tax Services', 
-    href: '/services/gst-registration', 
+    href: '/corporate/gst-registration', 
     description: 'Complete GST registration, filing, and compliance solutions',
     icon: Scale,
     features: ['GST Registration', 'GST Returns', 'Tax Compliance', 'Amendments'],
@@ -44,7 +44,7 @@ const corporateServices: ServiceItem[] = [
   },
   { 
     name: 'FSSAI Licensing', 
-    href: '/services/fssai-license', 
+    href: '/corporate/fssai-certificate', 
     description: 'Food business licensing and compliance for all categories',
     logo: '/services_logo/fssai.png',
     features: ['Basic License', 'State License', 'Central License', 'Modifications'],
@@ -351,7 +351,7 @@ export default function Services() {
             className="mt-8 text-center"
           >
             <Link
-              href="/services"
+              href="/site-map"
               className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-1 transition-all group"
             >
               View All Corporate Services
@@ -398,8 +398,8 @@ export default function Services() {
             className="mt-8 text-center"
           >
             <Link
-              href="/services"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-teal-500 text-white font-semibold rounded-xl shadow-lg shadow-cyan-500/25 hover:shadow-xl hover:shadow-cyan-500/30 hover:-translate-y-1 transition-all group"
+              href="/site-map"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-teal-500 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-cyan-500/30 hover:-translate-y-1 transition-all group"
             >
               View All Technical Services
               <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />

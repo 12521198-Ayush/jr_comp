@@ -302,64 +302,7 @@ export default function Hero() {
               </div>
 
               {/* Search Section */}
-              <div className="mt-6 sm:mt-8 lg:mt-10 w-full max-w-full lg:max-w-xl mx-auto lg:mx-0" ref={searchRef}>
-                <div className="relative">
-                  <div className="relative flex items-center">
-                    <Search size={18} className="absolute left-4 sm:left-5 text-gray-400" />
-                    <input
-                      type="text"
-                      placeholder="Search services... (BIS, GST, FSSAI)"
-                      value={searchQuery}
-                      onChange={(e) => {
-                        setSearchQuery(e.target.value);
-                        setShowResults(true);
-                      }}
-                      onFocus={() => setShowResults(true)}
-                      className="w-full pl-11 sm:pl-14 pr-4 sm:pr-6 py-3 sm:py-4 bg-white/5 border border-white/10 rounded-xl sm:rounded-2xl text-white text-sm sm:text-base placeholder-gray-500 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all"
-                    />
-                  </div>
-
-                  {/* Search Results */}
-                  {showResults && searchQuery && filteredServices.length > 0 && (
-                    <div className="absolute top-full left-0 right-0 mt-2 bg-slate-900/95 backdrop-blur-xl rounded-xl border border-white/10 shadow-2xl overflow-hidden z-50">
-                      <div className="p-2">
-                        <p className="text-xs text-gray-500 px-3 py-2">{filteredServices.length} services found</p>
-                        {filteredServices.map((service) => (
-                          <Link
-                            key={service.name}
-                            href={service.href}
-                            className="flex items-center justify-between px-4 py-3 rounded-lg hover:bg-white/5 transition-colors group"
-                            onClick={() => setShowResults(false)}
-                          >
-                            <div>
-                              <p className="text-white font-medium">{service.name}</p>
-                              <p className="text-xs text-gray-500">{service.category} Services</p>
-                            </div>
-                            <ChevronRight size={16} className="text-gray-500 group-hover:text-cyan-400 transition-colors" />
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* Quick Links */}
-                <div className="mt-3 sm:mt-4 flex flex-wrap items-center justify-center lg:justify-start gap-1.5 sm:gap-2">
-                  <span className="text-xs sm:text-sm text-gray-500">Popular:</span>
-                  {['BIS', 'GST', 'FSSAI', 'Trademark'].map((item) => (
-                    <button
-                      key={item}
-                      onClick={() => {
-                        setSearchQuery(item);
-                        setShowResults(true);
-                      }}
-                      className="px-2 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm text-gray-400 hover:text-white bg-white/5 hover:bg-white/10 rounded-md sm:rounded-lg border border-white/5 transition-all"
-                    >
-                      {item}
-                    </button>
-                  ))}
-                </div>
-              </div>
+              
             </div>
 
             <div ref={formRef} className="w-full max-w-sm sm:max-w-md mx-auto lg:mx-0 lg:ml-auto relative mt-4 lg:mt-0 overflow-hidden">
