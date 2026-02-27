@@ -28,7 +28,6 @@ const quickLinks = [
 
 const usefulLinks = [
   { name: 'Blog', href: 'https://blogs.jrcompliance.com/', external: true },
-  { name: 'Site Map', href: '/site-map', external: false },
 ];
 
 export default function Footer() {

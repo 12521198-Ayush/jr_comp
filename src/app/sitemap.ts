@@ -118,10 +118,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Corporate pages
   const corporatePages = [
+    'annual-compliance',
     'apeda-registration',
     'asset-reconstruction-company-registration',
     'ayush-license',
     'coffee-board-registration',
+    'company-registration',
     'copyright-objection',
     'copyright-registration',
     'csr-regisration',

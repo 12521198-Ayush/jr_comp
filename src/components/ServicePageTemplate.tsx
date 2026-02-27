@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import {
   ArrowRight,
   CheckCircle,
@@ -63,6 +63,7 @@ export default function ServicePageTemplate({
   ],
 }: ServicePageProps) {
   const pathname = usePathname();
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -170,6 +171,12 @@ export default function ServicePageTemplate({
         formData.message || undefined,
       );
       setIsSubmitted(true);
+      // Redirect to thank you page
+      const params = new URLSearchParams({
+        service: title,
+        name: formData.name,
+      });
+      router.push(`/thank-you?${params.toString()}`);
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitError(

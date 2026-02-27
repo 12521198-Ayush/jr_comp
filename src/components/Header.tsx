@@ -14,6 +14,7 @@ const corporateCategories = [
     description: 'Register your business entity with complete legal compliance',
     icon: Building2,
     items: [
+      { name: 'Company Registration', href: '/corporate/company-registration', desc: 'Complete registration guide' },
       { name: 'Private Limited Company', href: '/corporate/private-limited-company-registration-consultant', desc: 'Most popular for startups' },
       { name: 'Public Limited Company', href: '/corporate/public-limited-company-registration', desc: 'For large enterprises' },
       { name: 'One Person Company', href: '/corporate/opc-registration', desc: 'Single owner business' },
@@ -35,6 +36,7 @@ const corporateCategories = [
     description: 'Ministry of Corporate Affairs filings and compliance',
     icon: FileText,
     items: [
+      { name: 'Annual Compliance', href: '/corporate/annual-compliance', desc: 'Yearly statutory filings' },
       { name: 'ROC Return', href: '/corporate/roc-return', desc: 'Annual compliance filing' },
       { name: 'MSME Return', href: '/corporate/msme-return', desc: 'MSME annual returns' },
     ]
@@ -443,7 +445,7 @@ export default function Header() {
                                     </div>
                                   </div>
                                   <a
-                                    href="https://wa.me/919266450125?text=Hi%2C%20I%20need%20help%20with%20compliance%20services"
+                                    href="https://api.whatsapp.com/send?phone=919266450125&text=Hi%2C+I+need+help+with+compliance+services&type=phone_number&app_absent=0"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center gap-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium rounded-lg transition-colors"
@@ -657,7 +659,7 @@ export default function Header() {
 
             {/* CTA Button */}
             <a
-              href="https://wa.me/919266450125?text=Hi%2C%20I%20need%20help%20with%20compliance%20services"
+              href="https://api.whatsapp.com/send?phone=919266450125&text=Hi%2C+I+need+help+with+compliance+services&type=phone_number&app_absent=0"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-5 py-2.5 bg-green-500 hover:bg-green-600 text-white text-sm font-semibold rounded-lg transition-all hover:scale-105 active:scale-95"
@@ -937,7 +939,7 @@ function MobileMenuModal({
                 <span>1800-121-410-410</span>
               </a>
               <a
-                href="https://wa.me/919266450125?text=Hi%2C%20I%20need%20help%20with%20compliance%20services"
+                href="https://api.whatsapp.com/send?phone=919266450125&text=Hi%2C+I+need+help+with+compliance+services&type=phone_number&app_absent=0"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={onClose}
