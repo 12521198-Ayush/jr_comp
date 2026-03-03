@@ -1,7 +1,6 @@
 'use client';
 
-import { useEffect, useState, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -182,9 +181,6 @@ function AnimatedCheckmark() {
 }
 
 function ThankYouContent() {
-  const searchParams = useSearchParams();
-  const serviceName = searchParams.get('service') || 'Our Services';
-  const userName = searchParams.get('name') || '';
   const [showConfetti, setShowConfetti] = useState(true);
 
   useEffect(() => {
@@ -248,14 +244,10 @@ function ThankYouContent() {
               transition={{ delay: 0.5, duration: 0.6 }}
             >
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3">
-                Thank You{userName ? `, ${userName}` : ''}! 🎉
+                Thank You! 🎉
               </h1>
               <p className="text-lg sm:text-xl text-gray-300 mb-2">
-                Your request for{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400 font-semibold">
-                  {serviceName}
-                </span>{' '}
-                has been received.
+                Your request has been received.
               </p>
               <p className="text-sm sm:text-base text-gray-400">
                 Our compliance expert will connect with you shortly.
@@ -385,15 +377,5 @@ function ThankYouContent() {
 }
 
 export default function ThankYouPage() {
-  return (
-    <Suspense
-      fallback={
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 flex items-center justify-center">
-          <div className="w-10 h-10 border-3 border-cyan-500/30 border-t-cyan-500 rounded-full animate-spin" />
-        </div>
-      }
-    >
-      <ThankYouContent />
-    </Suspense>
-  );
+  return <ThankYouContent />;
 }

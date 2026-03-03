@@ -172,11 +172,7 @@ export default function ServicePageTemplate({
       );
       setIsSubmitted(true);
       // Redirect to thank you page
-      const params = new URLSearchParams({
-        service: title,
-        name: formData.name,
-      });
-      router.push(`/thank-you?${params.toString()}`);
+      router.push('/thank-you');
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitError(
